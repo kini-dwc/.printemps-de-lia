@@ -1,2 +1,5 @@
 node_modules/
 audit/rapport/
+tools/asset-pilot-tester/rapports/
+tools/asset-pilot-tester/config.json
+dist/

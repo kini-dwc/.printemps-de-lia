@@ -1,0 +1,272 @@
+{
+  "plugin": "asset-pilot",
+  "version": 1,
+  "site": "la-maison-du-dos.com",
+  "source": "Audit du 30/09/2026 (audit/rapport-site-actuel/)",
+  "rules": [
+    {
+      "kind": "script",
+      "handle": "prisna-wp-translate-blocks",
+      "scope": "site",
+      "except": [
+        "woo:checkout"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Tire toute la pile Gutenberg (43 fichiers, 1,17 Mo) sur le site public"
+    },
+    {
+      "kind": "script",
+      "handle": "jquery-ui-draggable",
+      "scope": "site",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Chargé par Prisna WP Translate, inutile aux visiteurs"
+    },
+    {
+      "kind": "script",
+      "handle": "jquery-ui-mouse",
+      "scope": "site",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Chargé par Prisna WP Translate, inutile aux visiteurs"
+    },
+    {
+      "kind": "style",
+      "handle": "prisna-wp-translate-blocks",
+      "scope": "site",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Styles de blocs Prisna, inutiles hors éditeur"
+    },
+    {
+      "kind": "script",
+      "handle": "ppress-flatpickr",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress : calendrier des formulaires de compte"
+    },
+    {
+      "kind": "script",
+      "handle": "ppress-select2",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress : listes déroulantes des formulaires de compte"
+    },
+    {
+      "kind": "script",
+      "handle": "ppress-frontend-script",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress : 100 % inutilisé hors compte"
+    },
+    {
+      "kind": "style",
+      "handle": "ppress-frontend",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress : 98 Ko de CSS inutilisé hors compte"
+    },
+    {
+      "kind": "style",
+      "handle": "ppress-flatpickr",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress"
+    },
+    {
+      "kind": "style",
+      "handle": "ppress-select2",
+      "scope": "site",
+      "except": [
+        "woo:account"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "ProfilePress"
+    },
+    {
+      "kind": "script",
+      "handle": "cloudflare-turnstile",
+      "scope": "site",
+      "except": [
+        "woo:checkout",
+        "woo:account",
+        "type:page"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Anti-spam : utile seulement sur les pages avec formulaire"
+    },
+    {
+      "kind": "script",
+      "handle": "alma-classic-checkout",
+      "scope": "site",
+      "except": [
+        "woo:checkout",
+        "woo:cart"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Alma : utile au tunnel de commande seulement"
+    },
+    {
+      "kind": "style",
+      "handle": "alma-classic-checkout",
+      "scope": "site",
+      "except": [
+        "woo:checkout",
+        "woo:cart"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Alma"
+    },
+    {
+      "kind": "style",
+      "handle": "alma-gateway-block",
+      "scope": "site",
+      "except": [
+        "woo:checkout",
+        "woo:cart"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Alma"
+    },
+    {
+      "kind": "style",
+      "handle": "alma-gateway-block-react-component",
+      "scope": "site",
+      "except": [
+        "woo:checkout",
+        "woo:cart"
+      ],
+      "force": false,
+      "status": "test",
+      "note": "Alma : 87 Ko, 95 % inutilisé"
+    },
+    {
+      "kind": "style",
+      "handle": "wcsag-font",
+      "scope": "site",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Google Fonts Open Sans + Oswald de l'extension d'avis"
+    },
+    {
+      "kind": "style",
+      "handle": "elementor-gf-local-roboto",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Police inutilisée sur la nouvelle page d'accueil (105 Ko de CSS)"
+    },
+    {
+      "kind": "style",
+      "handle": "elementor-gf-local-robotoslab",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Police inutilisée sur la nouvelle page d'accueil"
+    },
+    {
+      "kind": "style",
+      "handle": "font-awesome-5-all",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Font Awesome complet ; icônes SVG inline sur la nouvelle page"
+    },
+    {
+      "kind": "script",
+      "handle": "wpr-particles",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Royal Addons : effet non utilisé sur la nouvelle page"
+    },
+    {
+      "kind": "script",
+      "handle": "wpr-jarallax",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Royal Addons : parallaxe non utilisée"
+    },
+    {
+      "kind": "script",
+      "handle": "wpr-parallax-hover",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Royal Addons : effet non utilisé"
+    },
+    {
+      "kind": "style",
+      "handle": "wpr-text-animations-css",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Royal Addons : animations non utilisées"
+    },
+    {
+      "kind": "style",
+      "handle": "wpr-link-animations-css",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "Royal Addons : animations non utilisées"
+    },
+    {
+      "kind": "script",
+      "handle": "sourcebuster-js",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "WooCommerce : attribution des commandes (inutile sur l'accueil)"
+    },
+    {
+      "kind": "script",
+      "handle": "wc-order-attribution",
+      "scope": "front",
+      "except": [],
+      "force": false,
+      "status": "test",
+      "note": "WooCommerce : attribution des commandes (inutile sur l'accueil)"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "baseUrl": "https://prod.la-maison-du-dos.com",
+  "token": "JETON_DE_TEST_A_COPIER_DEPUIS_L_EXTENSION",
+  "baseline": "off",
+  "postReport": true,
+  "outDir": "rapports",
+
+  "pages": [
+    { "label": "Accueil", "url": "/", "devices": ["desktop", "mobile"] },
+    { "label": "Fiche produit", "url": "/le-lit-a-eau-havre-duo/" },
+    { "label": "Catégorie lits à eau", "url": "/lits-a-eau/" },
+    { "label": "Panier", "url": "/cart/" },
+    { "label": "Contact", "url": "/contact/" },
+    { "label": "FAQ", "url": "/matelas-a-eau-faq-complete-35-reponses-dexperts/" }
+  ],
+
+  "woocommerce": {
+    "productUrl": "/drap-housse-jersey-bella-donna/",
+    "cartUrl": "/cart/",
+    "checkoutUrl": "/checkout/"
+  },
+
+  "selectors": {
+    "addToCart": ".single_add_to_cart_button"
+  },
+
+  "scenarios": [
+    {
+      "name": "Formulaire de contact affiché",
+      "steps": [
+        { "label": "Ouvrir la page contact", "goto": "/contact/" },
+        { "label": "Formulaire visible", "expectVisible": "form" }
+      ]
+    },
+    {
+      "name": "Menu mobile",
+      "device": "mobile",
+      "steps": [
+        { "label": "Ouvrir l'accueil", "goto": "/" },
+        { "label": "Ouvrir le menu", "click": ".wpr-mobile-toggle, .elementor-menu-toggle, [aria-controls*='menu']" },
+        { "label": "Lien « Lits à eau » visible", "expectVisible": "a[href*='lits-a-eau']" }
+      ]
+    }
+  ]
+}

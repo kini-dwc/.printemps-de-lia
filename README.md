@@ -11,7 +11,11 @@ d'optimisation du WordPress existant.
 | `audit/AUDIT-PERFORMANCE-SEO.md` | Constats SEO, causes de lenteur, plan d'action |
 | `audit/audit-homepage.mjs` | Outil d'audit Playwright : liste chaque script/CSS par plugin, poids, code inutilisé, Web Vitals |
 | `wordpress/mu-plugins/lmdd-performance.php` | Mu-plugin qui retire les scripts inutiles (accueil) + mode diagnostic `?lmdd_assets=1` |
-| `docs/captures/` | Captures desktop / mobile de la maquette |
+| `elementor/` | Modèles Elementor importables (accueil + pied de page), voir `elementor/LISEZ-MOI.md` |
+| `wordpress/plugins/asset-pilot/` | **Asset Pilot** : gestionnaire de scripts avec interface, mode test et mesure d'impact (voir son `LISEZ-MOI.md`) |
+| `wordpress/asset-pilot-regles-la-maison-du-dos.json` | 26 règles issues de l'audit, à importer dans Asset Pilot (arrivent en test) |
+| `tools/asset-pilot-tester/` | Test d'impact automatisé : pages + parcours clients, avec et sans règles |
+| `docs/captures/` | Captures de la maquette, du rendu Elementor et d'Asset Pilot |
 
 ## Voir la maquette
 
@@ -58,3 +62,14 @@ Photos : images du site (lit à eau Altura, Havre, Tec-Line, Aqualight, Bella Do
 2. **Prix** : affichés tels que sur le site ; sont-ils HT ou TTC ?
 3. **Produits mis en avant** : sélection actuelle (Havre, Tec-Line, Aqualight Premium, Bella Donna) à confirmer.
 4. **Logo en SVG** si disponible (plus net que le WebP actuel, 425×130 px).
+
+## Asset Pilot : désactiver les scripts inutiles sans risque
+
+`wordpress/mu-plugins/lmdd-performance.php` (listes figées dans le code) peut être remplacé par l'extension **Asset Pilot** :
+1. installer `asset-pilot.zip` (ou le dossier `wordpress/plugins/asset-pilot/`) ;
+2. importer `wordpress/asset-pilot-regles-la-maison-du-dos.json` (*Outils → Asset Pilot → Règles → Importer*) : les règles arrivent **en test** ;
+3. vérifier avec *Tester l'impact* et avec `tools/asset-pilot-tester/run.mjs` (parcours panier et commande) ;
+4. mettre en ligne les règles validées.
+
+Si vous gardez le mu-plugin pour ses nettoyages globaux (emojis, heartbeat, `defer`), videz ses listes
+`LMDD_HOME_DEQUEUE_*` pour éviter les doublons avec Asset Pilot.
