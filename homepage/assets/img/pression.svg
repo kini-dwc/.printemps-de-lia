@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <rect width="560" height="460" fill="#fff"/>
+  <text x="40" y="56" font-size="18" font-weight="700" fill="#0b3a57">Matelas classique</text>
+  <text x="40" y="80" font-size="14" fill="#566779">Pression concentrée sur épaules et bassin</text>
+  <rect x="40" y="150" width="480" height="46" rx="12" fill="#e7ecf1"/>
+  <path d="M90 150c20-40 70-44 90-8 30-20 120-20 160-6 30-22 80-18 90 14" fill="#0b3a57" opacity=".85"/>
+  <g fill="#e25b45"><circle cx="140" cy="160" r="14" opacity=".85"/><circle cx="360" cy="162" r="16" opacity=".85"/><circle cx="455" cy="164" r="10" opacity=".7"/></g>
+  <path d="M40 210h480" stroke="#dde6ee" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="40" y="276" font-size="18" font-weight="700" fill="#0b3a57">Matelas à eau</text>
+  <text x="40" y="300" font-size="14" fill="#566779">Poids réparti uniformément, colonne alignée</text>
+  <rect x="40" y="360" width="480" height="56" rx="16" fill="#1a9bc7"/>
+  <path d="M60 390c26-10 52-10 78 0s52 10 78 0 52-10 78 0 52 10 78 0 52-10 78 0 52 10 44 4" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+  <path d="M90 372c20-30 70-34 90-6 30-16 120-16 160-4 30-18 80-14 90 10z" fill="#0b3a57" opacity=".85"/>
+  <path d="M90 372h340" stroke="#e8a33d" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#4cb782"><circle cx="140" cy="372" r="7"/><circle cx="250" cy="372" r="7"/><circle cx="360" cy="372" r="7"/></g>
+</svg>

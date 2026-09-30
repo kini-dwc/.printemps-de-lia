@@ -1,0 +1,13 @@
+{
+  "name": "la-maison-du-dos-accueil",
+  "private": true,
+  "type": "module",
+  "description": "Refonte de la page d'accueil La Maison du Dos + outil d'audit de performance",
+  "scripts": {
+    "dev": "npx --yes http-server homepage -p 8080 -c-1",
+    "audit": "node audit/audit-homepage.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
