@@ -1,104 +1,72 @@
-# Audit performance & SEO : la-maison-du-dos.com
+# Audit performance & SEO : page d'accueil La Maison du Dos
 
-> **Important : ce qu'on a vu et ce qu'on n'a pas vu.** L'environnement où ce travail a été fait
-> n'a pas pu se connecter à `prod.la-maison-du-dos.com` (hôte bloqué par sa politique réseau).
-> Ce document distingue donc :
-> - ✅ **Constaté** : faits observés dans l'index des moteurs de recherche et les annuaires ;
-> - 🔎 **À mesurer** : causes de lenteur classiques d'une pile WordPress + WooCommerce + Elementor,
->   à confirmer avec l'outil fourni (`audit-homepage.mjs`) et le mode diagnostic du mu-plugin.
->
-> Pour obtenir la liste **réelle et exhaustive** des scripts de la page actuelle, lancez :
-> ```bash
-> npm install
-> npm run audit -- https://prod.la-maison-du-dos.com/
-> npm run audit -- https://prod.la-maison-du-dos.com/ --desktop
-> ```
-> Rapports générés : `audit/rapport/rapport-mobile.md` et `rapport-desktop.md` (poids par plugin,
-> JS/CSS bloquants, % de code inutilisé par fichier, Web Vitals, images sans dimensions, SEO).
+**Mesuré le 30/09/2026 sur `https://prod.la-maison-du-dos.com/`**, avec l'outil fourni (`audit/audit-homepage.mjs`,
+Chromium piloté par Playwright) et `curl`. Rapports bruts : [`rapport-site-actuel/rapport-mobile.md`](rapport-site-actuel/rapport-mobile.md)
+et [`rapport-site-actuel/rapport-desktop.md`](rapport-site-actuel/rapport-desktop.md).
 
----
+> **Limites de la mesure.** Les tests tournent depuis un serveur cloud (hors de France) derrière un proxy, avec
+> une simulation mobile « 4G lente + CPU ×4 ». Les valeurs absolues sont plus pessimistes que chez un visiteur
+> français sur fibre. Les **rapports entre l'ancien et le nouveau** et le **classement des causes** restent fiables.
+> Pour une référence officielle, comparer avec PageSpeed Insights.
 
-## 1. Constats SEO (✅ observés dans l'index)
+## 1. Résultats
 
-| # | Constat | Impact | Action |
+| Indicateur | Site actuel (mobile) | Site actuel (desktop) | Nouvelle maquette (mobile) | Objectif |
+|---|---:|---:|---:|---:|
+| Réponse serveur (TTFB) | 3,1 s | 3,8 s | *(statique)* | < 0,8 s |
+| Largest Contentful Paint | **9,7 s** | 6,9 s | **0,97 s** | < 2,5 s |
+| Total Blocking Time | 21,4 s* | 2,6 s | 0,19 s | < 0,2 s |
+| Requêtes | **251** | 241 | **12** | < 50 |
+| Poids transféré | **3,9 Mo** | 1,95 Mo | **271 Ko** | < 1,5 Mo |
+| JavaScript exécuté (décompressé) | 4,5 Mo (125 fichiers) | | 4,6 Ko (1 fichier) | |
+| HTML | 560 Ko (127 Ko compressé) | | 35 Ko | < 60 Ko |
+| Nœuds DOM / profondeur | 2 517 / 35 | | 477 / 11 | < 1 500 / < 32 |
+
+\* Le TBT mobile est gonflé par le CPU lent du serveur de test, mais il y a bien 64 tâches longues, dont une de 3,7 s.
+
+**Vérification du TTFB** : un fichier statique (`.webp`) répond en 0,38 s, alors que `robots.txt` (généré par
+WordPress) met **2,3 à 4,2 s**. La lenteur vient donc du démarrage de PHP/WordPress, pas du réseau.
+Le domaine principal `la-maison-du-dos.com` répond en 0,4 à 0,7 s grâce à son cache (o2switch PowerBoost) :
+**`prod.` n'est pas en cache**.
+
+## 2. Causes de lenteur, par ordre d'impact (toutes constatées)
+
+| # | Cause | Données mesurées | Correctif |
 |---|---|---|---|
-| 1 | **Deux hôtes indexés** : `www.la-maison-du-dos.com` et `la-maison-du-dos.com` | Contenu dupliqué, popularité diluée | Choisir un hôte (recommandé : sans `www`, déjà utilisé par WordPress) et rediriger l'autre en **301** au niveau serveur |
-| 2 | **Anciennes URL encore indexées** (ancienne boutique) : `/la-maison-du-dos-m-15.html`, `/hefel-m-16.html`, `/surmatelas-climacontrol-confort-xml-355_363-1017.html`… | Pages mortes (404) ou doublons ; perte du « jus » SEO historique | Plan de redirections **301** ancienne URL → nouvelle page WordPress équivalente (plugin *Redirection* ou règles `.htaccess`/Nginx) |
-| 3 | Sous-domaine **`prod.`** | S'il est accessible et indexable, c'est un doublon complet du site | Vérifier : `noindex` + protection par mot de passe tant que ce n'est pas le domaine principal ; balise `canonical` vers le domaine final |
-| 4 | Pages techniques indexées : `/my-wishlist/`, `/vos-devis-en-cours/` | Pages sans valeur dans Google, budget de crawl gaspillé | Les passer en `noindex` (Yoast / Rank Math → Avancé) |
-| 5 | Titre de page d'accueil `Accueil - La Maison du Dos` | « Accueil » n'est pas un mot-clé : titre peu cliquable | Nouveau titre : `Lit à eau et literie ergonomique \| La Maison du Dos` |
-| 6 | **Code postal incohérent** selon les sources : 52270 (site) / 52230 (annuaires) | Signal local (NAP) contradictoire pour Google | Unifier partout (site, Google Business Profile, annuaires). *La maquette utilise 52230, à confirmer.* |
+| 1 | **Éditeur de blocs Gutenberg chargé sur le site public** | 43 fichiers `wp-includes/js/dist/` (React, react-dom, wp-components, wp-block-editor, moment…) : **1,17 Mo transférés, 3 Mo de JS**, tous **synchrones**, + 59 Ko de traductions inline `wp-block-editor`. Ils sont déclarés juste avant `prisna-wp-translate-blocks` | Retirer `prisna-wp-translate-blocks` du front (mu-plugin) ou remplacer Prisna WP Translate. Vérifier avec `?lmdd_assets=1` |
+| 2 | **PHP lent / pas de cache sur `prod.`** | TTFB 3 à 5 s, `robots.txt` 2 à 4 s | Activer le cache de page (WP Rocket est présent) et Redis ; réduire les 20+ plugins ; purger les options *autoload* |
+| 3 | **Tags Google en triple** | `gtag/js` chargé **3 fois** + `gtm.js` : **725 Ko** (≈ 50 % inutilisés) via Site Kit, Pixel Manager (`woocommerce-google-adwords-conversion-tracking-tag`) et GTM | Un seul conteneur GTM, qui porte GA4, Ads et Clarity ; désactiver l'injection de balises dans Site Kit et Pixel Manager |
+| 4 | **« Sign in with Google » (Site Kit)** | `accounts.google.com/gsi/client` **synchrone**, 267 Ko (82 % inutilisés) + script Site Kit | Désactiver la connexion Google dans Site Kit si elle ne sert pas |
+| 5 | **Royal Elementor Addons** | `frontend.min.css` **438 Ko, 98 % inutilisés** ; `particles`, `jarallax`, `parallax`, `perfect-scrollbar` (×2), `modal-popups` synchrones | Retirés sur l'accueil (mu-plugin) ; à terme, reconstruire l'en-tête et le pied de page en Elementor natif |
+| 6 | **Widget de rappel Zadarma** | 9 requêtes, 133 Ko, dont un **second jQuery 3.5.1** et `jssip.min.js` 276 Ko (88 % inutilisés) | Charger le widget au clic sur un bouton « Être rappelé », jamais au chargement |
+| 7 | **xpay.sh (Agentic Commerce)** | **6 scripts synchrones dans le `<head>`** + `storefront.js` + un appel `execute-api.amazonaws.com` | Désactiver si non indispensable, sinon charger en `defer` |
+| 8 | **ProfilePress (`wp-user-avatar`)** | flatpickr, select2 et frontend : 268 Ko décompressés, **100 % inutilisés** sur l'accueil | Retirés sur l'accueil (mu-plugin) |
+| 9 | **Polices en surnombre** | Google Fonts Open Sans + Oswald (plugin d'avis) ; Poppins, Roboto, Roboto Slab locales (`roboto.css` 105 Ko, 100 % inutilisé) ; polices du thème **« howes »** (65 Ko, thème qui n'est pas le thème actif) ; Font Awesome complet ; Typekit | Pile système sur la nouvelle page ; supprimer le thème « howes » s'il n'est plus utilisé |
+| 10 | **Scripts tiers au chargement** | CookieYes 84 Ko, Clarity, Cloudflare Turnstile (utile seulement sur les formulaires), Alma (5 CSS sur l'accueil), menu accordéon WPB | Turnstile et Alma limités aux pages concernées ; tiers via GTM avec consentement |
+| 11 | **jQuery chargé en `async`** | `jquery-core` et `jquery-migrate` en `async`, alors que des scripts synchrones en dépendent | Risque d'erreurs JS aléatoires : remettre jQuery en synchrone ou tout passer en `defer` |
+| 12 | **DOM trop lourd** | 2 517 nœuds, profondeur 35, 106 balises H2 (menus) | Nouvelle page : 477 nœuds, profondeur 11 |
 
-## 2. Causes probables de lenteur (🔎 à confirmer par la mesure)
+## 3. SEO
 
-Classées par gain habituel sur ce type de pile.
-
-### Serveur & cache
-| Cause | Symptôme dans le rapport | Correctif |
+| Constat | Statut | Action |
 |---|---|---|
-| Pas de cache de page | TTFB > 800 ms | Cache de page (WP Rocket, LiteSpeed Cache ou cache serveur de l'hébergeur) ; exclure panier, commande et compte |
-| PHP ancien, pas d'OPcache ni de cache objet | TTFB élevé même en cache « chaud » | PHP 8.2+, OPcache, Redis Object Cache |
-| Table `wp_options` gonflée (options *autoload*) | TTFB élevé sur toutes les pages | Purger les transients et les options orphelines des plugins supprimés (WP-Optimize / Advanced DB Cleaner) |
-| Pas de compression Brotli/Gzip, pas de HTTP/2-3 | HTML/CSS/JS transférés non compressés | Activer côté hébergeur ou via un CDN (Cloudflare) |
+| `www` → sans `www`, `http` → `https` | ✅ Redirections 301 en place | Rien à faire |
+| `prod.la-maison-du-dos.com` | ✅ `noindex, nofollow` | Garder tant que ce n'est pas le domaine principal |
+| **Anciennes URL de la boutique précédente** (`/la-maison-du-dos-m-15.html`, `/hefel-m-16.html`, `/surmatelas-climacontrol-confort-xml-355_363-1017.html`…) | ❌ Encore indexées ; 301 vers le domaine sans `www` puis **404** | Plan de redirections 301 vers les pages équivalentes |
+| `/my-wishlist/` sur le domaine principal | ❌ Indexable (`index, follow`) | Passer en `noindex` |
+| `/vos-devis-en-cours/` | ✅ Déjà en `noindex` | Rien à faire |
+| Titre `Accueil - La Maison du Dos` | ⚠️ « Accueil » n'apporte rien | `Lit à eau et matelas pour le mal de dos \| La Maison du Dos` |
+| **3 balises H1** (nom de marque, slogan, paragraphe entier) | ⚠️ | Un seul H1 ciblé (nouvelle page) |
+| Pas de `canonical` ni d'image Open Graph sur l'accueil `prod.` | ⚠️ | Ajoutés dans la nouvelle page |
+| Code postal : **52270** (mentions légales) / 52230 (annuaires : Mappy, PagesJaunes) | ⚠️ Incohérent | Vérifier le code officiel et l'harmoniser partout (site, fiche Google, annuaires). La maquette reprend 52270, comme le site |
+| Prix affichés sans mention TTC (ex. 2 229,17 € = 2 675 € / 1,2) et règle CSS « sur le panier masquer le prix ttc » | ⚠️ À vérifier | En vente aux particuliers, les prix doivent être affichés TTC |
 
-### WooCommerce
-| Cause | Correctif (mu-plugin fourni) |
-|---|---|
-| `wc-cart-fragments` : requête AJAX `?wc-ajax=get_refreshed_fragments` à **chaque page vue**, non cachable | Retiré sur l'accueil ; ailleurs, ne le garder que si un mini-panier AJAX est vraiment utilisé |
-| CSS/JS WooCommerce + blocs WooCommerce chargés partout | Retirés sur l'accueil |
-| Attribution de commande (`sourcebuster-js`) | Retiré sur l'accueil |
+## 4. Plan d'action
 
-### Elementor
-| Cause | Correctif |
-|---|---|
-| DOM très profond (sections > colonnes > widgets imbriqués) | Réglages → Fonctionnalités : activer **Optimized DOM Output**, **Flexbox Container** ; reconstruire l'accueil en conteneurs (la maquette est pensée pour ça) |
-| CSS/JS de tous les widgets chargés même inutilisés | Activer **Improved Asset Loading**, **Improved CSS Loading**, **Element Caching** |
-| Font Awesome + eicons (≈ 100 à 150 Ko) | Activer **Inline Font Icons** (icônes en SVG) ; le mu-plugin retire FA sur l'accueil |
-| Google Fonts distantes (requêtes externes + FOUT + CLS) | Désactivées par le mu-plugin ; utiliser la pile système (maquette) ou des polices auto-hébergées en `woff2` |
-| Sliders / carrousels (Swiper) au-dessus de la ligne de flottaison | À supprimer : l'image LCP doit être une image unique, jamais un slider |
-| Animations d'entrée Elementor (`animated fadeIn…`) | Remplacées par l'`IntersectionObserver` léger de la maquette, ou supprimées |
-
-### Plugins annexes (détectés via les URL indexées)
-| Plugin probable | Indice | Correctif |
-|---|---|---|
-| Wishlist (YITH ou TI) | page `/my-wishlist/` | JS/CSS (+ jQuery selectBox, prettyPhoto, Font Awesome) retirés sur l'accueil ; ne les charger que sur les fiches produit |
-| Demande de devis (YITH Request a Quote ?) | page `/vos-devis-en-cours/` | Idem : charger uniquement là où le bouton « devis » apparaît |
-
-### Front
-| Cause | Correctif |
-|---|---|
-| Images JPEG/PNG lourdes, sans `width`/`height` | Conversion **AVIF/WebP**, tailles `srcset`, dimensions explicites (CLS = 0) |
-| `loading="lazy"` sur l'image du hero | **Jamais** sur l'image LCP : `fetchpriority="high"` à la place |
-| Scripts tiers chargés au démarrage (Trustpilot, chat, pixels, cartes Google) | Chargement différé à la visibilité ou à l'interaction (exemple Trustpilot dans `main.js`) |
-| jQuery + jQuery Migrate | Migrate retiré par le mu-plugin ; la maquette n'utilise **aucun** jQuery |
-
-## 3. Plan d'action recommandé
-
-1. **Mesurer** : `npm run audit` sur la page actuelle, puis `?lmdd_assets=1` (connecté en admin) pour obtenir les *handles* exacts.
-2. **Sauvegarder** le site (fichiers + base).
-3. Installer `wordpress/mu-plugins/lmdd-performance.php`, ajuster les listes de handles selon le diagnostic, vérifier l'accueil connecté **et** déconnecté.
-4. Réglages Elementor (section 2) + cache de page + conversion des images.
-5. Intégrer la nouvelle page d'accueil (conversion Elementor JSON après validation de la maquette).
-6. SEO : redirections 301 (hôte unique + anciennes URL), `noindex` des pages techniques, titre/description, soumission du sitemap dans la Search Console.
-7. **Re-mesurer** avec `npm run audit` et PageSpeed Insights : comparer avant/après.
-
-## 4. Objectifs cibles (mobile, PageSpeed Insights)
-
-| Indicateur | Cible |
-|---|---|
-| LCP | < 2,5 s |
-| INP | < 200 ms |
-| CLS | < 0,1 |
-| Poids de la page d'accueil | < 1 Mo (hors images produits en lazy-load) |
-| Requêtes | < 40 |
-| Score Performance | ≥ 90 |
-
-### Référence : la maquette livrée
-Mesurée avec l'outil fourni sur un serveur local (images de démonstration en SVG) :
-
-| Profil | LCP | CLS | Requêtes | Poids | JS |
-|---|---|---|---|---|---|
-| Desktop | 0,1 à 0,35 s | 0 | 10 | ≈ 69 Ko non compressé (HTML 8 Ko + CSS 5,5 Ko en gzip) | 1 fichier de 4,6 Ko, aucune dépendance |
-| Mobile (4G lente, CPU ×4) | 0,7 à 1,3 s | 0 | 10 | idem | idem |
-
-Les vraies photos produits ajouteront du poids : prévoir de l'AVIF/WebP ≤ 120 Ko pour le hero.
+1. **Sauvegarder** le site (fichiers + base).
+2. Installer `wordpress/mu-plugins/lmdd-performance.php` sur `prod.`, ouvrir l'accueil avec `?lmdd_assets=1` (connecté en
+   admin) et confirmer les handles ; tester l'accueil connecté **et** déconnecté.
+3. Traiter les causes 1 à 4 : ce sont les plus gros gains (Gutenberg, cache, Google en triple, connexion Google).
+4. Intégrer la nouvelle page d'accueil (conversion JSON Elementor).
+5. SEO : redirections 301 des anciennes URL, `noindex` de la liste de souhaits, harmonisation du code postal.
+6. **Re-mesurer** : `npm run audit -- https://prod.la-maison-du-dos.com/` et PageSpeed Insights.

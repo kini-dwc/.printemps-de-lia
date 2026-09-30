@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO : 50-60 caractères pour le title, 140-160 pour la description -->
-  <title>Lit à eau et literie ergonomique | La Maison du Dos</title>
-  <meta name="description" content="Spécialiste du lit à eau depuis 1994 : lits à eau, matelas à suspension air, surmatelas et linge de lit Hefel. Conseil 7j/7, livraison et installation en Europe.">
+  <!--
+    Contenus vérifiés sur prod.la-maison-du-dos.com le 30/09/2026 :
+    accueil, contact, mentions légales, qui sommes-nous, livraison/paiement,
+    FAQ « 35 réponses d'experts », fiches produits (prix tels qu'affichés).
+  -->
+  <title>Lit à eau et matelas pour le mal de dos | La Maison du Dos</title>
+  <meta name="description" content="Spécialiste du lit à eau depuis 1994 : lits à eau, matelas à eau légers, matelas à fermeté réglable par télécommande et linge de lit. Conseil 7j/7, livraison et installation.">
   <link rel="canonical" href="https://la-maison-du-dos.com/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#035c11">
@@ -15,54 +19,60 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="La Maison du Dos">
-  <meta property="og:title" content="Lit à eau et literie ergonomique | La Maison du Dos">
-  <meta property="og:description" content="Lits à eau, matelas à suspension air, surmatelas et linge de lit Hefel. Conseil expert 7j/7, livraison et installation dans toute l'Europe.">
+  <meta property="og:title" content="Lit à eau et matelas pour le mal de dos | La Maison du Dos">
+  <meta property="og:description" content="Marque du confort du dos depuis 1988 et spécialiste du lit à eau depuis 1994. Conseil 7j/7 de 9h à 21h, livraison avec installation et réglages personnalisés.">
   <meta property="og:url" content="https://la-maison-du-dos.com/">
-  <meta property="og:image" content="https://la-maison-du-dos.com/wp-content/uploads/og-la-maison-du-dos.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://la-maison-du-dos.com/wp-content/uploads/2025/10/altura-pos.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
   <!-- Aucune police externe : pile système = 0 requête, 0 FOUT, 0 CLS -->
-  <link rel="preload" href="assets/img/hero.svg" as="image" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-lit-a-eau-altura-640.webp"
+        imagesrcset="assets/img/hero-lit-a-eau-altura-640.webp 640w, assets/img/hero-lit-a-eau-altura-1040.webp 1040w"
+        imagesizes="(max-width: 900px) calc(100vw - 32px), 520px" fetchpriority="high">
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Données structurées : commerce local + site + FAQ -->
+  <!-- Données structurées : entreprise + site + FAQ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "FurnitureStore"],
+        "@type": ["Organization", "HomeGoodsStore"],
         "@id": "https://la-maison-du-dos.com/#organization",
         "name": "La Maison du Dos",
         "url": "https://la-maison-du-dos.com/",
-        "logo": "https://la-maison-du-dos.com/wp-content/uploads/logo-la-maison-du-dos.webp",
-        "image": "https://la-maison-du-dos.com/wp-content/uploads/og-la-maison-du-dos.jpg",
-        "description": "Spécialiste du confort du dos depuis 1988 et du lit à eau depuis 1994 : lits à eau, matelas à eau légers, matelas à suspension air, surmatelas et linge de lit Hefel.",
+        "logo": "https://la-maison-du-dos.com/wp-content/uploads/2024/09/cropped-template_images_logo-boutique-pc.webp",
+        "image": "https://la-maison-du-dos.com/wp-content/uploads/2025/10/altura-pos.jpg",
+        "description": "Marque du confort du dos depuis 1988 et spécialiste du lit à eau depuis 1994 : lits à eau, matelas à eau légers, matelas à fermeté réglable par télécommande et linge de lit.",
         "foundingDate": "1988",
-        "telephone": "+33325042019",
         "email": "info@la-maison-du-dos.com",
+        "telephone": "+33325042019",
+        "vatID": "FR48808821029",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "5 rue du Moulin",
           "addressLocality": "Epizon",
-          "postalCode": "52230",
+          "postalCode": "52270",
           "addressRegion": "Haute-Marne",
           "addressCountry": "FR"
         },
-        "areaServed": "Europe",
-        "openingHoursSpecification": [{
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "09:00",
-          "closes": "21:00"
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+33325042019",
+          "availableLanguage": "fr",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "21:00"
+          }
         }],
-        "sameAs": ["https://fr.trustpilot.com/review/la-maison-du-dos.com"]
+        "areaServed": ["FR", "BE", "LU", "NL", "CH", "DE"]
       },
       {
         "@type": "WebSite",
@@ -82,28 +92,28 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Un lit à eau est-il adapté au mal de dos ?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Le matelas à eau épouse la forme du corps et répartit le poids de façon homogène, ce qui limite les points de pression sur les épaules, le bassin et la colonne. Nos conseillers vous aident à choisir le niveau de stabilisation adapté à votre morphologie." }
+            "name": "Un matelas à eau est-il bon pour le dos ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dès que vous vous allongez, l'eau prend exactement la forme de votre corps. Le matelas ne s'affaisse pas : il s'adapte instantanément à votre position. Ce soutien, combiné à une faible pression d'appui et à une chaleur agréable, est un bienfait pour votre dos." }
           },
           {
             "@type": "Question",
-            "name": "Livrez-vous et installez-vous le lit à domicile ?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Nous livrons et installons nos lits dans toute l'Europe, avec reprise de l'ancienne literie sur demande. Le suivi technique et le service après-vente sont assurés par La Maison du Dos." }
+            "name": "A-t-on le mal de mer sur un matelas à eau ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. L'eau ne bouge que lorsque vous bougez vous-même, et ce mouvement est immédiatement amorti par la stabilisation intégrée au matelas." }
           },
           {
             "@type": "Question",
-            "name": "Quelle différence entre matelas à eau et matelas à suspension air ?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Le matelas à eau est thermorégulé et offre un soutien flottant. Le matelas à suspension air, associé à un surmatelas latex, mousse ou gel viscoélastique, permet de régler la fermeté à la télécommande, côté par côté." }
+            "name": "Quel est le poids d'un lit à eau ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Selon le modèle, un lit à eau double pèse jusqu'à 800 kg, soit 150 à 200 kg/m², une charge répartie par le socle. En plus de trente ans d'installations, nous n'avons jamais eu à renoncer à un montage : là où l'on peut installer un congélateur rempli, on peut installer un lit à eau." }
           },
           {
             "@type": "Question",
-            "name": "Quel entretien pour un matelas à eau ?",
-            "acceptedAnswer": { "@type": "Answer", "text": "L'entretien est simple : un conditionneur à ajouter dans l'eau une fois par an et un nettoyage régulier de la housse. Nous vous accompagnons avec un suivi technique après l'installation." }
+            "name": "Combien consomme un matelas à eau ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour un lit à eau dual, comptez environ 1,32 à 1,53 kWh par jour selon la température réglée, l'isolation et la pièce, soit en moyenne une dizaine d'euros par mois sur l'année." }
           },
           {
             "@type": "Question",
-            "name": "Comment obtenir un devis personnalisé ?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Remplissez notre formulaire de devis en ligne, appelez le 03 25 04 20 19 (9h–21h, 7j/7) ou écrivez-nous sur WhatsApp. Un conseiller spécialisé vous répond rapidement." }
+            "name": "Comment entretenir un lit à eau ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Purgez bien l'air des matelas la première semaine, puis ajoutez un conditionneur anti-algues une à deux fois par an selon le produit. Il n'est pas nécessaire de changer l'eau, sauf en cas de déménagement." }
           }
         ]
       }
@@ -120,12 +130,12 @@
     <div class="container topbar__inner">
       <p class="topbar__msg">
         <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>
-        Livraison &amp; installation dans toute l'Europe
+        Livraison gratuite dès 60&nbsp;€
       </p>
       <p class="topbar__contact">
         <a href="tel:+33325042019"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>03 25 04 20 19</a>
         <span class="topbar__sep" aria-hidden="true">·</span>
-        <span class="topbar__hours">Conseil 7j/7 de 9h à 21h</span>
+        <span class="topbar__hours">Service client 7j/7 de 9h à 21h</span>
         <span class="topbar__sep" aria-hidden="true">·</span>
         <a href="/contact/">Contact</a>
       </p>
@@ -142,20 +152,22 @@
       <nav class="nav" id="menu" aria-label="Navigation principale" data-nav>
         <ul class="nav__list">
           <li><a href="/lits-a-eau/">Lits à eau</a></li>
-          <li><a href="/matelas-suspension-air/">Matelas à air</a></li>
-          <li><a href="/surmatelas/">Surmatelas</a></li>
-          <li><a href="/linge-de-lit-hefel/">Linge de lit Hefel</a></li>
-          <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
-          <li class="nav__mobile"><a href="/my-wishlist/">Ma liste d'envies</a></li>
+          <li><a href="/matelas-reglables/">Matelas réglables</a></li>
+          <li><a href="/linge-de-lit/">Linge de lit</a></li>
+          <li><a href="/product-category/accessoires-produits-dentretien-sav/">Accessoires &amp; SAV</a></li>
+          <li><a href="/nos-marques/">Nos marques</a></li>
+          <li class="nav__mobile"><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
+          <li class="nav__mobile"><a href="/my-wishlist/">Ma liste de souhaits</a></li>
           <li class="nav__mobile"><a href="/contact/">Contact</a></li>
         </ul>
-        <a class="btn btn--accent nav__cta" href="/vos-devis-en-cours/">Demander un devis</a>
+        <a class="btn btn--accent nav__cta" href="/lits-a-eau/lits-a-eau-en-vente-sur-devis/">Demander un devis</a>
       </nav>
 
       <div class="header__actions">
         <button class="icon-btn" type="button" aria-controls="recherche" aria-expanded="false" aria-label="Rechercher un produit" data-search-toggle><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></button>
-        <a class="icon-btn icon-btn--wish" href="/my-wishlist/" aria-label="Ma liste d'envies"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></a>
-        <a class="icon-btn" href="/panier/" aria-label="Mon panier"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span class="badge" data-cart-count>0</span></a>
+        <a class="icon-btn icon-btn--wish" href="/my-wishlist/" aria-label="Ma liste de souhaits"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></a>
+        <a class="icon-btn" href="/my-account/" aria-label="Mon compte"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></a>
+        <a class="icon-btn" href="/cart/" aria-label="Mon panier"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span class="badge" data-cart-count>0</span></a>
         <button class="icon-btn burger" type="button" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu" data-burger>
           <span></span><span></span><span></span>
         </button>
@@ -165,7 +177,7 @@
       <div class="container search__inner">
         <label class="sr-only" for="s">Rechercher un produit</label>
         <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-        <input id="s" name="s" type="search" placeholder="Lit à eau, surmatelas, couette Hefel…" autocomplete="off">
+        <input id="s" name="s" type="search" placeholder="Lit à eau, couette Hefel, conditionneur…" autocomplete="off">
         <input type="hidden" name="post_type" value="product">
         <button class="btn btn--primary btn--sm" type="submit">Rechercher</button>
       </div>
@@ -179,46 +191,49 @@
       <div class="container hero__grid">
         <div class="hero__content">
           <p class="eyebrow">Spécialiste du lit à eau depuis 1994</p>
-          <h1 id="hero-title">Lit à eau et literie ergonomique&nbsp;: <em>le confort qui soulage votre dos</em></h1>
-          <p class="hero__lead">Depuis 1988, La Maison du Dos conseille, livre et installe des literies qui soutiennent chaque courbe de votre corps&nbsp;: lits à eau thermorégulés, matelas à suspension air réglables et linge de lit Hefel.</p>
+          <h1 id="hero-title">Lit à eau et matelas réglables&nbsp;: <em>soulagez votre mal de dos</em></h1>
+          <p class="hero__lead">Marque du confort du dos depuis 1988, La Maison du Dos vous accompagne dans le choix d'un lit avec un ou deux matelas à eau, d'un matelas à eau léger ou d'un matelas à fermeté réglable par télécommande.</p>
           <div class="hero__ctas">
             <a class="btn btn--primary btn--lg" href="/lits-a-eau/">Découvrir nos lits à eau</a>
-            <a class="btn btn--ghost btn--lg" href="/vos-devis-en-cours/">Devis gratuit personnalisé</a>
+            <a class="btn btn--ghost btn--lg" href="/lits-a-eau/lits-a-eau-en-vente-sur-devis/">Demander un devis</a>
           </div>
           <ul class="hero__proofs">
-            <li><strong>35+ ans</strong><span>d'expertise literie</span></li>
+            <li><strong>Depuis 1988</strong><span>confort du dos</span></li>
             <li><strong>7j/7</strong><span>conseil de 9h à 21h</span></li>
-            <li><strong>Europe</strong><span>livraison &amp; installation</span></li>
+            <li><strong>22</strong><span>stabilisations au choix</span></li>
           </ul>
         </div>
         <div class="hero__media">
-          <!-- En production : <picture> avec AVIF/WebP 1200px + srcset, width/height obligatoires, fetchpriority="high", JAMAIS loading="lazy" sur l'image LCP -->
-          <img src="assets/img/hero.svg" width="640" height="560" alt="Lit à eau thermorégulé La Maison du Dos dans une chambre lumineuse" fetchpriority="high" decoding="async">
+          <img src="assets/img/hero-lit-a-eau-altura-640.webp"
+               srcset="assets/img/hero-lit-a-eau-altura-640.webp 640w, assets/img/hero-lit-a-eau-altura-1040.webp 1040w"
+               sizes="(max-width: 900px) calc(100vw - 32px), 520px"
+               width="640" height="560" alt="Lit à eau Altura de Poseïdon avec tête de lit, dans une chambre lumineuse"
+               fetchpriority="high" decoding="async">
           <div class="hero__badge">
-            <svg class="icon" aria-hidden="true"><use href="#i-thermo"/></svg>
-            <div><strong>Thermorégulé</strong><span>chaleur réglable au degré près</span></div>
+            <svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg>
+            <div><strong>Installation &amp; réglage</strong><span>personnalisés, en votre présence</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ RÉASSURANCE ============ -->
+    <!-- ============ ENGAGEMENTS ============ -->
     <section class="trust" aria-label="Nos engagements">
       <ul class="container trust__list">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><div><strong>Livraison &amp; installation</strong><span>par nos équipes, partout en Europe</span></div></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-recycle"/></svg><div><strong>Reprise de l'ancienne literie</strong><span>on s'occupe de tout</span></div></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg><div><strong>Suivi technique &amp; SAV</strong><span>un interlocuteur dédié</span></div></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><div><strong>Paiement sécurisé</strong><span>CB, virement, plusieurs fois</span></div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg><div><strong>Livraison avec installation</strong><span>et réglages personnalisés</span></div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><div><strong>Livraison gratuite</strong><span>dès 60&nbsp;€ d'achat</span></div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-recycle"/></svg><div><strong>Satisfait ou remboursé</strong><span>voir nos conditions de vente</span></div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><div><strong>Facilités de paiement</strong><span>payez à votre rythme</span></div></li>
       </ul>
     </section>
 
-    <!-- ============ UNIVERS / CATÉGORIES ============ -->
+    <!-- ============ CATALOGUE ============ -->
     <section class="section" aria-labelledby="cat-title">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow">Nos univers</p>
+          <p class="eyebrow">Notre catalogue</p>
           <h2 id="cat-title">Trouvez la literie faite pour votre dos</h2>
-          <p>Chaque dos est unique. Nous sélectionnons des solutions de couchage qui s'adaptent à votre morphologie, à vos douleurs et à votre façon de dormir.</p>
+          <p>Selon vos attentes et vos besoins, nous vous aidons à choisir parmi les articles qui répondent idéalement à vos critères.</p>
         </header>
 
         <ul class="cats">
@@ -226,39 +241,39 @@
             <a href="/lits-a-eau/">
               <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></span>
               <h3>Lits à eau</h3>
-              <p>Un ou deux matelas thermorégulés, du flottant au très stabilisé, pour un soutien sans point de pression.</p>
+              <p>Un ou deux matelas à eau climatisés (MONO ou DUO), en vente en ligne ou sur devis.</p>
               <span class="cat__link">Voir les lits à eau <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </a>
           </li>
           <li class="cat reveal">
-            <a href="/matelas-a-eau-legers/">
+            <a href="/matelas-reglables/matelas-a-eau-leger-bebe/">
               <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></span>
-              <h3>Matelas à eau légers</h3>
-              <p>Le confort de l'eau dans votre lit actuel, sans structure lourde.</p>
+              <h3>Matelas à eau légers &amp; bébé</h3>
+              <p>Le matelas à eau climatisé à poser sur un sommier fixe classique.</p>
               <span class="cat__link">Découvrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </a>
           </li>
           <li class="cat reveal">
-            <a href="/matelas-suspension-air/">
+            <a href="/matelas-reglables/matelas-a-telecommande/">
               <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-remote"/></svg></span>
-              <h3>Matelas à suspension air</h3>
-              <p>Fermeté réglable à la télécommande, côté par côté.</p>
+              <h3>Matelas à télécommande</h3>
+              <p>Fermeté réglable par télécommande, compatibles avec les sommiers de relaxation.</p>
               <span class="cat__link">Découvrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </a>
           </li>
           <li class="cat reveal">
-            <a href="/surmatelas/">
-              <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
-              <h3>Surmatelas</h3>
-              <p>Latex, mousse ou gel viscoélastique pour affiner votre accueil.</p>
-              <span class="cat__link">Découvrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-            </a>
-          </li>
-          <li class="cat reveal">
-            <a href="/linge-de-lit-hefel/">
+            <a href="/linge-de-lit/">
               <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
-              <h3>Linge de lit Hefel</h3>
-              <p>Couettes, draps-housses et oreillers autrichiens, importés depuis 1997.</p>
+              <h3>Linge de lit</h3>
+              <p>Couettes, oreillers, surmatelas et draps-housses, dont le linge de lit Hefel conseillé depuis 1997.</p>
+              <span class="cat__link">Découvrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </a>
+          </li>
+          <li class="cat reveal">
+            <a href="/product-category/accessoires-produits-dentretien-sav/">
+              <span class="cat__icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+              <h3>Accessoires, SAV &amp; entretien</h3>
+              <p>Conditionneurs, anti-algues et accessoires pour faire durer votre literie à eau.</p>
               <span class="cat__link">Découvrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </a>
           </li>
@@ -266,94 +281,95 @@
       </div>
     </section>
 
-    <!-- ============ POURQUOI UN LIT À EAU ============ -->
+    <!-- ============ POURQUOI UN MATELAS À EAU ============ -->
     <section class="section section--tint" aria-labelledby="why-title">
       <div class="container split">
         <div class="split__media reveal">
-          <img src="assets/img/pression.svg" width="560" height="460" loading="lazy" decoding="async" alt="Schéma comparant la répartition des pressions sur un matelas classique et sur un matelas à eau">
+          <img src="assets/img/pression.svg" width="560" height="460" loading="lazy" decoding="async" alt="Schéma : sur un matelas classique la pression se concentre sur les épaules et le bassin, sur un matelas à eau elle est répartie uniformément">
         </div>
         <div class="split__content">
           <p class="eyebrow">Le lit à eau, notre spécialité</p>
-          <h2 id="why-title">Pourquoi un lit à eau soulage-t-il le dos&nbsp;?</h2>
-          <p>Contrairement à un matelas classique qui repousse le corps, l'eau l'accueille. Le poids se répartit sur toute la surface&nbsp;: la colonne vertébrale reste alignée et les muscles se détendent vraiment.</p>
+          <h2 id="why-title">Pourquoi un matelas à eau soulage-t-il le dos&nbsp;?</h2>
+          <p>Dès que vous vous allongez, l'eau prend exactement la forme de votre corps. Le matelas ne s'affaisse pas&nbsp;: il s'adapte instantanément à votre position, avec une pression d'appui répartie uniformément.</p>
           <ul class="checks">
-            <li><strong>Zéro point de pression</strong> sur les épaules et le bassin, moins de retournements la nuit.</li>
-            <li><strong>Chaleur douce et réglable</strong> qui aide à relâcher les tensions musculaires.</li>
-            <li><strong>Hygiène optimale</strong>&nbsp;: housse lavable, pas d'acariens au cœur du matelas.</li>
-            <li><strong>Stabilisation sur mesure</strong>, du flottant au quasi-ferme, selon votre morphologie.</li>
+            <li><strong>Un soutien sans usure</strong>&nbsp;: l'eau ne s'use pas, et un matelas à eau dure plus de 15 ans selon son entretien et sa qualité.</li>
+            <li><strong>Une température réglable</strong>, tiède en hiver et fraîche en été.</li>
+            <li><strong>22 stabilisations</strong> pour choisir ensemble le soutien adapté à votre morphologie.</li>
+            <li><strong>Un réglage en eau en votre présence</strong> lors de l'installation, pour conserver les garanties des fabricants.</li>
           </ul>
-          <a class="btn btn--primary" href="/lits-a-eau/">Choisir mon lit à eau</a>
+          <a class="btn btn--primary" href="/lit-a-eau-2026-guide-de-la-maison-du-dos/">Lire notre guide 2026 du lit à eau</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ PRODUITS PHARES ============ -->
-    <!-- Dans Elementor : remplacer ce bloc par le widget WooCommerce « Produits » (4 produits, 4 colonnes) -->
+    <!-- ============ PRODUITS ============ -->
+    <!-- Dans Elementor : remplacer ce bloc par le widget WooCommerce « Produits » (4 produits, 4 colonnes).
+         Prix repris tels qu'affichés sur l'accueil le 30/09/2026. -->
     <section class="section" aria-labelledby="prod-title">
       <div class="container">
         <header class="section__head section__head--row">
           <div>
             <p class="eyebrow">Sélection</p>
-            <h2 id="prod-title">Nos incontournables</h2>
+            <h2 id="prod-title">Nos lits et matelas à eau</h2>
           </div>
-          <a class="link-arrow" href="/boutique/">Toute la boutique <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link-arrow" href="/lits-a-eau/lits-a-eau-en-vente-en-ligne/">Tous les lits à eau en ligne <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </header>
 
         <ul class="products">
           <li class="product reveal">
-            <a href="/lits-a-eau/" class="product__media"><img src="assets/img/produit-lit.svg" width="400" height="400" loading="lazy" decoding="async" alt="Lit à eau double matelas thermorégulé"></a>
+            <a href="/le-lit-a-eau-havre-duo/" class="product__media"><img src="assets/img/lit-a-eau-havre.webp" width="600" height="600" loading="lazy" decoding="async" alt="Lit à eau Havre avec tête de lit capitonnée grise"></a>
+            <div class="product__body">
+              <p class="product__cat">Lit à eau · Pack promotionnel</p>
+              <h3 class="product__title"><a href="/le-lit-a-eau-havre-duo/">Lit à eau Havre</a></h3>
+              <p class="product__price">2&nbsp;229,17&nbsp;€</p>
+            </div>
+          </li>
+          <li class="product reveal">
+            <a href="/lit-a-eau-waterbed-tec-line/" class="product__media"><img src="assets/img/lit-a-eau-tec-line.webp" width="600" height="600" loading="lazy" decoding="async" alt="Lit à eau Tec-Line avec socle noir"></a>
             <div class="product__body">
               <p class="product__cat">Lit à eau</p>
-              <h3 class="product__title"><a href="/lits-a-eau/">Lit à eau double matelas</a></h3>
-              <p class="product__price">Sur devis</p>
+              <h3 class="product__title"><a href="/lit-a-eau-waterbed-tec-line/">Lit à eau Tec-Line</a></h3>
+              <p class="product__price"><del>2&nbsp;075,83&nbsp;€</del> <ins>1&nbsp;909,77&nbsp;€</ins></p>
             </div>
           </li>
           <li class="product reveal">
-            <a href="/matelas-suspension-air/" class="product__media"><img src="assets/img/produit-air.svg" width="400" height="400" loading="lazy" decoding="async" alt="Matelas à suspension air à fermeté réglable"></a>
+            <a href="/matelas-a-eau-leger-aqualight-premium/" class="product__media"><img src="assets/img/matelas-eau-leger-aqualight.webp" width="600" height="600" loading="lazy" decoding="async" alt="Matelas à eau léger Aqualight Premium porté par un homme"></a>
             <div class="product__body">
-              <p class="product__cat">Matelas à air</p>
-              <h3 class="product__title"><a href="/matelas-suspension-air/">Matelas à suspension air</a></h3>
-              <p class="product__price">Sur devis</p>
+              <p class="product__cat">Matelas à eau léger</p>
+              <h3 class="product__title"><a href="/matelas-a-eau-leger-aqualight-premium/">Matelas à eau léger Aqualight Premium</a></h3>
+              <p class="product__price"><del>613,33&nbsp;€</del> <ins>582,67&nbsp;€</ins></p>
             </div>
           </li>
           <li class="product reveal">
-            <a href="/surmatelas-climacontrol-confort/" class="product__media"><img src="assets/img/produit-surmatelas.svg" width="400" height="400" loading="lazy" decoding="async" alt="Surmatelas Klimacontrol Confort Hefel"></a>
+            <a href="/drap-housse-jersey-bella-donna/" class="product__media"><img src="assets/img/drap-housse-bella-donna.webp" width="600" height="600" loading="lazy" decoding="async" alt="Drap-housse jersey Bella Donna bordeaux"></a>
             <div class="product__body">
-              <p class="product__cat">Surmatelas · Hefel</p>
-              <h3 class="product__title"><a href="/surmatelas-climacontrol-confort/">Surmatelas Klimacontrol Confort</a></h3>
-              <p class="product__price">Voir le prix</p>
-            </div>
-          </li>
-          <li class="product reveal">
-            <a href="/housse-de-couette-tencel-biarritz/" class="product__media"><img src="assets/img/produit-linge.svg" width="400" height="400" loading="lazy" decoding="async" alt="Housse de couette Tencel Biarritz"></a>
-            <div class="product__body">
-              <p class="product__cat">Linge de lit</p>
-              <h3 class="product__title"><a href="/housse-de-couette-tencel-biarritz/">Housse de couette Tencel® Biarritz</a></h3>
-              <p class="product__price">Voir le prix</p>
+              <p class="product__cat">Linge de lit · 46 avis</p>
+              <h3 class="product__title"><a href="/drap-housse-jersey-bella-donna/">Drap-housse jersey Bella Donna</a></h3>
+              <p class="product__price"><del>54,13&nbsp;€</del> <ins>52,50&nbsp;€</ins></p>
             </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ============ SUSPENSION AIR ============ -->
+    <!-- ============ MATELAS À TÉLÉCOMMANDE ============ -->
     <section class="feature" aria-labelledby="air-title">
       <div class="container feature__inner">
         <div class="feature__content">
-          <p class="eyebrow eyebrow--light">Nouvelle génération</p>
-          <h2 id="air-title">La fermeté idéale, réglée d'un geste</h2>
-          <p>Nos matelas à suspension air s'associent à un surmatelas latex, mousse ou gel viscoélastique. Chaque dormeur ajuste sa fermeté à la télécommande, sans compromis pour l'autre.</p>
-          <a class="btn btn--accent" href="/matelas-suspension-air/">Découvrir la suspension air</a>
+          <p class="eyebrow eyebrow--light">Matelas réglables</p>
+          <h2 id="air-title">La fermeté idéale, réglée par télécommande</h2>
+          <p>Nos matelas à fermeté réglable permettent d'adapter le soutien à vos besoins et s'utilisent aussi avec des sommiers de relaxation, ce qui n'est pas possible avec un matelas à eau.</p>
+          <a class="btn btn--accent" href="/matelas-reglables/matelas-a-telecommande/">Découvrir les matelas à télécommande</a>
         </div>
         <ol class="feature__steps">
-          <li><span>1</span><div><strong>Base à suspension air</strong>Chambres d'air indépendantes, gonflage silencieux.</div></li>
-          <li><span>2</span><div><strong>Surmatelas au choix</strong>Latex, mousse ou gel viscoélastique.</div></li>
-          <li><span>3</span><div><strong>Réglage à la télécommande</strong>Fermeté indépendante côté gauche / côté droit.</div></li>
+          <li><span>1</span><div><strong>Matelas Pure</strong>Fermeté réglable par télécommande pour une personne.</div></li>
+          <li><span>2</span><div><strong>Matelas de santé Life</strong>Suspensions à air avec réglage du soutien par télécommande.</div></li>
+          <li><span>3</span><div><strong>Matelas Matrair</strong>Fermeté réglable et supports lombaires pour soulager le mal de dos.</div></li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ MÉTHODE ============ -->
+    <!-- ============ ACCOMPAGNEMENT ============ -->
     <section class="section" aria-labelledby="how-title">
       <div class="container">
         <header class="section__head">
@@ -361,29 +377,29 @@
           <h2 id="how-title">De votre premier appel à votre première nuit</h2>
         </header>
         <ol class="steps">
-          <li class="reveal"><span class="steps__n">01</span><h3>Conseil personnalisé</h3><p>Un spécialiste analyse vos besoins, vos douleurs et votre morphologie, par téléphone ou WhatsApp, 7j/7.</p></li>
-          <li class="reveal"><span class="steps__n">02</span><h3>Devis sur mesure</h3><p>Dimensions, stabilisation, surmatelas&nbsp;: vous recevez une proposition claire et détaillée.</p></li>
-          <li class="reveal"><span class="steps__n">03</span><h3>Livraison &amp; installation</h3><p>Nos équipes installent votre literie chez vous et reprennent l'ancienne sur demande.</p></li>
-          <li class="reveal"><span class="steps__n">04</span><h3>Suivi dans la durée</h3><p>Suivi technique et service après-vente assurés directement par La Maison du Dos.</p></li>
+          <li class="reveal"><span class="steps__n">01</span><h3>Conseil personnalisé</h3><p>Par téléphone ou WhatsApp, 7 jours sur 7 de 9h à 21h&nbsp;: nous étudions ensemble vos envies et vos besoins de confort.</p></li>
+          <li class="reveal"><span class="steps__n">02</span><h3>Choix du matelas</h3><p>Type de lit, dimensions, stabilisation&nbsp;: nous choisissons ensemble le matelas à eau qui vous satisfera pleinement.</p></li>
+          <li class="reveal"><span class="steps__n">03</span><h3>Livraison &amp; installation</h3><p>Installation d'environ 2 à 3 heures, avec le réglage en eau réalisé en présence des futurs utilisateurs.</p></li>
+          <li class="reveal"><span class="steps__n">04</span><h3>Entretien &amp; SAV</h3><p>Conseils d'entretien à l'installation, produits d'entretien et service client à votre écoute.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ À PROPOS / HEFEL ============ -->
+    <!-- ============ QUI SOMMES-NOUS ============ -->
     <section class="section section--tint" aria-labelledby="about-title">
       <div class="container about">
         <div class="about__content">
           <p class="eyebrow">Qui sommes-nous</p>
-          <h2 id="about-title">Une maison familiale dédiée au confort du dos depuis 1988</h2>
-          <p>Installée à Epizon, en Haute-Marne, La Maison du Dos s'est spécialisée dans le lit à eau dès 1994. Nous sélectionnons des literies de qualité avec un objectif simple&nbsp;: apporter un vrai confort à chacun, et soulager celles et ceux qui souffrent du dos.</p>
-          <p>Importateur du fabricant autrichien <strong>Hefel</strong> depuis 1997, nous complétons chaque literie avec des couettes, draps-housses et oreillers aux fibres naturelles et respirantes.</p>
+          <h2 id="about-title">Le confort du dos, notre métier depuis 1988</h2>
+          <p>Créée en 1988, La Maison du Dos propose une literie de qualité pour apporter un supplément de confort à chacun, et particulièrement soulager les personnes qui souffrent du dos. Spécialiste du lit à eau depuis 1994, elle a quitté sa boutique de Mulhouse pour se consacrer à la vente en ligne.</p>
+          <p>Depuis la Haute-Marne, nous livrons et installons nos lits à eau en France et en Europe, notamment au Benelux, en Suisse et en Allemagne. Nous vous conseillons aussi le linge de lit <strong>Hefel</strong> depuis 1997.</p>
           <a class="link-arrow" href="/qui-sommes-nous/">Découvrir notre histoire <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <dl class="stats">
-          <div class="reveal"><dt>1988</dt><dd>création de la maison</dd></div>
+          <div class="reveal"><dt>1988</dt><dd>création de La Maison du Dos</dd></div>
           <div class="reveal"><dt>1994</dt><dd>spécialiste du lit à eau</dd></div>
-          <div class="reveal"><dt>1997</dt><dd>partenaire Hefel</dd></div>
-          <div class="reveal"><dt>7j/7</dt><dd>service client 9h–21h</dd></div>
+          <div class="reveal"><dt>1997</dt><dd>linge de lit Hefel</dd></div>
+          <div class="reveal"><dt>7j/7</dt><dd>service client de 9h à 21h</dd></div>
         </dl>
       </div>
     </section>
@@ -394,13 +410,12 @@
         <div>
           <p class="eyebrow">Avis clients</p>
           <h2 id="reviews-title">Ils dorment mieux, ils en parlent</h2>
-          <p>Nos clients partagent leur expérience en toute transparence sur Trustpilot.</p>
-          <a class="btn btn--ghost" href="https://fr.trustpilot.com/review/la-maison-du-dos.com" target="_blank" rel="noopener">Lire les avis sur Trustpilot</a>
+          <p>Nos avis sont collectés et contrôlés par la Société des Avis Garantis, auprès d'acheteurs authentifiés.</p>
         </div>
-        <!-- Widget TrustBox chargé UNIQUEMENT quand la section devient visible (voir main.js) -->
-        <div class="reviews__widget" data-lazy-trustbox
-             data-template-id="VOTRE_TEMPLATE_ID" data-businessunit-id="VOTRE_BUSINESS_UNIT_ID">
-          <p class="reviews__placeholder">Chargement des avis vérifiés…</p>
+        <!-- Widget officiel, iframe en lazy-loading natif : chargé seulement à l'approche de la section, sans JS -->
+        <div class="reviews__widget">
+          <iframe src="https://www.societe-des-avis-garantis.fr/wp-content/plugins/ag-core/widgets/iframe/2/h/?id=9649"
+                  title="Avis clients La Maison du Dos – Société des Avis Garantis" loading="lazy" width="100%" height="240"></iframe>
         </div>
       </div>
     </section>
@@ -410,30 +425,31 @@
       <div class="container faq">
         <header class="section__head">
           <p class="eyebrow">Questions fréquentes</p>
-          <h2 id="faq-title">Tout savoir avant de choisir</h2>
+          <h2 id="faq-title">Tout savoir sur le matelas à eau</h2>
         </header>
         <div class="faq__list">
           <details>
-            <summary>Un lit à eau est-il adapté au mal de dos&nbsp;?</summary>
-            <p>Le matelas à eau épouse la forme du corps et répartit le poids de façon homogène, ce qui limite les points de pression sur les épaules, le bassin et la colonne. Nos conseillers vous aident à choisir le niveau de stabilisation adapté à votre morphologie.</p>
+            <summary>Un matelas à eau est-il bon pour le dos&nbsp;?</summary>
+            <p>Dès que vous vous allongez, l'eau prend exactement la forme de votre corps. Le matelas ne s'affaisse pas&nbsp;: il s'adapte instantanément à votre position. Ce soutien, combiné à une faible pression d'appui et à une chaleur agréable, est un bienfait pour votre dos.</p>
           </details>
           <details>
-            <summary>Livrez-vous et installez-vous le lit à domicile&nbsp;?</summary>
-            <p>Oui. Nous livrons et installons nos lits dans toute l'Europe, avec reprise de l'ancienne literie sur demande. Le suivi technique et le service après-vente sont assurés par La Maison du Dos.</p>
+            <summary>A-t-on le mal de mer sur un matelas à eau&nbsp;?</summary>
+            <p>Non. L'eau ne bouge que lorsque vous bougez vous-même, et ce mouvement est immédiatement amorti par la stabilisation intégrée au matelas.</p>
           </details>
           <details>
-            <summary>Quelle différence entre matelas à eau et matelas à suspension air&nbsp;?</summary>
-            <p>Le matelas à eau est thermorégulé et offre un soutien flottant. Le matelas à suspension air, associé à un surmatelas latex, mousse ou gel viscoélastique, permet de régler la fermeté à la télécommande, côté par côté.</p>
+            <summary>Quel est le poids d'un lit à eau&nbsp;?</summary>
+            <p>Selon le modèle, un lit à eau double pèse jusqu'à 800&nbsp;kg, soit 150 à 200&nbsp;kg/m², une charge répartie par le socle. En plus de trente ans d'installations, nous n'avons jamais eu à renoncer à un montage&nbsp;: là où l'on peut installer un congélateur rempli, on peut installer un lit à eau.</p>
           </details>
           <details>
-            <summary>Quel entretien pour un matelas à eau&nbsp;?</summary>
-            <p>L'entretien est simple&nbsp;: un conditionneur à ajouter dans l'eau une fois par an et un nettoyage régulier de la housse. Nous vous accompagnons avec un suivi technique après l'installation.</p>
+            <summary>Combien consomme un matelas à eau&nbsp;?</summary>
+            <p>Pour un lit à eau dual, comptez environ 1,32 à 1,53&nbsp;kWh par jour selon la température réglée, l'isolation et la pièce, soit en moyenne une dizaine d'euros par mois sur l'année.</p>
           </details>
           <details>
-            <summary>Comment obtenir un devis personnalisé&nbsp;?</summary>
-            <p>Remplissez notre <a href="/vos-devis-en-cours/">formulaire de devis en ligne</a>, appelez le <a href="tel:+33325042019">03 25 04 20 19</a> (9h–21h, 7j/7) ou écrivez-nous sur <a href="https://wa.me/33674393987" rel="noopener">WhatsApp</a>. Un conseiller spécialisé vous répond rapidement.</p>
+            <summary>Comment entretenir un lit à eau&nbsp;?</summary>
+            <p>Purgez bien l'air des matelas la première semaine, puis ajoutez un <a href="/conditionneur-multi-usage-waterclean-plus/">conditionneur anti-algues</a> une à deux fois par an selon le produit. Il n'est pas nécessaire de changer l'eau, sauf en cas de déménagement.</p>
           </details>
         </div>
+        <p class="faq__more"><a class="link-arrow" href="/matelas-a-eau-faq-complete-35-reponses-dexperts/">Lire les 35 réponses de nos experts <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
       </div>
     </section>
 
@@ -442,7 +458,7 @@
       <div class="container cta__inner">
         <div>
           <h2 id="cta-title">Un projet de literie&nbsp;? Parlons-en.</h2>
-          <p>Un spécialiste vous répond 7 jours sur 7, de 9h à 21h.</p>
+          <p>De façon humaine et sincère, un spécialiste vous répond 7 jours sur 7, de 9h à 21h.</p>
         </div>
         <div class="cta__actions">
           <a class="btn btn--accent btn--lg" href="tel:+33325042019"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>03 25 04 20 19</a>
@@ -459,9 +475,9 @@
         <a class="logo logo--light" href="/">
           <img src="assets/img/logo.webp" width="425" height="130" alt="La Maison du Dos – accueil" loading="lazy" decoding="async">
         </a>
-        <p>Spécialiste du confort du dos depuis 1988 et du lit à eau depuis 1994.</p>
+        <p>La marque de confort du dos depuis 1988.</p>
         <address>
-          5 rue du Moulin<br>52230 Epizon, France<br>
+          5 rue du Moulin<br>52270 Epizon, France<br>
           <a href="tel:+33325042019">03 25 04 20 19</a><br>
           <a href="mailto:info@la-maison-du-dos.com">info@la-maison-du-dos.com</a>
         </address>
@@ -470,18 +486,20 @@
         <h2 class="footer__title">Nos produits</h2>
         <ul>
           <li><a href="/lits-a-eau/">Lits à eau</a></li>
-          <li><a href="/matelas-a-eau-legers/">Matelas à eau légers</a></li>
-          <li><a href="/matelas-suspension-air/">Matelas à suspension air</a></li>
-          <li><a href="/surmatelas/">Surmatelas</a></li>
-          <li><a href="/linge-de-lit-hefel/">Linge de lit Hefel</a></li>
+          <li><a href="/matelas-reglables/matelas-a-eau-leger-bebe/">Matelas à eau légers &amp; bébé</a></li>
+          <li><a href="/matelas-reglables/matelas-a-telecommande/">Matelas à télécommande</a></li>
+          <li><a href="/linge-de-lit/">Linge de lit</a></li>
+          <li><a href="/product-category/accessoires-produits-dentretien-sav/">Accessoires, SAV &amp; entretien</a></li>
+          <li><a href="/nos-marques/">Nos marques</a></li>
         </ul>
       </nav>
-      <nav aria-label="Informations">
-        <h2 class="footer__title">Informations</h2>
+      <nav aria-label="Aide et informations">
+        <h2 class="footer__title">Aide &amp; conseils</h2>
         <ul>
           <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
+          <li><a href="/matelas-a-eau-faq-complete-35-reponses-dexperts/">Matelas à eau : FAQ</a></li>
+          <li><a href="/blog">Conseils &amp; guides</a></li>
           <li><a href="/livraison-paiement/">Livraison &amp; paiement</a></li>
-          <li><a href="/vos-devis-en-cours/">Mes devis</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
@@ -495,8 +513,8 @@
       <p>© <span data-year>2026</span> La Maison du Dos. Tous droits réservés.</p>
       <ul>
         <li><a href="/mentions-legales/">Mentions légales</a></li>
-        <li><a href="/cgv/">CGV</a></li>
-        <li><a href="/politique-de-confidentialite/">Confidentialité</a></li>
+        <li><a href="/conditions-generales-de-ventes/">Conditions générales de vente</a></li>
+        <li><a href="/conditions-generales-de-ventes/">Protection des données</a></li>
       </ul>
     </div>
   </footer>
@@ -519,6 +537,7 @@
       <symbol id="i-remote" viewBox="0 0 24 24"><rect x="8" y="2.5" width="8" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="7" r="1.5" fill="currentColor"/><path d="M10.5 12h3M10.5 15.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
       <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
       <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 9 11 4 20 4c0 9-5 15-15 15Zm0 0 8-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
       <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     </defs>
   </svg>

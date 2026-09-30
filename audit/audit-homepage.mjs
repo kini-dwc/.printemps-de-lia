@@ -45,6 +45,8 @@ function classify(u) {
 
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH || undefined,
+  // Arguments Chromium supplémentaires (ex. proxy d'entreprise), séparés par des espaces
+  args: process.env.CHROMIUM_ARGS ? process.env.CHROMIUM_ARGS.split(' ') : [],
 });
 const context = await browser.newContext(
   desktop

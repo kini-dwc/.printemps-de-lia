@@ -19,41 +19,62 @@ defined( 'ABSPATH' ) || exit;
  *    Chaque ligne est à valider avec le mode diagnostic avant mise en prod.
  * -------------------------------------------------------------------------- */
 
+// Handles relevés sur prod.la-maison-du-dos.com le 30/09/2026 (audit/rapport/).
 const LMDD_HOME_DEQUEUE_SCRIPTS = array(
-	'wc-cart-fragments',   // WooCommerce : requête AJAX sur chaque page vue (très coûteux)
-	'woocommerce',         // JS WooCommerce (inutile sans bouton « ajouter au panier » AJAX)
-	'wc-add-to-cart',
-	'sourcebuster-js',     // WooCommerce 8.5+ : attribution des commandes
+	// Prisna WP Translate : son script « blocks » tire TOUTE la pile de l'éditeur Gutenberg
+	// sur le front (React, wp-components, wp-block-editor, moment… : 43 fichiers, 1,17 Mo, synchrones).
+	'prisna-wp-translate-blocks',
+	'jquery-ui-mouse',
+	'jquery-ui-draggable',
+	// ProfilePress (wp-user-avatar) : formulaires de compte, inutiles sur l'accueil
+	'ppress-flatpickr',
+	'ppress-select2',
+	'ppress-frontend-script',
+	// Royal Elementor Addons : effets non utilisés par la nouvelle page
+	'wpr-particles',
+	'wpr-jarallax',
+	'wpr-parallax-hover',
+	'wpr-perfect-scroll-js',
+	'wpr-popup-scroll-js',
+	'wpr-modal-popups-js',      // à garder si une popup Royal est active sur l'accueil
+	// Paiement / commande : utiles au tunnel de commande seulement
+	'alma-classic-checkout',
+	'wc-jquery-blockui',
+	'sourcebuster-js',
 	'wc-order-attribution',
-	'jquery-yith-wcwl',    // YITH Wishlist
-	'jquery-selectBox',
-	'prettyPhoto',
-	'tinvwl',              // TI Wishlist
-	'yith_ywraq_frontend', // YITH Request a Quote
+	// Anti-spam Cloudflare : utile uniquement sur les pages avec formulaire
+	'cloudflare-turnstile',
+	// Menu accordéon WPB (à garder s'il sert au menu de l'en-tête actuel)
+	'wpb_wmca_jquery_cookie',
+	'wpb_wmca_accordion_script',
+	'wpb_wmca_accordion_init',
 	'wp-embed',
 	'comment-reply',
 );
 
 const LMDD_HOME_DEQUEUE_STYLES = array(
-	'wp-block-library',       // Gutenberg (inutile si la page est construite avec Elementor)
+	'prisna-wp-translate-blocks',
+	'ppress-frontend',
+	'ppress-flatpickr',
+	'ppress-select2',
+	'alma-widget-cdn',
+	'alma-widget',
+	'alma-classic-checkout',
+	'alma-gateway-block',
+	'alma-gateway-block-react-component',
+	'wcsag-font',                 // Google Fonts Open Sans + Oswald du plugin d'avis
+	'flexible-shipping-free-shipping',
+	'wpr-link-animations-css',
+	'wpr-text-animations-css',
+	'font-awesome-5-all',         // Font Awesome complet (icônes SVG inline sur la nouvelle page)
+	'elementor-gf-local-poppins', // polices Elementor : la nouvelle page utilise la pile système
+	'elementor-gf-local-roboto',
+	'elementor-gf-local-robotoslab',
+	'wp-block-library',
 	'wp-block-library-theme',
 	'classic-theme-styles',
 	'global-styles',
-	'wc-blocks-style',        // Blocs WooCommerce
-	'wc-blocks-vendors-style',
-	'woocommerce-layout',
-	'woocommerce-smallscreen',
-	'woocommerce-general',
-	'yith-wcwl-main',
-	'yith-wcwl-font-awesome',
-	'jquery-selectBox',
-	'woocommerce_prettyPhoto_css',
-	'tinvwl',
-	'yith_ywraq_frontend',
-	'elementor-icons-shared-0', // Font Awesome d'Elementor (si icônes SVG inline utilisées)
-	'elementor-icons-fa-solid',
-	'elementor-icons-fa-regular',
-	'elementor-icons-fa-brands',
+	'wc-blocks-style',
 );
 
 /** Page(s) où appliquer le nettoyage agressif. */

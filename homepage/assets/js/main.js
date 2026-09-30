@@ -78,33 +78,6 @@
     });
   });
 
-  /* ---- Trustpilot : script tiers chargé seulement à l'approche de la section ----
-     Évite ~150 Ko de JS + iframe au chargement initial. */
-  var tp = doc.querySelector('[data-lazy-trustbox]');
-  if (tp && tp.dataset.templateId && tp.dataset.templateId.indexOf('VOTRE_') !== 0) {
-    var loadTP = function () {
-      tp.className += ' trustpilot-widget';
-      tp.setAttribute('data-locale', 'fr-FR');
-      tp.setAttribute('data-style-height', '240px');
-      tp.setAttribute('data-style-width', '100%');
-      var s = doc.createElement('script');
-      s.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
-      s.async = true;
-      s.onload = function () { if (window.Trustpilot) window.Trustpilot.loadFromElement(tp, true); };
-      doc.head.appendChild(s);
-    };
-    if ('IntersectionObserver' in window) {
-      var tpio = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { tpio.disconnect(); loadTP(); }
-      }, { rootMargin: '400px 0px' });
-      tpio.observe(tp);
-    } else {
-      window.addEventListener('load', loadTP);
-    }
-  } else if (tp) {
-    tp.querySelector('.reviews__placeholder').textContent = 'Widget Trustpilot : renseignez vos identifiants TrustBox.';
-  }
-
   /* ---- Année du copyright ---- */
   var y = doc.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();

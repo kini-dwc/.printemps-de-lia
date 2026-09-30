@@ -28,6 +28,8 @@ npm run audit -- https://prod.la-maison-du-dos.com/            # profil mobile
 npm run audit -- https://prod.la-maison-du-dos.com/ --desktop
 ```
 
+Derrière un proxy d'entreprise, des arguments Chromium peuvent être passés via `CHROMIUM_ARGS`.
+
 ## Choix techniques de la maquette
 
 - **Aucune dépendance** : ni jQuery, ni framework, ni police externe, ni police d'icônes (sprite SVG inline).
@@ -43,11 +45,16 @@ npm run audit -- https://prod.la-maison-du-dos.com/ --desktop
 - **Pensé pour Elementor** : chaque section correspond à un conteneur Flexbox ; la grille produits
   sera remplacée par le widget WooCommerce « Produits » lors de la conversion JSON.
 
-## À fournir / valider avant la conversion Elementor
+## Contenus vérifiés
 
-1. ~~Couleurs du logo~~ : **fait**. Charte tirée de `assets/img/logo.webp` : vert `#035C11`, rouge `#C80C25`,
-   déclinaisons dans `:root` en haut de `main.css`.
-2. **Logo en SVG** si disponible (plus net que le WebP actuel, 425×130 px).
-3. **Photos** : hero (chambre avec lit à eau) + 4 produits phares, idéalement en AVIF/WebP.
-4. **Contenus à confirmer** : code postal (52230 ou 52270 ?), produits phares et prix, réponses de la FAQ,
-   identifiants TrustBox Trustpilot, slugs des catégories WooCommerce.
+Tous les textes, chiffres, liens et produits de la maquette ont été vérifiés le 30/09/2026 sur
+`prod.la-maison-du-dos.com` : accueil, contact, mentions légales, qui sommes-nous, livraison/paiement,
+FAQ « 35 réponses d'experts », fiches produits. Les avis viennent du widget officiel de la Société des Avis Garantis.
+Photos : images du site (lit à eau Altura, Havre, Tec-Line, Aqualight, Bella Donna), recadrées et converties en WebP.
+
+## À valider avant la conversion Elementor
+
+1. **Code postal** : 52270 (mentions légales) ou 52230 (annuaires) ?
+2. **Prix** : affichés tels que sur le site ; sont-ils HT ou TTC ?
+3. **Produits mis en avant** : sélection actuelle (Havre, Tec-Line, Aqualight Premium, Bella Donna) à confirmer.
+4. **Logo en SVG** si disponible (plus net que le WebP actuel, 425×130 px).
