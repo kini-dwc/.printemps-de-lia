@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560">
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8f5fb"/><stop offset="1" stop-color="#d3eaf5"/></linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf6ee"/><stop offset="1" stop-color="#dcebdd"/></linearGradient>
     <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9b89c"/><stop offset="1" stop-color="#b7a283"/></linearGradient>
-    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a9bc7"/><stop offset="1" stop-color="#0f4c71"/></linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2e8b3a"/><stop offset="1" stop-color="#024a0e"/></linearGradient>
     <linearGradient id="win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff7e6"/><stop offset="1" stop-color="#fde3b5"/></linearGradient>
   </defs>
   <rect width="640" height="400" fill="url(#wall)"/>
   <rect y="400" width="640" height="160" fill="url(#floor)"/>
   <rect x="400" y="60" width="170" height="210" rx="6" fill="url(#win)" stroke="#fff" stroke-width="10"/>
   <path d="M485 60v210M400 165h170" stroke="#fff" stroke-width="6"/>
-  <circle cx="110" cy="120" r="34" fill="#e8a33d" opacity=".9"/>
-  <path d="M70 170h80l-10 70h-60z" fill="#0b3a57" opacity=".12"/>
+  <circle cx="110" cy="120" r="34" fill="#c80c25" opacity=".9"/>
+  <path d="M70 170h80l-10 70h-60z" fill="#035c11" opacity=".12"/>
   <!-- tête de lit -->
-  <rect x="70" y="220" width="500" height="120" rx="18" fill="#0b3a57"/>
-  <rect x="86" y="236" width="468" height="96" rx="12" fill="#0f4c71"/>
+  <rect x="70" y="220" width="500" height="120" rx="18" fill="#035c11"/>
+  <rect x="86" y="236" width="468" height="96" rx="12" fill="#024a0e"/>
   <!-- cadre -->
   <rect x="50" y="340" width="540" height="90" rx="14" fill="#f4efe6"/>
   <rect x="50" y="420" width="540" height="22" rx="8" fill="#d9cdb8"/>
@@ -26,9 +26,9 @@
   <rect x="100" y="290" width="150" height="46" rx="20" fill="#fff"/>
   <rect x="390" y="290" width="150" height="46" rx="20" fill="#fff"/>
   <path d="M60 350c80-18 170-24 270-18s190 10 250 0v60c-100 16-420 16-520 0z" fill="#ffffff"/>
-  <path d="M60 350c80-18 170-24 270-18s190 10 250 0" fill="none" stroke="#dde6ee" stroke-width="3"/>
-  <path d="M60 392c120 12 400 12 520 0" fill="none" stroke="#e8a33d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M60 350c80-18 170-24 270-18s190 10 250 0" fill="none" stroke="#dfe7e0" stroke-width="3"/>
+  <path d="M60 392c120 12 400 12 520 0" fill="none" stroke="#c80c25" stroke-width="6" stroke-linecap="round"/>
   <!-- plante -->
-  <rect x="592" y="360" width="34" height="52" rx="6" fill="#0b3a57"/>
+  <rect x="592" y="360" width="34" height="52" rx="6" fill="#035c11"/>
   <path d="M609 362c-20-30-12-60 0-80 12 20 20 50 0 80zm0 0c-30-10-40-34-36-52 20 8 34 26 36 52zm0 0c30-10 40-34 36-52-20 8-34 26-36 52z" fill="#4c9a6a"/>
 </svg>

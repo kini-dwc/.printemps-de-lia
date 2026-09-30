@@ -45,9 +45,9 @@ npm run audit -- https://prod.la-maison-du-dos.com/ --desktop
 
 ## À fournir / valider avant la conversion Elementor
 
-1. **Couleurs exactes du logo** (codes HEX) : la charte est centralisée dans `:root` en haut de `main.css`
-   (`--c-primary`, `--c-aqua`, `--c-accent`) ; les valeurs actuelles sont provisoires.
-2. **Logo** en SVG (ou PNG haute définition).
+1. ~~Couleurs du logo~~ : **fait**. Charte tirée de `assets/img/logo.webp` : vert `#035C11`, rouge `#C80C25`,
+   déclinaisons dans `:root` en haut de `main.css`.
+2. **Logo en SVG** si disponible (plus net que le WebP actuel, 425×130 px).
 3. **Photos** : hero (chambre avec lit à eau) + 4 produits phares, idéalement en AVIF/WebP.
 4. **Contenus à confirmer** : code postal (52230 ou 52270 ?), produits phares et prix, réponses de la FAQ,
    identifiants TrustBox Trustpilot, slugs des catégories WooCommerce.
