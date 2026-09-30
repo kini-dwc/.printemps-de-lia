@@ -782,13 +782,14 @@
        "widgetType": "image",
        "settings": {
         "image": {
-         "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2025/10/altura-pos.jpg",
-         "id": 910001,
+         "url": "a-choisir:lit-a-eau-altura.webp",
+         "id": "",
          "alt": "Lit à eau Altura de Poseïdon avec tête de lit, dans une chambre lumineuse",
          "source": "library",
          "size": ""
         },
         "image_size": "full",
+        "_title": "Image à choisir : lit-a-eau-altura.webp",
         "width": {
          "unit": "%",
          "size": 100,
@@ -2806,6 +2807,13 @@
        "isLocked": false,
        "widgetType": "image",
        "settings": {
+        "image": {
+         "url": "a-choisir:schema-pression-matelas-eau.png",
+         "id": "",
+         "alt": "Schéma : sur un matelas classique la pression se concentre sur les épaules et le bassin, sur un matelas à eau elle est répartie uniformément",
+         "source": "library",
+         "size": ""
+        },
         "image_size": "full",
         "width": {
          "unit": "%",
@@ -2828,7 +2836,7 @@
          "spread": 0,
          "color": "rgba(1,46,8,0.06)"
         },
-        "_title": "Schéma pression (à remplacer)"
+        "_title": "Image à choisir : schema-pression-matelas-eau.png"
        },
        "elements": []
       }
@@ -3476,13 +3484,14 @@
          "widgetType": "image",
          "settings": {
           "image": {
-           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2026/09/Havre3-1.webp",
-           "id": 910002,
+           "url": "a-choisir:lit-a-eau-havre.webp",
+           "id": "",
            "alt": "Lit à eau Havre avec tête de lit capitonnée grise",
            "source": "library",
            "size": ""
           },
           "image_size": "full",
+          "_title": "Image à choisir : lit-a-eau-havre.webp",
           "width": {
            "unit": "%",
            "size": 100,
@@ -3681,13 +3690,14 @@
          "widgetType": "image",
          "settings": {
           "image": {
-           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2024/10/tec-line-standard.webp",
-           "id": 910003,
+           "url": "a-choisir:lit-a-eau-tec-line.webp",
+           "id": "",
            "alt": "Lit à eau Tec-Line avec socle noir",
            "source": "library",
            "size": ""
           },
           "image_size": "full",
+          "_title": "Image à choisir : lit-a-eau-tec-line.webp",
           "width": {
            "unit": "%",
            "size": 100,
@@ -3886,13 +3896,14 @@
          "widgetType": "image",
          "settings": {
           "image": {
-           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2024/11/matelas-eau-leger.jpg",
-           "id": 910004,
+           "url": "a-choisir:matelas-eau-leger-aqualight.webp",
+           "id": "",
            "alt": "Matelas à eau léger Aqualight Premium",
            "source": "library",
            "size": ""
           },
           "image_size": "full",
+          "_title": "Image à choisir : matelas-eau-leger-aqualight.webp",
           "width": {
            "unit": "%",
            "size": 100,
@@ -4091,13 +4102,14 @@
          "widgetType": "image",
          "settings": {
           "image": {
-           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2024/11/bella-donna-standard-0030-bordeaux.jpg",
-           "id": 910005,
+           "url": "a-choisir:drap-housse-bella-donna.webp",
+           "id": "",
            "alt": "Drap-housse jersey Bella Donna bordeaux",
            "source": "library",
            "size": ""
           },
           "image_size": "full",
+          "_title": "Image à choisir : drap-housse-bella-donna.webp",
           "width": {
            "unit": "%",
            "size": 100,

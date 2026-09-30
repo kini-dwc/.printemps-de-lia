@@ -126,13 +126,14 @@
          "widgetType": "image",
          "settings": {
           "image": {
-           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2024/09/cropped-template_images_logo-boutique-pc.webp",
-           "id": 910006,
+           "url": "a-choisir:logo-la-maison-du-dos.webp",
+           "id": "",
            "alt": "La Maison du Dos – accueil",
            "source": "library",
            "size": ""
           },
           "image_size": "full",
+          "_title": "Image à choisir : logo-la-maison-du-dos.webp",
           "width": {
            "unit": "px",
            "size": 200,

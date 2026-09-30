@@ -105,10 +105,33 @@ const BtnLink = (text, url, o = {}) => W('button', {
   background_color: 'rgba(0,0,0,0)', button_text_color: o.color || C.green, button_background_hover_color: 'rgba(0,0,0,0)', hover_color: o.hover || C.greenMid,
 });
 
-// id factice mais unique : lors d'un réimport, Elementor réutilise l'image déjà importée (même URL)
-let imgSeq = 910001;
+/*
+ * Images : par défaut, AUCUN téléchargement pendant l'import.
+ * Elementor télécharge chaque image d'un modèle importé ; sur un serveur lent, cela dépasse le temps
+ * maximal d'exécution PHP (erreur 500). On utilise donc une adresse « a-choisir:<fichier> » qui échoue
+ * immédiatement, sans requête réseau : Elementor met alors son image d'attente, et le widget est nommé
+ * « Image à choisir : <fichier> » dans le panneau Structure. Les images optimisées sont fournies à part.
+ * IMAGES=distantes node elementor/build.mjs  → ancien comportement (téléchargement depuis le site).
+ */
+const REMOTE_IMAGES = process.env.IMAGES === 'distantes';
+const PACK = {
+  'altura-pos.jpg': 'lit-a-eau-altura.webp',
+  'Havre3-1.webp': 'lit-a-eau-havre.webp',
+  'tec-line-standard.webp': 'lit-a-eau-tec-line.webp',
+  'matelas-eau-leger.jpg': 'matelas-eau-leger-aqualight.webp',
+  'bella-donna-standard-0030-bordeaux.jpg': 'drap-housse-bella-donna.webp',
+  'cropped-template_images_logo-boutique-pc.webp': 'logo-la-maison-du-dos.webp',
+  'schema-pression-matelas-eau.png': 'schema-pression-matelas-eau.png',
+};
+export const IMAGE_LIST = []; // [fichier, texte alternatif, emplacement]
+const imageValue = (url, alt) => {
+  const file = PACK[url.split('/').pop()] || url.split('/').pop();
+  return REMOTE_IMAGES ? { url, id: '', alt, source: 'library', size: '' } : { url: 'a-choisir:' + file, id: '', alt, source: 'library', size: '' };
+};
+const imageTitle = (url) => 'Image à choisir : ' + (PACK[url.split('/').pop()] || url.split('/').pop());
+
 const Img = (url, alt, o = {}) => W('image', {
-  image: { url, id: imgSeq++, alt, source: 'library', size: '' }, image_size: 'full',
+  image: imageValue(url, alt), image_size: 'full', _title: imageTitle(url),
   width: pct(100), ...(o.height ? { height: px(o.height), height_mobile: px(o.heightM || o.height), 'object-fit': 'cover' } : {}),
   image_border_radius: box(o.radius ?? 22),
   ...(o.link ? { link_to: 'custom', link: link(o.link) } : {}),
@@ -238,9 +261,10 @@ const why = Section({
   Con({ _title: 'Schéma', width: pct(48), width_tablet: pct(100), flex_direction: 'column' }, [
     // Image à remplacer par elementor/images/schema-pression-matelas-eau.png (voir LISEZ-MOI)
     W('image', {
+      image: imageValue('schema-pression-matelas-eau.png', "Schéma : sur un matelas classique la pression se concentre sur les épaules et le bassin, sur un matelas à eau elle est répartie uniformément"),
       image_size: 'full', width: pct(100), image_border_radius: box(22),
       image_box_shadow_box_shadow_type: 'yes', image_box_shadow_box_shadow: { horizontal: 0, vertical: 2, blur: 8, spread: 0, color: 'rgba(1,46,8,0.06)' },
-      _title: 'Schéma pression (à remplacer)',
+      _title: imageTitle('schema-pression-matelas-eau.png'),
     }),
   ]),
   Con({ _title: 'Pourquoi – texte', width: pct(52), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(0) }, [
