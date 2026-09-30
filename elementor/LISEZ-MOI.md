@@ -28,6 +28,12 @@ Accompagnement, Qui sommes-nous, Avis clients, FAQ, Appel à l'action.
 **Seule exception** : le widget des avis est un widget *HTML* contenant l'iframe officielle de la Société des Avis
 Garantis. Ce service ne propose pas d'autre intégration.
 
+## Méthode recommandée : l'extension d'import
+
+Si l'import de fichiers d'Elementor échoue (erreur 500, ZIP ou JSON sans effet), utilisez **`dist/lmdd-import-accueil.zip`** :
+une extension à installer comme n'importe quelle autre, qui crée la page, les modèles et les images directement sur le site.
+Mode d'emploi : `wordpress/plugins/lmdd-import-accueil/LISEZ-MOI.md`.
+
 ## Pourquoi l'import échouait (erreur 500)
 
 La première version des modèles contenait l'adresse des photos : pendant l'import, Elementor **téléchargeait chaque photo**
