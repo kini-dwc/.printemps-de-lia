@@ -1,0 +1,987 @@
+{
+ "content": [
+  {
+   "id": "1a2b0c9",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "footer",
+    "padding": {
+     "unit": "px",
+     "top": "64",
+     "right": "24",
+     "bottom": "0",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_tablet": {
+     "unit": "px",
+     "top": "72",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "48",
+     "right": "16",
+     "bottom": "0",
+     "left": "16",
+     "isLinked": false
+    },
+    "flex_direction": "column",
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0",
+     "isLinked": true
+    },
+    "_title": "Pied de page",
+    "background_background": "classic",
+    "background_color": "#012E08"
+   },
+   "elements": [
+    {
+     "id": "1a2b0c2",
+     "elType": "container",
+     "isInner": true,
+     "isLocked": false,
+     "settings": {
+      "content_width": "full",
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "48",
+       "left": "0",
+       "isLinked": false
+      },
+      "_title": "Pied – colonnes",
+      "container_type": "grid",
+      "grid_columns_grid": {
+       "unit": "custom",
+       "size": "1.5fr 1fr 1fr 1fr",
+       "sizes": []
+      },
+      "grid_columns_grid_tablet": {
+       "unit": "fr",
+       "size": 2
+      },
+      "grid_columns_grid_mobile": {
+       "unit": "fr",
+       "size": 1
+      },
+      "grid_rows_grid": {
+       "unit": "fr",
+       "size": 1
+      },
+      "grid_gaps": {
+       "unit": "px",
+       "size": 40,
+       "column": "40",
+       "row": "40",
+       "isLinked": true
+      }
+     },
+     "elements": [
+      {
+       "id": "1a2b0ac",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+         "unit": "px",
+         "size": 0,
+         "column": "0",
+         "row": "0",
+         "isLinked": true
+        }
+       },
+       "elements": [
+        {
+         "id": "1a2b0a6",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "image",
+         "settings": {
+          "image": {
+           "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2024/09/cropped-template_images_logo-boutique-pc.webp",
+           "id": 910006,
+           "alt": "La Maison du Dos – accueil",
+           "source": "library",
+           "size": ""
+          },
+          "image_size": "full",
+          "width": {
+           "unit": "px",
+           "size": 200,
+           "sizes": []
+          },
+          "image_border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "link_to": "custom",
+          "link": {
+           "url": "/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "_background_background": "classic",
+          "_background_color": "#FFFFFF",
+          "_padding": {
+           "unit": "px",
+           "top": "12",
+           "right": "16",
+           "bottom": "12",
+           "left": "16",
+           "isLinked": false
+          },
+          "_border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "_element_width": "initial",
+          "_element_custom_width": {
+           "unit": "px",
+           "size": 232,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "16",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0a7",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>La marque de confort du dos depuis 1988.</p>",
+          "text_color": "#B3C9B6",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "12",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0ab",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "icon-list",
+         "settings": {
+          "icon_list": [
+           {
+            "text": "5 rue du Moulin, 52270 Epizon, France",
+            "selected_icon": {
+             "value": "fas fa-map-marker-alt",
+             "library": "fa-solid"
+            },
+            "_id": "1a2b0a8"
+           },
+           {
+            "text": "03 25 04 20 19",
+            "link": {
+             "url": "tel:+33325042019",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "fas fa-phone",
+             "library": "fa-solid"
+            },
+            "_id": "1a2b0a9"
+           },
+           {
+            "text": "info@la-maison-du-dos.com",
+            "link": {
+             "url": "mailto:info@la-maison-du-dos.com",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "fas fa-envelope",
+             "library": "fa-solid"
+            },
+            "_id": "1a2b0aa"
+           }
+          ],
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "icon_color": "#A9D8B0",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "text_color": "#E3EEE4",
+          "text_color_hover": "#FFFFFF",
+          "text_indent": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "1a2b0b5",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+         "unit": "px",
+         "size": 0,
+         "column": "0",
+         "row": "0",
+         "isLinked": true
+        }
+       },
+       "elements": [
+        {
+         "id": "1a2b0ad",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "heading",
+         "settings": {
+          "title": "Nos produits",
+          "header_size": "p",
+          "title_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "14",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0b4",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "icon-list",
+         "settings": {
+          "icon_list": [
+           {
+            "text": "Lits à eau",
+            "link": {
+             "url": "/lits-a-eau/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0ae"
+           },
+           {
+            "text": "Matelas à eau légers & bébé",
+            "link": {
+             "url": "/matelas-reglables/matelas-a-eau-leger-bebe/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0af"
+           },
+           {
+            "text": "Matelas à télécommande",
+            "link": {
+             "url": "/matelas-reglables/matelas-a-telecommande/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b0"
+           },
+           {
+            "text": "Linge de lit",
+            "link": {
+             "url": "/linge-de-lit/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b1"
+           },
+           {
+            "text": "Accessoires, SAV & entretien",
+            "link": {
+             "url": "/product-category/accessoires-produits-dentretien-sav/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b2"
+           },
+           {
+            "text": "Nos marques",
+            "link": {
+             "url": "/nos-marques/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b3"
+           }
+          ],
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "text_color": "#E3EEE4",
+          "text_color_hover": "#FFFFFF",
+          "icon_typography_typography": "custom",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "1a2b0bd",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+         "unit": "px",
+         "size": 0,
+         "column": "0",
+         "row": "0",
+         "isLinked": true
+        }
+       },
+       "elements": [
+        {
+         "id": "1a2b0b6",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "heading",
+         "settings": {
+          "title": "Aide & conseils",
+          "header_size": "p",
+          "title_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "14",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0bc",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "icon-list",
+         "settings": {
+          "icon_list": [
+           {
+            "text": "Qui sommes-nous",
+            "link": {
+             "url": "/qui-sommes-nous/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b7"
+           },
+           {
+            "text": "Matelas à eau : FAQ",
+            "link": {
+             "url": "/matelas-a-eau-faq-complete-35-reponses-dexperts/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b8"
+           },
+           {
+            "text": "Conseils & guides",
+            "link": {
+             "url": "/blog",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0b9"
+           },
+           {
+            "text": "Livraison & paiement",
+            "link": {
+             "url": "/livraison-paiement/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0ba"
+           },
+           {
+            "text": "Contact",
+            "link": {
+             "url": "/contact/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "_id": "1a2b0bb"
+           }
+          ],
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "text_color": "#E3EEE4",
+          "text_color_hover": "#FFFFFF",
+          "icon_typography_typography": "custom",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "1a2b0c1",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+         "unit": "px",
+         "size": 0,
+         "column": "0",
+         "row": "0",
+         "isLinked": true
+        },
+        "flex_align_items": "flex-start"
+       },
+       "elements": [
+        {
+         "id": "1a2b0be",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "heading",
+         "settings": {
+          "title": "Service client",
+          "header_size": "p",
+          "title_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "14",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0bf",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>7 jours sur 7<br>de 9h à 21h</p>",
+          "text_color": "#B3C9B6",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "16",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b0c0",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "button",
+         "settings": {
+          "text": "Écrire sur WhatsApp",
+          "link": {
+           "url": "https://wa.me/33674393987",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "size": "md",
+          "typography_typography": "custom",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "600",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "12",
+           "right": "20",
+           "bottom": "12",
+           "left": "20",
+           "isLinked": false
+          },
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "row",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          },
+          "background_color": "#C80C25",
+          "button_text_color": "#FFFFFF",
+          "button_background_hover_color": "#A50A1E",
+          "hover_color": "#FFFFFF"
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1a2b0c8",
+     "elType": "container",
+     "isInner": true,
+     "isLocked": false,
+     "settings": {
+      "content_width": "full",
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "20",
+       "left": "0",
+       "isLinked": false
+      },
+      "_title": "Pied – bas",
+      "flex_direction": "row",
+      "flex_direction_mobile": "column",
+      "flex_justify_content": "space-between",
+      "flex_align_items": "center",
+      "flex_align_items_mobile": "flex-start",
+      "flex_gap": {
+       "unit": "px",
+       "size": 12,
+       "column": "12",
+       "row": "12",
+       "isLinked": true
+      },
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "1",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(255,255,255,0.1)"
+     },
+     "elements": [
+      {
+       "id": "1a2b0c3",
+       "elType": "widget",
+       "isInner": false,
+       "isLocked": false,
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>© 2026 La Maison du Dos. Tous droits réservés.</p>",
+        "text_color": "#B3C9B6",
+        "typography_typography": "custom",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.65,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "1a2b0c7",
+       "elType": "widget",
+       "isInner": false,
+       "isLocked": false,
+       "widgetType": "icon-list",
+       "settings": {
+        "view": "inline",
+        "icon_list": [
+         {
+          "text": "Mentions légales",
+          "link": {
+           "url": "/mentions-legales/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "_id": "1a2b0c4"
+         },
+         {
+          "text": "Conditions générales de vente",
+          "link": {
+           "url": "/conditions-generales-de-ventes/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "_id": "1a2b0c5"
+         },
+         {
+          "text": "Protection des données",
+          "link": {
+           "url": "/conditions-generales-de-ventes/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "_id": "1a2b0c6"
+         }
+        ],
+        "space_between": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "text_color": "#E3EEE4",
+        "text_color_hover": "#FFFFFF",
+        "icon_typography_typography": "custom",
+        "icon_typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "icon_typography_line_height": {
+         "unit": "em",
+         "size": 1.5,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": [],
+ "version": "0.4",
+ "title": "Pied de page – La Maison du Dos",
+ "type": "section"
+}
