@@ -1,7 +1,7 @@
 {
  "content": [
   {
-   "id": "1a2b0d1",
+   "id": "1a2b0d2",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -175,7 +175,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d0",
+     "id": "1a2b0d1",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -204,6 +204,20 @@
          "library": "fa-regular"
         },
         "_id": "1a2b0cf"
+       },
+       {
+        "text": "Contact",
+        "link": {
+         "url": "/contact/",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "selected_icon": {
+         "value": "far fa-envelope",
+         "library": "fa-regular"
+        },
+        "_id": "1a2b0d0"
        }
       ],
       "space_between": {
@@ -247,7 +261,7 @@
    ]
   },
   {
-   "id": "1a2b0d9",
+   "id": "1a2b0da",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -306,7 +320,7 @@
    },
    "elements": [
     {
-     "id": "1a2b0d2",
+     "id": "1a2b0d3",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -354,7 +368,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d3",
+     "id": "1a2b0d4",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -428,7 +442,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d4",
+     "id": "1a2b0d5",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -483,7 +497,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d5",
+     "id": "1a2b0d6",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -520,7 +534,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d6",
+     "id": "1a2b0d7",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -556,7 +570,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d7",
+     "id": "1a2b0d8",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -581,7 +595,7 @@
      "elements": []
     },
     {
-     "id": "1a2b0d8",
+     "id": "1a2b0d9",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
@@ -672,13 +686,13 @@
    ]
   },
   {
-   "id": "1a2b0db",
+   "id": "1a2b0dd",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
    "settings": {
     "content_width": "boxed",
-    "_title": "En-tête – menu (ordinateur)",
+    "_title": "En-tête – méga-menu (ordinateur)",
     "boxed_width": {
      "unit": "px",
      "size": 1200,
@@ -712,13 +726,13 @@
    },
    "elements": [
     {
-     "id": "1a2b0da",
+     "id": "1a2b0dc",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
-     "widgetType": "wpr-nav-menu",
+     "widgetType": "wpr-mega-menu",
      "settings": {
-      "_title": "Menu principal (ordinateur)",
+      "_title": "Méga-menu (ordinateur)",
       "menu_select": "lmdd-menu-principal",
       "menu_layout": "horizontal",
       "menu_align": "center",
@@ -794,14 +808,46 @@
       "mobile_menu_color_focus": "#035C11",
       "mobile_menu_bg_color_focus": "#EDF6EE",
       "mobile_menu_divider_color": "#DFE7E0",
-      "_element_width": "auto"
+      "_element_width": "auto",
+      "sub_mega_menu_color_bg": "#FFFFFF",
+      "sub_mega_menu_border_radius": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "16",
+       "left": "16",
+       "isLinked": false
+      },
+      "menu_items_sub_offset": {
+       "unit": "px",
+       "size": 0,
+       "sizes": []
+      },
+      "sub_mega_menu_box_shadow_box_shadow_type": "yes",
+      "sub_mega_menu_box_shadow_box_shadow": {
+       "horizontal": 0,
+       "vertical": 18,
+       "blur": 40,
+       "spread": -12,
+       "color": "rgba(1,46,8,0.25)"
+      },
+      "sub_mega_menu_border_border": "solid",
+      "sub_mega_menu_border_width": {
+       "unit": "px",
+       "top": "3",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "sub_mega_menu_border_color": "#035C11"
      },
      "elements": []
     }
    ]
   },
   {
-   "id": "1a2b0dd",
+   "id": "1a2b0df",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -837,7 +883,7 @@
    },
    "elements": [
     {
-     "id": "1a2b0dc",
+     "id": "1a2b0de",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,

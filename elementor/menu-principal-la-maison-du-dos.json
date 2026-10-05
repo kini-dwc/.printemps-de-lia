@@ -5,6 +5,7 @@
   {
    "title": "Lits à eau",
    "url": "/lits-a-eau/",
+   "mega": "lits",
    "children": [
     {
      "title": "Lits à eau en vente en ligne",
@@ -19,6 +20,7 @@
   {
    "title": "Matelas réglables",
    "url": "/matelas-reglables/",
+   "mega": "matelas",
    "children": [
     {
      "title": "Matelas à eau léger / bébé",
@@ -31,8 +33,28 @@
    ]
   },
   {
+   "title": "Accessoires",
+   "url": "/accessoires-produits-dentretien-sav/",
+   "mega": "accessoires",
+   "children": [
+    {
+     "title": "Produits d'entretien / SAV",
+     "url": "/accessoires-produits-dentretien-sav/produits-dentretien-sav/"
+    },
+    {
+     "title": "Accessoires literie à eau",
+     "url": "/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/"
+    },
+    {
+     "title": "Têtes & cadres de lits",
+     "url": "/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/"
+    }
+   ]
+  },
+  {
    "title": "Linge de lit",
    "url": "/linge-de-lit/",
+   "mega": "linge",
    "children": [
     {
      "title": "Couettes hiver",
@@ -47,7 +69,7 @@
      "url": "/linge-de-lit/couettes-toutes-saisons/"
     },
     {
-     "title": "Couettes doubles 4 saisons",
+     "title": "Couettes doubles",
      "url": "/linge-de-lit/couettes-doubles/"
     },
     {
@@ -59,56 +81,62 @@
      "url": "/linge-de-lit/couettes-bio/"
     },
     {
+     "title": "Draps-housses jersey",
+     "url": "/linge-de-lit/draps-housses-jersey/"
+    },
+    {
+     "title": "Housses de couette / taies",
+     "url": "/linge-de-lit/housses-couettes-taies/"
+    },
+    {
+     "title": "Alèses / protections",
+     "url": "/linge-de-lit/aleses-protections/"
+    },
+    {
+     "title": "Bella Donna : couverture / dessus de lit d'été",
+     "url": "/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/"
+    },
+    {
      "title": "Oreillers",
      "url": "/linge-de-lit/oreillers/"
     },
     {
      "title": "Surmatelas",
      "url": "/linge-de-lit/surmatelas/"
-    },
-    {
-     "title": "Draps-housses jersey",
-     "url": "/linge-de-lit/draps-housses-jersey/"
-    },
-    {
-     "title": "Housses de couette & taies",
-     "url": "/linge-de-lit/housses-couettes-taies/"
-    },
-    {
-     "title": "Alèses & protections",
-     "url": "/linge-de-lit/aleses-protections/"
-    },
-    {
-     "title": "Bella Donna : couvertures d'été",
-     "url": "/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/"
     }
    ]
   },
   {
-   "title": "Accessoires & SAV",
-   "url": "/accessoires-produits-dentretien-sav/",
+   "title": "Couettes Hefel",
+   "url": "/product-tag/hefel/",
+   "mega": "hefel",
    "children": [
     {
-     "title": "Produits d'entretien & SAV",
-     "url": "/accessoires-produits-dentretien-sav/produits-dentretien-sav/"
+     "title": "Toutes les couettes Hefel",
+     "url": "/product-tag/hefel/"
     },
     {
-     "title": "Accessoires literie à eau",
-     "url": "/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/"
+     "title": "Couettes doubles 4 saisons",
+     "url": "/linge-de-lit/couettes-doubles/"
     },
     {
-     "title": "Têtes & cadres de lits",
-     "url": "/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/"
+     "title": "Catalogue Hefel 2024-2025 (PDF)",
+     "url": "/wp-content/uploads/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf"
     }
    ]
   },
   {
-   "title": "Nos marques",
+   "title": "Marques",
    "url": "/nos-marques/",
+   "mega": "marques",
    "children": [
     {
      "title": "La Maison du Dos",
      "url": "/product-tag/la-maison-du-dos/"
+    },
+    {
+     "title": "Moosburger",
+     "url": "/product-tag/moosburger/"
     },
     {
      "title": "Akva",
@@ -117,14 +145,6 @@
     {
      "title": "Hefel",
      "url": "/product-tag/hefel/"
-    },
-    {
-     "title": "Moosburger",
-     "url": "/product-tag/moosburger/"
-    },
-    {
-     "title": "Poseïdon – Lunalife",
-     "url": "/product-tag/poseidon-lunalife/"
     },
     {
      "title": "Tasso",
@@ -147,6 +167,10 @@
      "url": "/product-tag/mr-sandman/"
     },
     {
+     "title": "Poseïdon – Lunalife",
+     "url": "/product-tag/poseidon-lunalife/"
+    },
+    {
      "title": "Kirstenbalk",
      "url": "/product-tag/kirstenbalk/"
     },
@@ -155,11 +179,6 @@
      "url": "/product-tag/dynaglobe/"
     }
    ]
-  },
-  {
-   "title": "Contact",
-   "url": "/contact/",
-   "children": []
   }
  ]
 }

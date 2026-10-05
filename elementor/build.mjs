@@ -478,35 +478,41 @@ const footer = Section({
  * Le menu WordPress « lmdd-menu-principal » est créé par l'extension d'import (MENU ci-dessous).
  */
 export const MENU_SLUG = 'lmdd-menu-principal';
+// Mêmes onglets que l'en-tête actuel du site, dans le même ordre. Le 4e champ désigne le méga-menu affiché sur ordinateur ;
+// les sous-éléments servent au menu mobile (et de repli si les méga-menus sont désactivés).
 export const MENU = [
   ['Lits à eau', '/lits-a-eau/', [
     ['Lits à eau en vente en ligne', '/lits-a-eau/lits-a-eau-en-vente-en-ligne/'],
     ['Lits à eau en vente sur devis', '/lits-a-eau/lits-a-eau-en-vente-sur-devis/'],
-  ]],
+  ], 'lits'],
   ['Matelas réglables', '/matelas-reglables/', [
     ['Matelas à eau léger / bébé', '/matelas-reglables/matelas-a-eau-leger-bebe/'],
     ['Matelas à télécommande', '/matelas-reglables/matelas-a-telecommande/'],
-  ]],
-  ['Linge de lit', '/linge-de-lit/', [
-    ['Couettes hiver', '/linge-de-lit/couettes-hiver/'], ['Couettes été', '/linge-de-lit/couettes-ete/'],
-    ['Couettes toutes saisons', '/linge-de-lit/couettes-toutes-saisons/'], ['Couettes doubles 4 saisons', '/linge-de-lit/couettes-doubles/'],
-    ['Couettes eider', '/linge-de-lit/couettes-eider/'], ['Couettes bio', '/linge-de-lit/couettes-bio/'],
-    ['Oreillers', '/linge-de-lit/oreillers/'], ['Surmatelas', '/linge-de-lit/surmatelas/'],
-    ['Draps-housses jersey', '/linge-de-lit/draps-housses-jersey/'], ['Housses de couette & taies', '/linge-de-lit/housses-couettes-taies/'],
-    ['Alèses & protections', '/linge-de-lit/aleses-protections/'], ['Bella Donna : couvertures d\'été', '/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/'],
-  ]],
-  ['Accessoires & SAV', '/accessoires-produits-dentretien-sav/', [
-    ['Produits d\'entretien & SAV', '/accessoires-produits-dentretien-sav/produits-dentretien-sav/'],
+  ], 'matelas'],
+  ['Accessoires', '/accessoires-produits-dentretien-sav/', [
+    ['Produits d\'entretien / SAV', '/accessoires-produits-dentretien-sav/produits-dentretien-sav/'],
     ['Accessoires literie à eau', '/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/'],
     ['Têtes & cadres de lits', '/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/'],
-  ]],
-  ['Nos marques', '/nos-marques/', [
-    ['La Maison du Dos', '/product-tag/la-maison-du-dos/'], ['Akva', '/product-tag/akva/'], ['Hefel', '/product-tag/hefel/'],
-    ['Moosburger', '/product-tag/moosburger/'], ['Poseïdon – Lunalife', '/product-tag/poseidon-lunalife/'], ['Tasso', '/product-tag/tasso/'],
-    ['Profine', '/product-tag/profine/'], ['Matrair', '/product-tag/matrair/'], ['Formesse', '/product-tag/formesse/'],
-    ['Mr. Sandman', '/product-tag/mr-sandman/'], ['Kirstenbalk', '/product-tag/kirstenbalk/'], ['Dynaglobe', '/product-tag/dynaglobe/'],
-  ]],
-  ['Contact', '/contact/', []],
+  ], 'accessoires'],
+  ['Linge de lit', '/linge-de-lit/', [
+    ['Couettes hiver', '/linge-de-lit/couettes-hiver/'], ['Couettes été', '/linge-de-lit/couettes-ete/'],
+    ['Couettes toutes saisons', '/linge-de-lit/couettes-toutes-saisons/'], ['Couettes doubles', '/linge-de-lit/couettes-doubles/'],
+    ['Couettes eider', '/linge-de-lit/couettes-eider/'], ['Couettes bio', '/linge-de-lit/couettes-bio/'],
+    ['Draps-housses jersey', '/linge-de-lit/draps-housses-jersey/'], ['Housses de couette / taies', '/linge-de-lit/housses-couettes-taies/'],
+    ['Alèses / protections', '/linge-de-lit/aleses-protections/'], ['Bella Donna : couverture / dessus de lit d\'été', '/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/'],
+    ['Oreillers', '/linge-de-lit/oreillers/'], ['Surmatelas', '/linge-de-lit/surmatelas/'],
+  ], 'linge'],
+  ['Couettes Hefel', '/product-tag/hefel/', [
+    ['Toutes les couettes Hefel', '/product-tag/hefel/'],
+    ['Couettes doubles 4 saisons', '/linge-de-lit/couettes-doubles/'],
+    ['Catalogue Hefel 2024-2025 (PDF)', '/wp-content/uploads/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf'],
+  ], 'hefel'],
+  ['Marques', '/nos-marques/', [
+    ['La Maison du Dos', '/product-tag/la-maison-du-dos/'], ['Moosburger', '/product-tag/moosburger/'], ['Akva', '/product-tag/akva/'],
+    ['Hefel', '/product-tag/hefel/'], ['Tasso', '/product-tag/tasso/'], ['Profine', '/product-tag/profine/'],
+    ['Matrair', '/product-tag/matrair/'], ['Formesse', '/product-tag/formesse/'], ['Mr. Sandman', '/product-tag/mr-sandman/'],
+    ['Poseïdon – Lunalife', '/product-tag/poseidon-lunalife/'], ['Kirstenbalk', '/product-tag/kirstenbalk/'], ['Dynaglobe', '/product-tag/dynaglobe/'],
+  ], 'marques'],
 ];
 
 const withSettings = (el, settings) => ({ ...el, settings: { ...el.settings, ...settings } });
@@ -534,7 +540,7 @@ const headerTop = Con({
   // « grow » : prend la place restante et pousse les contacts à droite (ordinateur).
   topList([['Livraison gratuite dès 60 €', '/livraison-paiement/', 'fas fa-truck']], { _title: 'Livraison', _flex_size: 'grow', _flex_size_tablet: 'none', _element_width: 'auto' }),
   topList([['03 25 04 20 19', 'tel:+33325042019', 'fas fa-phone-alt']], { _title: 'Téléphone', _element_width: 'auto', _flex_size: 'none' }),
-  topList([['WhatsApp', 'https://wa.me/33674393987', 'fab fa-whatsapp', 'fa-brands'], ['Service client 7j/7 de 9h à 21h', '', 'far fa-clock', 'fa-regular']], {
+  topList([['WhatsApp', 'https://wa.me/33674393987', 'fab fa-whatsapp', 'fa-brands'], ['Service client 7j/7 de 9h à 21h', '', 'far fa-clock', 'fa-regular'], ['Contact', '/contact/', 'far fa-envelope', 'fa-regular']], {
     _title: 'WhatsApp & horaires', _element_width: 'auto', _flex_size: 'none', ...HIDE_MOBILE_TABLET,
   }),
 ], false);
@@ -589,13 +595,18 @@ const headerMain = Con({
 ], false);
 
 const headerNav = Con({
-  _title: 'En-tête – menu (ordinateur)', content_width: 'boxed', boxed_width: px(1200), html_tag: 'nav',
+  _title: 'En-tête – méga-menu (ordinateur)', content_width: 'boxed', boxed_width: px(1200), html_tag: 'nav',
   flex_direction: 'row', flex_justify_content: 'center', padding: box(0, 24, 0, 24),
   background_background: 'classic', background_color: C.white,
   border_border: 'solid', border_width: box(1, 0, 1, 0), border_color: C.line,
   ...HIDE_MOBILE_TABLET,
 }, [
-  navMenu('Menu principal (ordinateur)', { _element_width: 'auto' }),
+  W('wpr-mega-menu', {
+    ...navMenu('', {}).settings, _title: 'Méga-menu (ordinateur)', _element_width: 'auto',
+    sub_mega_menu_color_bg: C.white, sub_mega_menu_border_radius: box(0, 0, 16, 16), menu_items_sub_offset: px(0),
+    sub_mega_menu_box_shadow_box_shadow_type: 'yes', sub_mega_menu_box_shadow_box_shadow: { horizontal: 0, vertical: 18, blur: 40, spread: -12, color: 'rgba(1,46,8,0.25)' },
+    sub_mega_menu_border_border: 'solid', sub_mega_menu_border_width: box(3, 0, 0, 0), sub_mega_menu_border_color: C.green,
+  }),
 ], false);
 
 const headerSearchMobile = Con({
@@ -613,12 +624,160 @@ const headerSearchMobile = Con({
   }),
 ], false);
 
+// ---------- Méga-menus (ordinateur) ----------
+/*
+ * Un modèle Elementor par onglet, affiché par le widget « Méga-menu » de Royal Elementor Addons (gratuit),
+ * en pleine largeur sous la barre de menu. Contenu centré sur 1200 px, widgets Elementor natifs.
+ */
+const MEGA_LINK = { text_color: C.text, text_color_hover: C.green };
+const megaTitle = (text, url) => W('heading', {
+  title: text, header_size: 'p', title_color: C.greenText, ...(url ? { link: link(url) } : {}),
+  ...typo('typography', { size: 12, weight: 700, ls: 1.4, transform: 'uppercase', lh: 1.3 }),
+  _margin: box(0, 0, 12, 0), _padding: box(0, 0, 10, 0), _border_border: 'solid', _border_width: box(0, 0, 1, 0), _border_color: C.line,
+});
+const megaLinks = (items, o = {}) => W('icon-list', {
+  icon_list: items.map(([text, url]) => ({ text, link: link(url, /\.pdf$/.test(url)), selected_icon: { value: '', library: '' }, _id: id() })),
+  space_between: px(o.space ?? 9), ...MEGA_LINK, ...typo('icon_typography', { size: o.size || 14.5, lh: 1.4, weight: 500 }),
+});
+/** Carte cliquable : toute la carte est un lien (balise <a>), sans lien imbriqué. */
+const megaCard = (icon, title, desc, url) => Con({
+  _title: `Carte : ${title}`, html_tag: 'a', link: link(url), flex_direction: 'column', flex_gap: gap(6), 
+  padding: box(22, 22, 20, 22),
+  background_background: 'classic', background_color: C.tint, background_hover_background: 'classic', background_hover_color: C.greenBg,
+  border_border: 'solid', border_width: box(1), border_color: C.line, border_hover_border: 'solid', border_hover_width: box(1), border_hover_color: C.greenLight,
+  border_radius: box(14),
+}, [
+  W('icon', {
+    selected_icon: fa(icon), view: 'stacked', shape: 'circle', primary_color: C.white, secondary_color: C.green,
+    size: px(18), icon_padding: px(11), align: 'left', _margin: box(0, 0, 8, 0),
+  }),
+  H(title, 'p', { size: 17, sizeM: 16, weight: 700, lh: 1.3, color: C.green, margin: box(0) }),
+  Txt(`<p>${desc}</p>`, { size: 14, sizeM: 14, lh: 1.55 }),
+  H('Découvrir →', 'p', { size: 14, sizeM: 14, weight: 600, lh: 1.3, color: C.red, margin: box(6, 0, 0, 0) }),
+]);
+/** Encart vert foncé : conseil + bouton. */
+const megaAside = (title, text, btnText, btnUrl, o = {}) => Con({
+  _title: 'Encart conseil', flex_direction: 'column', flex_gap: gap(10), flex_justify_content: 'center', 
+  padding: box(24), border_radius: box(14),
+  background_background: 'gradient', background_color: C.greenDark, background_color_b: C.green, background_gradient_angle: { unit: 'deg', size: 135 },
+}, [
+  H(title, 'p', { size: 18, sizeM: 17, weight: 700, lh: 1.3, color: C.white, margin: box(0) }),
+  Txt(`<p>${text}</p>`, { size: 14, lh: 1.55, color: C.onDark }),
+  withSettings(BtnLight(btnText, btnUrl, { fs: 14, pad: box(11, 18, 11, 18), icon: o.icon, external: o.external }), { _margin: box(6, 0, 0, 0) }),
+]);
+/** Visuel : photo + bouton « Tout voir ». */
+const megaVisual = (img, alt, btnText, btnUrl) => Con({
+  _title: 'Visuel', flex_direction: 'column', flex_gap: gap(12),
+}, [
+  // Sans lien : le bouton juste dessous y mène (une image liée s'affiche en « inline-block » et perd sa largeur).
+  Img(img, alt, { height: 170, radius: 14 }),
+  withSettings(BtnPrimary(btnText, btnUrl, { fs: 14, pad: box(12, 18, 12, 18), icon: 'fas fa-arrow-right', iconAfter: true }), { box_shadow_box_shadow_type: '', align: 'justify' }),
+]);
+/** Panneau en grille : `cols` = colonnes CSS (ex. « 1fr 1fr 260px »), pour des largeurs stables. */
+const megaPanel = (title, cols, children) => Con({
+  _title: `Méga-menu : ${title}`, content_width: 'boxed', boxed_width: px(1200),
+  container_type: 'grid', grid_columns_grid: { unit: 'custom', size: cols, sizes: [] }, grid_rows_grid: { unit: 'fr', size: 1 },
+  grid_gaps: gap(24), grid_align_items: 'stretch', padding: box(28, 24, 32, 24),
+  background_background: 'classic', background_color: C.white,
+}, children, false);
+const megaCol = (title, children) => Con({ _title: `Colonne : ${title}`, flex_direction: 'column', flex_gap: gap(0) }, children);
+
+const MEGA = {
+  lits: ['Lits à eau', megaPanel('Lits à eau', '1fr 1fr 260px', [
+    megaCard('fas fa-shopping-cart', 'Lits à eau en vente en ligne', 'Des modèles prêts à commander, livrés et installés chez vous avec des réglages personnalisés.', '/lits-a-eau/lits-a-eau-en-vente-en-ligne/'),
+    megaCard('fas fa-file-signature', 'Lits à eau en vente sur devis', 'Un lit pensé pour votre dos et votre chambre : un spécialiste établit votre devis selon vos besoins.', '/lits-a-eau/lits-a-eau-en-vente-sur-devis/'),
+    megaVisual(`${UP}/2024/09/altura-pos.jpg`, 'Lit à eau Altura de Poseïdon', 'Tous les lits à eau', '/lits-a-eau/'),
+  ])],
+  matelas: ['Matelas réglables', megaPanel('Matelas réglables', '1fr 1fr 260px', [
+    megaCard('fas fa-feather-alt', 'Matelas à eau léger / bébé', 'Le confort d\'un matelas à eau, dans une version légère.', '/matelas-reglables/matelas-a-eau-leger-bebe/'),
+    megaCard('fas fa-sliders-h', 'Matelas à télécommande', 'Une fermeté réglable à volonté, par simple télécommande.', '/matelas-reglables/matelas-a-telecommande/'),
+    megaVisual(`${UP}/2024/09/matelas-eau-leger.jpg`, 'Matelas à eau léger Aqualight Premium', 'Tous les matelas réglables', '/matelas-reglables/'),
+  ])],
+  accessoires: ['Accessoires', megaPanel('Accessoires', '1fr 1fr 1fr 240px', [
+    megaCard('fas fa-tint', 'Produits d\'entretien / SAV', 'Conditionneurs, anti-algues et produits pour faire durer votre literie à eau.', '/accessoires-produits-dentretien-sav/produits-dentretien-sav/'),
+    megaCard('fas fa-tools', 'Accessoires literie à eau', 'Tout pour équiper et entretenir votre lit ou matelas à eau.', '/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/'),
+    megaCard('fas fa-bed', 'Têtes & cadres de lits', 'Pour habiller votre lit à eau selon vos goûts.', '/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/'),
+    megaAside('Une question d\'entretien ?', 'Nos spécialistes vous conseillent 7 jours sur 7, de 9h à 21h.', '03 25 04 20 19', 'tel:+33325042019', { width: 240, icon: 'fas fa-phone-alt' }),
+  ])],
+  linge: ['Linge de lit', megaPanel('Linge de lit', '1fr 1fr 1fr 260px', [
+    megaCol('Couettes', [megaTitle('Couettes'), megaLinks([
+      ['Couettes hiver', '/linge-de-lit/couettes-hiver/'], ['Couettes été', '/linge-de-lit/couettes-ete/'], ['Couettes toutes saisons', '/linge-de-lit/couettes-toutes-saisons/'],
+      ['Couettes doubles', '/linge-de-lit/couettes-doubles/'], ['Couettes eider', '/linge-de-lit/couettes-eider/'], ['Couettes bio', '/linge-de-lit/couettes-bio/'],
+    ])]),
+    megaCol('Draps & protections', [megaTitle('Draps & protections'), megaLinks([
+      ['Draps-housses jersey', '/linge-de-lit/draps-housses-jersey/'], ['Housses de couette / taies', '/linge-de-lit/housses-couettes-taies/'],
+      ['Alèses / protections', '/linge-de-lit/aleses-protections/'], ['Bella Donna : couverture / dessus de lit d\'été', '/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/'],
+    ])]),
+    megaCol('Oreillers & surmatelas', [megaTitle('Oreillers & surmatelas'), megaLinks([
+      ['Oreillers', '/linge-de-lit/oreillers/'], ['Surmatelas', '/linge-de-lit/surmatelas/'],
+    ])]),
+    megaVisual(`${UP}/2024/09/bella-donna-standard-0030-bordeaux.jpg`, 'Drap-housse jersey Bella Donna bordeaux', 'Tout le linge de lit', '/linge-de-lit/'),
+  ])],
+  hefel: ['Couettes Hefel', megaPanel('Couettes Hefel', '1fr 200px', [
+    Con({ _title: 'Couettes Hefel – colonnes', container_type: 'grid',
+      grid_columns_grid: { unit: 'fr', size: 5 }, grid_rows_grid: { unit: 'fr', size: 1 }, grid_gaps: gap(22), grid_auto_flow: 'row' }, [
+      megaCol('Couettes doubles 4 saisons', [megaTitle('Couettes doubles 4 saisons', '/linge-de-lit/couettes-doubles/'), megaLinks([
+        ['Bio Bois', '/couette-double-bio-bois-4-saisons-legere/'], ['Maïs / Tencel™ Lyocell', '/couette-double-soft-4-saisons-legere/'],
+        ['Tencel™ Lyocell / housse Tencel', '/couette-double-klimacontrol-comfort4-saisons-legere/'], ['Tencel™ Lyocell / housse coton', '/couette-double-edition-101-4-saisons-2/'],
+      ], { size: 13.5, space: 7 })]),
+      megaCol('Fibres animales', [megaTitle('Fibres animales'), megaLinks([
+        ['Soie sauvage / housse Tencel', '/couette-pure-soie-ete/'], ['Soie sauvage / housse coton', '/couette-soie-dream-ete/'],
+        ['Cachemire / laine', '/couette-cachemire-deluxe-toutes-saisons/'], ['Poils de chameau', '/couette-camel-dreamtoutes-saisons/'],
+        ['Laine vierge', '/couette-pure-wool-toutes-saisons/'], ['Bio laine', '/couette-bio-laine-toutes-saisons/'],
+        ['Laine vierge / pin cimbre', '/couette-wellness-pin-cimbretoutes-saisons-legere/'],
+      ], { size: 13.5, space: 7 })]),
+      megaCol('Fibres végétales', [megaTitle('Fibres végétales'), megaLinks([
+        ['Bio Bois', '/couette-bio-bois-toutes-saisons/'], ['Tencel™ Lyocell', '/couette-klimacontrol-fair-toutes-saisons/'],
+        ['Maïs', '/couette-pure-mais-toutes-saisons/'], ['Maïs / Tencel™ Lyocell', '/couette-soft-toutes-saisons-legere/'],
+        ['Bambou / maïs', '/couette-pure-bambou-toutes-saisons/'], ['Microfibres Tencel', '/couette-edition-101-toutes-saisons/'],
+        ['Tencel programme cool', '/couette-ete-programme-cool-hefel/'],
+      ], { size: 13.5, space: 7 })]),
+      megaCol('Fibres synthétiques', [megaTitle('Fibres synthétiques'), megaLinks([
+        ['Softbausch fibres creuses PES', '/couette-softbausch-home-toutes-saisons/'], ['Tencel™ Lyocell / viscose Celliant®', '/couette-toutes-saisons-wellness-retreat-hefel/'],
+        ['Tencel™ Lyocell / Softbausch', '/couette-softbausch-home-toutes-saisons/'], ['Vitasan fibres PES', '/couette-wellness-vitasan-toutes-saisons/'],
+      ], { size: 13.5, space: 7 })]),
+      megaCol('Duvets', [megaTitle('Duvets'), megaLinks([
+        ['Canard 90 % CUIN 700', '/couette-en-duvet-de-canard-alaska-toutes-saisons/'], ['Oie 90 % CUIN 600', '/couette-en-duvet-doie-silver-down-toutes-saisons/'],
+        ['Oie 90 % CUIN 700', '/couette-en-duvet-mont-blanc-toutes-saisons-legere/'], ['Oie 100 % CUIN 700', '/couette-en-duvet-doie-100-arlberg-toutes-saisons-2/'],
+        ['Oie 100 % CUIN 700 / housse Outlast®', '/couette-duvet-doie-outlast-proactive-nexgen-toutes-saisons-2/'], ['Oie 100 % CUIN 750', '/couette-en-duvet-doie-platinum-down-toutes-saisons/'],
+        ['Oie 100 % CUIN 800 / housse Tencel / Celliant®', '/couette-retreat-down-duvet-toutes-saisons/'], ['Oie 100 % CUIN 850+', '/couette-duvet-doie-de-luxe-down-toutes-saisons-legere/'],
+        ['Oie 100 % CUIN 850+ / housse Tencel / cachemire', '/couette-duvet-doie-opulence-toutes-saisons/'],
+        ['Eider / housse nano coton 70 g/m²', '/couette-duvet-eider-toutes-saisons-legere-housse-100-coton-nano-batiste-pour-duvet/'],
+        ['Eider / housse jacquard de soie 120 g/m²', '/couette-duvet-eider-toutes-saisons-legere/'],
+      ], { size: 13.5, space: 7 })]),
+    ]),
+    Con({ _title: 'Catalogue & promotions', flex_direction: 'column', flex_gap: gap(12), flex_align_items: 'stretch' }, [
+      // Miniature (214 px) du catalogue, chargée en différé, au lieu de l'image de 807 px de l'ancien menu.
+      W('image', {
+        _title: 'Catalogue Hefel (PDF)', image: { url: `${UP}/2025/09/screenshot-la-maison-du-dos-com-2025-09-08-11-18-36-214x300.png`, id: '', alt: 'Catalogue des couettes Hefel 2024-2025', source: 'library', size: '' },
+        image_size: 'full', width: pct(100), link_to: 'custom', link: link(`${UP}/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf`, true),
+        image_border_radius: box(10), image_border_border: 'solid', image_border_width: box(1), image_border_color: C.line,
+      }),
+      H('Catalogue Hefel 2024-2025 (PDF)', 'p', { size: 13, weight: 600, lh: 1.35, color: C.green, align: 'center', margin: box(0), link: `${UP}/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf` }),
+      Txt('<p>Profitez de nos promotions sur les couettes doubles, les couettes hiver et toutes saisons.</p>', { size: 13, lh: 1.5, align: 'center', color: C.red, weight: 600 }),
+    ]),
+  ])],
+  marques: ['Marques', megaPanel('Marques', '1fr 250px', [
+    Con({ _title: 'Marques – grille', flex_direction: 'column', flex_gap: gap(14) }, [
+      megaTitle('Nos marques partenaires', '/nos-marques/'),
+      Con({ _title: 'Logos', container_type: 'grid', grid_columns_grid: { unit: 'fr', size: 6 }, grid_rows_grid: { unit: 'fr', size: 2 }, grid_gaps: gap(10) },
+        MENU.find((m) => m[3] === 'marques')[2].map(([name, url]) => withSettings(BtnGhost(name, url, { fs: 13.5, pad: box(12, 10, 12, 10) }), {
+          _title: `Marque : ${name}`, align: 'justify', border_width: box(1), border_color: C.line, button_text_color: C.text, border_radius: box(10),
+          hover_color: C.green, button_background_hover_color: C.greenBg, button_hover_border_color: C.green,
+        }))),
+    ]),
+    megaAside('Toutes nos marques', 'Découvrez les fabricants dont nous distribuons la literie et le linge de lit.', 'Voir les marques', '/nos-marques/', { width: 250 }),
+  ])],
+};
+export const MEGA_MENUS = Object.fromEntries(Object.entries(MEGA).map(([k, [label, panel]]) => [k, { title: `Méga-menu – ${label}`, content: [panel] }]));
+
 const headerContent = [headerTop, headerMain, headerNav, headerSearchMobile];
 
 // ---------- Écriture ----------
 const tpl = (title, type, content, page_settings = []) => ({ content, page_settings, version: '0.4', title, type });
 writeFileSync(path.join(OUT, 'en-tete-la-maison-du-dos.json'), JSON.stringify(tpl('En-tête – La Maison du Dos', 'section', headerContent), null, 1));
-writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children]) => ({ title, url, children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
+writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children, mega]) => ({ title, url, mega: mega || '', children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
+writeFileSync(path.join(OUT, 'mega-menus-la-maison-du-dos.json'), JSON.stringify(MEGA_MENUS, null, 1));
 writeFileSync(path.join(OUT, 'accueil-la-maison-du-dos.json'), JSON.stringify(tpl("Accueil – La Maison du Dos", 'page', pageContent, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
 writeFileSync(path.join(OUT, 'pied-de-page-la-maison-du-dos.json'), JSON.stringify(tpl('Pied de page – La Maison du Dos', 'section', [footer]), null, 1));
 

@@ -1,0 +1,5321 @@
+{
+ "lits": {
+  "title": "Méga-menu – Lits à eau",
+  "content": [
+   {
+    "id": "1a2b0ed",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Lits à eau",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 1fr 260px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b0e4",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Lits à eau en vente en ligne",
+       "html_tag": "a",
+       "link": {
+        "url": "/lits-a-eau/lits-a-eau-en-vente-en-ligne/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0e0",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-shopping-cart",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e1",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Lits à eau en vente en ligne",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e2",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Des modèles prêts à commander, livrés et installés chez vous avec des réglages personnalisés.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e3",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b0e9",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Lits à eau en vente sur devis",
+       "html_tag": "a",
+       "link": {
+        "url": "/lits-a-eau/lits-a-eau-en-vente-sur-devis/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0e5",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-file-signature",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e6",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Lits à eau en vente sur devis",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e7",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Un lit pensé pour votre dos et votre chambre : un spécialiste établit votre devis selon vos besoins.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0e8",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b0ec",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Visuel",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 12,
+        "column": "12",
+        "row": "12",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0ea",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "image",
+        "settings": {
+         "image": {
+          "url": "a-choisir:lit-a-eau-altura.webp",
+          "id": "",
+          "alt": "Lit à eau Altura de Poseïdon",
+          "source": "library",
+          "size": ""
+         },
+         "image_size": "full",
+         "_title": "Image à choisir : lit-a-eau-altura.webp",
+         "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+         },
+         "height": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "height_mobile": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "object-fit": "cover",
+         "image_border_radius": {
+          "unit": "px",
+          "top": "14",
+          "right": "14",
+          "bottom": "14",
+          "left": "14",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0eb",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "button",
+        "settings": {
+         "text": "Tous les lits à eau",
+         "link": {
+          "url": "/lits-a-eau/",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "md",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.2,
+          "sizes": []
+         },
+         "border_radius": {
+          "unit": "px",
+          "top": "999",
+          "right": "999",
+          "bottom": "999",
+          "left": "999",
+          "isLinked": true
+         },
+         "text_padding": {
+          "unit": "px",
+          "top": "12",
+          "right": "18",
+          "bottom": "12",
+          "left": "18",
+          "isLinked": false
+         },
+         "selected_icon": {
+          "value": "fas fa-arrow-right",
+          "library": "fa-solid"
+         },
+         "icon_align": "row-reverse",
+         "icon_indent": {
+          "unit": "px",
+          "size": 8,
+          "sizes": []
+         },
+         "background_color": "#035C11",
+         "button_text_color": "#FFFFFF",
+         "button_background_hover_color": "#024A0E",
+         "hover_color": "#FFFFFF",
+         "box_shadow_box_shadow_type": "",
+         "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "spread": -10,
+          "color": "rgba(1,46,8,0.22)"
+         },
+         "align": "justify"
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "matelas": {
+  "title": "Méga-menu – Matelas réglables",
+  "content": [
+   {
+    "id": "1a2b0fb",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Matelas réglables",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 1fr 260px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b0f2",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Matelas à eau léger / bébé",
+       "html_tag": "a",
+       "link": {
+        "url": "/matelas-reglables/matelas-a-eau-leger-bebe/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0ee",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-feather-alt",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0ef",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Matelas à eau léger / bébé",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f0",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Le confort d'un matelas à eau, dans une version légère.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f1",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b0f7",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Matelas à télécommande",
+       "html_tag": "a",
+       "link": {
+        "url": "/matelas-reglables/matelas-a-telecommande/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0f3",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-sliders-h",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f4",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Matelas à télécommande",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f5",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Une fermeté réglable à volonté, par simple télécommande.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f6",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b0fa",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Visuel",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 12,
+        "column": "12",
+        "row": "12",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0f8",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "image",
+        "settings": {
+         "image": {
+          "url": "a-choisir:matelas-eau-leger-aqualight.webp",
+          "id": "",
+          "alt": "Matelas à eau léger Aqualight Premium",
+          "source": "library",
+          "size": ""
+         },
+         "image_size": "full",
+         "_title": "Image à choisir : matelas-eau-leger-aqualight.webp",
+         "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+         },
+         "height": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "height_mobile": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "object-fit": "cover",
+         "image_border_radius": {
+          "unit": "px",
+          "top": "14",
+          "right": "14",
+          "bottom": "14",
+          "left": "14",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0f9",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "button",
+        "settings": {
+         "text": "Tous les matelas réglables",
+         "link": {
+          "url": "/matelas-reglables/",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "md",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.2,
+          "sizes": []
+         },
+         "border_radius": {
+          "unit": "px",
+          "top": "999",
+          "right": "999",
+          "bottom": "999",
+          "left": "999",
+          "isLinked": true
+         },
+         "text_padding": {
+          "unit": "px",
+          "top": "12",
+          "right": "18",
+          "bottom": "12",
+          "left": "18",
+          "isLinked": false
+         },
+         "selected_icon": {
+          "value": "fas fa-arrow-right",
+          "library": "fa-solid"
+         },
+         "icon_align": "row-reverse",
+         "icon_indent": {
+          "unit": "px",
+          "size": 8,
+          "sizes": []
+         },
+         "background_color": "#035C11",
+         "button_text_color": "#FFFFFF",
+         "button_background_hover_color": "#024A0E",
+         "hover_color": "#FFFFFF",
+         "box_shadow_box_shadow_type": "",
+         "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "spread": -10,
+          "color": "rgba(1,46,8,0.22)"
+         },
+         "align": "justify"
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "accessoires": {
+  "title": "Méga-menu – Accessoires",
+  "content": [
+   {
+    "id": "1a2b10f",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Accessoires",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 1fr 1fr 240px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b100",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Produits d'entretien / SAV",
+       "html_tag": "a",
+       "link": {
+        "url": "/accessoires-produits-dentretien-sav/produits-dentretien-sav/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b0fc",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-tint",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0fd",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Produits d'entretien / SAV",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0fe",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Conditionneurs, anti-algues et produits pour faire durer votre literie à eau.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b0ff",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b105",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Accessoires literie à eau",
+       "html_tag": "a",
+       "link": {
+        "url": "/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b101",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-tools",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b102",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Accessoires literie à eau",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b103",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Tout pour équiper et entretenir votre lit ou matelas à eau.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b104",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b10a",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "22",
+        "right": "22",
+        "bottom": "20",
+        "left": "22",
+        "isLinked": false
+       },
+       "_title": "Carte : Têtes & cadres de lits",
+       "html_tag": "a",
+       "link": {
+        "url": "/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 6,
+        "column": "6",
+        "row": "6",
+        "isLinked": true
+       },
+       "background_background": "classic",
+       "background_color": "#F5F8F4",
+       "background_hover_background": "classic",
+       "background_hover_color": "#EDF6EE",
+       "border_border": "solid",
+       "border_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_color": "#DFE7E0",
+       "border_hover_border": "solid",
+       "border_hover_width": {
+        "unit": "px",
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1",
+        "isLinked": true
+       },
+       "border_hover_color": "#A9D8B0",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b106",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon",
+        "settings": {
+         "selected_icon": {
+          "value": "fas fa-bed",
+          "library": "fa-solid"
+         },
+         "view": "stacked",
+         "shape": "circle",
+         "primary_color": "#FFFFFF",
+         "secondary_color": "#035C11",
+         "size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "icon_padding": {
+          "unit": "px",
+          "size": 11,
+          "sizes": []
+         },
+         "align": "left",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b107",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Têtes & cadres de lits",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b108",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Pour habiller votre lit à eau selon vos goûts.</p>",
+         "text_color": "#56625A",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b109",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Découvrir →",
+         "header_size": "p",
+         "title_color": "#C80C25",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b10e",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "24",
+        "right": "24",
+        "bottom": "24",
+        "left": "24",
+        "isLinked": true
+       },
+       "_title": "Encart conseil",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 10,
+        "column": "10",
+        "row": "10",
+        "isLinked": true
+       },
+       "flex_justify_content": "center",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       },
+       "background_background": "gradient",
+       "background_color": "#012E08",
+       "background_color_b": "#035C11",
+       "background_gradient_angle": {
+        "unit": "deg",
+        "size": 135
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b10b",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Une question d'entretien ?",
+         "header_size": "p",
+         "title_color": "#FFFFFF",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b10c",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Nos spécialistes vous conseillent 7 jours sur 7, de 9h à 21h.</p>",
+         "text_color": "#D3E4D5",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b10d",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "button",
+        "settings": {
+         "text": "03 25 04 20 19",
+         "link": {
+          "url": "tel:+33325042019",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "md",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.2,
+          "sizes": []
+         },
+         "border_radius": {
+          "unit": "px",
+          "top": "999",
+          "right": "999",
+          "bottom": "999",
+          "left": "999",
+          "isLinked": true
+         },
+         "text_padding": {
+          "unit": "px",
+          "top": "11",
+          "right": "18",
+          "bottom": "11",
+          "left": "18",
+          "isLinked": false
+         },
+         "selected_icon": {
+          "value": "fas fa-phone-alt",
+          "library": "fa-solid"
+         },
+         "icon_align": "row",
+         "icon_indent": {
+          "unit": "px",
+          "size": 8,
+          "sizes": []
+         },
+         "background_color": "#FFFFFF",
+         "button_text_color": "#035C11",
+         "button_background_hover_color": "#EDF6EE",
+         "hover_color": "#035C11",
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "linge": {
+  "title": "Méga-menu – Linge de lit",
+  "content": [
+   {
+    "id": "1a2b128",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Linge de lit",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 1fr 1fr 260px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b118",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Colonne : Couettes",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 0,
+        "column": "0",
+        "row": "0",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b110",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Couettes",
+         "header_size": "p",
+         "title_color": "#1F7A2C",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 12,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": 1.4,
+          "sizes": []
+         },
+         "typography_text_transform": "uppercase",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "12",
+          "left": "0",
+          "isLinked": false
+         },
+         "_padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "10",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_border": "solid",
+         "_border_width": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_color": "#DFE7E0"
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b117",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon-list",
+        "settings": {
+         "icon_list": [
+          {
+           "text": "Couettes hiver",
+           "link": {
+            "url": "/linge-de-lit/couettes-hiver/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b111"
+          },
+          {
+           "text": "Couettes été",
+           "link": {
+            "url": "/linge-de-lit/couettes-ete/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b112"
+          },
+          {
+           "text": "Couettes toutes saisons",
+           "link": {
+            "url": "/linge-de-lit/couettes-toutes-saisons/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b113"
+          },
+          {
+           "text": "Couettes doubles",
+           "link": {
+            "url": "/linge-de-lit/couettes-doubles/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b114"
+          },
+          {
+           "text": "Couettes eider",
+           "link": {
+            "url": "/linge-de-lit/couettes-eider/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b115"
+          },
+          {
+           "text": "Couettes bio",
+           "link": {
+            "url": "/linge-de-lit/couettes-bio/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b116"
+          }
+         ],
+         "space_between": {
+          "unit": "px",
+          "size": 9,
+          "sizes": []
+         },
+         "text_color": "#1B261D",
+         "text_color_hover": "#035C11",
+         "icon_typography_typography": "custom",
+         "icon_typography_font_size": {
+          "unit": "px",
+          "size": 14.5,
+          "sizes": []
+         },
+         "icon_typography_font_weight": "500",
+         "icon_typography_line_height": {
+          "unit": "em",
+          "size": 1.4,
+          "sizes": []
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b11f",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Colonne : Draps & protections",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 0,
+        "column": "0",
+        "row": "0",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b119",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Draps & protections",
+         "header_size": "p",
+         "title_color": "#1F7A2C",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 12,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": 1.4,
+          "sizes": []
+         },
+         "typography_text_transform": "uppercase",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "12",
+          "left": "0",
+          "isLinked": false
+         },
+         "_padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "10",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_border": "solid",
+         "_border_width": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_color": "#DFE7E0"
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b11e",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon-list",
+        "settings": {
+         "icon_list": [
+          {
+           "text": "Draps-housses jersey",
+           "link": {
+            "url": "/linge-de-lit/draps-housses-jersey/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b11a"
+          },
+          {
+           "text": "Housses de couette / taies",
+           "link": {
+            "url": "/linge-de-lit/housses-couettes-taies/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b11b"
+          },
+          {
+           "text": "Alèses / protections",
+           "link": {
+            "url": "/linge-de-lit/aleses-protections/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b11c"
+          },
+          {
+           "text": "Bella Donna : couverture / dessus de lit d'été",
+           "link": {
+            "url": "/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b11d"
+          }
+         ],
+         "space_between": {
+          "unit": "px",
+          "size": 9,
+          "sizes": []
+         },
+         "text_color": "#1B261D",
+         "text_color_hover": "#035C11",
+         "icon_typography_typography": "custom",
+         "icon_typography_font_size": {
+          "unit": "px",
+          "size": 14.5,
+          "sizes": []
+         },
+         "icon_typography_font_weight": "500",
+         "icon_typography_line_height": {
+          "unit": "em",
+          "size": 1.4,
+          "sizes": []
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b124",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Colonne : Oreillers & surmatelas",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 0,
+        "column": "0",
+        "row": "0",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b120",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Oreillers & surmatelas",
+         "header_size": "p",
+         "title_color": "#1F7A2C",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 12,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": 1.4,
+          "sizes": []
+         },
+         "typography_text_transform": "uppercase",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "12",
+          "left": "0",
+          "isLinked": false
+         },
+         "_padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "10",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_border": "solid",
+         "_border_width": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_color": "#DFE7E0"
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b123",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "icon-list",
+        "settings": {
+         "icon_list": [
+          {
+           "text": "Oreillers",
+           "link": {
+            "url": "/linge-de-lit/oreillers/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b121"
+          },
+          {
+           "text": "Surmatelas",
+           "link": {
+            "url": "/linge-de-lit/surmatelas/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "_id": "1a2b122"
+          }
+         ],
+         "space_between": {
+          "unit": "px",
+          "size": 9,
+          "sizes": []
+         },
+         "text_color": "#1B261D",
+         "text_color_hover": "#035C11",
+         "icon_typography_typography": "custom",
+         "icon_typography_font_size": {
+          "unit": "px",
+          "size": 14.5,
+          "sizes": []
+         },
+         "icon_typography_font_weight": "500",
+         "icon_typography_line_height": {
+          "unit": "em",
+          "size": 1.4,
+          "sizes": []
+         }
+        },
+        "elements": []
+       }
+      ]
+     },
+     {
+      "id": "1a2b127",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Visuel",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 12,
+        "column": "12",
+        "row": "12",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b125",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "image",
+        "settings": {
+         "image": {
+          "url": "a-choisir:drap-housse-bella-donna.webp",
+          "id": "",
+          "alt": "Drap-housse jersey Bella Donna bordeaux",
+          "source": "library",
+          "size": ""
+         },
+         "image_size": "full",
+         "_title": "Image à choisir : drap-housse-bella-donna.webp",
+         "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+         },
+         "height": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "height_mobile": {
+          "unit": "px",
+          "size": 170,
+          "sizes": []
+         },
+         "object-fit": "cover",
+         "image_border_radius": {
+          "unit": "px",
+          "top": "14",
+          "right": "14",
+          "bottom": "14",
+          "left": "14",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b126",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "button",
+        "settings": {
+         "text": "Tout le linge de lit",
+         "link": {
+          "url": "/linge-de-lit/",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "md",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.2,
+          "sizes": []
+         },
+         "border_radius": {
+          "unit": "px",
+          "top": "999",
+          "right": "999",
+          "bottom": "999",
+          "left": "999",
+          "isLinked": true
+         },
+         "text_padding": {
+          "unit": "px",
+          "top": "12",
+          "right": "18",
+          "bottom": "12",
+          "left": "18",
+          "isLinked": false
+         },
+         "selected_icon": {
+          "value": "fas fa-arrow-right",
+          "library": "fa-solid"
+         },
+         "icon_align": "row-reverse",
+         "icon_indent": {
+          "unit": "px",
+          "size": 8,
+          "sizes": []
+         },
+         "background_color": "#035C11",
+         "button_text_color": "#FFFFFF",
+         "button_background_hover_color": "#024A0E",
+         "hover_color": "#FFFFFF",
+         "box_shadow_box_shadow_type": "",
+         "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 30,
+          "spread": -10,
+          "color": "rgba(1,46,8,0.22)"
+         },
+         "align": "justify"
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "hefel": {
+  "title": "Méga-menu – Couettes Hefel",
+  "content": [
+   {
+    "id": "1a2b15e",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Couettes Hefel",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 200px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b159",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Couettes Hefel – colonnes",
+       "container_type": "grid",
+       "grid_columns_grid": {
+        "unit": "fr",
+        "size": 5
+       },
+       "grid_rows_grid": {
+        "unit": "fr",
+        "size": 1
+       },
+       "grid_gaps": {
+        "unit": "px",
+        "size": 22,
+        "column": "22",
+        "row": "22",
+        "isLinked": true
+       },
+       "grid_auto_flow": "row"
+      },
+      "elements": [
+       {
+        "id": "1a2b12f",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Colonne : Couettes doubles 4 saisons",
+         "flex_direction": "column",
+         "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b129",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "heading",
+          "settings": {
+           "title": "Couettes doubles 4 saisons",
+           "header_size": "p",
+           "title_color": "#1F7A2C",
+           "link": {
+            "url": "/linge-de-lit/couettes-doubles/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 12,
+            "sizes": []
+           },
+           "typography_font_weight": "700",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.3,
+            "sizes": []
+           },
+           "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.4,
+            "sizes": []
+           },
+           "typography_text_transform": "uppercase",
+           "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0",
+            "isLinked": false
+           },
+           "_padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "10",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_border": "solid",
+           "_border_width": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "1",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_color": "#DFE7E0"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b12e",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "icon-list",
+          "settings": {
+           "icon_list": [
+            {
+             "text": "Bio Bois",
+             "link": {
+              "url": "/couette-double-bio-bois-4-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b12a"
+            },
+            {
+             "text": "Maïs / Tencel™ Lyocell",
+             "link": {
+              "url": "/couette-double-soft-4-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b12b"
+            },
+            {
+             "text": "Tencel™ Lyocell / housse Tencel",
+             "link": {
+              "url": "/couette-double-klimacontrol-comfort4-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b12c"
+            },
+            {
+             "text": "Tencel™ Lyocell / housse coton",
+             "link": {
+              "url": "/couette-double-edition-101-4-saisons-2/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b12d"
+            }
+           ],
+           "space_between": {
+            "unit": "px",
+            "size": 7,
+            "sizes": []
+           },
+           "text_color": "#1B261D",
+           "text_color_hover": "#035C11",
+           "icon_typography_typography": "custom",
+           "icon_typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "icon_typography_font_weight": "500",
+           "icon_typography_line_height": {
+            "unit": "em",
+            "size": 1.4,
+            "sizes": []
+           }
+          },
+          "elements": []
+         }
+        ]
+       },
+       {
+        "id": "1a2b139",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Colonne : Fibres animales",
+         "flex_direction": "column",
+         "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b130",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "heading",
+          "settings": {
+           "title": "Fibres animales",
+           "header_size": "p",
+           "title_color": "#1F7A2C",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 12,
+            "sizes": []
+           },
+           "typography_font_weight": "700",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.3,
+            "sizes": []
+           },
+           "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.4,
+            "sizes": []
+           },
+           "typography_text_transform": "uppercase",
+           "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0",
+            "isLinked": false
+           },
+           "_padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "10",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_border": "solid",
+           "_border_width": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "1",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_color": "#DFE7E0"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b138",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "icon-list",
+          "settings": {
+           "icon_list": [
+            {
+             "text": "Soie sauvage / housse Tencel",
+             "link": {
+              "url": "/couette-pure-soie-ete/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b131"
+            },
+            {
+             "text": "Soie sauvage / housse coton",
+             "link": {
+              "url": "/couette-soie-dream-ete/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b132"
+            },
+            {
+             "text": "Cachemire / laine",
+             "link": {
+              "url": "/couette-cachemire-deluxe-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b133"
+            },
+            {
+             "text": "Poils de chameau",
+             "link": {
+              "url": "/couette-camel-dreamtoutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b134"
+            },
+            {
+             "text": "Laine vierge",
+             "link": {
+              "url": "/couette-pure-wool-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b135"
+            },
+            {
+             "text": "Bio laine",
+             "link": {
+              "url": "/couette-bio-laine-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b136"
+            },
+            {
+             "text": "Laine vierge / pin cimbre",
+             "link": {
+              "url": "/couette-wellness-pin-cimbretoutes-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b137"
+            }
+           ],
+           "space_between": {
+            "unit": "px",
+            "size": 7,
+            "sizes": []
+           },
+           "text_color": "#1B261D",
+           "text_color_hover": "#035C11",
+           "icon_typography_typography": "custom",
+           "icon_typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "icon_typography_font_weight": "500",
+           "icon_typography_line_height": {
+            "unit": "em",
+            "size": 1.4,
+            "sizes": []
+           }
+          },
+          "elements": []
+         }
+        ]
+       },
+       {
+        "id": "1a2b143",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Colonne : Fibres végétales",
+         "flex_direction": "column",
+         "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b13a",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "heading",
+          "settings": {
+           "title": "Fibres végétales",
+           "header_size": "p",
+           "title_color": "#1F7A2C",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 12,
+            "sizes": []
+           },
+           "typography_font_weight": "700",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.3,
+            "sizes": []
+           },
+           "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.4,
+            "sizes": []
+           },
+           "typography_text_transform": "uppercase",
+           "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0",
+            "isLinked": false
+           },
+           "_padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "10",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_border": "solid",
+           "_border_width": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "1",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_color": "#DFE7E0"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b142",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "icon-list",
+          "settings": {
+           "icon_list": [
+            {
+             "text": "Bio Bois",
+             "link": {
+              "url": "/couette-bio-bois-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b13b"
+            },
+            {
+             "text": "Tencel™ Lyocell",
+             "link": {
+              "url": "/couette-klimacontrol-fair-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b13c"
+            },
+            {
+             "text": "Maïs",
+             "link": {
+              "url": "/couette-pure-mais-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b13d"
+            },
+            {
+             "text": "Maïs / Tencel™ Lyocell",
+             "link": {
+              "url": "/couette-soft-toutes-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b13e"
+            },
+            {
+             "text": "Bambou / maïs",
+             "link": {
+              "url": "/couette-pure-bambou-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b13f"
+            },
+            {
+             "text": "Microfibres Tencel",
+             "link": {
+              "url": "/couette-edition-101-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b140"
+            },
+            {
+             "text": "Tencel programme cool",
+             "link": {
+              "url": "/couette-ete-programme-cool-hefel/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b141"
+            }
+           ],
+           "space_between": {
+            "unit": "px",
+            "size": 7,
+            "sizes": []
+           },
+           "text_color": "#1B261D",
+           "text_color_hover": "#035C11",
+           "icon_typography_typography": "custom",
+           "icon_typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "icon_typography_font_weight": "500",
+           "icon_typography_line_height": {
+            "unit": "em",
+            "size": 1.4,
+            "sizes": []
+           }
+          },
+          "elements": []
+         }
+        ]
+       },
+       {
+        "id": "1a2b14a",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Colonne : Fibres synthétiques",
+         "flex_direction": "column",
+         "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b144",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "heading",
+          "settings": {
+           "title": "Fibres synthétiques",
+           "header_size": "p",
+           "title_color": "#1F7A2C",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 12,
+            "sizes": []
+           },
+           "typography_font_weight": "700",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.3,
+            "sizes": []
+           },
+           "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.4,
+            "sizes": []
+           },
+           "typography_text_transform": "uppercase",
+           "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0",
+            "isLinked": false
+           },
+           "_padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "10",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_border": "solid",
+           "_border_width": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "1",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_color": "#DFE7E0"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b149",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "icon-list",
+          "settings": {
+           "icon_list": [
+            {
+             "text": "Softbausch fibres creuses PES",
+             "link": {
+              "url": "/couette-softbausch-home-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b145"
+            },
+            {
+             "text": "Tencel™ Lyocell / viscose Celliant®",
+             "link": {
+              "url": "/couette-toutes-saisons-wellness-retreat-hefel/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b146"
+            },
+            {
+             "text": "Tencel™ Lyocell / Softbausch",
+             "link": {
+              "url": "/couette-softbausch-home-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b147"
+            },
+            {
+             "text": "Vitasan fibres PES",
+             "link": {
+              "url": "/couette-wellness-vitasan-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b148"
+            }
+           ],
+           "space_between": {
+            "unit": "px",
+            "size": 7,
+            "sizes": []
+           },
+           "text_color": "#1B261D",
+           "text_color_hover": "#035C11",
+           "icon_typography_typography": "custom",
+           "icon_typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "icon_typography_font_weight": "500",
+           "icon_typography_line_height": {
+            "unit": "em",
+            "size": 1.4,
+            "sizes": []
+           }
+          },
+          "elements": []
+         }
+        ]
+       },
+       {
+        "id": "1a2b158",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Colonne : Duvets",
+         "flex_direction": "column",
+         "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b14b",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "heading",
+          "settings": {
+           "title": "Duvets",
+           "header_size": "p",
+           "title_color": "#1F7A2C",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 12,
+            "sizes": []
+           },
+           "typography_font_weight": "700",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.3,
+            "sizes": []
+           },
+           "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.4,
+            "sizes": []
+           },
+           "typography_text_transform": "uppercase",
+           "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "12",
+            "left": "0",
+            "isLinked": false
+           },
+           "_padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "10",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_border": "solid",
+           "_border_width": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "1",
+            "left": "0",
+            "isLinked": false
+           },
+           "_border_color": "#DFE7E0"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b157",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "icon-list",
+          "settings": {
+           "icon_list": [
+            {
+             "text": "Canard 90 % CUIN 700",
+             "link": {
+              "url": "/couette-en-duvet-de-canard-alaska-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b14c"
+            },
+            {
+             "text": "Oie 90 % CUIN 600",
+             "link": {
+              "url": "/couette-en-duvet-doie-silver-down-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b14d"
+            },
+            {
+             "text": "Oie 90 % CUIN 700",
+             "link": {
+              "url": "/couette-en-duvet-mont-blanc-toutes-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b14e"
+            },
+            {
+             "text": "Oie 100 % CUIN 700",
+             "link": {
+              "url": "/couette-en-duvet-doie-100-arlberg-toutes-saisons-2/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b14f"
+            },
+            {
+             "text": "Oie 100 % CUIN 700 / housse Outlast®",
+             "link": {
+              "url": "/couette-duvet-doie-outlast-proactive-nexgen-toutes-saisons-2/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b150"
+            },
+            {
+             "text": "Oie 100 % CUIN 750",
+             "link": {
+              "url": "/couette-en-duvet-doie-platinum-down-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b151"
+            },
+            {
+             "text": "Oie 100 % CUIN 800 / housse Tencel / Celliant®",
+             "link": {
+              "url": "/couette-retreat-down-duvet-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b152"
+            },
+            {
+             "text": "Oie 100 % CUIN 850+",
+             "link": {
+              "url": "/couette-duvet-doie-de-luxe-down-toutes-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b153"
+            },
+            {
+             "text": "Oie 100 % CUIN 850+ / housse Tencel / cachemire",
+             "link": {
+              "url": "/couette-duvet-doie-opulence-toutes-saisons/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b154"
+            },
+            {
+             "text": "Eider / housse nano coton 70 g/m²",
+             "link": {
+              "url": "/couette-duvet-eider-toutes-saisons-legere-housse-100-coton-nano-batiste-pour-duvet/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b155"
+            },
+            {
+             "text": "Eider / housse jacquard de soie 120 g/m²",
+             "link": {
+              "url": "/couette-duvet-eider-toutes-saisons-legere/",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "_id": "1a2b156"
+            }
+           ],
+           "space_between": {
+            "unit": "px",
+            "size": 7,
+            "sizes": []
+           },
+           "text_color": "#1B261D",
+           "text_color_hover": "#035C11",
+           "icon_typography_typography": "custom",
+           "icon_typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "icon_typography_font_weight": "500",
+           "icon_typography_line_height": {
+            "unit": "em",
+            "size": 1.4,
+            "sizes": []
+           }
+          },
+          "elements": []
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "1a2b15d",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Catalogue & promotions",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 12,
+        "column": "12",
+        "row": "12",
+        "isLinked": true
+       },
+       "flex_align_items": "stretch"
+      },
+      "elements": [
+       {
+        "id": "1a2b15a",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "image",
+        "settings": {
+         "_title": "Catalogue Hefel (PDF)",
+         "image": {
+          "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2025/09/screenshot-la-maison-du-dos-com-2025-09-08-11-18-36-214x300.png",
+          "id": "",
+          "alt": "Catalogue des couettes Hefel 2024-2025",
+          "source": "library",
+          "size": ""
+         },
+         "image_size": "full",
+         "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+         },
+         "link_to": "custom",
+         "link": {
+          "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf",
+          "is_external": "on",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "image_border_radius": {
+          "unit": "px",
+          "top": "10",
+          "right": "10",
+          "bottom": "10",
+          "left": "10",
+          "isLinked": true
+         },
+         "image_border_border": "solid",
+         "image_border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "1",
+          "bottom": "1",
+          "left": "1",
+          "isLinked": true
+         },
+         "image_border_color": "#DFE7E0"
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b15b",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Catalogue Hefel 2024-2025 (PDF)",
+         "header_size": "p",
+         "title_color": "#035C11",
+         "align": "center",
+         "link": {
+          "url": "https://prod.la-maison-du-dos.com/wp-content/uploads/2025/04/HEFEL_Bettwarenkatalog-2024-2025_FR.pdf",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 13,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.35,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b15c",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Profitez de nos promotions sur les couettes doubles, les couettes hiver et toutes saisons.</p>",
+         "text_color": "#C80C25",
+         "align": "center",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 13,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "marques": {
+  "title": "Méga-menu – Marques",
+  "content": [
+   {
+    "id": "1a2b172",
+    "elType": "container",
+    "isInner": false,
+    "isLocked": false,
+    "settings": {
+     "content_width": "boxed",
+     "_title": "Méga-menu : Marques",
+     "boxed_width": {
+      "unit": "px",
+      "size": 1200,
+      "sizes": []
+     },
+     "container_type": "grid",
+     "grid_columns_grid": {
+      "unit": "custom",
+      "size": "1fr 250px",
+      "sizes": []
+     },
+     "grid_rows_grid": {
+      "unit": "fr",
+      "size": 1
+     },
+     "grid_gaps": {
+      "unit": "px",
+      "size": 24,
+      "column": "24",
+      "row": "24",
+      "isLinked": true
+     },
+     "grid_align_items": "stretch",
+     "padding": {
+      "unit": "px",
+      "top": "28",
+      "right": "24",
+      "bottom": "32",
+      "left": "24",
+      "isLinked": false
+     },
+     "background_background": "classic",
+     "background_color": "#FFFFFF"
+    },
+    "elements": [
+     {
+      "id": "1a2b16d",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "_title": "Marques – grille",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 14,
+        "column": "14",
+        "row": "14",
+        "isLinked": true
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b15f",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Nos marques partenaires",
+         "header_size": "p",
+         "title_color": "#1F7A2C",
+         "link": {
+          "url": "/nos-marques/",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 12,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": 1.4,
+          "sizes": []
+         },
+         "typography_text_transform": "uppercase",
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "12",
+          "left": "0",
+          "isLinked": false
+         },
+         "_padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "10",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_border": "solid",
+         "_border_width": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+         },
+         "_border_color": "#DFE7E0"
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b16c",
+        "elType": "container",
+        "isInner": true,
+        "isLocked": false,
+        "settings": {
+         "content_width": "full",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "_title": "Logos",
+         "container_type": "grid",
+         "grid_columns_grid": {
+          "unit": "fr",
+          "size": 6
+         },
+         "grid_rows_grid": {
+          "unit": "fr",
+          "size": 2
+         },
+         "grid_gaps": {
+          "unit": "px",
+          "size": 10,
+          "column": "10",
+          "row": "10",
+          "isLinked": true
+         }
+        },
+        "elements": [
+         {
+          "id": "1a2b160",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "La Maison du Dos",
+           "link": {
+            "url": "/product-tag/la-maison-du-dos/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : La Maison du Dos",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b161",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Moosburger",
+           "link": {
+            "url": "/product-tag/moosburger/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Moosburger",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b162",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Akva",
+           "link": {
+            "url": "/product-tag/akva/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Akva",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b163",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Hefel",
+           "link": {
+            "url": "/product-tag/hefel/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Hefel",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b164",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Tasso",
+           "link": {
+            "url": "/product-tag/tasso/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Tasso",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b165",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Profine",
+           "link": {
+            "url": "/product-tag/profine/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Profine",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b166",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Matrair",
+           "link": {
+            "url": "/product-tag/matrair/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Matrair",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b167",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Formesse",
+           "link": {
+            "url": "/product-tag/formesse/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Formesse",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b168",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Mr. Sandman",
+           "link": {
+            "url": "/product-tag/mr-sandman/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Mr. Sandman",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b169",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Poseïdon – Lunalife",
+           "link": {
+            "url": "/product-tag/poseidon-lunalife/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Poseïdon – Lunalife",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b16a",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Kirstenbalk",
+           "link": {
+            "url": "/product-tag/kirstenbalk/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Kirstenbalk",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         },
+         {
+          "id": "1a2b16b",
+          "elType": "widget",
+          "isInner": false,
+          "isLocked": false,
+          "widgetType": "button",
+          "settings": {
+           "text": "Dynaglobe",
+           "link": {
+            "url": "/product-tag/dynaglobe/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "md",
+           "typography_typography": "custom",
+           "typography_font_size": {
+            "unit": "px",
+            "size": 13.5,
+            "sizes": []
+           },
+           "typography_font_weight": "600",
+           "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+           },
+           "border_radius": {
+            "unit": "px",
+            "top": "10",
+            "right": "10",
+            "bottom": "10",
+            "left": "10",
+            "isLinked": true
+           },
+           "text_padding": {
+            "unit": "px",
+            "top": "12",
+            "right": "10",
+            "bottom": "12",
+            "left": "10",
+            "isLinked": false
+           },
+           "background_color": "rgba(0,0,0,0)",
+           "button_text_color": "#1B261D",
+           "border_border": "solid",
+           "border_width": {
+            "unit": "px",
+            "top": "1",
+            "right": "1",
+            "bottom": "1",
+            "left": "1",
+            "isLinked": true
+           },
+           "border_color": "#DFE7E0",
+           "button_background_hover_color": "#EDF6EE",
+           "hover_color": "#035C11",
+           "_title": "Marque : Dynaglobe",
+           "align": "justify",
+           "button_hover_border_color": "#035C11"
+          },
+          "elements": []
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "1a2b171",
+      "elType": "container",
+      "isInner": true,
+      "isLocked": false,
+      "settings": {
+       "content_width": "full",
+       "padding": {
+        "unit": "px",
+        "top": "24",
+        "right": "24",
+        "bottom": "24",
+        "left": "24",
+        "isLinked": true
+       },
+       "_title": "Encart conseil",
+       "flex_direction": "column",
+       "flex_gap": {
+        "unit": "px",
+        "size": 10,
+        "column": "10",
+        "row": "10",
+        "isLinked": true
+       },
+       "flex_justify_content": "center",
+       "border_radius": {
+        "unit": "px",
+        "top": "14",
+        "right": "14",
+        "bottom": "14",
+        "left": "14",
+        "isLinked": true
+       },
+       "background_background": "gradient",
+       "background_color": "#012E08",
+       "background_color_b": "#035C11",
+       "background_gradient_angle": {
+        "unit": "deg",
+        "size": 135
+       }
+      },
+      "elements": [
+       {
+        "id": "1a2b16e",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "heading",
+        "settings": {
+         "title": "Toutes nos marques",
+         "header_size": "p",
+         "title_color": "#FFFFFF",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 18,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 17,
+          "sizes": []
+         },
+         "typography_font_weight": "700",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.3,
+          "sizes": []
+         },
+         "typography_letter_spacing": {
+          "unit": "px",
+          "size": -0.5,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b16f",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Découvrez les fabricants dont nous distribuons la literie et le linge de lit.</p>",
+         "text_color": "#D3E4D5",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_size_mobile": {
+          "unit": "px",
+          "size": 16,
+          "sizes": []
+         },
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.55,
+          "sizes": []
+         },
+         "_margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         }
+        },
+        "elements": []
+       },
+       {
+        "id": "1a2b170",
+        "elType": "widget",
+        "isInner": false,
+        "isLocked": false,
+        "widgetType": "button",
+        "settings": {
+         "text": "Voir les marques",
+         "link": {
+          "url": "/nos-marques/",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "md",
+         "typography_typography": "custom",
+         "typography_font_size": {
+          "unit": "px",
+          "size": 14,
+          "sizes": []
+         },
+         "typography_font_weight": "600",
+         "typography_line_height": {
+          "unit": "em",
+          "size": 1.2,
+          "sizes": []
+         },
+         "border_radius": {
+          "unit": "px",
+          "top": "999",
+          "right": "999",
+          "bottom": "999",
+          "left": "999",
+          "isLinked": true
+         },
+         "text_padding": {
+          "unit": "px",
+          "top": "11",
+          "right": "18",
+          "bottom": "11",
+          "left": "18",
+          "isLinked": false
+         },
+         "background_color": "#FFFFFF",
+         "button_text_color": "#035C11",
+         "button_background_hover_color": "#EDF6EE",
+         "hover_color": "#035C11",
+         "_margin": {
+          "unit": "px",
+          "top": "6",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+         }
+        },
+        "elements": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

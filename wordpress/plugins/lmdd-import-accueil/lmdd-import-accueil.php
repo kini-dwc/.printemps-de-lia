@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
- * Description:       Crée la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête, le pied de page et le menu, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD.
- * Version:           1.1.0
+ * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page et le menu, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
+ * Version:           1.2.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -27,6 +27,17 @@ final class LMDD_Import_Accueil {
 
 	/** Modèles de la bibliothèque Elementor : fichier de données => clé d'état. */
 	const LIBRARY = array( 'accueil' => 'tpl_accueil', 'en-tete' => 'tpl_entete', 'pied-de-page' => 'tpl_pied' );
+
+	/** Éléments installables séparément (cases à cocher) : fichier de données => élément. */
+	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied' );
+	const PARTS   = array(
+		'accueil' => 'Page d\'accueil (page brouillon « Accueil – nouvelle version »)',
+		'entete'  => 'En-tête, menu principal et méga-menus',
+		'pied'    => 'Pied de page',
+	);
+
+	/** Préfixe des méga-menus (contenus Elementor du type « wpr_mega_menu » de Royal Elementor Addons). */
+	const MEGA_PREFIX = 'lmdd-mega-';
 
 	/** Images fournies : fichier => texte alternatif. */
 	const IMAGES = array(
@@ -62,7 +73,8 @@ final class LMDD_Import_Accueil {
 			array( 'id' => 'check', 'label' => 'Vérification de l\'environnement' ),
 			array( 'id' => 'templates', 'label' => 'Création des modèles (accueil, en-tête, pied de page) dans la bibliothèque Elementor' ),
 			array( 'id' => 'page', 'label' => 'Création de la page « Accueil – nouvelle version » (brouillon)' ),
-			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » (avec sous-menus)' ),
+			array( 'id' => 'mega', 'label' => 'Création des 6 méga-menus (Lits à eau, Matelas réglables, Accessoires, Linge de lit, Couettes Hefel, Marques)' ),
+			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » et rattachement des méga-menus' ),
 			array( 'id' => 'hf', 'label' => 'Création de l\'en-tête et du pied de page dans le constructeur de thème Royal (sans les activer)' ),
 		);
 		foreach ( array_keys( self::IMAGES ) as $file ) {
@@ -86,6 +98,8 @@ final class LMDD_Import_Accueil {
 				$msg = self::step_templates();
 			} elseif ( 'page' === $step ) {
 				$msg = self::step_page();
+			} elseif ( 'mega' === $step ) {
+				$msg = self::step_mega();
 			} elseif ( 'menu' === $step ) {
 				$msg = self::step_menu();
 			} elseif ( 'hf' === $step ) {
@@ -107,6 +121,16 @@ final class LMDD_Import_Accueil {
 		}
 	}
 
+	/** Éléments cochés dans l'interface (envoyés avec chaque étape). */
+	private static function parts() {
+		$raw = isset( $_POST['parts'] ) ? sanitize_text_field( wp_unslash( $_POST['parts'] ) ) : implode( ',', array_keys( self::PARTS ) ); // phpcs:ignore WordPress.Security.NonceVerification
+		return array_values( array_intersect( array_keys( self::PARTS ), explode( ',', $raw ) ) );
+	}
+
+	private static function wants( $name ) {
+		return in_array( self::PART_OF[ $name ], self::parts(), true );
+	}
+
 	private static function state() {
 		$s = get_option( self::OPTION, array() );
 		return is_array( $s ) ? $s : array();
@@ -114,6 +138,30 @@ final class LMDD_Import_Accueil {
 
 	private static function save_state( array $patch ) {
 		update_option( self::OPTION, array_merge( self::state(), $patch ), false );
+	}
+
+	/**
+	 * Identifiant d'un contenu déjà créé : d'après le suivi d'installation, sinon d'après le marqueur « _lmdd_import »
+	 * posé sur chaque contenu (utile si l'extension a été supprimée puis réinstallée : pas de doublon).
+	 */
+	private static function existing( $state_key, $post_type, $marker ) {
+		$state = self::state();
+		if ( ! empty( $state[ $state_key ] ) && get_post( $state[ $state_key ] ) ) {
+			return (int) $state[ $state_key ];
+		}
+		$q = get_posts( array(
+			'post_type'   => $post_type,
+			'post_status' => 'any',
+			'numberposts' => 1,
+			'fields'      => 'ids',
+			'meta_key'    => '_lmdd_import', // phpcs:ignore WordPress.DB.SlowDBQuery
+			'meta_value'  => $marker, // phpcs:ignore WordPress.DB.SlowDBQuery
+		) );
+		if ( $q ) {
+			self::save_state( array( $state_key => (int) $q[0] ) );
+			return (int) $q[0];
+		}
+		return 0;
 	}
 
 	private static function data( $name, $key = 'content' ) {
@@ -136,6 +184,9 @@ final class LMDD_Import_Accueil {
 			self::data( $name );
 		}
 		self::data( 'menu', 'items' );
+		if ( ! self::parts() ) {
+			throw new Exception( 'Cochez au moins un élément à installer.' );
+		}
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			if ( ! is_readable( __DIR__ . '/images/' . $file ) ) {
 				throw new Exception( 'Image manquante dans l\'extension : images/' . $file );
@@ -161,10 +212,15 @@ final class LMDD_Import_Accueil {
 		$state  = self::state();
 		$out    = array();
 		foreach ( self::LIBRARY as $name => $key ) {
-			$d = self::data( $name );
-			if ( ! empty( $state[ $key ] ) && get_post( $state[ $key ] ) ) {
-				self::write_elementor_data( (int) $state[ $key ], $d['content'] );
-				$out[] = $d['title'] . ' (mis à jour, #' . $state[ $key ] . ')';
+			if ( ! self::wants( $name ) ) {
+				continue;
+			}
+			$d        = self::data( $name );
+			$existing = self::existing( $key, 'elementor_library', 'tpl-' . $name );
+			if ( $existing ) {
+				self::write_elementor_data( $existing, $d['content'] );
+				update_post_meta( $existing, '_lmdd_import', 'tpl-' . $name );
+				$out[] = $d['title'] . ' (mis à jour, #' . $existing . ')';
 				continue;
 			}
 			$id = $source->save_item( array(
@@ -176,17 +232,20 @@ final class LMDD_Import_Accueil {
 			if ( is_wp_error( $id ) ) {
 				throw new Exception( 'Elementor a refusé le modèle « ' . $d['title'] . ' » : ' . $id->get_error_message() );
 			}
+			update_post_meta( $id, '_lmdd_import', 'tpl-' . $name );
 			self::save_state( array( $key => (int) $id ) );
 			$out[] = $d['title'] . ' (#' . $id . ')';
 		}
-		return 'Modèles créés : ' . implode( ', ', $out ) . '.';
+		return $out ? 'Modèles : ' . implode( ', ', $out ) . '.' : 'Ignoré (aucun modèle sélectionné).';
 	}
 
 	/** Crée (ou met à jour) la page brouillon construite avec Elementor. */
 	private static function step_page() {
+		if ( ! self::wants( 'accueil' ) ) {
+			return 'Ignoré (page d\'accueil non sélectionnée).';
+		}
 		$d     = self::data( 'accueil' );
-		$state = self::state();
-		$id    = ! empty( $state['page'] ) && get_post( $state['page'] ) ? (int) $state['page'] : 0;
+		$id = self::existing( 'page', 'page', 'page-accueil' );
 		if ( ! $id ) {
 			$id = wp_insert_post( array(
 				'post_title'  => 'Accueil – nouvelle version',
@@ -198,6 +257,7 @@ final class LMDD_Import_Accueil {
 			}
 			self::save_state( array( 'page' => (int) $id ) );
 		}
+		update_post_meta( $id, '_lmdd_import', 'page-accueil' );
 		update_post_meta( $id, '_elementor_edit_mode', 'builder' );
 		update_post_meta( $id, '_elementor_template_type', 'wp-page' );
 		update_post_meta( $id, '_wp_page_template', 'elementor_header_footer' );
@@ -256,8 +316,12 @@ final class LMDD_Import_Accueil {
 			}
 		}
 		$done = 0;
-		foreach ( array_merge( array( 'page' ), array_values( self::LIBRARY ), wp_list_pluck( self::HF, 'state' ) ) as $key ) {
-			if ( empty( $state[ $key ] ) ) {
+		$keys = array_merge( array( 'page' ), array_values( self::LIBRARY ), wp_list_pluck( self::HF, 'state' ) );
+		foreach ( array_keys( self::data( 'mega-menus', 'lits' ) ) as $mega ) {
+			$keys[] = 'mega_' . $mega;
+		}
+		foreach ( $keys as $key ) {
+			if ( empty( $state[ $key ] ) || ! get_post( $state[ $key ] ) ) {
 				continue;
 			}
 			$raw  = get_post_meta( $state[ $key ], '_elementor_data', true );
@@ -265,8 +329,11 @@ final class LMDD_Import_Accueil {
 			if ( ! is_array( $data ) ) {
 				continue;
 			}
-			$done += self::replace_images( $data, $map );
-			self::write_elementor_data( (int) $state[ $key ], $data );
+			$n = self::replace_images( $data, $map );
+			if ( $n ) { // Seuls les contenus qui contiennent encore des images « à choisir » sont réécrits.
+				$done += $n;
+				self::write_elementor_data( (int) $state[ $key ], $data );
+			}
 		}
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			\Elementor\Plugin::$instance->files_manager->clear_cache();
@@ -308,6 +375,9 @@ final class LMDD_Import_Accueil {
 
 	/** Crée (ou recrée) le menu WordPress utilisé par le widget « Menu » de l'en-tête. */
 	private static function step_menu() {
+		if ( ! in_array( 'entete', self::parts(), true ) ) {
+			return 'Ignoré (en-tête non sélectionné).';
+		}
 		$d    = self::data( 'menu', 'items' );
 		$menu = wp_get_nav_menu_object( $d['slug'] );
 		if ( ! $menu ) {
@@ -322,17 +392,73 @@ final class LMDD_Import_Accueil {
 				wp_delete_post( $item->ID, true );
 			}
 		}
-		$n = 0;
+		$n     = 0;
+		$megas = 0;
 		foreach ( $d['items'] as $i => $item ) {
 			$parent = self::add_menu_item( $menu_id, $item, 0, $i + 1 );
 			$n++;
+			$mega_id = ! empty( $item['mega'] ) ? self::mega_id( $item['mega'] ) : 0;
+			if ( $mega_id ) {
+				// Mêmes réglages que l'écran « Méga-menu » de Royal (Apparence → Menus) : pleine largeur, sous l'onglet.
+				update_post_meta( $parent, 'wpr-mega-menu-item', $mega_id );
+				update_post_meta( $parent, 'wpr-mega-menu-settings', array(
+					'wpr_mm_enable'         => 'true',
+					'wpr_mm_position'       => 'default',
+					'wpr_mm_width'          => 'full',
+					'wpr_mm_custom_width'   => 600,
+					'wpr_mm_mobile_content' => 'submenu',
+					'wpr_mm_render'         => 'default',
+				) );
+				$megas++;
+			}
 			foreach ( $item['children'] as $j => $child ) {
 				self::add_menu_item( $menu_id, $child, $parent, $j + 1 );
 				$n++;
 			}
 		}
 		self::save_state( array( 'menu' => $menu_id ) );
-		return 'Menu #' . $menu_id . ' : ' . count( $d['items'] ) . ' entrées principales, ' . $n . ' liens au total. Modifiable dans Apparence → Menus.';
+		return 'Menu #' . $menu_id . ' : ' . count( $d['items'] ) . ' onglets, ' . $n . ' liens, ' . $megas . ' méga-menus rattachés. Modifiable dans Apparence → Menus.';
+	}
+
+	// ------------------------------------------------------------------ Méga-menus (Royal Elementor Addons)
+
+	private static function mega_id( $key ) {
+		if ( ! post_type_exists( 'wpr_mega_menu' ) ) {
+			return 0;
+		}
+		$post = get_page_by_path( self::MEGA_PREFIX . $key, OBJECT, 'wpr_mega_menu' );
+		return $post ? (int) $post->ID : 0;
+	}
+
+	/** Crée (ou met à jour) un contenu Elementor par méga-menu. */
+	private static function step_mega() {
+		if ( ! in_array( 'entete', self::parts(), true ) ) {
+			return 'Ignoré (en-tête non sélectionné).';
+		}
+		if ( ! post_type_exists( 'wpr_mega_menu' ) ) {
+			return 'Royal Elementor Addons n\'est pas actif : le menu s\'affichera avec des sous-menus simples.';
+		}
+		$out = array();
+		foreach ( self::data( 'mega-menus', 'lits' ) as $key => $mega ) {
+			$id = self::mega_id( $key );
+			if ( ! $id ) {
+				$id = wp_insert_post( array(
+					'post_type'   => 'wpr_mega_menu',
+					'post_title'  => $mega['title'],
+					'post_name'   => self::MEGA_PREFIX . $key,
+					'post_status' => 'publish',
+				), true );
+				if ( is_wp_error( $id ) ) {
+					throw new Exception( 'Impossible de créer « ' . $mega['title'] . ' » : ' . $id->get_error_message() );
+				}
+			}
+			update_post_meta( $id, '_elementor_template_type', 'wp-post' );
+			update_post_meta( $id, '_wp_page_template', 'elementor_canvas' );
+			self::write_elementor_data( $id, $mega['content'] );
+			self::save_state( array( 'mega_' . $key => (int) $id ) );
+			$out[] = $key . ' #' . $id;
+		}
+		return count( $out ) . ' méga-menus prêts (' . implode( ', ', $out ) . ').';
 	}
 
 	private static function add_menu_item( $menu_id, array $item, $parent, $position ) {
@@ -363,6 +489,9 @@ final class LMDD_Import_Accueil {
 		}
 		$out = array();
 		foreach ( self::HF as $type => $hf ) {
+			if ( ! self::wants( $type ) ) {
+				continue;
+			}
 			$d  = self::data( $hf['data'] );
 			$id = self::hf_template_id( $type );
 			if ( ! $id ) {
@@ -386,7 +515,7 @@ final class LMDD_Import_Accueil {
 			self::save_state( array( $hf['state'] => (int) $id ) );
 			$out[] = $d['title'] . ' (#' . $id . ')';
 		}
-		return 'Créés dans le constructeur de thème de Royal : ' . implode( ', ', $out ) . '. Pas encore affichés sur le site.';
+		return $out ? 'Dans le constructeur de thème de Royal : ' . implode( ', ', $out ) . '. Leur affichage sur le site n\'est pas modifié.' : 'Ignoré (en-tête et pied de page non sélectionnés).';
 	}
 
 	private static function hf_template_id( $type ) {
@@ -484,24 +613,37 @@ final class LMDD_Import_Accueil {
 		$steps = self::steps();
 		?>
 		<div class="wrap">
-			<h1>Import de la nouvelle page d'accueil – La Maison du Dos</h1>
-			<p>Cet outil crée, <strong>sans toucher à votre page d'accueil actuelle</strong> :</p>
-			<ul style="list-style:disc;margin-left:20px">
-				<li>la page brouillon <strong>« Accueil – nouvelle version »</strong>, construite avec Elementor (widgets natifs, modifiables) ;</li>
-				<li>les modèles « Accueil », « En-tête » et « Pied de page – La Maison du Dos » dans <em>Elementor → Modèles</em> ;</li>
-				<li>le menu <strong>« Menu principal – La Maison du Dos »</strong> (<em>Apparence → Menus</em>), avec ses sous-menus ;</li>
-				<li>l'<strong>en-tête</strong> et le <strong>pied de page</strong> dans le constructeur de thème de Royal Elementor Addons, <strong>sans les activer</strong> : vous les prévisualisez, puis les activez en un clic (et pouvez revenir aux anciens).</li>
-				<li>les 7 images optimisées dans la médiathèque, avec leurs textes alternatifs.</li>
-			</ul>
-			<p>Chaque étape est une petite requête : l'import ne peut pas dépasser le temps maximal de l'hébergeur. Il peut être relancé sans créer de doublons.</p>
-			<p><button type="button" class="button button-primary button-hero" id="lmdd-go">Lancer l'import</button></p>
+			<h1>Installation de la nouvelle page d'accueil, de l'en-tête et du pied de page – La Maison du Dos</h1>
+			<p>Cochez ce que vous voulez installer. Rien n'est affiché à vos visiteurs sans votre accord :
+			la page d'accueil est créée en <strong>brouillon</strong>, l'en-tête et le pied de page sont créés <strong>sans être activés</strong>
+			(aperçu puis activation en un clic, en bas de cette page).</p>
+			<fieldset id="lmdd-parts" style="background:#fff;border:1px solid #c3c4c7;padding:12px 16px;max-width:760px">
+				<?php
+				$installed = array(
+					'accueil' => (bool) self::existing( 'page', 'page', 'page-accueil' ),
+					'entete'  => self::royal_active() && self::hf_template_id( 'header' ),
+					'pied'    => self::royal_active() && self::hf_template_id( 'footer' ),
+				);
+				foreach ( self::PARTS as $part => $label ) :
+					?>
+					<p style="margin:6px 0"><label><input type="checkbox" value="<?php echo esc_attr( $part ); ?>" <?php checked( ! $installed[ $part ] ); ?>>
+					<strong><?php echo esc_html( $label ); ?></strong>
+					<?php if ( $installed[ $part ] ) : ?>
+						<span style="color:#b32d2e"> – déjà installé : cochez seulement pour le <strong>réinstaller</strong> (vos modifications faites dans Elementor seraient remplacées)</span>
+					<?php endif; ?>
+					</label></p>
+				<?php endforeach; ?>
+				<p style="margin:10px 0 0;color:#646970">Les 7 images optimisées sont ajoutées à la médiathèque si besoin (une seule fois). Chaque étape est une petite requête :
+				l'installation ne peut pas dépasser le temps maximal de l'hébergeur.</p>
+			</fieldset>
+			<p><button type="button" class="button button-primary button-hero" id="lmdd-go">Installer la sélection</button></p>
 			<ol id="lmdd-steps" style="font-size:14px;line-height:1.9">
 				<?php foreach ( $steps as $s ) : ?>
 					<li data-step="<?php echo esc_attr( $s['id'] ); ?>"><?php echo esc_html( $s['label'] ); ?> <span class="lmdd-status" style="color:#646970"></span></li>
 				<?php endforeach; ?>
 			</ol>
 			<div id="lmdd-result" hidden style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #00a32a;padding:12px 16px;max-width:760px">
-				<p><strong>Import terminé.</strong></p>
+				<p><strong>Installation terminée.</strong></p>
 				<p id="lmdd-links"></p>
 			</div>
 			<div id="lmdd-error" hidden style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #d63638;padding:12px 16px;max-width:760px">
@@ -517,6 +659,7 @@ final class LMDD_Import_Accueil {
 			var ajax = <?php echo wp_json_encode( admin_url( 'admin-ajax.php' ) ); ?>;
 			var go = document.getElementById('lmdd-go'), retry = document.getElementById('lmdd-retry');
 			var current = 0;
+			function parts() { return Array.prototype.map.call(document.querySelectorAll('#lmdd-parts input:checked'), function (c) { return c.value; }).join(','); }
 			function li(id) { return document.querySelector('[data-step="' + id + '"] .lmdd-status'); }
 			function run(i) {
 				current = i;
@@ -525,7 +668,7 @@ final class LMDD_Import_Accueil {
 				li(id).textContent = '… en cours';
 				li(id).style.color = '#2271b1';
 				var body = new FormData();
-				body.append('action', 'lmdd_import_step'); body.append('step', id); body.append('nonce', nonce);
+				body.append('action', 'lmdd_import_step'); body.append('step', id); body.append('nonce', nonce); body.append('parts', parts());
 				fetch(ajax, { method: 'POST', credentials: 'same-origin', body: body })
 					.then(function (r) { return r.text().then(function (t) { return { status: r.status, text: t }; }); })
 					.then(function (res) {
@@ -573,6 +716,16 @@ final class LMDD_Import_Accueil {
 			echo '<p>Quand la page vous convient : publiez-la, puis choisissez-la dans <em>Réglages → Lecture → Page d\'accueil</em>.</p></div></div>';
 		}
 		self::render_hf_box();
+		?>
+		<div class="wrap"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #dba617;padding:12px 16px;max-width:760px;margin-top:12px">
+			<h2 style="margin-top:4px">Une fois tout en place : supprimez cette extension</h2>
+			<p>Tout ce qu'elle a créé est enregistré dans WordPress, Elementor et Royal Elementor Addons, et <strong>reste en place</strong> après sa suppression :
+			page d'accueil, en-tête, méga-menus, pied de page, menu, images et réglages d'affichage.</p>
+			<p><em>Extensions → LMDD – Import… → Désactiver</em>, puis <em>Supprimer</em>. La suppression efface uniquement son propre suivi d'installation.
+			Vous perdez seulement l'aperçu <code>?lmdd_hf_preview=1</code> et le bouton « Revenir » : l'ancien en-tête et l'ancien pied de page restent
+			disponibles dans <em>Royal Addons → Constructeur de thème</em>, où vous pouvez les réactiver à tout moment.</p>
+		</div></div>
+		<?php
 	}
 
 	private static function render_hf_box() {
