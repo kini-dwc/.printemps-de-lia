@@ -1,27 +1,26 @@
 <?php
 /**
  * Plugin Name:       LMDD – Devis & SAV
- * Description:       Demande de devis directement sur la fiche produit (panneau qui s'ouvre au clic, configuration reprise), formulaire SAV en étapes avec photos, fiches symptômes avec prix des pièces en direct. Chaque demande est enregistrée (menu « Demandes clients ») et envoyée par e-mail.
- * Version:           1.0.0
+ * Description:       Demande de devis affichée sur place dans la fiche produit et formulaire SAV en étapes, avec Contact Form 7 (champs et e-mails modifiables), pièces avec prix en direct, copie de secours des demandes (menu « Demandes clients »).
+ * Version:           2.0.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
- * Requires Plugins:  woocommerce
+ * Requires Plugins:  woocommerce, contact-form-7
  * License:           GPL-2.0-or-later
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'LMDD_DS_VERSION', '1.0.0' );
+define( 'LMDD_DS_VERSION', '2.0.0' );
 define( 'LMDD_DS_FILE', __FILE__ );
 
-require_once __DIR__ . '/includes/class-lmdd-ds-forms.php';
 require_once __DIR__ . '/includes/class-lmdd-ds-store.php';
-require_once __DIR__ . '/includes/class-lmdd-ds-rest.php';
+require_once __DIR__ . '/includes/class-lmdd-ds-cf7.php';
 require_once __DIR__ . '/includes/class-lmdd-ds-front.php';
 
 add_action( 'plugins_loaded', function () {
 	LMDD_DS_Store::init();
-	LMDD_DS_Rest::init();
+	LMDD_DS_CF7::init();
 	if ( class_exists( 'WooCommerce' ) ) {
 		LMDD_DS_Front::init();
 	}

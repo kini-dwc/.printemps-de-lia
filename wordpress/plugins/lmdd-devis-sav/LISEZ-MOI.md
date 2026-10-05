@@ -1,83 +1,91 @@
-# LMDD – Devis & SAV
+# LMDD – Devis & SAV (version 2)
 
-Extension **permanente** (à garder) qui gère les demandes clients directement sur le site :
+Extension **permanente** (à garder). Les formulaires sont des formulaires **Contact Form 7** : vous modifiez vous-même
+les champs, les textes, les messages et les e-mails dans *Contact → Formulaires*.
 
 | Fonction | Où |
 |---|---|
-| **Demande de devis dans la fiche produit** : le bouton « Demander un devis » ouvre un panneau (à droite sur ordinateur, plein écran sur mobile) avec la configuration choisie, sans changer de page | Toutes les fiches des produits vendus sur devis |
-| **Formulaire SAV en 4 étapes** : le problème (8 situations), le lit, les coordonnées, le récapitulatif ; photos possibles (étiquette du matelas…) | Code court `[lmdd_sav_formulaire]` (page SAV) |
-| **Fiches symptômes** : ce que c'est, ce que nous faisons, les pièces avec leur **prix lu en direct** dans la boutique | Code court `[lmdd_sav_symptomes]` |
-| **Demandes clients** : chaque demande est enregistrée, l'équipe reçoit un e-mail, le client un accusé de réception | Menu *Demandes clients* |
+| **Devis sur la fiche produit** : au clic sur « Demander un devis », le formulaire apparaît **à la place du bouton**, sous les options. Pas de panneau, pas d'animation : on remplit et on envoie | Fiches des produits vendus sur devis |
+| Les **options choisies** sur la fiche sont jointes automatiquement à la demande, **sans être réaffichées** | Champ caché `configuration` |
+| **Formulaire SAV en étapes** (le problème, votre lit, vos coordonnées), photos possibles | Code court `[lmdd_formulaire type="sav"]` |
+| **Pièces avec leur prix en direct** | Code court `[lmdd_pieces produits="slug-1, slug-2" devis="oui"]` |
+| **Copie de secours** de chaque demande, photos comprises | Menu *Demandes clients* |
 
-## Installation
+## Installation et mise à jour
 
-1. *Extensions → Ajouter → Téléverser* → `lmdd-devis-sav.zip` → *Installer* → *Activer*.
-2. Ouvrez **Demandes clients → Réglages** et vérifiez l'adresse qui reçoit les demandes. Par défaut, c'est celle de votre
-   formulaire de devis Contact Form 7, sinon l'e-mail de l'administration.
-3. Faites une demande d'essai sur une fiche « sur devis » et vérifiez la réception de l'e-mail.
+1. *Extensions → Ajouter → Téléverser* → `lmdd-devis-sav.zip` (remplacez la version 1 si elle est installée) → *Activer*.
+2. À la première visite de l'administration, l'extension **crée deux formulaires Contact Form 7** :
+   - **« Devis – fiche produit (LMDD) »** : nom, téléphone, e-mail, code postal, créneau de rappel, précision facultative ;
+   - **« SAV lit à eau (LMDD) »** : 3 étapes.
+   Leurs e-mails reprennent le **destinataire et l'expéditeur de votre formulaire de devis actuel** (Contact Form 7), avec un
+   accusé de réception envoyé au client.
+3. Vérifiez dans **Demandes clients → Réglages** que ces deux formulaires sont sélectionnés, puis faites un essai.
 
-**Dès l'activation**, sur les fiches des produits vendus sur devis, le bouton « Demander un devis » ouvre le panneau.
-Il ne renvoie plus vers la page `/demande-de-devis/`. Cela vaut aussi avec votre modèle de fiche actuel : l'ancien bouton est
-remplacé, le nouveau se place sous les options. La page `/demande-de-devis/` (Contact Form 7) reste en place et peut servir de secours.
+## Modifier les formulaires (Contact → Formulaires)
+
+- **Champs** : ajoutez, retirez ou renommez librement. Gardez seulement, dans le formulaire de devis, la ligne
+  `[hidden configuration id:lmdd-configuration]` : c'est elle qui transporte les options choisies sur la fiche.
+- **Mise en page** :
+  - `<div class="lmdd-grille">…</div>` : champs sur 2 colonnes ;
+  - `<label class="lmdd-champ lmdd-large">` : un champ sur toute la largeur ;
+  - `<div class="lmdd-cartes">…</div>` : choix présentés en cartes ;
+  - `<span class="lmdd-titre">` : intitulé d'un champ.
+- **Étapes (SAV)** : chaque bloc `<fieldset class="lmdd-etape" data-titre="Votre lit"> … </fieldset>` devient une étape, avec barre
+  de progression et boutons Continuer / Retour. Ajoutez, retirez ou réordonnez les blocs : les étapes suivent. Le bouton d'envoi
+  `[submit]` va dans la dernière étape.
+- **Choix uniques facultatifs** : utilisez `[checkbox nom exclusive use_label_element "Choix 1" "Choix 2"]`. Avec Contact Form 7 6,
+  un groupe `[radio]` est toujours obligatoire.
+- **E-mails** : onglets *E-mail* et *E-mail (2)* (accusé de réception). Dans le devis, `[_post_title]` et `[_post_url]` donnent le produit,
+  `[configuration]` les options choisies.
+- **Messages** (confirmation, erreurs) : onglet *Messages*. Après l'envoi, le message de confirmation remplace le formulaire.
+- **Anti-spam** : Cloudflare Turnstile de Contact Form 7 (*Contact → Intégration*), placé avant le bouton d'envoi.
 
 ## Produits « sur devis »
 
-- **Automatique** : un produit est « sur devis » si l'une de ses catégories contient `sur-devis` (ex. : *Lits à eau en vente sur devis*).
-  Le mot se règle dans *Demandes clients → Réglages*.
-- **Produit par produit** : *Produit → Général → Vente sur devis* : Automatique / Oui / Non.
-- Sur ces produits : le prix et le bouton « Ajouter au panier » sont masqués, les **options de configuration restent**
-  (TM Extra Product Options) et sont reprises dans la demande. L'ajout au panier est aussi refusé côté serveur.
+- **Automatique** : un produit est « sur devis » si l'une de ses catégories contient `sur-devis` (réglable dans *Demandes clients → Réglages*).
+- **Produit par produit** : *Produit → Général → Vente sur devis* (Automatique / Oui / Non).
+- Sur ces produits, le prix et le bouton « Ajouter au panier » sont masqués, et l'ajout au panier est refusé côté serveur.
+  Les options de configuration restent. Le bouton de l'ancien modèle de fiche (`#trigger-quote-btn`) ouvre lui aussi le formulaire sur place.
+- Sur mobile, une barre « Demander un devis » reste en bas de l'écran une fois le bouton dépassé.
+- Champs facultatifs du produit (*Produit → Général*), utilisés par le nouveau modèle de fiche : **Titre affiché (court)** et **Points clés**.
 
-Deux champs facultatifs dans *Produit → Général*, utilisés par le nouveau modèle de fiche :
-- **Titre affiché (court)** : ex. « Lit à eau Akva Soft / Soft Q » au lieu du nom complet. Le titre SEO n'est pas modifié.
-- **Points clés** : un par ligne, affichés avec une coche sous le titre (3 ou 4 conseillés).
+## Page SAV (Elementor)
 
-## Le panneau de devis
-
-1. **Votre configuration** : modèle, dimensions, couchage, stabilisation, options… repris automatiquement de la fiche,
-   avec un lien « Modifier ».
-2. **Votre projet** : le cadre du lit (neuf, cadre actuel, je ne sais pas).
-3. **La livraison** : code postal, pays (France, Belgique, Luxembourg, Pays-Bas, Suisse…), étage, accès.
-4. **Vos coordonnées** : nom, téléphone, e-mail, créneau de rappel (matin, midi, après-midi, soirée jusqu'à 21h), précision libre.
-
-Après l'envoi, un message de confirmation s'affiche **dans le panneau**, avec la référence de la demande. Sur mobile, une barre
-« Demander un devis » reste accessible en bas de l'écran une fois le bouton principal dépassé.
-
-Les champs se modifient dans `includes/class-lmdd-ds-forms.php` : une seule définition sert à l'affichage, à la vérification et aux e-mails.
-
-## Demandes clients (administration)
-
-- Liste avec type (Devis / SAV), téléphone cliquable, créneau, code postal, statut **Nouvelle / Traitée**, et filtre Devis / SAV.
-- Fiche de la demande : toutes les réponses, la configuration, les photos.
-- E-mail à l'équipe avec **Répondre à** le client, et les photos du SAV en pièces jointes.
-
-## Sécurité et anti-spam
-
-- Champ piège invisible, délai minimal de remplissage, 8 envois au maximum par visiteur et par quart d'heure.
-- **Cloudflare Turnstile** : repris automatiquement de *Contact Form 7 → Intégration* s'il y est configuré. Il n'est chargé
-  qu'à l'ouverture d'un formulaire.
-- Photos SAV : 3 au maximum, 8 Mo chacune, JPEG / PNG / WebP / HEIC uniquement (type réel vérifié). Elles sont renommées
-  au hasard et stockées dans `uploads/lmdd-demandes/`, dossier non listable où aucun script ne peut s'exécuter.
-- Compatible avec le cache de pages : aucun jeton de session dans les pages.
+- **Diagnostic** : un accordéon Elementor natif. Titres et textes se modifient directement dans Elementor. Dans chaque texte, la ligne
+  `[lmdd_pieces produits="…" devis="oui"]` affiche les pièces et leur prix actuel : modifiez la liste des produits (leur identifiant
+  ou leur slug, séparés par des virgules), ou supprimez la ligne.
+- Le lien **« C'est mon cas »** (adresse `#formulaire-sav`) descend au formulaire et présélectionne la situation dont le libellé est
+  **identique au titre** de l'élément. Si vous renommez un titre, renommez aussi le choix correspondant dans le formulaire SAV.
+- **Formulaire** : widget Code court `[lmdd_formulaire type="sav"]`.
 
 ## Performance
 
-CSS et JavaScript (environ 5 Ko chacun une fois compressés, sans jQuery) chargés **uniquement** sur les fiches produits et les pages
-qui contiennent un code court `[lmdd_…]`. Turnstile n'est chargé qu'à l'ouverture d'un formulaire.
+- CSS et JavaScript de l'extension : moins de 5 Ko chacun une fois compressés (4,7 Ko et 3,4 Ko), sans jQuery, chargés en différé et **uniquement**
+  sur les fiches produits et les pages qui contiennent un code court `[lmdd_…]`.
+- Le formulaire de devis est déjà dans la page, masqué : aucun chargement au clic.
+- Contact Form 7 charge ses propres fichiers sur tout le site par défaut (c'était déjà le cas). Pour l'alléger, limitez-les aux pages
+  qui ont un formulaire, par exemple avec Asset Pilot : fiches produits, page SAV, contact.
+
+## Demandes clients (copie de secours)
+
+Liste avec le type (Devis / SAV), le téléphone, le créneau, le code postal et le statut *Nouvelle / Traitée*. La fiche d'une demande
+affiche toutes les réponses et les photos, conservées dans `uploads/lmdd-demandes/` (dossier non listable). L'enregistrement se
+désactive dans les réglages.
 
 ## Codes courts
 
 | Code court | Rôle |
 |---|---|
-| `[lmdd_sav_formulaire]` | Formulaire SAV en étapes |
-| `[lmdd_sav_symptomes formulaire="#formulaire-sav"]` | Fiches symptômes ; le bouton « C'est mon cas » présélectionne le problème dans le formulaire |
-| `[lmdd_devis_bouton]` | Bouton + panneau de devis, à placer manuellement si besoin (sinon automatique) |
-| `[lmdd_titre]`, `[lmdd_fil_ariane]`, `[lmdd_produit_entete]`, `[lmdd_points_cles]`, `[lmdd_reassurance]` | Blocs du nouveau modèle de fiche produit |
+| `[lmdd_formulaire type="sav"]` / `type="devis"` | Formulaire Contact Form 7 choisi dans les réglages, mis en forme |
+| `[lmdd_pieces produits="…" devis="oui"]` | Pièces avec prix en direct |
+| `[lmdd_devis_bouton]` | Bouton + formulaire de devis, à placer manuellement si besoin (sinon automatique) |
+| `[lmdd_titre]`, `[lmdd_fil_ariane]`, `[lmdd_produit_entete]`, `[lmdd_points_cles]`, `[lmdd_reassurance]` | Blocs du modèle de fiche produit |
 
 ## Désinstallation
 
-La suppression de l'extension efface ses réglages et **conserve les demandes reçues**. Pour les effacer aussi :
-`define( 'LMDD_DS_EFFACER_DEMANDES', true );` dans `wp-config.php` avant de la supprimer.
+La suppression de l'extension efface ses réglages. Les formulaires Contact Form 7 et les demandes enregistrées sont **conservés**.
+Pour effacer aussi les demandes : `define( 'LMDD_DS_EFFACER_DEMANDES', true );` dans `wp-config.php` avant la suppression.
 
-Testé sur WordPress 7.1.2, WooCommerce 11.1.2, Elementor 4.3.2, Royal Elementor Addons et un balisage identique à TM Extra Product Options :
-devis et SAV de bout en bout (ordinateur et mobile), erreurs de saisie, e-mails, photos, fichier piégé refusé, champ piège.
+Testé sur WordPress 7.1.2, WooCommerce 11.1.2, Contact Form 7 6.1.7, Elementor 4.3.2, Royal Elementor Addons, avec la remise à zéro
+des marges de Royal Pro reproduite. Devis (ancienne et nouvelle fiche, ordinateur et mobile) et SAV (présélection depuis l'accordéon,
+étapes, photo, envoi) de bout en bout ; e-mails avec le produit et les options ; copie dans *Demandes clients*.

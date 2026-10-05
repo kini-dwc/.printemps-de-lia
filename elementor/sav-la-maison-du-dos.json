@@ -1,7 +1,7 @@
 {
  "content": [
   {
-   "id": "1a2b194",
+   "id": "1a2b19d",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -58,7 +58,7 @@
    },
    "elements": [
     {
-     "id": "1a2b18e",
+     "id": "1a2b197",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -94,7 +94,7 @@
      },
      "elements": [
       {
-       "id": "1a2b187",
+       "id": "1a2b190",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -133,7 +133,7 @@
        "elements": []
       },
       {
-       "id": "1a2b188",
+       "id": "1a2b191",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -181,7 +181,7 @@
        "elements": []
       },
       {
-       "id": "1a2b189",
+       "id": "1a2b192",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -217,7 +217,7 @@
        "elements": []
       },
       {
-       "id": "1a2b18c",
+       "id": "1a2b195",
        "elType": "container",
        "isInner": true,
        "isLocked": false,
@@ -244,7 +244,7 @@
        },
        "elements": [
         {
-         "id": "1a2b18a",
+         "id": "1a2b193",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -304,7 +304,7 @@
          "elements": []
         },
         {
-         "id": "1a2b18b",
+         "id": "1a2b194",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -376,7 +376,7 @@
        ]
       },
       {
-       "id": "1a2b18d",
+       "id": "1a2b196",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -414,7 +414,7 @@
      ]
     },
     {
-     "id": "1a2b193",
+     "id": "1a2b19c",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -470,7 +470,7 @@
      },
      "elements": [
       {
-       "id": "1a2b18f",
+       "id": "1a2b198",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -491,7 +491,7 @@
        "elements": []
       },
       {
-       "id": "1a2b190",
+       "id": "1a2b199",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -529,7 +529,7 @@
        "elements": []
       },
       {
-       "id": "1a2b191",
+       "id": "1a2b19a",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -565,7 +565,7 @@
        "elements": []
       },
       {
-       "id": "1a2b192",
+       "id": "1a2b19b",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -638,7 +638,7 @@
    ]
   },
   {
-   "id": "1a2b19a",
+   "id": "1a2b1a2",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -686,7 +686,7 @@
    },
    "elements": [
     {
-     "id": "1a2b198",
+     "id": "1a2b1a1",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -711,7 +711,7 @@
      },
      "elements": [
       {
-       "id": "1a2b195",
+       "id": "1a2b19e",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -751,7 +751,7 @@
        "elements": []
       },
       {
-       "id": "1a2b196",
+       "id": "1a2b19f",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -800,7 +800,7 @@
        "elements": []
       },
       {
-       "id": "1a2b197",
+       "id": "1a2b1a0",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -839,21 +839,129 @@
      ]
     },
     {
-     "id": "1a2b199",
+     "id": "1a2b18f",
      "elType": "widget",
      "isInner": false,
      "isLocked": false,
-     "widgetType": "shortcode",
+     "widgetType": "accordion",
      "settings": {
-      "shortcode": "[lmdd_sav_symptomes formulaire=\"#formulaire-sav\"]",
-      "_title": "Fiches symptômes (prix des pièces en direct)"
+      "_title": "Diagnostic (accordéon modifiable)",
+      "_css_classes": "lmdd-diagnostic",
+      "tabs": [
+       {
+        "_id": "1a2b187",
+        "tab_title": "Le lit perd de l'eau",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Une fuite vient presque toujours de la soudure ou d'une perforation, pas du bouchon. Un matelas qui perd de l'eau se dégonfle : l'eau n'est pas sous pression, et le liner — la poche de sécurité sous le matelas — la récupère. Un lit à eau n'inonde pas une maison.</p><h4>Ce que nous faisons</h4><p>Nous identifions le matelas, nous le remplaçons à l'identique ou en 100 % compatible, et nous changeons le liner dans le même passage. Sur mesure si le modèle n'existe plus.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"\" devis=\"oui\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b188",
+        "tab_title": "Le matelas est déformé ou inconfortable",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Deux causes. Une perte d'eau par évaporation au bouchon, fréquente et souvent minime, qui se corrige en refaisant le niveau. Ou le vinyle lui-même : avec les années, il peut devenir plus rigide et sujet aux microfissures, surtout sur les anciennes fabrications.</p><h4>Ce que nous faisons</h4><p>Un matelas à eau de remplacement, identique ou compatible, avec la stabilisation que vous aviez — ou une autre si vous voulez changer de sensation.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"\" devis=\"oui\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b189",
+        "tab_title": "Le lit est froid, le chauffage ne répond plus",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Un chauffage de lit à eau se remplace ; il ne se répare pas. C'est la panne la plus fréquente et la moins grave, et c'est aussi celle qui fait croire que le lit est fini.</p><h4>Ce que nous faisons</h4><p>Nous vous disons quelle puissance correspond à votre matelas et vous l'expédions. Le changement peut souvent se faire sans vider le lit ; sinon, nous vous guidons.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"chauffage-sigma-k, chauffage-carbon-classic-carbonclassicheatherl\" devis=\"non\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b18a",
+        "tab_title": "L'eau est trouble, ou ça sent",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>C'est le plus souvent une prolifération d'algues, conséquence d'un entretien interrompu — pas d'un défaut. Elle ne part pas toute seule et elle abîme le vinyle de l'intérieur.</p><h4>Ce que nous faisons</h4><p>Un traitement anti-algues, puis une dose de conditionneur chaque année : c'est le geste le moins cher, et celui qui décide de la durée de vie du matelas. Un matelas neuf peut sentir le plastique neuf : un désodorisant sans parfum suffit.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"long-life-anti-algues-akva-waterbeds, conditionneur-multi-usage-waterclean-plus, conditionneur-firstfiller, desodorisant-efficace-et-sans-parfum-pour-traiter-tout-support\" devis=\"non\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b18b",
+        "tab_title": "Ça grince, ça couine quand on bouge",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Du vinyle qui frotte sur du vinyle, ou sur la mousse de contour. Désagréable, sans gravité, et sans rapport avec une fuite.</p><h4>Ce que nous faisons</h4><p>Un lubrifiant spécial vinyle appliqué aux points de contact. Vous pouvez le faire vous-même.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"quietus-lubrifiant-special-vinyle, aquafit-nettoyant-vinyle-b-m-europe\" devis=\"non\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b18c",
+        "tab_title": "Le lit fait des vagues",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>C'est la stabilisation : les fibres ou mousses à l'intérieur du matelas qui amortissent les mouvements. Elle se tasse avec le temps, et les anciens modèles en ont peu.</p><h4>Ce que nous faisons</h4><p>Cela se règle en changeant le matelas — c'est le bon moment pour choisir une stabilisation plus forte.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"\" devis=\"oui\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b18d",
+        "tab_title": "Je déménage, ou je dois vider le lit",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Un matelas à eau se vide, se transporte à plat et se remonte. Mal fait, un pli peut marquer le vinyle définitivement.</p><h4>Ce que nous faisons</h4><p>Vidage seul ou déménagement complet avec remontage, sur devis. Si vous le faites vous-même, il vous faut une pompe et le bon adaptateur — appelez-nous avant de commencer.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"pompe-a-vide-dair, adaptateur-pour-vidage\" devis=\"oui\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       },
+       {
+        "_id": "1a2b18e",
+        "tab_title": "La housse ou le revêtement est abîmé",
+        "tab_content": "<h4>Ce que c'est, en général</h4><p>Le tissu vieillit plus vite que le vinyle. Sur beaucoup de lits, c'est la seule chose réellement usée.</p><h4>Ce que nous faisons</h4><p>Housse de matelas complète ou dessus seul, revêtements tissus, séparations, mousses de contour. Sur devis.</p><h4>Les pièces concernées</h4>[lmdd_pieces produits=\"\" devis=\"oui\"]<p><a class=\"lmdd-cas\" href=\"#formulaire-sav\">C'est mon cas : décrire le problème →</a></p>"
+       }
+      ],
+      "selected_icon": {
+       "value": "fas fa-plus",
+       "library": "fa-solid"
+      },
+      "selected_active_icon": {
+       "value": "fas fa-minus",
+       "library": "fa-solid"
+      },
+      "icon_align": "right",
+      "border_width": {
+       "unit": "px",
+       "size": 1,
+       "sizes": []
+      },
+      "border_color": "#DFE7E0",
+      "title_background": "#FFFFFF",
+      "title_color": "#1B261D",
+      "tab_active_color": "#035C11",
+      "title_typography_typography": "custom",
+      "title_typography_font_size": {
+       "unit": "px",
+       "size": 18,
+       "sizes": []
+      },
+      "title_typography_font_size_mobile": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "title_typography_font_weight": "700",
+      "title_typography_line_height": {
+       "unit": "em",
+       "size": 1.35,
+       "sizes": []
+      },
+      "title_padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "22",
+       "bottom": "20",
+       "left": "22",
+       "isLinked": false
+      },
+      "icon_color": "#035C11",
+      "icon_active_color": "#035C11",
+      "content_background_color": "#FFFFFF",
+      "content_color": "#56625A",
+      "content_typography_typography": "custom",
+      "content_typography_font_size": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "content_typography_line_height": {
+       "unit": "em",
+       "size": 1.65,
+       "sizes": []
+      },
+      "content_padding": {
+       "unit": "px",
+       "top": "4",
+       "right": "22",
+       "bottom": "22",
+       "left": "22",
+       "isLinked": false
+      }
      },
      "elements": []
     }
    ]
   },
   {
-   "id": "1a2b1c4",
+   "id": "1a2b1cc",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -903,7 +1011,7 @@
    },
    "elements": [
     {
-     "id": "1a2b19e",
+     "id": "1a2b1a6",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -928,7 +1036,7 @@
      },
      "elements": [
       {
-       "id": "1a2b19b",
+       "id": "1a2b1a3",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -968,7 +1076,7 @@
        "elements": []
       },
       {
-       "id": "1a2b19c",
+       "id": "1a2b1a4",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -1017,7 +1125,7 @@
        "elements": []
       },
       {
-       "id": "1a2b19d",
+       "id": "1a2b1a5",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -1056,7 +1164,7 @@
      ]
     },
     {
-     "id": "1a2b1c3",
+     "id": "1a2b1cb",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -1098,7 +1206,7 @@
      },
      "elements": [
       {
-       "id": "1a2b1a9",
+       "id": "1a2b1b1",
        "elType": "container",
        "isInner": true,
        "isLocked": false,
@@ -1144,7 +1252,7 @@
        },
        "elements": [
         {
-         "id": "1a2b19f",
+         "id": "1a2b1a7",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1182,7 +1290,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1a0",
+         "id": "1a2b1a8",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1218,7 +1326,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1a8",
+         "id": "1a2b1b0",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1232,7 +1340,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a1"
+            "_id": "1a2b1a9"
            },
            {
             "text": "Modulex",
@@ -1240,7 +1348,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a2"
+            "_id": "1a2b1aa"
            },
            {
             "text": "Nordic",
@@ -1248,7 +1356,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a3"
+            "_id": "1a2b1ab"
            },
            {
             "text": "Vega",
@@ -1256,7 +1364,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a4"
+            "_id": "1a2b1ac"
            },
            {
             "text": "Lyra",
@@ -1264,7 +1372,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a5"
+            "_id": "1a2b1ad"
            },
            {
             "text": "Boxbed",
@@ -1272,7 +1380,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a6"
+            "_id": "1a2b1ae"
            },
            {
             "text": "Soft",
@@ -1280,7 +1388,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1a7"
+            "_id": "1a2b1af"
            }
           ],
           "space_between": {
@@ -1302,7 +1410,7 @@
        ]
       },
       {
-       "id": "1a2b1b3",
+       "id": "1a2b1bb",
        "elType": "container",
        "isInner": true,
        "isLocked": false,
@@ -1348,7 +1456,7 @@
        },
        "elements": [
         {
-         "id": "1a2b1aa",
+         "id": "1a2b1b2",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1386,7 +1494,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1ab",
+         "id": "1a2b1b3",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1422,7 +1530,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1b2",
+         "id": "1a2b1ba",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1436,7 +1544,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1ac"
+            "_id": "1a2b1b4"
            },
            {
             "text": "Océan",
@@ -1444,7 +1552,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1ad"
+            "_id": "1a2b1b5"
            },
            {
             "text": "Smile",
@@ -1452,7 +1560,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1ae"
+            "_id": "1a2b1b6"
            },
            {
             "text": "Lunaflex",
@@ -1460,7 +1568,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1af"
+            "_id": "1a2b1b7"
            },
            {
             "text": "Pacific",
@@ -1468,7 +1576,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1b0"
+            "_id": "1a2b1b8"
            },
            {
             "text": "Altura",
@@ -1476,7 +1584,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1b1"
+            "_id": "1a2b1b9"
            }
           ],
           "space_between": {
@@ -1498,7 +1606,7 @@
        ]
       },
       {
-       "id": "1a2b1ba",
+       "id": "1a2b1c2",
        "elType": "container",
        "isInner": true,
        "isLocked": false,
@@ -1544,7 +1652,7 @@
        },
        "elements": [
         {
-         "id": "1a2b1b4",
+         "id": "1a2b1bc",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1582,7 +1690,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1b5",
+         "id": "1a2b1bd",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1618,7 +1726,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1b9",
+         "id": "1a2b1c1",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1632,7 +1740,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1b6"
+            "_id": "1a2b1be"
            },
            {
             "text": "Hardside",
@@ -1640,7 +1748,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1b7"
+            "_id": "1a2b1bf"
            },
            {
             "text": "Berceau bébé",
@@ -1648,7 +1756,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1b8"
+            "_id": "1a2b1c0"
            }
           ],
           "space_between": {
@@ -1670,7 +1778,7 @@
        ]
       },
       {
-       "id": "1a2b1c2",
+       "id": "1a2b1ca",
        "elType": "container",
        "isInner": true,
        "isLocked": false,
@@ -1716,7 +1824,7 @@
        },
        "elements": [
         {
-         "id": "1a2b1bb",
+         "id": "1a2b1c3",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1754,7 +1862,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1bc",
+         "id": "1a2b1c4",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1790,7 +1898,7 @@
          "elements": []
         },
         {
-         "id": "1a2b1c1",
+         "id": "1a2b1c9",
          "elType": "widget",
          "isInner": false,
          "isLocked": false,
@@ -1804,7 +1912,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1bd"
+            "_id": "1a2b1c5"
            },
            {
             "text": "Mesamoll II",
@@ -1812,7 +1920,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1be"
+            "_id": "1a2b1c6"
            },
            {
             "text": "Tribrid®",
@@ -1820,7 +1928,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1bf"
+            "_id": "1a2b1c7"
            },
            {
             "text": "Sur mesure",
@@ -1828,7 +1936,7 @@
              "value": "",
              "library": ""
             },
-            "_id": "1a2b1c0"
+            "_id": "1a2b1c8"
            }
           ],
           "space_between": {
@@ -1854,7 +1962,7 @@
    ]
   },
   {
-   "id": "1a2b1ce",
+   "id": "1a2b1d6",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -1904,7 +2012,7 @@
    },
    "elements": [
     {
-     "id": "1a2b1c9",
+     "id": "1a2b1d1",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -1940,7 +2048,7 @@
      },
      "elements": [
       {
-       "id": "1a2b1c5",
+       "id": "1a2b1cd",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -1979,7 +2087,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1c6",
+       "id": "1a2b1ce",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2027,7 +2135,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1c7",
+       "id": "1a2b1cf",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2063,7 +2171,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1c8",
+       "id": "1a2b1d0",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2133,7 +2241,7 @@
      ]
     },
     {
-     "id": "1a2b1cd",
+     "id": "1a2b1d5",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -2179,7 +2287,7 @@
      },
      "elements": [
       {
-       "id": "1a2b1ca",
+       "id": "1a2b1d2",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2237,7 +2345,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1cb",
+       "id": "1a2b1d3",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2295,7 +2403,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1cc",
+       "id": "1a2b1d4",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2357,7 +2465,7 @@
    ]
   },
   {
-   "id": "1a2b1d5",
+   "id": "1a2b1dd",
    "elType": "container",
    "isInner": false,
    "isLocked": false,
@@ -2410,7 +2518,7 @@
    },
    "elements": [
     {
-     "id": "1a2b1d2",
+     "id": "1a2b1da",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -2435,7 +2543,7 @@
      },
      "elements": [
       {
-       "id": "1a2b1cf",
+       "id": "1a2b1d7",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2475,7 +2583,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1d0",
+       "id": "1a2b1d8",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2524,7 +2632,7 @@
        "elements": []
       },
       {
-       "id": "1a2b1d1",
+       "id": "1a2b1d9",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
@@ -2563,7 +2671,7 @@
      ]
     },
     {
-     "id": "1a2b1d4",
+     "id": "1a2b1dc",
      "elType": "container",
      "isInner": true,
      "isLocked": false,
@@ -2612,14 +2720,14 @@
      },
      "elements": [
       {
-       "id": "1a2b1d3",
+       "id": "1a2b1db",
        "elType": "widget",
        "isInner": false,
        "isLocked": false,
        "widgetType": "shortcode",
        "settings": {
-        "shortcode": "[lmdd_sav_formulaire]",
-        "_title": "Formulaire SAV en étapes"
+        "shortcode": "[lmdd_formulaire type=\"sav\"]",
+        "_title": "Formulaire SAV (Contact Form 7 : Contact → Formulaires → « SAV lit à eau (LMDD) »)"
        },
        "elements": []
       }

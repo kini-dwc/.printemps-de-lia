@@ -1,7 +1,7 @@
 <?php
 /**
- * Partie visible : devis sur la fiche produit (bouton + panneau), formulaire SAV, fiches symptômes,
- * et petits blocs de fiche produit utilisés par le modèle Elementor (en-tête, points clés, réassurance).
+ * Partie visible : devis sur la fiche produit (formulaire Contact Form 7 affiché sur place), formulaire SAV,
+ * pièces avec prix en direct, et petits blocs de fiche produit utilisés par le modèle Elementor.
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -17,6 +17,8 @@ final class LMDD_DS_Front {
 		add_action( 'woocommerce_single_product_summary', array( __CLASS__, 'devis_cta_fallback' ), 31 );
 		add_filter( 'woocommerce_add_to_cart_validation', array( __CLASS__, 'block_cart_when_quote' ), 10, 2 );
 
+		add_shortcode( 'lmdd_formulaire', array( __CLASS__, 'sc_formulaire' ) );
+		add_shortcode( 'lmdd_pieces', array( __CLASS__, 'sc_pieces' ) );
 		add_shortcode( 'lmdd_sav_formulaire', array( __CLASS__, 'sc_sav_form' ) );
 		add_shortcode( 'lmdd_sav_symptomes', array( __CLASS__, 'sc_symptomes' ) );
 		add_shortcode( 'lmdd_produit_entete', array( __CLASS__, 'sc_product_header' ) );
@@ -131,11 +133,6 @@ final class LMDD_DS_Front {
 		$url = plugin_dir_url( LMDD_DS_FILE ) . 'assets/';
 		wp_register_style( 'lmdd-ds', $url . 'lmdd-ds.css', array(), $v );
 		wp_register_script( 'lmdd-ds', $url . 'lmdd-ds.js', array(), $v, array( 'strategy' => 'defer', 'in_footer' => true ) );
-		$keys = LMDD_DS_Rest::turnstile_keys();
-		wp_localize_script( 'lmdd-ds', 'LMDD_DS', array(
-			'endpoint'  => esc_url_raw( rest_url( 'lmdd/v1/demande' ) ),
-			'turnstile' => $keys ? $keys[0] : '',
-		) );
 		// Chargement dès l'en-tête (pas de saut d'affichage) sur les fiches produits et les pages qui contiennent nos codes courts.
 		if ( self::page_needs_assets() ) {
 			self::enqueue();
@@ -187,77 +184,12 @@ final class LMDD_DS_Front {
 		return '<svg class="lmdd-i" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' . ( isset( $p[ $name ] ) ? $p[ $name ] : '' ) . '</svg>';
 	}
 
-	private static function field( $form, $name, array $f ) {
-		$id   = 'lmdd-' . $form . '-' . $name;
-		$req  = ! empty( $f['required'] );
-		$star = $req ? ' <span class="lmdd-req" aria-hidden="true">*</span>' : '';
-		$help = ! empty( $f['help'] ) ? '<span class="lmdd-help" id="' . esc_attr( $id ) . '-aide">' . esc_html( $f['help'] ) . '</span>' : '';
-		$desc = ! empty( $f['help'] ) ? ' aria-describedby="' . esc_attr( $id ) . '-aide"' : '';
-		$cls  = 'lmdd-field lmdd-field--' . $f['type'] . ( ! empty( $f['half'] ) ? ' lmdd-field--half' : '' );
-		$err  = '<span class="lmdd-err" role="alert"></span>';
-		$h    = '';
-
-		switch ( $f['type'] ) {
-			case 'radio':
-			case 'cards':
-				$h .= '<fieldset class="' . esc_attr( $cls ) . '" data-name="' . esc_attr( $name ) . '"><legend>' . esc_html( $f['label'] ) . $star . '</legend><div class="lmdd-choices">';
-				foreach ( $f['options'] as $k => $label ) {
-					$value = 'cards' === $f['type'] ? $k : $label;
-					$icon  = 'cards' === $f['type'] ? self::icon( LMDD_DS_Forms::SYMPTOMES[ $k ][1] ) : '';
-					$h    .= '<label class="lmdd-choice' . ( 'cards' === $f['type'] ? ' lmdd-card' : '' ) . '"><input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '"' . ( $req ? ' required' : '' ) . '><span>' . $icon . esc_html( $label ) . '</span></label>';
-				}
-				return $h . '</div>' . $help . $err . '</fieldset>';
-
-			case 'select':
-				$h .= '<div class="' . esc_attr( $cls ) . '"><label for="' . esc_attr( $id ) . '">' . esc_html( $f['label'] ) . $star . '</label><select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $desc . '>';
-				foreach ( $f['options'] as $o ) {
-					$h .= '<option>' . esc_html( $o ) . '</option>';
-				}
-				return $h . '</select>' . $help . $err . '</div>';
-
-			case 'textarea':
-				return '<div class="' . esc_attr( $cls ) . '"><label for="' . esc_attr( $id ) . '">' . esc_html( $f['label'] ) . $star . '</label><textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" rows="3" maxlength="' . (int) $f['max'] . '"' . ( $req ? ' required' : '' ) . ( ! empty( $f['placeholder'] ) ? ' placeholder="' . esc_attr( $f['placeholder'] ) . '"' : '' ) . $desc . '></textarea>' . $help . $err . '</div>';
-
-			case 'files':
-				return '<div class="' . esc_attr( $cls ) . '"><span class="lmdd-label">' . esc_html( $f['label'] ) . '</span><label class="lmdd-drop" for="' . esc_attr( $id ) . '">' . self::icon( 'camera' ) . '<span>Ajouter des photos</span><input id="' . esc_attr( $id ) . '" type="file" name="photos[]" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic" multiple data-max="' . (int) $f['max_files'] . '"' . $desc . '></label><ul class="lmdd-files" aria-live="polite"></ul>' . $help . $err . '</div>';
-
-			default:
-				$list = '';
-				$attr = '';
-				if ( ! empty( $f['list'] ) ) {
-					$attr .= ' list="' . esc_attr( $id ) . '-liste"';
-					$list  = '<datalist id="' . esc_attr( $id ) . '-liste">' . implode( '', array_map( function ( $o ) {
-						return '<option value="' . esc_attr( $o ) . '">';
-					}, $f['list'] ) ) . '</datalist>';
-				}
-				foreach ( array( 'autocomplete', 'inputmode', 'placeholder' ) as $a ) {
-					if ( ! empty( $f[ $a ] ) ) {
-						$attr .= ' ' . $a . '="' . esc_attr( $f[ $a ] ) . '"';
-					}
-				}
-				return '<div class="' . esc_attr( $cls ) . '"><label for="' . esc_attr( $id ) . '">' . esc_html( $f['label'] ) . $star . '</label><input id="' . esc_attr( $id ) . '" type="' . esc_attr( $f['type'] ) . '" name="' . esc_attr( $name ) . '" maxlength="' . (int) $f['max'] . '"' . ( $req ? ' required' : '' ) . $attr . $desc . '>' . $list . $help . $err . '</div>';
-		}
-	}
-
-	/** Champs communs : type, piège à robots, emplacement Turnstile. */
-	private static function common( $type ) {
-		return '<input type="hidden" name="type" value="' . esc_attr( $type ) . '">'
-			. '<div class="lmdd-hp" aria-hidden="true"><label>Site web <input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>';
-	}
-
-	private static function privacy_note( $what ) {
-		$s   = LMDD_DS_Store::settings();
-		$url = $s['confidentialite'] ?: get_privacy_policy_url();
-		return '<p class="lmdd-note">Vos réponses servent uniquement à ' . esc_html( $what ) . ' : pas de liste de diffusion, aucune transmission à un tiers.'
-			. ( $url ? ' <a href="' . esc_url( $url ) . '">Données personnelles</a>' : '' ) . '</p>';
-	}
-
 	private static function tel_link( $class = '' ) {
 		$t = LMDD_DS_Store::settings()['telephone'];
 		return '<a class="' . esc_attr( $class ) . '" href="tel:' . esc_attr( preg_replace( '/[^\d+]/', '', preg_replace( '/^0/', '+33', str_replace( ' ', '', $t ) ) ) ) . '">' . esc_html( $t ) . '</a>';
 	}
 
-	// ------------------------------------------------------------------ Devis
+	// ------------------------------------------------------------------ Devis : formulaire Contact Form 7 affiché sur place
 
 	public static function devis_cta() {
 		global $product;
@@ -274,82 +206,65 @@ final class LMDD_DS_Front {
 		}
 	}
 
+	/**
+	 * Bouton « Demander un devis » ; au clic, il laisse la place au formulaire Contact Form 7 choisi dans les réglages
+	 * (rendu dans la page, masqué : aucun chargement supplémentaire au clic). Les options choisies sur la fiche
+	 * sont jointes sans être réaffichées (champ caché « configuration »).
+	 */
 	public static function sc_devis_button() {
 		global $product;
 		$product = $product ?: ( function_exists( 'wc_get_product' ) ? wc_get_product( get_queried_object_id() ) : null );
 		if ( ! $product || self::$dialog_done ) {
 			return '';
 		}
+		$form = LMDD_DS_CF7::render( 'devis' );
+		if ( ! $form ) {
+			return current_user_can( 'manage_options' ) ? '<p class="lmdd-admin-note">Devis : choisissez un formulaire Contact Form 7 dans <em>Demandes clients → Réglages</em> (visible par les administrateurs seulement).</p>' : '';
+		}
 		self::$dialog_done = true;
 		self::enqueue();
-		$s     = LMDD_DS_Store::settings();
 		$title = self::short_title( $product );
-		$img   = $product->get_image_id() ? wp_get_attachment_image( $product->get_image_id(), 'thumbnail', false, array( 'class' => 'lmdd-dlg__thumb', 'alt' => '' ) ) : '';
-
-		$h  = '<div class="lmdd-devis-cta">';
-		$h .= '<button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--block" data-lmdd-open="devis" aria-haspopup="dialog">Demander un devis ' . self::icon( 'arrow' ) . '</button>';
-		$h .= '<p class="lmdd-devis-cta__alt">Réponse personnalisée · ou par téléphone : ' . self::tel_link() . '</p>';
+		$h  = '<div class="lmdd-devis" data-lmdd-devis>';
+		$h .= '<div class="lmdd-devis__cta"><button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--block" data-lmdd-devis-open aria-expanded="false" aria-controls="lmdd-devis-form">Demander un devis ' . self::icon( 'arrow' ) . '</button>';
+		$h .= '<p class="lmdd-devis__alt">Réponse personnalisée · ou par téléphone : ' . self::tel_link() . '</p></div>';
+		$h .= '<div class="lmdd-devis__panel" id="lmdd-devis-form" hidden>';
+		$h .= '<div class="lmdd-devis__head"><p class="lmdd-devis__title">Votre demande de devis</p><button type="button" class="lmdd-link" data-lmdd-devis-close>Fermer</button></div>';
+		$h .= '<p class="lmdd-devis__intro">Les options choisies ci-dessus sont jointes à votre demande.</p>';
+		$h .= $form . '</div>';
 		$h .= '</div>';
 		// Mobile : barre fixe qui apparaît quand le bouton principal sort de l'écran.
-		$h .= '<div class="lmdd-sticky-cta" hidden><span class="lmdd-sticky-cta__name">' . esc_html( $title ) . '</span><button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--sm" data-lmdd-open="devis" aria-haspopup="dialog">Demander un devis</button></div>';
-
-		$h .= '<dialog class="lmdd-dlg" id="lmdd-devis" aria-labelledby="lmdd-devis-titre">';
-		$h .= '<form class="lmdd-form" data-type="devis" novalidate>' . self::common( 'devis' );
-		$h .= '<input type="hidden" name="produit_id" value="' . esc_attr( $product->get_id() ) . '"><textarea name="configuration" hidden></textarea>';
-		$h .= '<header class="lmdd-dlg__head">' . $img . '<div><p class="lmdd-dlg__kicker">Demande de devis</p><h2 id="lmdd-devis-titre" class="lmdd-dlg__title">' . esc_html( $title ) . '</h2></div>'
-			. '<button type="button" class="lmdd-dlg__close" data-lmdd-close aria-label="Fermer">' . self::icon( 'close' ) . '</button></header>';
-		$h .= '<div class="lmdd-dlg__body">';
-		$h .= '<section class="lmdd-config" data-lmdd-config><div class="lmdd-config__head"><h3>Votre configuration</h3><button type="button" class="lmdd-link" data-lmdd-close data-lmdd-goto-options>Modifier</button></div>'
-			. '<ul class="lmdd-config__list"></ul><p class="lmdd-config__empty">Vous préciserez le modèle, les dimensions et les options avec votre conseiller.</p></section>';
-		foreach ( LMDD_DS_Forms::get( 'devis' ) as $key => $section ) {
-			$h .= '<fieldset class="lmdd-section lmdd-section--' . esc_attr( $key ) . '"><legend class="lmdd-section__title">' . esc_html( $section['title'] ) . '</legend><div class="lmdd-grid">';
-			foreach ( $section['fields'] as $name => $f ) {
-				$h .= self::field( 'devis', $name, $f );
-			}
-			$h .= '</div></fieldset>';
-		}
-		$h .= '<div class="lmdd-turnstile"></div>';
-		$h .= '</div>';
-		$h .= '<footer class="lmdd-dlg__foot"><p class="lmdd-form__error" role="alert"></p><button type="submit" class="lmdd-btn lmdd-btn--primary lmdd-btn--block">Envoyer ma demande ' . self::icon( 'arrow' ) . '</button>'
-			. self::privacy_note( 'établir votre devis' ) . '</footer>';
-		$h .= '<div class="lmdd-success" hidden tabindex="-1"><div class="lmdd-success__icon">' . self::icon( 'check' ) . '</div><h3>Merci, votre demande est bien arrivée</h3>'
-			. '<p>Un conseiller vous recontacte, sur le créneau choisi, pour affiner le devis avec vous. <span data-lmdd-email-note>Une copie vous a été envoyée par e-mail.</span></p><p class="lmdd-success__ref"></p>'
-			. '<p>Une question d\'ici là ? ' . self::tel_link() . ' · ' . esc_html( $s['horaires'] ) . '</p><button type="button" class="lmdd-btn lmdd-btn--ghost" data-lmdd-close>Revenir à la fiche</button></div>';
-		$h .= '</form></dialog>';
+		$h .= '<div class="lmdd-sticky-cta" hidden><span class="lmdd-sticky-cta__name">' . esc_html( $title ) . '</span><button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--sm" data-lmdd-devis-open>Demander un devis</button></div>';
 		return $h;
 	}
 
-	// ------------------------------------------------------------------ SAV
-
-	public static function sc_sav_form() {
-		self::enqueue();
-		$steps = LMDD_DS_Forms::get( 'sav' );
-		$n     = count( $steps ) + 1;
-		$h     = '<form class="lmdd-form lmdd-steps" data-type="sav" novalidate enctype="multipart/form-data">' . self::common( 'sav' );
-		$h    .= '<div class="lmdd-progress"><p><span data-lmdd-step-label>Étape 1 sur ' . $n . '</span><span data-lmdd-step-pct>' . round( 100 / $n ) . ' %</span></p><div class="lmdd-progress__bar"><span style="width:' . round( 100 / $n ) . '%"></span></div></div>';
-		$i     = 0;
-		foreach ( $steps as $key => $step ) {
-			$h .= '<fieldset class="lmdd-step" data-step="' . (int) $i . '"' . ( $i ? ' hidden' : '' ) . '><legend class="lmdd-step__title">' . esc_html( $step['title'] ) . '</legend>';
-			$h .= ! empty( $step['intro'] ) ? '<p class="lmdd-step__intro">' . esc_html( $step['intro'] ) . '</p>' : '';
-			$h .= '<div class="lmdd-grid">';
-			foreach ( $step['fields'] as $name => $f ) {
-				$h .= self::field( 'sav', $name, $f );
-			}
-			$h .= '</div></fieldset>';
-			$i++;
+	/** [lmdd_formulaire type="sav|devis"] : le formulaire Contact Form 7 choisi dans les réglages, mis en forme (étapes pour le SAV). */
+	public static function sc_formulaire( $atts ) {
+		$atts = shortcode_atts( array( 'type' => 'sav' ), $atts );
+		$type = 'devis' === $atts['type'] ? 'devis' : 'sav';
+		$form = LMDD_DS_CF7::render( $type );
+		if ( ! $form ) {
+			return current_user_can( 'manage_options' ) ? '<p class="lmdd-admin-note">Formulaire ' . esc_html( $type ) . ' : choisissez un formulaire Contact Form 7 dans <em>Demandes clients → Réglages</em> (visible par les administrateurs seulement).</p>' : '';
 		}
-		$h .= '<fieldset class="lmdd-step" data-step="' . (int) $i . '" hidden><legend class="lmdd-step__title">Vérifiez et envoyez</legend><p class="lmdd-step__intro">Un dernier coup d\'œil : vous pouvez revenir en arrière pour corriger.</p><dl class="lmdd-recap"></dl><div class="lmdd-turnstile"></div></fieldset>';
-		$h .= '<p class="lmdd-form__error" role="alert"></p>';
-		$h .= '<div class="lmdd-steps__nav"><button type="button" class="lmdd-btn lmdd-btn--ghost" data-lmdd-prev hidden>Retour</button>'
-			. '<button type="button" class="lmdd-btn lmdd-btn--primary" data-lmdd-next>Continuer ' . self::icon( 'arrow' ) . '</button>'
-			. '<button type="submit" class="lmdd-btn lmdd-btn--primary" hidden>Envoyer ma demande ' . self::icon( 'arrow' ) . '</button>'
-			. '<span class="lmdd-steps__call">ou appelez le ' . self::tel_link() . '</span></div>';
-		$h .= self::privacy_note( 'traiter votre demande' );
-		$h .= '<div class="lmdd-success" hidden tabindex="-1"><div class="lmdd-success__icon">' . self::icon( 'check' ) . '</div><h3>Merci, votre demande SAV est bien arrivée</h3>'
-			. '<p>Nous vous rappelons avec une solution et, si besoin, un devis. <span data-lmdd-email-note>Une copie vous a été envoyée par e-mail.</span></p><p class="lmdd-success__ref"></p>'
-			. '<p>De l\'eau qui s\'écoule en ce moment ? N\'attendez pas : ' . self::tel_link() . '</p></div>';
-		return $h . '</form>';
+		self::enqueue();
+		return $form;
 	}
+
+	/** Ancien code court (v1) : affiche désormais le formulaire SAV Contact Form 7. */
+	public static function sc_sav_form() {
+		return self::sc_formulaire( array( 'type' => 'sav' ) );
+	}
+
+	/** Situations SAV (ancien code court [lmdd_sav_symptomes] ; la page SAV v2 utilise un accordéon Elementor). */
+	const SYMPTOMES = array(
+		'fuite'      => array( 'Le lit perd de l\'eau', 'drop' ),
+		'deforme'    => array( 'Le matelas est déformé ou inconfortable', 'bed' ),
+		'chauffage'  => array( 'Le lit est froid, le chauffage ne répond plus', 'flame' ),
+		'eau'        => array( 'L\'eau est trouble, ou ça sent', 'flask' ),
+		'bruit'      => array( 'Ça grince, ça couine quand on bouge', 'wave-sound' ),
+		'vagues'     => array( 'Le lit fait des vagues', 'waves' ),
+		'demenage'   => array( 'Je déménage, ou je dois vider le lit', 'box' ),
+		'revetement' => array( 'La housse ou le revêtement est abîmé', 'hanger' ),
+	);
 
 	/** Pièces par symptôme : slugs des produits de la boutique (prix lus en direct). */
 	const PIECES = array(
@@ -378,7 +293,7 @@ final class LMDD_DS_Front {
 		self::enqueue();
 		$atts = shortcode_atts( array( 'formulaire' => '#formulaire-sav' ), $atts );
 		$h    = '<div class="lmdd-symptoms">';
-		foreach ( LMDD_DS_Forms::SYMPTOMES as $k => $s ) {
+		foreach ( self::SYMPTOMES as $k => $s ) {
 			list( $what, $do ) = self::SYMPTOMES_TEXTES[ $k ];
 			$h .= '<details class="lmdd-symptom" id="sav-' . esc_attr( $k ) . '"><summary><span class="lmdd-symptom__icon">' . self::icon( $s[1] ) . '</span><span class="lmdd-symptom__title">' . esc_html( $s[0] ) . '</span><span class="lmdd-symptom__chev" aria-hidden="true"></span></summary>';
 			$h .= '<div class="lmdd-symptom__body"><div><h4>Ce que c\'est, en général</h4><p>' . esc_html( $what ) . '</p></div><div><h4>Ce que nous faisons</h4><p>' . esc_html( $do ) . '</p></div>';
@@ -390,9 +305,23 @@ final class LMDD_DS_Front {
 	}
 
 	private static function parts( $k ) {
+		return self::pieces_html( self::PIECES[ $k ], in_array( $k, array( 'fuite', 'deforme', 'vagues', 'demenage', 'revetement' ), true ) );
+	}
+
+	/**
+	 * [lmdd_pieces produits="slug-1, slug-2" devis="oui"] : pièces avec leur prix lu en direct dans la boutique.
+	 * À placer où l'on veut (accordéon Elementor de la page SAV…). Les produits non publiés sont ignorés.
+	 */
+	public static function sc_pieces( $atts ) {
+		$atts = shortcode_atts( array( 'produits' => '', 'devis' => 'non' ), $atts );
+		self::enqueue();
+		return self::pieces_html( array_filter( array_map( 'trim', explode( ',', $atts['produits'] ) ) ), 'oui' === $atts['devis'] );
+	}
+
+	private static function pieces_html( array $slugs, $quote ) {
 		$items = '';
-		foreach ( self::PIECES[ $k ] as $slug ) {
-			$post = get_page_by_path( $slug, OBJECT, 'product' );
+		foreach ( $slugs as $slug ) {
+			$post = is_numeric( $slug ) ? get_post( (int) $slug ) : get_page_by_path( sanitize_title( $slug ), OBJECT, 'product' );
 			$p    = $post ? wc_get_product( $post->ID ) : null;
 			if ( ! $p || 'publish' !== $p->get_status() ) {
 				continue;
@@ -400,8 +329,8 @@ final class LMDD_DS_Front {
 			$items .= '<li><a href="' . esc_url( $p->get_permalink() ) . '">' . ( $p->get_image_id() ? wp_get_attachment_image( $p->get_image_id(), 'thumbnail', false, array( 'loading' => 'lazy', 'alt' => '' ) ) : '' )
 				. '<span>' . esc_html( wp_strip_all_tags( self::short_title( $p ) ) ) . '</span><strong>' . wp_kses_post( $p->get_price_html() ) . '</strong></a></li>';
 		}
-		$items .= in_array( $k, array( 'fuite', 'deforme', 'vagues', 'demenage', 'revetement' ), true ) ? '<li class="lmdd-part--quote"><span>Matelas, liner, housse : remplacement sur mesure</span><strong>Sur devis</strong></li>' : '';
-		return '<ul class="lmdd-parts">' . $items . '</ul>';
+		$items .= $quote ? '<li class="lmdd-part--quote"><span>Matelas, liner, housse : remplacement sur mesure</span><strong>Sur devis</strong></li>' : '';
+		return $items ? '<ul class="lmdd-parts">' . $items . '</ul>' : '';
 	}
 
 	// ------------------------------------------------------------------ Blocs de fiche produit (modèle Elementor)

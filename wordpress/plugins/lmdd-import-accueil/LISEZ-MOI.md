@@ -89,10 +89,14 @@ Un seul modèle pour toutes les fiches, qui s'adapte tout seul :
 
 ## Page SAV
 
-Créée en **brouillon** : *Modifier avec Elementor* ou *Prévisualiser* depuis le cadre « Page SAV ». Contenu : introduction et encart
-« De l'eau qui s'écoule, maintenant ? » (appel direct), les 8 situations avec les pièces et leur prix en direct, les marques prises
-en charge, l'entretien et la garantie (renvoi vers les CGV pour les durées), puis le formulaire en 4 étapes.
+Créée en **brouillon** : *Modifier avec Elementor* ou *Prévisualiser* depuis le cadre « Page SAV ». Contenu :
+- introduction et encart « De l'eau qui s'écoule, maintenant ? » (appel direct) ;
+- **diagnostic** : accordéon Elementor natif, modifiable directement, avec les pièces et leur prix en direct ;
+- marques prises en charge, entretien et garantie (renvoi vers les CGV pour les durées) ;
+- **formulaire SAV** en étapes : formulaire Contact Form 7 « SAV lit à eau (LMDD) », modifiable dans *Contact → Formulaires*.
+
 Publiez-la, puis ajoutez un lien « SAV » au menu ou au pied de page.
+**Version 1 déjà installée ?** Cochez « Page SAV » pour la réinstaller avec l'accordéon et le formulaire Contact Form 7.
 
 ## En-tête sur les fiches produits (correction)
 

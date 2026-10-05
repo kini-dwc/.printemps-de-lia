@@ -856,6 +856,32 @@ const brandCard = (title, sub, models) => Con({ _title: `Marque : ${title}`, fle
   }),
 ]);
 
+// Diagnostic : accordéon Elementor natif (titres et textes modifiables dans Elementor). Les pièces et leur prix
+// viennent du code court [lmdd_pieces produits="slug-1, slug-2" devis="oui"], à modifier dans le texte de chaque élément.
+// Le lien « C'est mon cas » présélectionne la situation (même libellé que le titre) dans le formulaire SAV.
+const DIAG = [
+  ['Le lit perd de l\'eau', 'Une fuite vient presque toujours de la soudure ou d\'une perforation, pas du bouchon. Un matelas qui perd de l\'eau se dégonfle : l\'eau n\'est pas sous pression, et le liner — la poche de sécurité sous le matelas — la récupère. Un lit à eau n\'inonde pas une maison.', 'Nous identifions le matelas, nous le remplaçons à l\'identique ou en 100 % compatible, et nous changeons le liner dans le même passage. Sur mesure si le modèle n\'existe plus.', '', true],
+  ['Le matelas est déformé ou inconfortable', 'Deux causes. Une perte d\'eau par évaporation au bouchon, fréquente et souvent minime, qui se corrige en refaisant le niveau. Ou le vinyle lui-même : avec les années, il peut devenir plus rigide et sujet aux microfissures, surtout sur les anciennes fabrications.', 'Un matelas à eau de remplacement, identique ou compatible, avec la stabilisation que vous aviez — ou une autre si vous voulez changer de sensation.', '', true],
+  ['Le lit est froid, le chauffage ne répond plus', 'Un chauffage de lit à eau se remplace ; il ne se répare pas. C\'est la panne la plus fréquente et la moins grave, et c\'est aussi celle qui fait croire que le lit est fini.', 'Nous vous disons quelle puissance correspond à votre matelas et vous l\'expédions. Le changement peut souvent se faire sans vider le lit ; sinon, nous vous guidons.', 'chauffage-sigma-k, chauffage-carbon-classic-carbonclassicheatherl', false],
+  ['L\'eau est trouble, ou ça sent', 'C\'est le plus souvent une prolifération d\'algues, conséquence d\'un entretien interrompu — pas d\'un défaut. Elle ne part pas toute seule et elle abîme le vinyle de l\'intérieur.', 'Un traitement anti-algues, puis une dose de conditionneur chaque année : c\'est le geste le moins cher, et celui qui décide de la durée de vie du matelas. Un matelas neuf peut sentir le plastique neuf : un désodorisant sans parfum suffit.', 'long-life-anti-algues-akva-waterbeds, conditionneur-multi-usage-waterclean-plus, conditionneur-firstfiller, desodorisant-efficace-et-sans-parfum-pour-traiter-tout-support', false],
+  ['Ça grince, ça couine quand on bouge', 'Du vinyle qui frotte sur du vinyle, ou sur la mousse de contour. Désagréable, sans gravité, et sans rapport avec une fuite.', 'Un lubrifiant spécial vinyle appliqué aux points de contact. Vous pouvez le faire vous-même.', 'quietus-lubrifiant-special-vinyle, aquafit-nettoyant-vinyle-b-m-europe', false],
+  ['Le lit fait des vagues', 'C\'est la stabilisation : les fibres ou mousses à l\'intérieur du matelas qui amortissent les mouvements. Elle se tasse avec le temps, et les anciens modèles en ont peu.', 'Cela se règle en changeant le matelas — c\'est le bon moment pour choisir une stabilisation plus forte.', '', true],
+  ['Je déménage, ou je dois vider le lit', 'Un matelas à eau se vide, se transporte à plat et se remonte. Mal fait, un pli peut marquer le vinyle définitivement.', 'Vidage seul ou déménagement complet avec remontage, sur devis. Si vous le faites vous-même, il vous faut une pompe et le bon adaptateur — appelez-nous avant de commencer.', 'pompe-a-vide-dair, adaptateur-pour-vidage', true],
+  ['La housse ou le revêtement est abîmé', 'Le tissu vieillit plus vite que le vinyle. Sur beaucoup de lits, c\'est la seule chose réellement usée.', 'Housse de matelas complète ou dessus seul, revêtements tissus, séparations, mousses de contour. Sur devis.', '', true],
+];
+const diagnostic = W('accordion', {
+  _title: 'Diagnostic (accordéon modifiable)', _css_classes: 'lmdd-diagnostic',
+  tabs: DIAG.map(([title, what, todo, pieces, quote]) => ({
+    _id: id(), tab_title: title,
+    tab_content: `<h4>Ce que c'est, en général</h4><p>${what}</p><h4>Ce que nous faisons</h4><p>${todo}</p><h4>Les pièces concernées</h4>[lmdd_pieces produits="${pieces}" devis="${quote ? 'oui' : 'non'}"]<p><a class="lmdd-cas" href="#formulaire-sav">C'est mon cas : décrire le problème →</a></p>`,
+  })),
+  selected_icon: fa('fas fa-plus'), selected_active_icon: fa('fas fa-minus'), icon_align: 'right',
+  border_width: px(1), border_color: C.line, title_background: C.white, title_color: C.text, tab_active_color: C.green,
+  ...typo('title_typography', { size: 18, sizeM: 16, weight: 700, lh: 1.35 }), title_padding: box(20, 22, 20, 22),
+  icon_color: C.green, icon_active_color: C.green, content_background_color: C.white, content_color: C.muted,
+  ...typo('content_typography', { size: 16, lh: 1.65 }), content_padding: box(4, 22, 22, 22),
+});
+
 const savPage = [
   Section({
     _title: 'SAV – introduction', flex_direction: 'row', flex_direction_tablet: 'column', flex_align_items: 'center', flex_gap: gap(56),
@@ -884,7 +910,7 @@ const savPage = [
   ]),
   Section({ _title: 'SAV – symptômes' }, [
     SectionHead('Le diagnostic', 'Ce qui arrive aux lits à eau', 'Trouvez votre situation : pour chacune, ce que c\'est en général, ce que nous faisons, et les pièces concernées avec leur prix.'),
-    SC('[lmdd_sav_symptomes formulaire="#' + SAV_FORM_ID + '"]', 'Fiches symptômes (prix des pièces en direct)'),
+    diagnostic,
   ]),
   Section({ _title: 'SAV – marques', background_background: 'classic', background_color: C.tint }, [
     SectionHead('Toutes marques', 'Même si le fabricant n\'existe plus', 'C\'est le matelas qu\'il faut identifier, pas la marque. Votre marque n\'est pas dans la liste, ou l\'étiquette est illisible ? Ce n\'est pas bloquant : dites-le dans le formulaire.'),
@@ -913,7 +939,7 @@ const savPage = [
   Section({ _title: 'SAV – formulaire', _element_id: SAV_FORM_ID, css_id: SAV_FORM_ID, background_background: 'classic', background_color: C.tint, flex_align_items: 'stretch' }, [
     SectionHead('Demande SAV', 'Décrivez-nous la situation', 'Ce sont les questions que nous posons au téléphone, pour vous proposer un matelas identique ou 100 % compatible. Répondez de votre chambre, à l\'heure qui vous arrange : « je ne sais pas » est une réponse acceptée partout.'),
     Con({ _title: 'Carte du formulaire', boxed_width: px(880), content_width: 'boxed', padding: box(36, 40, 36, 40), padding_mobile: box(22, 16, 22, 16), border_radius: box(20), background_background: 'classic', background_color: C.white, ...shadow(18, 40, -18) }, [
-      SC('[lmdd_sav_formulaire]', 'Formulaire SAV en étapes'),
+      SC('[lmdd_formulaire type="sav"]', 'Formulaire SAV (Contact Form 7 : Contact → Formulaires → « SAV lit à eau (LMDD) »)'),
     ]),
   ]),
 ];
