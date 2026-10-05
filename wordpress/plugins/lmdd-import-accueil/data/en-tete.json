@@ -1,0 +1,916 @@
+{
+ "content": [
+  {
+   "id": "1a2b0d1",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "En-tête – barre du haut",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "flex_direction": "row",
+    "flex_justify_content": "space-between",
+    "flex_justify_content_tablet": "center",
+    "flex_align_items": "center",
+    "flex_wrap": "nowrap",
+    "flex_wrap_mobile": "wrap",
+    "flex_gap": {
+     "unit": "px",
+     "size": 22,
+     "column": "22",
+     "row": "22",
+     "isLinked": true
+    },
+    "flex_gap_mobile": {
+     "unit": "px",
+     "size": 14,
+     "column": "14",
+     "row": "4",
+     "isLinked": false
+    },
+    "padding": {
+     "unit": "px",
+     "top": "8",
+     "right": "24",
+     "bottom": "8",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "7",
+     "right": "12",
+     "bottom": "7",
+     "left": "12",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#012E08"
+   },
+   "elements": [
+    {
+     "id": "1a2b0cb",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "icon-list",
+     "settings": {
+      "view": "inline",
+      "icon_list": [
+       {
+        "text": "Livraison gratuite dès 60 €",
+        "link": {
+         "url": "/livraison-paiement/",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "selected_icon": {
+         "value": "fas fa-truck",
+         "library": "fa-solid"
+        },
+        "_id": "1a2b0ca"
+       }
+      ],
+      "space_between": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "icon_color": "#A9D8B0",
+      "icon_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "text_indent": {
+       "unit": "px",
+       "size": 7,
+       "sizes": []
+      },
+      "text_color": "#FFFFFF",
+      "text_color_hover": "#A9D8B0",
+      "icon_typography_typography": "custom",
+      "icon_typography_font_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "icon_typography_font_weight": "500",
+      "icon_typography_line_height": {
+       "unit": "em",
+       "size": 1.4,
+       "sizes": []
+      },
+      "_title": "Livraison",
+      "_flex_size": "grow",
+      "_flex_size_tablet": "none",
+      "_element_width": "auto"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0cd",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "icon-list",
+     "settings": {
+      "view": "inline",
+      "icon_list": [
+       {
+        "text": "03 25 04 20 19",
+        "link": {
+         "url": "tel:+33325042019",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "selected_icon": {
+         "value": "fas fa-phone-alt",
+         "library": "fa-solid"
+        },
+        "_id": "1a2b0cc"
+       }
+      ],
+      "space_between": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "icon_color": "#A9D8B0",
+      "icon_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "text_indent": {
+       "unit": "px",
+       "size": 7,
+       "sizes": []
+      },
+      "text_color": "#FFFFFF",
+      "text_color_hover": "#A9D8B0",
+      "icon_typography_typography": "custom",
+      "icon_typography_font_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "icon_typography_font_weight": "500",
+      "icon_typography_line_height": {
+       "unit": "em",
+       "size": 1.4,
+       "sizes": []
+      },
+      "_title": "Téléphone",
+      "_element_width": "auto",
+      "_flex_size": "none"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d0",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "icon-list",
+     "settings": {
+      "view": "inline",
+      "icon_list": [
+       {
+        "text": "WhatsApp",
+        "link": {
+         "url": "https://wa.me/33674393987",
+         "is_external": "on",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "selected_icon": {
+         "value": "fab fa-whatsapp",
+         "library": "fa-brands"
+        },
+        "_id": "1a2b0ce"
+       },
+       {
+        "text": "Service client 7j/7 de 9h à 21h",
+        "selected_icon": {
+         "value": "far fa-clock",
+         "library": "fa-regular"
+        },
+        "_id": "1a2b0cf"
+       }
+      ],
+      "space_between": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "icon_color": "#A9D8B0",
+      "icon_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "text_indent": {
+       "unit": "px",
+       "size": 7,
+       "sizes": []
+      },
+      "text_color": "#FFFFFF",
+      "text_color_hover": "#A9D8B0",
+      "icon_typography_typography": "custom",
+      "icon_typography_font_size": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "icon_typography_font_weight": "500",
+      "icon_typography_line_height": {
+       "unit": "em",
+       "size": 1.4,
+       "sizes": []
+      },
+      "_title": "WhatsApp & horaires",
+      "_element_width": "auto",
+      "_flex_size": "none",
+      "hide_tablet": "hidden-tablet",
+      "hide_mobile": "hidden-mobile"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1a2b0d9",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "En-tête – logo, recherche, actions",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "header",
+    "flex_direction": "row",
+    "flex_align_items": "center",
+    "flex_justify_content": "space-between",
+    "flex_wrap": "nowrap",
+    "flex_gap": {
+     "unit": "px",
+     "size": 28,
+     "column": "28",
+     "row": "28",
+     "isLinked": true
+    },
+    "flex_gap_tablet": {
+     "unit": "px",
+     "size": 18,
+     "column": "18",
+     "row": "18",
+     "isLinked": true
+    },
+    "flex_gap_mobile": {
+     "unit": "px",
+     "size": 14,
+     "column": "14",
+     "row": "14",
+     "isLinked": true
+    },
+    "padding": {
+     "unit": "px",
+     "top": "14",
+     "right": "24",
+     "bottom": "14",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "10",
+     "right": "16",
+     "bottom": "10",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#FFFFFF"
+   },
+   "elements": [
+    {
+     "id": "1a2b0d2",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "image",
+     "settings": {
+      "image": {
+       "url": "a-choisir:logo-la-maison-du-dos.webp",
+       "id": "",
+       "alt": "La Maison du Dos – accueil",
+       "source": "library",
+       "size": ""
+      },
+      "image_size": "full",
+      "_title": "Image à choisir : logo-la-maison-du-dos.webp",
+      "width": {
+       "unit": "px",
+       "size": 180,
+       "sizes": []
+      },
+      "image_border_radius": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "link_to": "custom",
+      "link": {
+       "url": "/",
+       "is_external": "",
+       "nofollow": "",
+       "custom_attributes": ""
+      },
+      "width_mobile": {
+       "unit": "px",
+       "size": 132,
+       "sizes": []
+      },
+      "align": "left",
+      "_element_width": "auto",
+      "_flex_size": "none",
+      "_flex_size_tablet": "grow"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d3",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-search",
+     "settings": {
+      "_title": "Recherche (ordinateur)",
+      "search_query": "all",
+      "search_placeholder": "Lit à eau, couette Hefel, conditionneur…",
+      "search_aria_label": "Rechercher un produit",
+      "search_btn": "yes",
+      "search_btn_style": "inner",
+      "search_btn_type": "icon",
+      "search_btn_icon": {
+       "value": "fas fa-search",
+       "library": "fa-solid"
+      },
+      "_flex_size": "grow",
+      "_element_width": "auto",
+      "input_color": "#1B261D",
+      "input_bg_color": "#F5F8F4",
+      "input_placeholder_color": "#56625A",
+      "input_border_color": "#DFE7E0",
+      "input_focus_border_color": "#035C11",
+      "input_border_size": {
+       "unit": "px",
+       "top": "1",
+       "right": "1",
+       "bottom": "1",
+       "left": "1",
+       "isLinked": true
+      },
+      "input_border_radius": {
+       "unit": "px",
+       "top": "999",
+       "right": "999",
+       "bottom": "999",
+       "left": "999",
+       "isLinked": true
+      },
+      "input_padding": {
+       "unit": "px",
+       "top": "12",
+       "right": "20",
+       "bottom": "12",
+       "left": "20",
+       "isLinked": false
+      },
+      "input_typography_typography": "custom",
+      "input_typography_font_size": {
+       "unit": "px",
+       "size": 15,
+       "sizes": []
+      },
+      "input_typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      },
+      "btn_text_color": "#035C11",
+      "btn_bg_color": "rgba(0,0,0,0)",
+      "btn_hv_text_color": "#C80C25",
+      "btn_hv_bg_color": "rgba(0,0,0,0)",
+      "btn_width": {
+       "unit": "px",
+       "size": 48,
+       "sizes": []
+      },
+      "hide_tablet": "hidden-tablet",
+      "hide_mobile": "hidden-mobile"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d4",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "button",
+     "settings": {
+      "text": "Demander un devis",
+      "link": {
+       "url": "/lits-a-eau/lits-a-eau-en-vente-sur-devis/",
+       "is_external": "",
+       "nofollow": "",
+       "custom_attributes": ""
+      },
+      "size": "md",
+      "typography_typography": "custom",
+      "typography_font_size": {
+       "unit": "px",
+       "size": 15,
+       "sizes": []
+      },
+      "typography_font_weight": "600",
+      "typography_line_height": {
+       "unit": "em",
+       "size": 1.2,
+       "sizes": []
+      },
+      "border_radius": {
+       "unit": "px",
+       "top": "999",
+       "right": "999",
+       "bottom": "999",
+       "left": "999",
+       "isLinked": true
+      },
+      "text_padding": {
+       "unit": "px",
+       "top": "12",
+       "right": "22",
+       "bottom": "12",
+       "left": "22",
+       "isLinked": false
+      },
+      "background_color": "#C80C25",
+      "button_text_color": "#FFFFFF",
+      "button_background_hover_color": "#A50A1E",
+      "hover_color": "#FFFFFF",
+      "_title": "Bouton devis",
+      "_element_width": "auto",
+      "_flex_size": "none",
+      "hide_tablet": "hidden-tablet",
+      "hide_mobile": "hidden-mobile"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d5",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "icon",
+     "settings": {
+      "_title": "Ma liste de souhaits",
+      "selected_icon": {
+       "value": "far fa-heart",
+       "library": "fa-regular"
+      },
+      "link": {
+       "url": "/my-wishlist/",
+       "is_external": "",
+       "nofollow": "",
+       "custom_attributes": "aria-label|Ma liste de souhaits"
+      },
+      "primary_color": "#035C11",
+      "hover_primary_color": "#C80C25",
+      "size": {
+       "unit": "px",
+       "size": 21,
+       "sizes": []
+      },
+      "size_mobile": {
+       "unit": "px",
+       "size": 20,
+       "sizes": []
+      },
+      "align": "center",
+      "_element_width": "auto",
+      "hide_mobile": "hidden-mobile",
+      "_flex_size": "none"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d6",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "icon",
+     "settings": {
+      "_title": "Mon compte",
+      "selected_icon": {
+       "value": "far fa-user",
+       "library": "fa-regular"
+      },
+      "link": {
+       "url": "/my-account/",
+       "is_external": "",
+       "nofollow": "",
+       "custom_attributes": "aria-label|Mon compte"
+      },
+      "primary_color": "#035C11",
+      "hover_primary_color": "#C80C25",
+      "size": {
+       "unit": "px",
+       "size": 21,
+       "sizes": []
+      },
+      "size_mobile": {
+       "unit": "px",
+       "size": 20,
+       "sizes": []
+      },
+      "align": "center",
+      "_element_width": "auto",
+      "_flex_size": "none"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d7",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-product-mini-cart",
+     "settings": {
+      "_title": "Panier",
+      "icon": "bag-medium",
+      "toggle_text": "none",
+      "mini_cart_style": "none",
+      "toggle_btn_icon_color": "#035C11",
+      "toggle_btn_icon_color_hover": "#C80C25",
+      "toggle_btn_icon_size": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "toggle_btn_item_count_color": "#FFFFFF",
+      "toggle_btn_item_count_bg_color": "#C80C25",
+      "_element_width": "auto",
+      "_flex_size": "none"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b0d8",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-nav-menu",
+     "settings": {
+      "_title": "Menu (tablette et mobile)",
+      "menu_select": "lmdd-menu-principal",
+      "menu_layout": "horizontal",
+      "menu_align": "center",
+      "menu_items_pointer": "underline",
+      "pointer_animation_line": "fade",
+      "pointer_height": {
+       "unit": "px",
+       "size": 2,
+       "sizes": []
+      },
+      "pointer_color_hover": "#C80C25",
+      "menu_items_submenu_icon": "caret-down",
+      "menu_items_submenu_trigger": "hover",
+      "menu_items_submenu_entrance": "fade",
+      "menu_item_color": "#1B261D",
+      "menu_item_color_hover": "#035C11",
+      "menu_items_padding_hr": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "menu_items_padding_vr": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "menu_items_typography_typography": "custom",
+      "menu_items_typography_font_size": {
+       "unit": "px",
+       "size": 15,
+       "sizes": []
+      },
+      "menu_items_typography_font_weight": "600",
+      "menu_items_typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      },
+      "sub_menu_color": "#1B261D",
+      "sub_menu_color_bg": "#FFFFFF",
+      "sub_menu_color_hover": "#035C11",
+      "sub_menu_color_bg_hover": "#EDF6EE",
+      "sub_menu_typography_typography": "custom",
+      "sub_menu_typography_font_size": {
+       "unit": "px",
+       "size": 14,
+       "sizes": []
+      },
+      "sub_menu_typography_font_weight": "500",
+      "sub_menu_typography_line_height": {
+       "unit": "em",
+       "size": 1.4,
+       "sizes": []
+      },
+      "sub_menu_border_radius": {
+       "unit": "px",
+       "top": "10",
+       "right": "10",
+       "bottom": "10",
+       "left": "10",
+       "isLinked": true
+      },
+      "mob_menu_display": "tablet",
+      "mob_menu_stretch": "full-width",
+      "mob_menu_item_align": "left",
+      "toggle_btn_style": "hamburger",
+      "toggle_btn_burger": "v1",
+      "toggle_btn_align": "right",
+      "toggle_btn_color": "#035C11",
+      "toggle_btn_color_hover": "#C80C25",
+      "mobile_menu_color": "#1B261D",
+      "mobile_menu_bg_color": "#FFFFFF",
+      "mobile_menu_color_focus": "#035C11",
+      "mobile_menu_bg_color_focus": "#EDF6EE",
+      "mobile_menu_divider_color": "#DFE7E0",
+      "_element_width": "auto",
+      "_flex_size": "none",
+      "hide_desktop": "hidden-desktop"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1a2b0db",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "En-tête – menu (ordinateur)",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "nav",
+    "flex_direction": "row",
+    "flex_justify_content": "center",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "24",
+     "bottom": "0",
+     "left": "24",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#FFFFFF",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "1",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "#DFE7E0",
+    "hide_tablet": "hidden-tablet",
+    "hide_mobile": "hidden-mobile"
+   },
+   "elements": [
+    {
+     "id": "1a2b0da",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-nav-menu",
+     "settings": {
+      "_title": "Menu principal (ordinateur)",
+      "menu_select": "lmdd-menu-principal",
+      "menu_layout": "horizontal",
+      "menu_align": "center",
+      "menu_items_pointer": "underline",
+      "pointer_animation_line": "fade",
+      "pointer_height": {
+       "unit": "px",
+       "size": 2,
+       "sizes": []
+      },
+      "pointer_color_hover": "#C80C25",
+      "menu_items_submenu_icon": "caret-down",
+      "menu_items_submenu_trigger": "hover",
+      "menu_items_submenu_entrance": "fade",
+      "menu_item_color": "#1B261D",
+      "menu_item_color_hover": "#035C11",
+      "menu_items_padding_hr": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "menu_items_padding_vr": {
+       "unit": "px",
+       "size": 13,
+       "sizes": []
+      },
+      "menu_items_typography_typography": "custom",
+      "menu_items_typography_font_size": {
+       "unit": "px",
+       "size": 15,
+       "sizes": []
+      },
+      "menu_items_typography_font_weight": "600",
+      "menu_items_typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      },
+      "sub_menu_color": "#1B261D",
+      "sub_menu_color_bg": "#FFFFFF",
+      "sub_menu_color_hover": "#035C11",
+      "sub_menu_color_bg_hover": "#EDF6EE",
+      "sub_menu_typography_typography": "custom",
+      "sub_menu_typography_font_size": {
+       "unit": "px",
+       "size": 14,
+       "sizes": []
+      },
+      "sub_menu_typography_font_weight": "500",
+      "sub_menu_typography_line_height": {
+       "unit": "em",
+       "size": 1.4,
+       "sizes": []
+      },
+      "sub_menu_border_radius": {
+       "unit": "px",
+       "top": "10",
+       "right": "10",
+       "bottom": "10",
+       "left": "10",
+       "isLinked": true
+      },
+      "mob_menu_display": "tablet",
+      "mob_menu_stretch": "full-width",
+      "mob_menu_item_align": "left",
+      "toggle_btn_style": "hamburger",
+      "toggle_btn_burger": "v1",
+      "toggle_btn_align": "right",
+      "toggle_btn_color": "#035C11",
+      "toggle_btn_color_hover": "#C80C25",
+      "mobile_menu_color": "#1B261D",
+      "mobile_menu_bg_color": "#FFFFFF",
+      "mobile_menu_color_focus": "#035C11",
+      "mobile_menu_bg_color_focus": "#EDF6EE",
+      "mobile_menu_divider_color": "#DFE7E0",
+      "_element_width": "auto"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1a2b0dd",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "En-tête – recherche (tablette et mobile)",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "padding": {
+     "unit": "px",
+     "top": "10",
+     "right": "16",
+     "bottom": "10",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F5F8F4",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "#DFE7E0",
+    "hide_desktop": "hidden-desktop"
+   },
+   "elements": [
+    {
+     "id": "1a2b0dc",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-search",
+     "settings": {
+      "_title": "Recherche (mobile)",
+      "search_query": "all",
+      "search_placeholder": "Lit à eau, couette Hefel, conditionneur…",
+      "search_aria_label": "Rechercher un produit",
+      "search_btn": "yes",
+      "search_btn_style": "inner",
+      "search_btn_type": "icon",
+      "search_btn_icon": {
+       "value": "fas fa-search",
+       "library": "fa-solid"
+      },
+      "input_color": "#1B261D",
+      "input_bg_color": "#FFFFFF",
+      "input_placeholder_color": "#56625A",
+      "input_border_color": "#DFE7E0",
+      "input_focus_border_color": "#035C11",
+      "input_border_size": {
+       "unit": "px",
+       "top": "1",
+       "right": "1",
+       "bottom": "1",
+       "left": "1",
+       "isLinked": true
+      },
+      "input_border_radius": {
+       "unit": "px",
+       "top": "999",
+       "right": "999",
+       "bottom": "999",
+       "left": "999",
+       "isLinked": true
+      },
+      "input_padding": {
+       "unit": "px",
+       "top": "11",
+       "right": "18",
+       "bottom": "11",
+       "left": "18",
+       "isLinked": false
+      },
+      "input_typography_typography": "custom",
+      "input_typography_font_size": {
+       "unit": "px",
+       "size": 15,
+       "sizes": []
+      },
+      "input_typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      },
+      "btn_text_color": "#035C11",
+      "btn_bg_color": "rgba(0,0,0,0)",
+      "btn_hv_text_color": "#C80C25",
+      "btn_hv_bg_color": "rgba(0,0,0,0)",
+      "btn_width": {
+       "unit": "px",
+       "size": 46,
+       "sizes": []
+      }
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "page_settings": [],
+ "version": "0.4",
+ "title": "En-tête – La Maison du Dos",
+ "type": "section"
+}

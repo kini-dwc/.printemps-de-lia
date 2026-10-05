@@ -5,6 +5,8 @@
 | Fichier | Contenu |
 |---|---|
 | `accueil-la-maison-du-dos.json` | Page d'accueil complète : hero, engagements, catalogue, lit à eau, produits, matelas à télécommande, accompagnement, qui sommes-nous, avis, FAQ, appel à l'action |
+| `en-tete-la-maison-du-dos.json` | En-tête : barre du haut, logo, recherche, bouton devis, souhaits, compte, panier, menu avec sous-menus, version mobile (widgets Elementor + Royal Elementor Addons gratuits) |
+| `menu-principal-la-maison-du-dos.json` | Structure du menu principal (créé automatiquement par l'extension d'import) |
 | `pied-de-page-la-maison-du-dos.json` | Pied de page (modèle séparé, à placer dans le constructeur de pied de page) |
 | `images/schema-pression-matelas-eau.png` | Schéma « matelas classique / matelas à eau » |
 | `dist/elementor-modeles-la-maison-du-dos.zip` | Les deux modèles dans une seule archive à importer |
@@ -31,7 +33,8 @@ Garantis. Ce service ne propose pas d'autre intégration.
 ## Méthode recommandée : l'extension d'import
 
 Si l'import de fichiers d'Elementor échoue (erreur 500, ZIP ou JSON sans effet), utilisez **`dist/lmdd-import-accueil.zip`** :
-une extension à installer comme n'importe quelle autre, qui crée la page, les modèles et les images directement sur le site.
+une extension à installer comme n'importe quelle autre, qui crée la page, les modèles, le menu, l'en-tête, le pied de page et les images
+directement sur le site, avec aperçu, activation en un clic et retour arrière pour l'en-tête et le pied de page.
 Mode d'emploi : `wordpress/plugins/lmdd-import-accueil/LISEZ-MOI.md`.
 
 ## Pourquoi l'import échouait (erreur 500)

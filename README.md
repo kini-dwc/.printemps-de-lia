@@ -11,7 +11,8 @@ d'optimisation du WordPress existant.
 | `audit/AUDIT-PERFORMANCE-SEO.md` | Constats SEO, causes de lenteur, plan d'action |
 | `audit/audit-homepage.mjs` | Outil d'audit Playwright : liste chaque script/CSS par plugin, poids, code inutilisé, Web Vitals |
 | `wordpress/mu-plugins/lmdd-performance.php` | Mu-plugin qui retire les scripts inutiles (accueil) + mode diagnostic `?lmdd_assets=1` |
-| `elementor/` | Modèles Elementor importables (accueil + pied de page), voir `elementor/LISEZ-MOI.md` |
+| `elementor/` | Modèles Elementor (accueil, en-tête, pied de page, menu), voir `elementor/LISEZ-MOI.md` |
+| `wordpress/plugins/lmdd-import-accueil/` | Extension qui installe page, en-tête, pied de page, menu et images (aperçu, activation, retour arrière) |
 | `wordpress/plugins/asset-pilot/` | **Asset Pilot** : gestionnaire de scripts avec interface, mode test et mesure d'impact (voir son `LISEZ-MOI.md`) |
 | `wordpress/asset-pilot-regles-la-maison-du-dos.json` | 26 règles issues de l'audit, à importer dans Asset Pilot (arrivent en test) |
 | `tools/asset-pilot-tester/` | Test d'impact automatisé : pages + parcours clients, avec et sans règles |

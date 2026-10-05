@@ -248,7 +248,7 @@ const catalogue = Section({ _title: 'Catalogue' }, [
       catCard('fas fa-tint', 'Matelas à eau légers & bébé', 'Le matelas à eau climatisé à poser sur un sommier fixe classique.', '/matelas-reglables/matelas-a-eau-leger-bebe/'),
       catCard('fas fa-sliders-h', 'Matelas à télécommande', 'Fermeté réglable par télécommande, compatibles avec les sommiers de relaxation.', '/matelas-reglables/matelas-a-telecommande/'),
       catCard('fas fa-leaf', 'Linge de lit', 'Couettes, oreillers, surmatelas et draps-housses, dont le linge de lit Hefel conseillé depuis 1997.', '/linge-de-lit/'),
-      catCard('fas fa-layer-group', 'Accessoires, SAV & entretien', 'Conditionneurs, anti-algues et accessoires pour faire durer votre literie à eau.', '/product-category/accessoires-produits-dentretien-sav/'),
+      catCard('fas fa-layer-group', 'Accessoires, SAV & entretien', 'Conditionneurs, anti-algues et accessoires pour faire durer votre literie à eau.', '/accessoires-produits-dentretien-sav/'),
     ]),
   ]),
 ]);
@@ -448,7 +448,7 @@ const footer = Section({
     ]),
     Con({ flex_direction: 'column', flex_gap: gap(0) }, [footTitle('Nos produits'), footLink([
       ['Lits à eau', '/lits-a-eau/'], ['Matelas à eau légers & bébé', '/matelas-reglables/matelas-a-eau-leger-bebe/'], ['Matelas à télécommande', '/matelas-reglables/matelas-a-telecommande/'],
-      ['Linge de lit', '/linge-de-lit/'], ['Accessoires, SAV & entretien', '/product-category/accessoires-produits-dentretien-sav/'], ['Nos marques', '/nos-marques/'],
+      ['Linge de lit', '/linge-de-lit/'], ['Accessoires, SAV & entretien', '/accessoires-produits-dentretien-sav/'], ['Nos marques', '/nos-marques/'],
     ])]),
     Con({ flex_direction: 'column', flex_gap: gap(0) }, [footTitle('Aide & conseils'), footLink([
       ['Qui sommes-nous', '/qui-sommes-nous/'], ['Matelas à eau : FAQ', '/matelas-a-eau-faq-complete-35-reponses-dexperts/'], ['Conseils & guides', '/blog'],
@@ -470,10 +470,157 @@ const footer = Section({
   ]),
 ]);
 
+// ================= EN-TÊTE =================
+/*
+ * Widgets Royal Elementor Addons (version gratuite, déjà installée sur le site) pour ce qu'Elementor
+ * gratuit ne sait pas faire : menu déroulant + menu mobile (wpr-nav-menu), recherche (wpr-search),
+ * panier avec compteur (wpr-product-mini-cart). Le reste en widgets Elementor natifs.
+ * Le menu WordPress « lmdd-menu-principal » est créé par l'extension d'import (MENU ci-dessous).
+ */
+export const MENU_SLUG = 'lmdd-menu-principal';
+export const MENU = [
+  ['Lits à eau', '/lits-a-eau/', [
+    ['Lits à eau en vente en ligne', '/lits-a-eau/lits-a-eau-en-vente-en-ligne/'],
+    ['Lits à eau en vente sur devis', '/lits-a-eau/lits-a-eau-en-vente-sur-devis/'],
+  ]],
+  ['Matelas réglables', '/matelas-reglables/', [
+    ['Matelas à eau léger / bébé', '/matelas-reglables/matelas-a-eau-leger-bebe/'],
+    ['Matelas à télécommande', '/matelas-reglables/matelas-a-telecommande/'],
+  ]],
+  ['Linge de lit', '/linge-de-lit/', [
+    ['Couettes hiver', '/linge-de-lit/couettes-hiver/'], ['Couettes été', '/linge-de-lit/couettes-ete/'],
+    ['Couettes toutes saisons', '/linge-de-lit/couettes-toutes-saisons/'], ['Couettes doubles 4 saisons', '/linge-de-lit/couettes-doubles/'],
+    ['Couettes eider', '/linge-de-lit/couettes-eider/'], ['Couettes bio', '/linge-de-lit/couettes-bio/'],
+    ['Oreillers', '/linge-de-lit/oreillers/'], ['Surmatelas', '/linge-de-lit/surmatelas/'],
+    ['Draps-housses jersey', '/linge-de-lit/draps-housses-jersey/'], ['Housses de couette & taies', '/linge-de-lit/housses-couettes-taies/'],
+    ['Alèses & protections', '/linge-de-lit/aleses-protections/'], ['Bella Donna : couvertures d\'été', '/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/'],
+  ]],
+  ['Accessoires & SAV', '/accessoires-produits-dentretien-sav/', [
+    ['Produits d\'entretien & SAV', '/accessoires-produits-dentretien-sav/produits-dentretien-sav/'],
+    ['Accessoires literie à eau', '/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/'],
+    ['Têtes & cadres de lits', '/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/'],
+  ]],
+  ['Nos marques', '/nos-marques/', [
+    ['La Maison du Dos', '/product-tag/la-maison-du-dos/'], ['Akva', '/product-tag/akva/'], ['Hefel', '/product-tag/hefel/'],
+    ['Moosburger', '/product-tag/moosburger/'], ['Poseïdon – Lunalife', '/product-tag/poseidon-lunalife/'], ['Tasso', '/product-tag/tasso/'],
+    ['Profine', '/product-tag/profine/'], ['Matrair', '/product-tag/matrair/'], ['Formesse', '/product-tag/formesse/'],
+    ['Mr. Sandman', '/product-tag/mr-sandman/'], ['Kirstenbalk', '/product-tag/kirstenbalk/'], ['Dynaglobe', '/product-tag/dynaglobe/'],
+  ]],
+  ['Contact', '/contact/', []],
+];
+
+const withSettings = (el, settings) => ({ ...el, settings: { ...el.settings, ...settings } });
+const HIDE_DESKTOP = { hide_desktop: 'hidden-desktop' };
+const HIDE_MOBILE_TABLET = { hide_tablet: 'hidden-tablet', hide_mobile: 'hidden-mobile' };
+const topList = (items, o = {}) => W('icon-list', {
+  view: 'inline',
+  icon_list: items.map(([text, url, icon, lib]) => ({ text, ...(url ? { link: link(url, url.startsWith('http')) } : {}), selected_icon: icon ? fa(icon, lib) : { value: '', library: '' }, _id: id() })),
+  space_between: px(22), icon_color: C.greenLight, icon_size: px(13), text_indent: px(7), text_color: C.white, text_color_hover: C.greenLight,
+  ...typo('icon_typography', { size: 13, lh: 1.4, weight: 500 }),
+  ...o,
+});
+const headIcon = (icon, url, label, o = {}) => W('icon', {
+  _title: label, selected_icon: fa(icon, 'fa-regular'), link: { ...link(url), custom_attributes: `aria-label|${label}` },
+  primary_color: C.green, hover_primary_color: C.red, size: px(21), size_mobile: px(20), align: 'center',
+  _element_width: 'auto', ...o,
+});
+
+const headerTop = Con({
+  _title: 'En-tête – barre du haut', content_width: 'boxed', boxed_width: px(1200),
+  flex_direction: 'row', flex_justify_content: 'space-between', flex_justify_content_tablet: 'center', flex_align_items: 'center', flex_wrap: 'nowrap', flex_wrap_mobile: 'wrap',
+  flex_gap: gap(22), flex_gap_mobile: gap(14, 4), padding: box(8, 24, 8, 24), padding_mobile: box(7, 12, 7, 12),
+  background_background: 'classic', background_color: C.greenDark,
+}, [
+  // « grow » : prend la place restante et pousse les contacts à droite (ordinateur).
+  topList([['Livraison gratuite dès 60 €', '/livraison-paiement/', 'fas fa-truck']], { _title: 'Livraison', _flex_size: 'grow', _flex_size_tablet: 'none', _element_width: 'auto' }),
+  topList([['03 25 04 20 19', 'tel:+33325042019', 'fas fa-phone-alt']], { _title: 'Téléphone', _element_width: 'auto', _flex_size: 'none' }),
+  topList([['WhatsApp', 'https://wa.me/33674393987', 'fab fa-whatsapp', 'fa-brands'], ['Service client 7j/7 de 9h à 21h', '', 'far fa-clock', 'fa-regular']], {
+    _title: 'WhatsApp & horaires', _element_width: 'auto', _flex_size: 'none', ...HIDE_MOBILE_TABLET,
+  }),
+], false);
+
+const navMenu = (title, o) => W('wpr-nav-menu', {
+  _title: title, menu_select: MENU_SLUG, menu_layout: 'horizontal', menu_align: 'center',
+  menu_items_pointer: 'underline', pointer_animation_line: 'fade', pointer_height: px(2), pointer_color_hover: C.red,
+  menu_items_submenu_icon: 'caret-down', menu_items_submenu_trigger: 'hover', menu_items_submenu_entrance: 'fade',
+  menu_item_color: C.text, menu_item_color_hover: C.green,
+  menu_items_padding_hr: px(16), menu_items_padding_vr: px(13),
+  ...typo('menu_items_typography', { size: 15, weight: 600, lh: 1.3 }),
+  sub_menu_color: C.text, sub_menu_color_bg: C.white, sub_menu_color_hover: C.green, sub_menu_color_bg_hover: C.greenBg,
+  ...typo('sub_menu_typography', { size: 14, weight: 500, lh: 1.4 }),
+  sub_menu_border_radius: box(10),
+  mob_menu_display: 'tablet', mob_menu_stretch: 'full-width', mob_menu_item_align: 'left', toggle_btn_style: 'hamburger', toggle_btn_burger: 'v1',
+  toggle_btn_align: 'right', toggle_btn_color: C.green, toggle_btn_color_hover: C.red,
+  mobile_menu_color: C.text, mobile_menu_bg_color: C.white, mobile_menu_color_focus: C.green, mobile_menu_bg_color_focus: C.greenBg,
+  mobile_menu_divider_color: C.line,
+  ...o,
+});
+
+const headerMain = Con({
+  _title: 'En-tête – logo, recherche, actions', content_width: 'boxed', boxed_width: px(1200), html_tag: 'header',
+  flex_direction: 'row', flex_align_items: 'center', flex_justify_content: 'space-between', flex_wrap: 'nowrap',
+  flex_gap: gap(28), flex_gap_tablet: gap(18), flex_gap_mobile: gap(14), padding: box(14, 24, 14, 24), padding_mobile: box(10, 16, 10, 16),
+  background_background: 'classic', background_color: C.white,
+}, [
+  Img(`${UP}/2024/09/cropped-template_images_logo-boutique-pc.webp`, 'La Maison du Dos – accueil', {
+    radius: 0, link: '/', extra: { width: px(180), width_mobile: px(132), align: 'left', _element_width: 'auto', _flex_size: 'none', _flex_size_tablet: 'grow' },
+  }),
+  W('wpr-search', {
+    _title: 'Recherche (ordinateur)', search_query: 'all', search_placeholder: 'Lit à eau, couette Hefel, conditionneur…', search_aria_label: 'Rechercher un produit',
+    search_btn: 'yes', search_btn_style: 'inner', search_btn_type: 'icon', search_btn_icon: fa('fas fa-search'),
+    _flex_size: 'grow', _element_width: 'auto',
+    input_color: C.text, input_bg_color: C.tint, input_placeholder_color: C.muted, input_border_color: C.line, input_focus_border_color: C.green,
+    input_border_size: box(1), input_border_radius: box(999), input_padding: box(12, 20, 12, 20),
+    ...typo('input_typography', { size: 15, lh: 1.3 }),
+    btn_text_color: C.green, btn_bg_color: 'rgba(0,0,0,0)', btn_hv_text_color: C.red, btn_hv_bg_color: 'rgba(0,0,0,0)', btn_width: px(48),
+    ...HIDE_MOBILE_TABLET,
+  }),
+  withSettings(BtnAccent('Demander un devis', '/lits-a-eau/lits-a-eau-en-vente-sur-devis/', { fs: 15, pad: box(12, 22, 12, 22) }), { _title: 'Bouton devis', _element_width: 'auto', _flex_size: 'none', ...HIDE_MOBILE_TABLET }),
+  headIcon('far fa-heart', '/my-wishlist/', 'Ma liste de souhaits', { hide_mobile: 'hidden-mobile', _flex_size: 'none' }),
+  headIcon('far fa-user', '/my-account/', 'Mon compte', { _flex_size: 'none' }),
+  W('wpr-product-mini-cart', {
+    _title: 'Panier', icon: 'bag-medium', toggle_text: 'none', mini_cart_style: 'none',
+    toggle_btn_icon_color: C.green, toggle_btn_icon_color_hover: C.red, toggle_btn_icon_size: px(22),
+    toggle_btn_item_count_color: C.white, toggle_btn_item_count_bg_color: C.red,
+    _element_width: 'auto', _flex_size: 'none',
+  }),
+  // Menu burger : tablette et mobile uniquement.
+  navMenu('Menu (tablette et mobile)', { _element_width: 'auto', _flex_size: 'none', ...HIDE_DESKTOP }),
+], false);
+
+const headerNav = Con({
+  _title: 'En-tête – menu (ordinateur)', content_width: 'boxed', boxed_width: px(1200), html_tag: 'nav',
+  flex_direction: 'row', flex_justify_content: 'center', padding: box(0, 24, 0, 24),
+  background_background: 'classic', background_color: C.white,
+  border_border: 'solid', border_width: box(1, 0, 1, 0), border_color: C.line,
+  ...HIDE_MOBILE_TABLET,
+}, [
+  navMenu('Menu principal (ordinateur)', { _element_width: 'auto' }),
+], false);
+
+const headerSearchMobile = Con({
+  _title: 'En-tête – recherche (tablette et mobile)', content_width: 'boxed', boxed_width: px(1200),
+  padding: box(10, 16, 10, 16), background_background: 'classic', background_color: C.tint, border_border: 'solid', border_width: box(0, 0, 1, 0), border_color: C.line,
+  ...HIDE_DESKTOP,
+}, [
+  W('wpr-search', {
+    _title: 'Recherche (mobile)', search_query: 'all', search_placeholder: 'Lit à eau, couette Hefel, conditionneur…', search_aria_label: 'Rechercher un produit',
+    search_btn: 'yes', search_btn_style: 'inner', search_btn_type: 'icon', search_btn_icon: fa('fas fa-search'),
+    input_color: C.text, input_bg_color: C.white, input_placeholder_color: C.muted, input_border_color: C.line, input_focus_border_color: C.green,
+    input_border_size: box(1), input_border_radius: box(999), input_padding: box(11, 18, 11, 18),
+    ...typo('input_typography', { size: 15, lh: 1.3 }),
+    btn_text_color: C.green, btn_bg_color: 'rgba(0,0,0,0)', btn_hv_text_color: C.red, btn_hv_bg_color: 'rgba(0,0,0,0)', btn_width: px(46),
+  }),
+], false);
+
+const headerContent = [headerTop, headerMain, headerNav, headerSearchMobile];
+
 // ---------- Écriture ----------
 const tpl = (title, type, content, page_settings = []) => ({ content, page_settings, version: '0.4', title, type });
+writeFileSync(path.join(OUT, 'en-tete-la-maison-du-dos.json'), JSON.stringify(tpl('En-tête – La Maison du Dos', 'section', headerContent), null, 1));
+writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children]) => ({ title, url, children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
 writeFileSync(path.join(OUT, 'accueil-la-maison-du-dos.json'), JSON.stringify(tpl("Accueil – La Maison du Dos", 'page', pageContent, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
 writeFileSync(path.join(OUT, 'pied-de-page-la-maison-du-dos.json'), JSON.stringify(tpl('Pied de page – La Maison du Dos', 'section', [footer]), null, 1));
 
 const count = (els) => els.reduce((a, e) => a + 1 + count(e.elements || []), 0);
-console.log('Accueil :', count(pageContent), 'éléments ; pied de page :', count([footer]), 'éléments');
+console.log('Accueil :', count(pageContent), 'éléments ; en-tête :', count(headerContent), 'éléments ; pied de page :', count([footer]), 'éléments');

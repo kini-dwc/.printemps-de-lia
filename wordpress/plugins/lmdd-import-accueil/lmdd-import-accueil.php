@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
- * Description:       Crée la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), le modèle de pied de page et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD.
- * Version:           1.0.0
+ * Description:       Crée la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête, le pied de page et le menu, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD.
+ * Version:           1.1.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -19,6 +19,15 @@ final class LMDD_Import_Accueil {
 	const OPTION = 'lmdd_import_accueil';
 	const SLUG   = 'lmdd-import-accueil';
 
+	/** Modèles du constructeur de thème de Royal Elementor Addons (identifiés par leur slug, comme le fait Royal). */
+	const HF = array(
+		'header' => array( 'slug' => 'user-header-lmdd-en-tete', 'data' => 'en-tete', 'state' => 'wpr_header' ),
+		'footer' => array( 'slug' => 'user-footer-lmdd-pied-de-page', 'data' => 'pied-de-page', 'state' => 'wpr_footer' ),
+	);
+
+	/** Modèles de la bibliothèque Elementor : fichier de données => clé d'état. */
+	const LIBRARY = array( 'accueil' => 'tpl_accueil', 'en-tete' => 'tpl_entete', 'pied-de-page' => 'tpl_pied' );
+
 	/** Images fournies : fichier => texte alternatif. */
 	const IMAGES = array(
 		'lit-a-eau-altura.webp'            => 'Lit à eau Altura de Poseïdon avec tête de lit, dans une chambre lumineuse',
@@ -33,6 +42,8 @@ final class LMDD_Import_Accueil {
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'wp_ajax_lmdd_import_step', array( __CLASS__, 'ajax_step' ) );
+		add_action( 'admin_post_lmdd_hf', array( __CLASS__, 'handle_hf_action' ) );
+		add_action( 'init', array( __CLASS__, 'maybe_preview' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function ( $links ) {
 			array_unshift( $links, '<a href="' . esc_url( admin_url( 'tools.php?page=' . self::SLUG ) ) . '">Lancer l\'import</a>' );
 			return $links;
@@ -49,8 +60,10 @@ final class LMDD_Import_Accueil {
 	private static function steps() {
 		$steps = array(
 			array( 'id' => 'check', 'label' => 'Vérification de l\'environnement' ),
-			array( 'id' => 'templates', 'label' => 'Création des modèles (accueil + pied de page) dans la bibliothèque Elementor' ),
+			array( 'id' => 'templates', 'label' => 'Création des modèles (accueil, en-tête, pied de page) dans la bibliothèque Elementor' ),
 			array( 'id' => 'page', 'label' => 'Création de la page « Accueil – nouvelle version » (brouillon)' ),
+			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » (avec sous-menus)' ),
+			array( 'id' => 'hf', 'label' => 'Création de l\'en-tête et du pied de page dans le constructeur de thème Royal (sans les activer)' ),
 		);
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			$steps[] = array( 'id' => 'image:' . $file, 'label' => 'Image : ' . $file );
@@ -73,6 +86,10 @@ final class LMDD_Import_Accueil {
 				$msg = self::step_templates();
 			} elseif ( 'page' === $step ) {
 				$msg = self::step_page();
+			} elseif ( 'menu' === $step ) {
+				$msg = self::step_menu();
+			} elseif ( 'hf' === $step ) {
+				$msg = self::step_hf();
 			} elseif ( 0 === strpos( $step, 'image:' ) ) {
 				$msg = self::step_image( substr( $step, 6 ) );
 			} elseif ( 'link' === $step ) {
@@ -99,13 +116,13 @@ final class LMDD_Import_Accueil {
 		update_option( self::OPTION, array_merge( self::state(), $patch ), false );
 	}
 
-	private static function data( $name ) {
+	private static function data( $name, $key = 'content' ) {
 		$file = __DIR__ . '/data/' . $name . '.json';
 		if ( ! is_readable( $file ) ) {
 			throw new Exception( 'Fichier manquant dans l\'extension : data/' . $name . '.json' );
 		}
 		$json = json_decode( file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions
-		if ( ! is_array( $json ) || empty( $json['content'] ) ) {
+		if ( ! is_array( $json ) || empty( $json[ $key ] ) ) {
 			throw new Exception( 'Modèle illisible : data/' . $name . '.json (' . json_last_error_msg() . ')' );
 		}
 		return $json;
@@ -115,8 +132,10 @@ final class LMDD_Import_Accueil {
 		if ( ! did_action( 'elementor/loaded' ) || ! class_exists( '\Elementor\Plugin' ) ) {
 			throw new Exception( 'Elementor n\'est pas actif.' );
 		}
-		self::data( 'accueil' );
-		self::data( 'pied-de-page' );
+		foreach ( array_keys( self::LIBRARY ) as $name ) {
+			self::data( $name );
+		}
+		self::data( 'menu', 'items' );
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			if ( ! is_readable( __DIR__ . '/images/' . $file ) ) {
 				throw new Exception( 'Image manquante dans l\'extension : images/' . $file );
@@ -127,8 +146,9 @@ final class LMDD_Import_Accueil {
 			throw new Exception( 'Dossier des médias inaccessible : ' . $uploads['error'] );
 		}
 		return sprintf(
-			'Elementor %s, PHP %s, limite de temps %s s, mémoire %s.',
+			'Elementor %s, Royal Elementor Addons %s, PHP %s, limite de temps %s s, mémoire %s.',
 			defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '?',
+			self::royal_active() ? ( defined( 'WPR_ADDONS_VERSION' ) ? WPR_ADDONS_VERSION : 'actif' ) : 'absent (en-tête et pied de page resteront dans la bibliothèque)',
 			PHP_VERSION,
 			ini_get( 'max_execution_time' ),
 			ini_get( 'memory_limit' )
@@ -140,7 +160,7 @@ final class LMDD_Import_Accueil {
 		$source = \Elementor\Plugin::$instance->templates_manager->get_source( 'local' );
 		$state  = self::state();
 		$out    = array();
-		foreach ( array( 'accueil' => 'tpl_accueil', 'pied-de-page' => 'tpl_pied' ) as $name => $key ) {
+		foreach ( self::LIBRARY as $name => $key ) {
 			$d = self::data( $name );
 			if ( ! empty( $state[ $key ] ) && get_post( $state[ $key ] ) ) {
 				self::write_elementor_data( (int) $state[ $key ], $d['content'] );
@@ -236,7 +256,7 @@ final class LMDD_Import_Accueil {
 			}
 		}
 		$done = 0;
-		foreach ( array( 'page', 'tpl_accueil', 'tpl_pied' ) as $key ) {
+		foreach ( array_merge( array( 'page' ), array_values( self::LIBRARY ), wp_list_pluck( self::HF, 'state' ) ) as $key ) {
 			if ( empty( $state[ $key ] ) ) {
 				continue;
 			}
@@ -284,6 +304,179 @@ final class LMDD_Import_Accueil {
 		delete_post_meta( $post_id, '_elementor_element_cache' );
 	}
 
+	// ------------------------------------------------------------------ Menu
+
+	/** Crée (ou recrée) le menu WordPress utilisé par le widget « Menu » de l'en-tête. */
+	private static function step_menu() {
+		$d    = self::data( 'menu', 'items' );
+		$menu = wp_get_nav_menu_object( $d['slug'] );
+		if ( ! $menu ) {
+			$menu_id = wp_create_nav_menu( $d['name'] );
+			if ( is_wp_error( $menu_id ) ) {
+				throw new Exception( 'Impossible de créer le menu : ' . $menu_id->get_error_message() );
+			}
+			wp_update_term( $menu_id, 'nav_menu', array( 'slug' => $d['slug'] ) );
+		} else {
+			$menu_id = (int) $menu->term_id;
+			foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+				wp_delete_post( $item->ID, true );
+			}
+		}
+		$n = 0;
+		foreach ( $d['items'] as $i => $item ) {
+			$parent = self::add_menu_item( $menu_id, $item, 0, $i + 1 );
+			$n++;
+			foreach ( $item['children'] as $j => $child ) {
+				self::add_menu_item( $menu_id, $child, $parent, $j + 1 );
+				$n++;
+			}
+		}
+		self::save_state( array( 'menu' => $menu_id ) );
+		return 'Menu #' . $menu_id . ' : ' . count( $d['items'] ) . ' entrées principales, ' . $n . ' liens au total. Modifiable dans Apparence → Menus.';
+	}
+
+	private static function add_menu_item( $menu_id, array $item, $parent, $position ) {
+		$id = wp_update_nav_menu_item( $menu_id, 0, array(
+			'menu-item-title'     => $item['title'],
+			'menu-item-url'       => 0 === strpos( $item['url'], '/' ) ? home_url( $item['url'] ) : $item['url'],
+			'menu-item-type'      => 'custom',
+			'menu-item-status'    => 'publish',
+			'menu-item-parent-id' => $parent,
+			'menu-item-position'  => $position,
+		) );
+		if ( is_wp_error( $id ) ) {
+			throw new Exception( 'Lien de menu « ' . $item['title'] . ' » refusé : ' . $id->get_error_message() );
+		}
+		return (int) $id;
+	}
+
+	// ------------------------------------------------------------------ En-tête et pied de page (Royal Elementor Addons)
+
+	private static function royal_active() {
+		return post_type_exists( 'wpr_templates' ) && taxonomy_exists( 'wpr_template_type' );
+	}
+
+	/** Crée (ou met à jour) l'en-tête et le pied de page dans le constructeur de thème de Royal, sans les activer. */
+	private static function step_hf() {
+		if ( ! self::royal_active() ) {
+			return 'Royal Elementor Addons n\'est pas actif : l\'en-tête et le pied de page restent disponibles dans Elementor → Modèles.';
+		}
+		$out = array();
+		foreach ( self::HF as $type => $hf ) {
+			$d  = self::data( $hf['data'] );
+			$id = self::hf_template_id( $type );
+			if ( ! $id ) {
+				$id = wp_insert_post( array(
+					'post_type'    => 'wpr_templates',
+					'post_title'   => $d['title'],
+					'post_name'    => $hf['slug'],
+					'post_content' => '',
+					'post_status'  => 'publish',
+				), true );
+				if ( is_wp_error( $id ) ) {
+					throw new Exception( 'Impossible de créer le modèle « ' . $d['title'] . ' » : ' . $id->get_error_message() );
+				}
+			}
+			// Mêmes réglages que le bouton « Créer un modèle » du constructeur de thème de Royal.
+			wp_set_object_terms( $id, array( $type, 'user' ), 'wpr_template_type' );
+			update_post_meta( $id, '_elementor_template_type', 'wpr-theme-builder-' . $type );
+			update_post_meta( $id, '_wpr_template_type', $type );
+			update_post_meta( $id, '_wp_page_template', 'elementor_canvas' );
+			self::write_elementor_data( $id, $d['content'] );
+			self::save_state( array( $hf['state'] => (int) $id ) );
+			$out[] = $d['title'] . ' (#' . $id . ')';
+		}
+		return 'Créés dans le constructeur de thème de Royal : ' . implode( ', ', $out ) . '. Pas encore affichés sur le site.';
+	}
+
+	private static function hf_template_id( $type ) {
+		$post = get_page_by_path( self::HF[ $type ]['slug'], OBJECT, 'wpr_templates' );
+		return $post ? (int) $post->ID : 0;
+	}
+
+	/** Conditions d'affichage Royal qui affichent nos modèles sur tout le site. */
+	private static function hf_conditions( $type ) {
+		return wp_json_encode( array( self::HF[ $type ]['slug'] => array( 'global' ) ) );
+	}
+
+	private static function hf_is_active( $type ) {
+		$c = json_decode( (string) get_option( 'wpr_' . $type . '_conditions', '[]' ), true );
+		return is_array( $c ) && isset( $c[ self::HF[ $type ]['slug'] ] );
+	}
+
+	/**
+	 * Aperçu réservé aux administrateurs : ?lmdd_hf_preview=1 sur n'importe quelle page du site
+	 * affiche le nouvel en-tête et le nouveau pied de page, sans rien changer pour les visiteurs.
+	 */
+	public static function maybe_preview() {
+		if ( empty( $_GET['lmdd_hf_preview'] ) || ! current_user_can( 'manage_options' ) || ! self::royal_active() ) { // phpcs:ignore WordPress.Security.NonceVerification
+			return;
+		}
+		foreach ( array_keys( self::HF ) as $type ) {
+			if ( self::hf_template_id( $type ) ) {
+				add_filter( 'pre_option_wpr_' . $type . '_conditions', function () use ( $type ) {
+					return self::hf_conditions( $type );
+				} );
+			}
+		}
+		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+			define( 'DONOTCACHEPAGE', true );
+		}
+		nocache_headers();
+	}
+
+	/** Boutons « Afficher sur tout le site » et « Revenir à l'en-tête d'origine ». */
+	public static function handle_hf_action() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Accès refusé.' );
+		}
+		check_admin_referer( 'lmdd_hf' );
+		$do    = isset( $_POST['do'] ) ? sanitize_key( wp_unslash( $_POST['do'] ) ) : '';
+		$state = self::state();
+		$msg   = '';
+		if ( 'activate' === $do ) {
+			$backup = isset( $state['hf_backup'] ) ? $state['hf_backup'] : array();
+			foreach ( array_keys( self::HF ) as $type ) {
+				if ( ! self::hf_template_id( $type ) ) {
+					wp_die( 'Lancez d\'abord l\'import : le modèle « ' . esc_html( $type ) . ' » n\'existe pas.' );
+				}
+				if ( ! self::hf_is_active( $type ) ) {
+					// Conditions d'origine, rétablies par « Revenir ».
+					$backup[ $type ] = get_option( 'wpr_' . $type . '_conditions', '' );
+				}
+				update_option( 'wpr_' . $type . '_conditions', self::hf_conditions( $type ) );
+			}
+			self::save_state( array( 'hf_backup' => $backup ) );
+			$msg = 'activated';
+		} elseif ( 'restore' === $do ) {
+			foreach ( array_keys( self::HF ) as $type ) {
+				if ( isset( $state['hf_backup'][ $type ] ) ) {
+					update_option( 'wpr_' . $type . '_conditions', $state['hf_backup'][ $type ] );
+				}
+			}
+			$msg = 'restored';
+		}
+		self::purge_caches();
+		wp_safe_redirect( admin_url( 'tools.php?page=' . self::SLUG . '&lmdd_hf=' . $msg . '#lmdd-hf' ) );
+		exit;
+	}
+
+	private static function purge_caches() {
+		if ( class_exists( '\Elementor\Plugin' ) ) {
+			\Elementor\Plugin::$instance->files_manager->clear_cache();
+		}
+		if ( function_exists( 'rocket_clean_domain' ) ) {
+			rocket_clean_domain();
+		}
+		do_action( 'litespeed_purge_all' );
+		if ( function_exists( 'w3tc_flush_all' ) ) {
+			w3tc_flush_all();
+		}
+		if ( function_exists( 'wp_cache_clear_cache' ) ) {
+			wp_cache_clear_cache();
+		}
+	}
+
 	// ------------------------------------------------------------------ Interface
 
 	public static function render() {
@@ -295,7 +488,9 @@ final class LMDD_Import_Accueil {
 			<p>Cet outil crée, <strong>sans toucher à votre page d'accueil actuelle</strong> :</p>
 			<ul style="list-style:disc;margin-left:20px">
 				<li>la page brouillon <strong>« Accueil – nouvelle version »</strong>, construite avec Elementor (widgets natifs, modifiables) ;</li>
-				<li>les modèles « Accueil – La Maison du Dos » et « Pied de page – La Maison du Dos » dans <em>Elementor → Modèles</em> ;</li>
+				<li>les modèles « Accueil », « En-tête » et « Pied de page – La Maison du Dos » dans <em>Elementor → Modèles</em> ;</li>
+				<li>le menu <strong>« Menu principal – La Maison du Dos »</strong> (<em>Apparence → Menus</em>), avec ses sous-menus ;</li>
+				<li>l'<strong>en-tête</strong> et le <strong>pied de page</strong> dans le constructeur de thème de Royal Elementor Addons, <strong>sans les activer</strong> : vous les prévisualisez, puis les activez en un clic (et pouvez revenir aux anciens).</li>
 				<li>les 7 images optimisées dans la médiathèque, avec leurs textes alternatifs.</li>
 			</ul>
 			<p>Chaque étape est une petite requête : l'import ne peut pas dépasser le temps maximal de l'hébergeur. Il peut être relancé sans créer de doublons.</p>
@@ -375,8 +570,51 @@ final class LMDD_Import_Accueil {
 			echo '<a class="button button-primary" href="' . esc_url( admin_url( 'post.php?post=' . $page . '&action=elementor' ) ) . '">Modifier avec Elementor</a> ';
 			echo '<a class="button" href="' . esc_url( get_preview_post_link( $page ) ) . '" target="_blank" rel="noopener">Prévisualiser</a> ';
 			echo '<a class="button" href="' . esc_url( admin_url( 'edit.php?post_type=elementor_library&tabs_group=library' ) ) . '">Voir les modèles</a></p>';
-			echo '<p>Quand la page vous convient : publiez-la, puis choisissez-la dans <em>Réglages → Lecture → Page d\'accueil</em>. Vous pouvez ensuite désactiver et supprimer cette extension.</p></div></div>';
+			echo '<p>Quand la page vous convient : publiez-la, puis choisissez-la dans <em>Réglages → Lecture → Page d\'accueil</em>.</p></div></div>';
 		}
+		self::render_hf_box();
+	}
+
+	private static function render_hf_box() {
+		if ( ! self::royal_active() || ! self::hf_template_id( 'header' ) || ! self::hf_template_id( 'footer' ) ) {
+			return;
+		}
+		$state   = self::state();
+		$active  = self::hf_is_active( 'header' ) && self::hf_is_active( 'footer' );
+		$page    = ! empty( $state['page'] ) ? (int) $state['page'] : 0;
+		$notice  = isset( $_GET['lmdd_hf'] ) ? sanitize_key( $_GET['lmdd_hf'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$preview = add_query_arg( 'lmdd_hf_preview', '1', home_url( '/' ) );
+		$button  = function ( $do, $label, $class ) {
+			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="display:inline-block;margin-right:6px">';
+			wp_nonce_field( 'lmdd_hf' );
+			echo '<input type="hidden" name="action" value="lmdd_hf"><input type="hidden" name="do" value="' . esc_attr( $do ) . '">';
+			echo '<button type="submit" class="button ' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
+		};
+		echo '<div class="wrap" id="lmdd-hf"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid ' . ( $active ? '#00a32a' : '#2271b1' ) . ';padding:12px 16px;max-width:760px;margin-top:12px">';
+		echo '<h2 style="margin-top:4px">En-tête et pied de page</h2>';
+		if ( 'activated' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ Nouvel en-tête et nouveau pied de page affichés sur tout le site.</strong> Videz aussi le cache de votre hébergeur s\'il en a un.</p>';
+		} elseif ( 'restored' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ En-tête et pied de page d\'origine rétablis.</strong></p>';
+		}
+		echo '<p>État : <strong>' . ( $active ? 'affichés sur tout le site' : 'créés, pas encore affichés (vos visiteurs voient toujours l\'ancien en-tête)' ) . '</strong>.</p><p>';
+		echo '<a class="button" href="' . esc_url( $preview ) . '" target="_blank" rel="noopener">Aperçu sur la page d\'accueil actuelle</a> ';
+		if ( $page ) {
+			echo '<a class="button" href="' . esc_url( add_query_arg( 'lmdd_hf_preview', '1', get_preview_post_link( $page ) ) ) . '" target="_blank" rel="noopener">Aperçu avec la nouvelle page d\'accueil</a> ';
+		}
+		echo '</p><p style="color:#646970">L\'aperçu n\'est visible que par vous. Ajoutez <code>?lmdd_hf_preview=1</code> à l\'adresse de n\'importe quelle page pour la voir avec le nouvel en-tête.</p><p>';
+		foreach ( array( 'header' => 'Modifier l\'en-tête avec Elementor', 'footer' => 'Modifier le pied de page avec Elementor' ) as $type => $label ) {
+			echo '<a class="button" href="' . esc_url( admin_url( 'post.php?post=' . self::hf_template_id( $type ) . '&action=elementor' ) ) . '">' . esc_html( $label ) . '</a> ';
+		}
+		echo '</p><p>';
+		if ( ! $active ) {
+			$button( 'activate', 'Afficher sur tout le site', 'button-primary' );
+		}
+		if ( $active && ! empty( $state['hf_backup'] ) ) {
+			$button( 'restore', 'Revenir à l\'en-tête et au pied de page d\'origine', '' );
+		}
+		echo '</p><p style="color:#646970">L\'activation remplace les conditions d\'affichage de Royal Addons (<em>Constructeur de thème → En-tête / Pied de page</em>). Les anciennes conditions sont sauvegardées : le bouton « Revenir » les rétablit.</p>';
+		echo '</div></div>';
 	}
 }
 

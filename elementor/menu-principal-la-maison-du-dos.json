@@ -1,0 +1,165 @@
+{
+ "slug": "lmdd-menu-principal",
+ "name": "Menu principal – La Maison du Dos",
+ "items": [
+  {
+   "title": "Lits à eau",
+   "url": "/lits-a-eau/",
+   "children": [
+    {
+     "title": "Lits à eau en vente en ligne",
+     "url": "/lits-a-eau/lits-a-eau-en-vente-en-ligne/"
+    },
+    {
+     "title": "Lits à eau en vente sur devis",
+     "url": "/lits-a-eau/lits-a-eau-en-vente-sur-devis/"
+    }
+   ]
+  },
+  {
+   "title": "Matelas réglables",
+   "url": "/matelas-reglables/",
+   "children": [
+    {
+     "title": "Matelas à eau léger / bébé",
+     "url": "/matelas-reglables/matelas-a-eau-leger-bebe/"
+    },
+    {
+     "title": "Matelas à télécommande",
+     "url": "/matelas-reglables/matelas-a-telecommande/"
+    }
+   ]
+  },
+  {
+   "title": "Linge de lit",
+   "url": "/linge-de-lit/",
+   "children": [
+    {
+     "title": "Couettes hiver",
+     "url": "/linge-de-lit/couettes-hiver/"
+    },
+    {
+     "title": "Couettes été",
+     "url": "/linge-de-lit/couettes-ete/"
+    },
+    {
+     "title": "Couettes toutes saisons",
+     "url": "/linge-de-lit/couettes-toutes-saisons/"
+    },
+    {
+     "title": "Couettes doubles 4 saisons",
+     "url": "/linge-de-lit/couettes-doubles/"
+    },
+    {
+     "title": "Couettes eider",
+     "url": "/linge-de-lit/couettes-eider/"
+    },
+    {
+     "title": "Couettes bio",
+     "url": "/linge-de-lit/couettes-bio/"
+    },
+    {
+     "title": "Oreillers",
+     "url": "/linge-de-lit/oreillers/"
+    },
+    {
+     "title": "Surmatelas",
+     "url": "/linge-de-lit/surmatelas/"
+    },
+    {
+     "title": "Draps-housses jersey",
+     "url": "/linge-de-lit/draps-housses-jersey/"
+    },
+    {
+     "title": "Housses de couette & taies",
+     "url": "/linge-de-lit/housses-couettes-taies/"
+    },
+    {
+     "title": "Alèses & protections",
+     "url": "/linge-de-lit/aleses-protections/"
+    },
+    {
+     "title": "Bella Donna : couvertures d'été",
+     "url": "/linge-de-lit/bella-donna-couverture-dessus-de-lit-dete/"
+    }
+   ]
+  },
+  {
+   "title": "Accessoires & SAV",
+   "url": "/accessoires-produits-dentretien-sav/",
+   "children": [
+    {
+     "title": "Produits d'entretien & SAV",
+     "url": "/accessoires-produits-dentretien-sav/produits-dentretien-sav/"
+    },
+    {
+     "title": "Accessoires literie à eau",
+     "url": "/accessoires-produits-dentretien-sav/accessoires-literie-a-eau/"
+    },
+    {
+     "title": "Têtes & cadres de lits",
+     "url": "/accessoires-produits-dentretien-sav/tetes-cadres-de-lits/"
+    }
+   ]
+  },
+  {
+   "title": "Nos marques",
+   "url": "/nos-marques/",
+   "children": [
+    {
+     "title": "La Maison du Dos",
+     "url": "/product-tag/la-maison-du-dos/"
+    },
+    {
+     "title": "Akva",
+     "url": "/product-tag/akva/"
+    },
+    {
+     "title": "Hefel",
+     "url": "/product-tag/hefel/"
+    },
+    {
+     "title": "Moosburger",
+     "url": "/product-tag/moosburger/"
+    },
+    {
+     "title": "Poseïdon – Lunalife",
+     "url": "/product-tag/poseidon-lunalife/"
+    },
+    {
+     "title": "Tasso",
+     "url": "/product-tag/tasso/"
+    },
+    {
+     "title": "Profine",
+     "url": "/product-tag/profine/"
+    },
+    {
+     "title": "Matrair",
+     "url": "/product-tag/matrair/"
+    },
+    {
+     "title": "Formesse",
+     "url": "/product-tag/formesse/"
+    },
+    {
+     "title": "Mr. Sandman",
+     "url": "/product-tag/mr-sandman/"
+    },
+    {
+     "title": "Kirstenbalk",
+     "url": "/product-tag/kirstenbalk/"
+    },
+    {
+     "title": "Dynaglobe",
+     "url": "/product-tag/dynaglobe/"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "url": "/contact/",
+   "children": []
+  }
+ ]
+}
