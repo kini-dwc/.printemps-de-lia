@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
- * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page et le menu, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
- * Version:           1.2.0
+ * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit et la page SAV, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
+ * Version:           1.3.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -21,19 +21,26 @@ final class LMDD_Import_Accueil {
 
 	/** Modèles du constructeur de thème de Royal Elementor Addons (identifiés par leur slug, comme le fait Royal). */
 	const HF = array(
-		'header' => array( 'slug' => 'user-header-lmdd-en-tete', 'data' => 'en-tete', 'state' => 'wpr_header' ),
-		'footer' => array( 'slug' => 'user-footer-lmdd-pied-de-page', 'data' => 'pied-de-page', 'state' => 'wpr_footer' ),
+		'header'         => array( 'slug' => 'user-header-lmdd-en-tete', 'data' => 'en-tete', 'state' => 'wpr_header', 'group' => 'hf', 'cond' => 'global', 'etype' => 'wpr-theme-builder-header' ),
+		'footer'         => array( 'slug' => 'user-footer-lmdd-pied-de-page', 'data' => 'pied-de-page', 'state' => 'wpr_footer', 'group' => 'hf', 'cond' => 'global', 'etype' => 'wpr-theme-builder-footer' ),
+		'product_single' => array( 'slug' => 'user-product_single-lmdd-fiche-produit', 'data' => 'fiche-produit', 'state' => 'wpr_product', 'group' => 'fiche', 'cond' => 'product_single/product', 'etype' => 'wpr-theme-builder' ),
 	);
+
+	/** Emplacements « Avis » du modèle de fiche produit (remplis avec les codes courts du modèle actuel). */
+	const AVIS_RESUME = 'Avis (résumé) – code court repris du modèle actuel';
+	const AVIS_LISTE  = 'Avis (liste) – code court repris du modèle actuel';
 
 	/** Modèles de la bibliothèque Elementor : fichier de données => clé d'état. */
 	const LIBRARY = array( 'accueil' => 'tpl_accueil', 'en-tete' => 'tpl_entete', 'pied-de-page' => 'tpl_pied' );
 
 	/** Éléments installables séparément (cases à cocher) : fichier de données => élément. */
-	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied' );
+	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied', 'product_single' => 'fiche', 'sav' => 'sav' );
 	const PARTS   = array(
 		'accueil' => 'Page d\'accueil (page brouillon « Accueil – nouvelle version »)',
 		'entete'  => 'En-tête, menu principal et méga-menus',
 		'pied'    => 'Pied de page',
+		'fiche'   => 'Fiche produit : nouveau modèle pour toutes les fiches (sur devis et en ligne)',
+		'sav'     => 'Page SAV (brouillon « SAV lit à eau ») avec le formulaire en étapes',
 	);
 
 	/** Préfixe des méga-menus (contenus Elementor du type « wpr_mega_menu » de Royal Elementor Addons). */
@@ -54,7 +61,8 @@ final class LMDD_Import_Accueil {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'wp_ajax_lmdd_import_step', array( __CLASS__, 'ajax_step' ) );
 		add_action( 'admin_post_lmdd_hf', array( __CLASS__, 'handle_hf_action' ) );
-		add_action( 'init', array( __CLASS__, 'maybe_preview' ) );
+		// « wp » : après l'enregistrement des modèles Royal (init), avant le choix du gabarit et de l'en-tête.
+		add_action( 'wp', array( __CLASS__, 'maybe_preview' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function ( $links ) {
 			array_unshift( $links, '<a href="' . esc_url( admin_url( 'tools.php?page=' . self::SLUG ) ) . '">Lancer l\'import</a>' );
 			return $links;
@@ -75,7 +83,8 @@ final class LMDD_Import_Accueil {
 			array( 'id' => 'page', 'label' => 'Création de la page « Accueil – nouvelle version » (brouillon)' ),
 			array( 'id' => 'mega', 'label' => 'Création des 6 méga-menus (Lits à eau, Matelas réglables, Accessoires, Linge de lit, Couettes Hefel, Marques)' ),
 			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » et rattachement des méga-menus' ),
-			array( 'id' => 'hf', 'label' => 'Création de l\'en-tête et du pied de page dans le constructeur de thème Royal (sans les activer)' ),
+			array( 'id' => 'hf', 'label' => 'Création des modèles Royal : en-tête, pied de page, fiche produit (sans les activer)' ),
+			array( 'id' => 'sav', 'label' => 'Création de la page « SAV lit à eau » (brouillon)' ),
 		);
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			$steps[] = array( 'id' => 'image:' . $file, 'label' => 'Image : ' . $file );
@@ -104,6 +113,8 @@ final class LMDD_Import_Accueil {
 				$msg = self::step_menu();
 			} elseif ( 'hf' === $step ) {
 				$msg = self::step_hf();
+			} elseif ( 'sav' === $step ) {
+				$msg = self::step_sav();
 			} elseif ( 0 === strpos( $step, 'image:' ) ) {
 				$msg = self::step_image( substr( $step, 6 ) );
 			} elseif ( 'link' === $step ) {
@@ -187,6 +198,11 @@ final class LMDD_Import_Accueil {
 		if ( ! self::parts() ) {
 			throw new Exception( 'Cochez au moins un élément à installer.' );
 		}
+		if ( array_intersect( array( 'fiche', 'sav' ), self::parts() ) && ! class_exists( 'LMDD_DS_Front' ) ) {
+			throw new Exception( 'La fiche produit et la page SAV utilisent l\'extension « LMDD – Devis & SAV » : installez-la et activez-la d\'abord (lmdd-devis-sav.zip), puis relancez.' );
+		}
+		self::data( 'fiche-produit' );
+		self::data( 'sav' );
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			if ( ! is_readable( __DIR__ . '/images/' . $file ) ) {
 				throw new Exception( 'Image manquante dans l\'extension : images/' . $file );
@@ -316,7 +332,7 @@ final class LMDD_Import_Accueil {
 			}
 		}
 		$done = 0;
-		$keys = array_merge( array( 'page' ), array_values( self::LIBRARY ), wp_list_pluck( self::HF, 'state' ) );
+		$keys = array_merge( array( 'page', 'page_sav' ), array_values( self::LIBRARY ), wp_list_pluck( self::HF, 'state' ) );
 		foreach ( array_keys( self::data( 'mega-menus', 'lits' ) ) as $mega ) {
 			$keys[] = 'mega_' . $mega;
 		}
@@ -489,11 +505,19 @@ final class LMDD_Import_Accueil {
 		}
 		$out = array();
 		foreach ( self::HF as $type => $hf ) {
+			// En-tête / pied de page déjà installés (versions précédentes) : « Afficher sur le canevas » est ajouté sans toucher à leur contenu.
+			if ( 'hf' === $hf['group'] && self::hf_template_id( $type ) ) {
+				update_post_meta( self::hf_template_id( $type ), 'wpr_' . $type . '_show_on_canvas', 'true' );
+			}
 			if ( ! self::wants( $type ) ) {
 				continue;
 			}
 			$d  = self::data( $hf['data'] );
 			$id = self::hf_template_id( $type );
+			$note = '';
+			if ( 'product_single' === $type ) {
+				$note = self::fill_avis( $d['content'] );
+			}
 			if ( ! $id ) {
 				$id = wp_insert_post( array(
 					'post_type'    => 'wpr_templates',
@@ -508,14 +532,100 @@ final class LMDD_Import_Accueil {
 			}
 			// Mêmes réglages que le bouton « Créer un modèle » du constructeur de thème de Royal.
 			wp_set_object_terms( $id, array( $type, 'user' ), 'wpr_template_type' );
-			update_post_meta( $id, '_elementor_template_type', 'wpr-theme-builder-' . $type );
+			update_post_meta( $id, '_elementor_template_type', $hf['etype'] );
 			update_post_meta( $id, '_wpr_template_type', $type );
 			update_post_meta( $id, '_wp_page_template', 'elementor_canvas' );
+			if ( 'hf' === $hf['group'] ) {
+				// « Afficher sur le canevas » : sans cela, Royal n'affiche pas l'en-tête / le pied de page sur les fiches produits
+				// et les autres pages construites en canevas.
+				update_post_meta( $id, 'wpr_' . $type . '_show_on_canvas', 'true' );
+			}
 			self::write_elementor_data( $id, $d['content'] );
 			self::save_state( array( $hf['state'] => (int) $id ) );
-			$out[] = $d['title'] . ' (#' . $id . ')';
+			$out[] = $d['title'] . ' (#' . $id . ')' . $note;
 		}
-		return $out ? 'Dans le constructeur de thème de Royal : ' . implode( ', ', $out ) . '. Leur affichage sur le site n\'est pas modifié.' : 'Ignoré (en-tête et pied de page non sélectionnés).';
+		return $out ? 'Dans le constructeur de thème de Royal : ' . implode( ', ', $out ) . '. Leur affichage sur le site n\'est pas modifié.' : 'Ignoré (non sélectionné).';
+	}
+
+	/** Modèles de fiche produit Royal actuellement actifs (hors le nôtre). */
+	private static function current_product_templates() {
+		$c   = json_decode( (string) get_option( 'wpr_product_single_conditions', '[]' ), true );
+		$ids = array();
+		foreach ( array_keys( is_array( $c ) ? $c : array() ) as $slug ) {
+			$post = $slug !== self::HF['product_single']['slug'] ? get_page_by_path( $slug, OBJECT, 'wpr_templates' ) : null;
+			if ( $post ) {
+				$ids[] = (int) $post->ID;
+			}
+		}
+		return $ids;
+	}
+
+	private static function collect_shortcodes( array $elements, array &$out ) {
+		foreach ( $elements as $el ) {
+			if ( isset( $el['widgetType'] ) && 'shortcode' === $el['widgetType'] && ! empty( $el['settings']['shortcode'] ) ) {
+				$out[] = trim( $el['settings']['shortcode'] );
+			}
+			if ( ! empty( $el['elements'] ) ) {
+				self::collect_shortcodes( $el['elements'], $out );
+			}
+		}
+	}
+
+	private static function set_shortcode( array &$elements, $title, $code ) {
+		foreach ( $elements as &$el ) {
+			if ( isset( $el['settings']['_title'] ) && $title === $el['settings']['_title'] ) {
+				$el['settings']['shortcode'] = $code;
+			}
+			if ( ! empty( $el['elements'] ) ) {
+				self::set_shortcode( $el['elements'], $title, $code );
+			}
+		}
+	}
+
+	/**
+	 * Reprend les codes courts d'avis (Société des Avis Garantis…) du modèle de fiche actuel : le 1er sous le titre,
+	 * les suivants sous la description. Le bouton de devis de l'ancien modèle n'est pas repris (remplacé par le panneau).
+	 */
+	private static function fill_avis( array &$content ) {
+		$codes = array();
+		foreach ( self::current_product_templates() as $tid ) {
+			$raw  = get_post_meta( $tid, '_elementor_data', true );
+			$data = is_string( $raw ) ? json_decode( $raw, true ) : $raw;
+			if ( is_array( $data ) ) {
+				self::collect_shortcodes( $data, $codes );
+			}
+		}
+		$codes = array_values( array_filter( array_unique( $codes ), function ( $c ) {
+			return ! preg_match( '/devis|quote|lmdd_/i', $c );
+		} ) );
+		if ( ! $codes ) {
+			return ' — aucun code court d\'avis trouvé dans le modèle actuel (emplacements « Avis » laissés vides)';
+		}
+		self::set_shortcode( $content, self::AVIS_RESUME, $codes[0] );
+		self::set_shortcode( $content, self::AVIS_LISTE, implode( "\n", array_slice( $codes, 1 ) ) );
+		return ' — codes courts repris du modèle actuel : ' . implode( ' ', $codes );
+	}
+
+	/** Page SAV (brouillon), construite avec Elementor, qui contient le formulaire en étapes. */
+	private static function step_sav() {
+		if ( ! in_array( 'sav', self::parts(), true ) ) {
+			return 'Ignoré (page SAV non sélectionnée).';
+		}
+		$d  = self::data( 'sav' );
+		$id = self::existing( 'page_sav', 'page', 'page-sav' );
+		if ( ! $id ) {
+			$id = wp_insert_post( array( 'post_title' => 'SAV lit à eau', 'post_name' => 'sav-lit-a-eau', 'post_type' => 'page', 'post_status' => 'draft' ), true );
+			if ( is_wp_error( $id ) ) {
+				throw new Exception( 'Impossible de créer la page SAV : ' . $id->get_error_message() );
+			}
+			self::save_state( array( 'page_sav' => (int) $id ) );
+		}
+		update_post_meta( $id, '_lmdd_import', 'page-sav' );
+		update_post_meta( $id, '_elementor_template_type', 'wp-page' );
+		update_post_meta( $id, '_wp_page_template', 'elementor_header_footer' );
+		update_post_meta( $id, '_elementor_page_settings', array( 'hide_title' => 'yes' ) );
+		self::write_elementor_data( $id, $d['content'] );
+		return 'Page brouillon #' . $id . ' « SAV lit à eau » prête.';
 	}
 
 	private static function hf_template_id( $type ) {
@@ -525,7 +635,7 @@ final class LMDD_Import_Accueil {
 
 	/** Conditions d'affichage Royal qui affichent nos modèles sur tout le site. */
 	private static function hf_conditions( $type ) {
-		return wp_json_encode( array( self::HF[ $type ]['slug'] => array( 'global' ) ) );
+		return wp_json_encode( array( self::HF[ $type ]['slug'] => array( self::HF[ $type ]['cond'] ) ) );
 	}
 
 	private static function hf_is_active( $type ) {
@@ -561,11 +671,13 @@ final class LMDD_Import_Accueil {
 		}
 		check_admin_referer( 'lmdd_hf' );
 		$do    = isset( $_POST['do'] ) ? sanitize_key( wp_unslash( $_POST['do'] ) ) : '';
+		$group = isset( $_POST['group'] ) && 'fiche' === $_POST['group'] ? 'fiche' : 'hf';
+		$types = array_keys( wp_list_filter( self::HF, array( 'group' => $group ) ) );
 		$state = self::state();
 		$msg   = '';
 		if ( 'activate' === $do ) {
 			$backup = isset( $state['hf_backup'] ) ? $state['hf_backup'] : array();
-			foreach ( array_keys( self::HF ) as $type ) {
+			foreach ( $types as $type ) {
 				if ( ! self::hf_template_id( $type ) ) {
 					wp_die( 'Lancez d\'abord l\'import : le modèle « ' . esc_html( $type ) . ' » n\'existe pas.' );
 				}
@@ -578,7 +690,7 @@ final class LMDD_Import_Accueil {
 			self::save_state( array( 'hf_backup' => $backup ) );
 			$msg = 'activated';
 		} elseif ( 'restore' === $do ) {
-			foreach ( array_keys( self::HF ) as $type ) {
+			foreach ( $types as $type ) {
 				if ( isset( $state['hf_backup'][ $type ] ) ) {
 					update_option( 'wpr_' . $type . '_conditions', $state['hf_backup'][ $type ] );
 				}
@@ -586,7 +698,7 @@ final class LMDD_Import_Accueil {
 			$msg = 'restored';
 		}
 		self::purge_caches();
-		wp_safe_redirect( admin_url( 'tools.php?page=' . self::SLUG . '&lmdd_hf=' . $msg . '#lmdd-hf' ) );
+		wp_safe_redirect( admin_url( 'tools.php?page=' . self::SLUG . '&lmdd_hf=' . $msg . '&lmdd_g=' . $group . '#lmdd-' . $group ) );
 		exit;
 	}
 
@@ -613,7 +725,7 @@ final class LMDD_Import_Accueil {
 		$steps = self::steps();
 		?>
 		<div class="wrap">
-			<h1>Installation de la nouvelle page d'accueil, de l'en-tête et du pied de page – La Maison du Dos</h1>
+			<h1>Installation – La Maison du Dos : page d'accueil, en-tête, pied de page, fiche produit, page SAV</h1>
 			<p>Cochez ce que vous voulez installer. Rien n'est affiché à vos visiteurs sans votre accord :
 			la page d'accueil est créée en <strong>brouillon</strong>, l'en-tête et le pied de page sont créés <strong>sans être activés</strong>
 			(aperçu puis activation en un clic, en bas de cette page).</p>
@@ -623,6 +735,8 @@ final class LMDD_Import_Accueil {
 					'accueil' => (bool) self::existing( 'page', 'page', 'page-accueil' ),
 					'entete'  => self::royal_active() && self::hf_template_id( 'header' ),
 					'pied'    => self::royal_active() && self::hf_template_id( 'footer' ),
+					'fiche'   => self::royal_active() && self::hf_template_id( 'product_single' ),
+					'sav'     => (bool) self::existing( 'page_sav', 'page', 'page-sav' ),
 				);
 				foreach ( self::PARTS as $part => $label ) :
 					?>
@@ -716,6 +830,15 @@ final class LMDD_Import_Accueil {
 			echo '<p>Quand la page vous convient : publiez-la, puis choisissez-la dans <em>Réglages → Lecture → Page d\'accueil</em>.</p></div></div>';
 		}
 		self::render_hf_box();
+		self::render_fiche_box();
+		$sav = self::existing( 'page_sav', 'page', 'page-sav' );
+		if ( $sav ) {
+			echo '<div class="wrap"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #00a32a;padding:12px 16px;max-width:760px;margin-top:12px">';
+			echo '<h2 style="margin-top:4px">Page SAV</h2><p>« ' . esc_html( get_the_title( $sav ) ) . ' » (' . esc_html( get_post_status( $sav ) ) . ').</p><p>';
+			echo '<a class="button button-primary" href="' . esc_url( admin_url( 'post.php?post=' . $sav . '&action=elementor' ) ) . '">Modifier avec Elementor</a> ';
+			echo '<a class="button" href="' . esc_url( get_preview_post_link( $sav ) ) . '" target="_blank" rel="noopener">Prévisualiser</a></p>';
+			echo '<p>Quand elle vous convient : publiez-la, et ajoutez-la au menu ou au pied de page (lien « SAV »).</p></div></div>';
+		}
 		?>
 		<div class="wrap"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #dba617;padding:12px 16px;max-width:760px;margin-top:12px">
 			<h2 style="margin-top:4px">Une fois tout en place : supprimez cette extension</h2>
@@ -735,12 +858,12 @@ final class LMDD_Import_Accueil {
 		$state   = self::state();
 		$active  = self::hf_is_active( 'header' ) && self::hf_is_active( 'footer' );
 		$page    = ! empty( $state['page'] ) ? (int) $state['page'] : 0;
-		$notice  = isset( $_GET['lmdd_hf'] ) ? sanitize_key( $_GET['lmdd_hf'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		$notice  = isset( $_GET['lmdd_hf'] ) && ( empty( $_GET['lmdd_g'] ) || 'hf' === $_GET['lmdd_g'] ) ? sanitize_key( $_GET['lmdd_hf'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 		$preview = add_query_arg( 'lmdd_hf_preview', '1', home_url( '/' ) );
-		$button  = function ( $do, $label, $class ) {
+		$button  = function ( $do, $label, $class, $group = 'hf' ) {
 			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="display:inline-block;margin-right:6px">';
 			wp_nonce_field( 'lmdd_hf' );
-			echo '<input type="hidden" name="action" value="lmdd_hf"><input type="hidden" name="do" value="' . esc_attr( $do ) . '">';
+			echo '<input type="hidden" name="action" value="lmdd_hf"><input type="hidden" name="do" value="' . esc_attr( $do ) . '"><input type="hidden" name="group" value="' . esc_attr( $group ) . '">';
 			echo '<button type="submit" class="button ' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
 		};
 		echo '<div class="wrap" id="lmdd-hf"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid ' . ( $active ? '#00a32a' : '#2271b1' ) . ';padding:12px 16px;max-width:760px;margin-top:12px">';
@@ -767,6 +890,54 @@ final class LMDD_Import_Accueil {
 			$button( 'restore', 'Revenir à l\'en-tête et au pied de page d\'origine', '' );
 		}
 		echo '</p><p style="color:#646970">L\'activation remplace les conditions d\'affichage de Royal Addons (<em>Constructeur de thème → En-tête / Pied de page</em>). Les anciennes conditions sont sauvegardées : le bouton « Revenir » les rétablit.</p>';
+		echo '</div></div>';
+	}
+	/** Cadre « Fiche produit » : aperçu (fiche sur devis et fiche en ligne), activation, retour arrière. */
+	private static function render_fiche_box() {
+		if ( ! self::royal_active() || ! self::hf_template_id( 'product_single' ) ) {
+			return;
+		}
+		$state  = self::state();
+		$active = self::hf_is_active( 'product_single' );
+		$notice = isset( $_GET['lmdd_hf'], $_GET['lmdd_g'] ) && 'fiche' === $_GET['lmdd_g'] ? sanitize_key( $_GET['lmdd_hf'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		// Un exemple de chaque type de fiche pour l'aperçu.
+		$examples = array();
+		if ( function_exists( 'wc_get_products' ) ) {
+			foreach ( wc_get_products( array( 'status' => 'publish', 'limit' => 60, 'orderby' => 'date', 'order' => 'DESC' ) ) as $p ) {
+				$kind = class_exists( 'LMDD_DS_Front' ) && LMDD_DS_Front::is_devis( $p ) ? 'devis' : 'ligne';
+				if ( ! isset( $examples[ $kind ] ) && ( 'devis' === $kind || $p->get_price() ) ) {
+					$examples[ $kind ] = $p;
+				}
+			}
+		}
+		echo '<div class="wrap" id="lmdd-fiche"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid ' . ( $active ? '#00a32a' : '#2271b1' ) . ';padding:12px 16px;max-width:760px;margin-top:12px">';
+		echo '<h2 style="margin-top:4px">Fiche produit</h2>';
+		if ( 'activated' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ Nouveau modèle de fiche affiché sur tous les produits.</strong> Videz aussi le cache de votre hébergeur s\'il en a un.</p>';
+		} elseif ( 'restored' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ Modèle de fiche d\'origine rétabli.</strong></p>';
+		}
+		echo '<p>État : <strong>' . ( $active ? 'utilisé sur toutes les fiches produits' : 'créé, pas encore utilisé (vos visiteurs voient toujours l\'ancienne fiche)' ) . '</strong>.</p><p>';
+		$labels = array( 'devis' => 'Aperçu : fiche sur devis', 'ligne' => 'Aperçu : fiche vendue en ligne' );
+		foreach ( $examples as $kind => $p ) {
+			echo '<a class="button" href="' . esc_url( add_query_arg( 'lmdd_hf_preview', '1', get_permalink( $p->get_id() ) ) ) . '" target="_blank" rel="noopener">' . esc_html( $labels[ $kind ] ) . '</a> ';
+		}
+		echo '<a class="button" href="' . esc_url( admin_url( 'post.php?post=' . self::hf_template_id( 'product_single' ) . '&action=elementor' ) ) . '">Modifier le modèle avec Elementor</a></p>';
+		echo '<p style="color:#646970">L\'aperçu n\'est visible que par vous : ajoutez <code>?lmdd_hf_preview=1</code> à l\'adresse de n\'importe quelle fiche produit.
+			Pour un titre plus court et des points clés, renseignez les champs <em>Titre affiché (court)</em> et <em>Points clés</em> du produit (onglet <em>Général</em>).</p><p>';
+		$button = function ( $do, $label, $class ) {
+			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="display:inline-block;margin-right:6px">';
+			wp_nonce_field( 'lmdd_hf' );
+			echo '<input type="hidden" name="action" value="lmdd_hf"><input type="hidden" name="do" value="' . esc_attr( $do ) . '"><input type="hidden" name="group" value="fiche">';
+			echo '<button type="submit" class="button ' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
+		};
+		if ( ! $active ) {
+			$button( 'activate', 'Utiliser sur toutes les fiches produits', 'button-primary' );
+		}
+		if ( $active && isset( $state['hf_backup']['product_single'] ) ) {
+			$button( 'restore', 'Revenir au modèle de fiche d\'origine', '' );
+		}
+		echo '</p><p style="color:#646970">L\'activation remplace les conditions d\'affichage de Royal Addons (<em>Constructeur de thème → Produit unique</em>). Les anciennes sont sauvegardées : le bouton « Revenir » les rétablit.</p>';
 		echo '</div></div>';
 	}
 }

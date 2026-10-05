@@ -1,0 +1,619 @@
+{
+ "content": [
+  {
+   "id": "1a2b180",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "Fiche – images et achat",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "section",
+    "flex_direction": "column",
+    "flex_gap": {
+     "unit": "px",
+     "size": 18,
+     "column": "18",
+     "row": "18",
+     "isLinked": true
+    },
+    "padding": {
+     "unit": "px",
+     "top": "20",
+     "right": "24",
+     "bottom": "64",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "12",
+     "right": "16",
+     "bottom": "40",
+     "left": "16",
+     "isLinked": false
+    }
+   },
+   "elements": [
+    {
+     "id": "1a2b173",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "shortcode",
+     "settings": {
+      "shortcode": "[lmdd_fil_ariane]",
+      "_title": "Fil d'Ariane"
+     },
+     "elements": []
+    },
+    {
+     "id": "1a2b17f",
+     "elType": "container",
+     "isInner": true,
+     "isLocked": false,
+     "settings": {
+      "content_width": "full",
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "_title": "Deux colonnes",
+      "flex_direction": "row",
+      "flex_direction_tablet": "column",
+      "flex_gap": {
+       "unit": "px",
+       "size": 56,
+       "column": "56",
+       "row": "56",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 28,
+       "column": "28",
+       "row": "28",
+       "isLinked": true
+      },
+      "flex_align_items": "flex-start",
+      "flex_align_items_tablet": "stretch"
+     },
+     "elements": [
+      {
+       "id": "1a2b175",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "_title": "Images (restent visibles au défilement)",
+        "width": {
+         "unit": "%",
+         "size": 54,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "css_classes": "lmdd-sticky",
+        "flex_direction": "column"
+       },
+       "elements": [
+        {
+         "id": "1a2b174",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "wpr-product-media",
+         "settings": {
+          "product_media_sales_badge": "",
+          "product_media_lightbox": "yes",
+          "lightbox_extra_icon": "yes",
+          "lightbox_popup_download": "",
+          "lightbox_popup_sharing": "",
+          "lightbox_popup_autoplay": "",
+          "gallery_slider_nav": "yes",
+          "gallery_slider_thumbs": "yes",
+          "gallery_slider_thumbs_type": "stacked",
+          "gallery_slider_thumb_cols": 5,
+          "media_border_radius": {
+           "unit": "px",
+           "top": "18",
+           "right": "18",
+           "bottom": "18",
+           "left": "18",
+           "isLinked": true
+          },
+          "gallery_thumb_border_radius": {
+           "unit": "px",
+           "top": "10",
+           "right": "10",
+           "bottom": "10",
+           "left": "10",
+           "isLinked": true
+          },
+          "gallery_thumb_nav_gutter_hr": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "gallery_thumb_nav_gutter_vr": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "product_media_vertical_distance": {
+           "unit": "px",
+           "size": 12,
+           "sizes": []
+          },
+          "gallery_slider_nav_color": "#035C11",
+          "gallery_slider_nav_bg_color": "#FFFFFF",
+          "gallery_slider_nav_border_color": "#FFFFFF",
+          "gallery_slider_nav_hover_color": "#FFFFFF",
+          "gallery_slider_nav_hover_bg_color": "#035C11",
+          "gallery_slider_nav_hover_border_color": "#035C11",
+          "gallery_slider_nav_border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "lightbox_color": "#035C11",
+          "lightbox_bg_color": "#FFFFFF",
+          "lightbox_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "1a2b17e",
+       "elType": "container",
+       "isInner": true,
+       "isLocked": false,
+       "settings": {
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "_title": "Achat",
+        "width": {
+         "unit": "%",
+         "size": 46,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+         "unit": "px",
+         "size": 14,
+         "column": "14",
+         "row": "14",
+         "isLinked": true
+        }
+       },
+       "elements": [
+        {
+         "id": "1a2b176",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "shortcode",
+         "settings": {
+          "shortcode": "[lmdd_produit_entete]",
+          "_title": "Badges, catégorie et marque"
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b177",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "shortcode",
+         "settings": {
+          "shortcode": "[lmdd_titre]",
+          "_title": "Titre (titre court du produit, sinon son nom)"
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b178",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "shortcode",
+         "settings": {
+          "shortcode": "",
+          "_title": "Avis (résumé) – code court repris du modèle actuel"
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b179",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "wpr-product-price",
+         "settings": {
+          "_title": "Prix (masqué sur les produits sur devis)",
+          "price_color": "#035C11",
+          "price_sale_color": "#56625A",
+          "price_typography_typography": "custom",
+          "price_typography_font_size": {
+           "unit": "px",
+           "size": 28,
+           "sizes": []
+          },
+          "price_typography_font_weight": "800",
+          "price_typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b17a",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "wpr-product-excerpt",
+         "settings": {
+          "_title": "Description courte",
+          "excerpt_color": "#56625A",
+          "excerpt_typography_typography": "custom",
+          "excerpt_typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "excerpt_typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b17b",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "shortcode",
+         "settings": {
+          "shortcode": "[lmdd_points_cles]",
+          "_title": "Points clés (champ « Points clés » du produit)"
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b17c",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "wpr-product-add-to-cart",
+         "settings": {
+          "_title": "Options et ajout au panier (sur devis : bouton « Demander un devis »)",
+          "_margin": {
+           "unit": "px",
+           "top": "8",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          },
+          "add_to_cart_layout": "column",
+          "add_to_cart_button_alignment": "justify",
+          "add_to_cart_buttons_layout": "row",
+          "add_to_cart_color": "#FFFFFF",
+          "add_to_cart_bg_color": "#035C11",
+          "add_to_cart_border_color": "#035C11",
+          "add_to_cart_color_hr": "#FFFFFF",
+          "add_to_cart_bg_color_hr": "#024A0E",
+          "add_to_cart_border_color_hr": "#024A0E",
+          "add_to_cart_height": {
+           "unit": "px",
+           "size": 54,
+           "sizes": []
+          },
+          "add_to_cart_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "add_to_cart_typography_typography": "custom",
+          "add_to_cart_typography_font_size": {
+           "unit": "px",
+           "size": 17,
+           "sizes": []
+          },
+          "add_to_cart_typography_font_weight": "700",
+          "quantity_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "quantity_border_color": "#DFE7E0",
+          "add_to_cart_quantity_height": {
+           "unit": "px",
+           "size": 54,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1a2b17d",
+         "elType": "widget",
+         "isInner": false,
+         "isLocked": false,
+         "widgetType": "shortcode",
+         "settings": {
+          "shortcode": "[lmdd_reassurance]",
+          "_title": "Réassurance (livraison, paiement, conseil)"
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1a2b182",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "Fiche – description et questions",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "section",
+    "padding": {
+     "unit": "px",
+     "top": "56",
+     "right": "24",
+     "bottom": "56",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "36",
+     "right": "16",
+     "bottom": "36",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F5F8F4",
+    "flex_direction": "column"
+   },
+   "elements": [
+    {
+     "id": "1a2b181",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "wpr-product-tabs",
+     "settings": {
+      "tabs_position": "above",
+      "tab_text_color": "#56625A",
+      "tab_bg_color": "rgba(0,0,0,0)",
+      "tabs_border_color": "rgba(0,0,0,0)",
+      "hover_tab_text_color": "#035C11",
+      "hover_tab_bg_color": "rgba(0,0,0,0)",
+      "active_tab_text_color": "#035C11",
+      "active_tab_bg_color": "#FFFFFF",
+      "tab_active_border_color": "#DFE7E0",
+      "tab_border_radius": {
+       "unit": "px",
+       "top": "12",
+       "right": "12",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "tab_padding": {
+       "unit": "px",
+       "top": "14",
+       "right": "24",
+       "bottom": "14",
+       "left": "24",
+       "isLinked": false
+      },
+      "tab_typography_typography": "custom",
+      "tab_typography_font_size": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "tab_typography_font_weight": "700",
+      "text_color": "#1B261D",
+      "tab_content_bg_color": "#FFFFFF",
+      "content_border_color": "#DFE7E0",
+      "panel_padding": {
+       "unit": "px",
+       "top": "36",
+       "right": "40",
+       "bottom": "36",
+       "left": "40",
+       "isLinked": false
+      },
+      "panel_border_radius": {
+       "unit": "px",
+       "top": "0",
+       "right": "16",
+       "bottom": "16",
+       "left": "16",
+       "isLinked": false
+      },
+      "content_typography_typography": "custom",
+      "content_typography_font_size": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      },
+      "content_typography_line_height": {
+       "unit": "em",
+       "size": 1.7,
+       "sizes": []
+      },
+      "title_color": "#035C11"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1a2b184",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "Fiche – avis",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "section",
+    "padding": {
+     "unit": "px",
+     "top": "48",
+     "right": "24",
+     "bottom": "16",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "32",
+     "right": "16",
+     "bottom": "8",
+     "left": "16",
+     "isLinked": false
+    },
+    "flex_direction": "column"
+   },
+   "elements": [
+    {
+     "id": "1a2b183",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "shortcode",
+     "settings": {
+      "shortcode": "",
+      "_title": "Avis (liste) – code court repris du modèle actuel"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1a2b186",
+   "elType": "container",
+   "isInner": false,
+   "isLocked": false,
+   "settings": {
+    "content_width": "boxed",
+    "_title": "Fiche – produits similaires",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "html_tag": "section",
+    "padding": {
+     "unit": "px",
+     "top": "40",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "28",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "flex_direction": "column"
+   },
+   "elements": [
+    {
+     "id": "1a2b185",
+     "elType": "widget",
+     "isInner": false,
+     "isLocked": false,
+     "widgetType": "shortcode",
+     "settings": {
+      "shortcode": "[related_products limit=\"4\" columns=\"4\"]",
+      "_title": "Produits liés (WooCommerce, titre « Produits similaires »)"
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "page_settings": [],
+ "version": "0.4",
+ "title": "Fiche produit – La Maison du Dos",
+ "type": "section"
+}

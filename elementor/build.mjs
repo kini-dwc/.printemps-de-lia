@@ -773,13 +773,160 @@ export const MEGA_MENUS = Object.fromEntries(Object.entries(MEGA).map(([k, [labe
 
 const headerContent = [headerTop, headerMain, headerNav, headerSearchMobile];
 
+// ================= FICHE PRODUIT (modèle Royal « product_single ») =================
+/*
+ * Un seul modèle pour tous les produits : il s'adapte tout seul.
+ * - Produit vendu sur devis (catégorie « …sur-devis… » ou forcé dans le produit) : badge « Sur devis », prix masqué,
+ *   options de configuration conservées, bouton « Demander un devis » qui ouvre le panneau (extension LMDD – Devis & SAV).
+ * - Produit vendu en ligne : prix, options, « Ajouter au panier », réassurance livraison / paiement.
+ * Les codes courts [lmdd_…] viennent de l'extension LMDD – Devis & SAV. Les deux emplacements « Avis » reçoivent,
+ * à l'installation, les codes courts de la Société des Avis Garantis repris de votre modèle actuel.
+ */
+const SC = (shortcode, title, o = {}) => W('shortcode', { shortcode, _title: title, ...o });
+export const AVIS_RESUME = 'Avis (résumé) – code court repris du modèle actuel';
+export const AVIS_LISTE = 'Avis (liste) – code court repris du modèle actuel';
+
+const productTemplate = [
+  Con({
+    _title: 'Fiche – images et achat', content_width: 'boxed', boxed_width: px(1200), html_tag: 'section',
+    flex_direction: 'column', flex_gap: gap(18), padding: box(20, 24, 64, 24), padding_mobile: box(12, 16, 40, 16),
+  }, [
+    SC('[lmdd_fil_ariane]', 'Fil d\'Ariane'),
+    Con({ _title: 'Deux colonnes', flex_direction: 'row', flex_direction_tablet: 'column', flex_gap: gap(56), flex_gap_tablet: gap(28), flex_align_items: 'flex-start', flex_align_items_tablet: 'stretch' }, [
+      Con({ _title: 'Images (restent visibles au défilement)', width: pct(54), width_tablet: pct(100), css_classes: 'lmdd-sticky', flex_direction: 'column' }, [
+        W('wpr-product-media', {
+          product_media_sales_badge: '', product_media_lightbox: 'yes', lightbox_extra_icon: 'yes',
+          lightbox_popup_download: '', lightbox_popup_sharing: '', lightbox_popup_autoplay: '',
+          gallery_slider_nav: 'yes', gallery_slider_thumbs: 'yes', gallery_slider_thumbs_type: 'stacked', gallery_slider_thumb_cols: 5,
+          media_border_radius: box(18), gallery_thumb_border_radius: box(10),
+          gallery_thumb_nav_gutter_hr: px(10), gallery_thumb_nav_gutter_vr: px(10), product_media_vertical_distance: px(12),
+          gallery_slider_nav_color: C.green, gallery_slider_nav_bg_color: C.white, gallery_slider_nav_border_color: C.white,
+          gallery_slider_nav_hover_color: C.white, gallery_slider_nav_hover_bg_color: C.green, gallery_slider_nav_hover_border_color: C.green,
+          gallery_slider_nav_border_radius: box(999), lightbox_color: C.green, lightbox_bg_color: C.white, lightbox_radius: box(999),
+        }),
+      ]),
+      Con({ _title: 'Achat', width: pct(46), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(14) }, [
+        SC('[lmdd_produit_entete]', 'Badges, catégorie et marque'),
+        SC('[lmdd_titre]', 'Titre (titre court du produit, sinon son nom)'),
+        SC('', AVIS_RESUME),
+        W('wpr-product-price', { _title: 'Prix (masqué sur les produits sur devis)', price_color: C.green, price_sale_color: C.muted, ...typo('price_typography', { size: 28, weight: 800, lh: 1.2 }) }),
+        W('wpr-product-excerpt', { _title: 'Description courte', excerpt_color: C.muted, ...typo('excerpt_typography', { size: 16, lh: 1.65 }) }),
+        SC('[lmdd_points_cles]', 'Points clés (champ « Points clés » du produit)'),
+        W('wpr-product-add-to-cart', {
+          _title: 'Options et ajout au panier (sur devis : bouton « Demander un devis »)', _margin: box(8, 0, 0, 0),
+          add_to_cart_layout: 'column', add_to_cart_button_alignment: 'justify', add_to_cart_buttons_layout: 'row',
+          add_to_cart_color: C.white, add_to_cart_bg_color: C.green, add_to_cart_border_color: C.green,
+          add_to_cart_color_hr: C.white, add_to_cart_bg_color_hr: C.greenHover, add_to_cart_border_color_hr: C.greenHover,
+          add_to_cart_height: px(54), add_to_cart_radius: box(999), ...typo('add_to_cart_typography', { size: 17, weight: 700 }),
+          quantity_radius: box(999), quantity_border_color: C.line, add_to_cart_quantity_height: px(54),
+        }),
+        SC('[lmdd_reassurance]', 'Réassurance (livraison, paiement, conseil)'),
+      ]),
+    ]),
+  ], false),
+  Con({
+    _title: 'Fiche – description et questions', content_width: 'boxed', boxed_width: px(1200), html_tag: 'section',
+    padding: box(56, 24, 56, 24), padding_mobile: box(36, 16, 36, 16), background_background: 'classic', background_color: C.tint, flex_direction: 'column',
+  }, [
+    W('wpr-product-tabs', {
+      tabs_position: 'above',
+      tab_text_color: C.muted, tab_bg_color: 'rgba(0,0,0,0)', tabs_border_color: 'rgba(0,0,0,0)',
+      hover_tab_text_color: C.green, hover_tab_bg_color: 'rgba(0,0,0,0)', active_tab_text_color: C.green, active_tab_bg_color: C.white, tab_active_border_color: C.line,
+      tab_border_radius: box(12, 12, 0, 0), tab_padding: box(14, 24, 14, 24), ...typo('tab_typography', { size: 16, weight: 700 }),
+      text_color: C.text, tab_content_bg_color: C.white, content_border_color: C.line, panel_padding: box(36, 40, 36, 40),
+      panel_border_radius: box(0, 16, 16, 16), ...typo('content_typography', { size: 16, lh: 1.7 }), title_color: C.green,
+    }),
+  ], false),
+  Con({ _title: 'Fiche – avis', content_width: 'boxed', boxed_width: px(1200), html_tag: 'section', padding: box(48, 24, 16, 24), padding_mobile: box(32, 16, 8, 16), flex_direction: 'column' }, [
+    SC('', AVIS_LISTE),
+  ], false),
+  Con({ _title: 'Fiche – produits similaires', content_width: 'boxed', boxed_width: px(1200), html_tag: 'section', padding: box(40, 24, 72, 24), padding_mobile: box(28, 16, 48, 16), flex_direction: 'column' }, [
+    SC('[related_products limit="4" columns="4"]', 'Produits liés (WooCommerce, titre « Produits similaires »)'),
+  ], false),
+];
+
+// ================= PAGE SAV =================
+const SAV_FORM_ID = 'formulaire-sav';
+const brandCard = (title, sub, models) => Con({ _title: `Marque : ${title}`, flex_direction: 'column', flex_gap: gap(6), padding: box(22), border_border: 'solid', border_width: box(1), border_color: C.line, border_radius: box(16), background_background: 'classic', background_color: C.white }, [
+  H(title, 'h3', { size: 19 }),
+  Txt(`<p>${sub}</p>`, { size: 14.5, margin: box(0, 0, 6, 0) }),
+  W('icon-list', {
+    view: 'inline', icon_list: models.map((m) => ({ text: m, selected_icon: { value: '', library: '' }, _id: id() })),
+    space_between: px(8), text_color: C.text, ...typo('icon_typography', { size: 13.5, weight: 600 }),
+  }),
+]);
+
+const savPage = [
+  Section({
+    _title: 'SAV – introduction', flex_direction: 'row', flex_direction_tablet: 'column', flex_align_items: 'center', flex_gap: gap(56),
+    background_background: 'gradient', background_color: C.greenDark, background_color_b: C.green, background_gradient_angle: { unit: 'deg', size: 135 },
+    padding: box(80, 24, 80, 24), padding_mobile: box(44, 16, 48, 16),
+  }, [
+    Con({ _title: 'Texte', width: pct(60), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(0) }, [
+      Eyebrow('SAV lits à eau — toutes marques', C.greenLight),
+      H('Votre lit à eau a un problème ? <span style="color:#A9D8B0">Il a sûrement une solution.</span>', 'h1', { color: C.white, size: 46, sizeT: 38, sizeM: 30 }),
+      Txt('<p>Fuite, matelas déformé, chauffage en panne, eau trouble, déménagement : nous intervenons sur tous les types et toutes les marques de lits à eau vendus en France, y compris les marques qui n\'existent plus. Décrivez-nous la situation, nous vous rappelons avec une solution et, si besoin, un devis.</p>', { color: C.onDark, size: 18, margin: box(0, 0, 26, 0) }),
+      Con({ _title: 'Boutons', flex_direction: 'row', flex_wrap: 'wrap', flex_gap: gap(12) }, [
+        BtnLight('Décrire mon problème', `#${SAV_FORM_ID}`, { icon: 'fas fa-arrow-down', iconAfter: true }),
+        withSettings(BtnGhost('03 25 04 20 19', 'tel:+33325042019', { icon: 'fas fa-phone-alt' }), { button_text_color: C.white, border_color: 'rgba(255,255,255,0.6)', button_background_hover_color: 'rgba(255,255,255,0.12)', hover_color: C.white }),
+      ]),
+      Txt('<p>Spécialiste du lit à eau depuis 1994 · service joignable 7 jours sur 7, de 9h à 21h</p>', { color: '#9FC2A4', size: 14, margin: box(22, 0, 0, 0) }),
+    ]),
+    Con({
+      _title: 'Urgence', width: pct(40), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(10), padding: box(26),
+      background_background: 'classic', background_color: 'rgba(255,255,255,0.08)', border_border: 'solid', border_width: box(1), border_color: 'rgba(233,162,59,0.7)', border_radius: box(18),
+    }, [
+      W('icon', { selected_icon: fa('fas fa-exclamation-triangle'), primary_color: '#E9A23B', size: px(26), align: 'left' }),
+      H('De l\'eau qui s\'écoule, maintenant ?', 'p', { color: C.white, size: 21, weight: 800, lh: 1.25, margin: box(0) }),
+      Txt('<p>Ne remplissez pas de formulaire. Coupez le chauffage du lit, épongez avec des serviettes, et appelez-nous : nous vous guidons pour limiter les dégâts avant de parler de pièces.</p>', { color: C.onDark, size: 15.5 }),
+      withSettings(BtnAccent('Appeler le 03 25 04 20 19', 'tel:+33325042019', { icon: 'fas fa-phone-alt', fs: 16 }), { align: 'justify', _margin: box(6, 0, 0, 0) }),
+    ]),
+  ]),
+  Section({ _title: 'SAV – symptômes' }, [
+    SectionHead('Le diagnostic', 'Ce qui arrive aux lits à eau', 'Trouvez votre situation : pour chacune, ce que c\'est en général, ce que nous faisons, et les pièces concernées avec leur prix.'),
+    SC('[lmdd_sav_symptomes formulaire="#' + SAV_FORM_ID + '"]', 'Fiches symptômes (prix des pièces en direct)'),
+  ]),
+  Section({ _title: 'SAV – marques', background_background: 'classic', background_color: C.tint }, [
+    SectionHead('Toutes marques', 'Même si le fabricant n\'existe plus', 'C\'est le matelas qu\'il faut identifier, pas la marque. Votre marque n\'est pas dans la liste, ou l\'étiquette est illisible ? Ce n\'est pas bloquant : dites-le dans le formulaire.'),
+    Con({ _title: 'Marques – grille', container_type: 'grid', grid_columns_grid: { unit: 'fr', size: 4 }, grid_columns_grid_tablet: { unit: 'fr', size: 2 }, grid_columns_grid_mobile: { unit: 'fr', size: 1 }, grid_rows_grid: { unit: 'fr', size: 1 }, grid_gaps: gap(18) }, [
+      brandCard('Akva', 'Fabricant danois · nous en sommes revendeur', ['Carla', 'Modulex', 'Nordic', 'Vega', 'Lyra', 'Boxbed', 'Soft']),
+      brandCard('Poseïdon · Lunalife', 'Ex-Luna-Rest : même fabricant, plusieurs noms selon l\'année', ['Easy Box', 'Océan', 'Smile', 'Lunaflex', 'Pacific', 'Altura']),
+      brandCard('Tasso', 'Softside, hardside et berceau', ['Softside', 'Hardside', 'Berceau bébé']),
+      brandCard('Et les autres', 'Matelas de remplacement sur mesure', ['Highline', 'Mesamoll II', 'Tribrid®', 'Sur mesure']),
+    ]),
+  ]),
+  Section({ _title: 'SAV – entretien et garantie', flex_direction: 'row', flex_direction_tablet: 'column', flex_gap: gap(56), flex_align_items: 'center' }, [
+    Con({ _title: 'Texte', width: pct(58), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(0) }, [
+      Eyebrow('Entretien & garantie'),
+      H('Un geste par an décide de la durée de vie du matelas', 'h2'),
+      Txt('<p>La garantie d\'un matelas à eau porte sur les soudures. Elle suppose un entretien régulier : une dose de <strong>conditionneur</strong> ajoutée dans l\'eau chaque année. Le négliger peut suffire à l\'annuler.</p><p>Vérifiez aussi l\'étanchéité trois à quatre fois par an, en passant une lingette humide sur le matelas, les raccords et la valve : un micro-défaut peut passer inaperçu plusieurs semaines.</p><p>Les durées de garantie dépendent du modèle : elles sont précisées dans nos <a href="/conditions-generales-de-ventes/">conditions générales de vente</a>.</p>', { margin: box(0, 0, 22, 0) }),
+      BtnPrimary('Voir les produits d\'entretien', '/accessoires-produits-dentretien-sav/produits-dentretien-sav/', { icon: 'fas fa-arrow-right', iconAfter: true }),
+    ]),
+    Con({ _title: 'Rappel', width: pct(42), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(14), padding: box(28), border_radius: box(18), background_background: 'classic', background_color: C.greenBg }, [
+      ...[['fas fa-calendar-check', 'Chaque année', 'Une dose de conditionneur dans chaque matelas.'], ['fas fa-search', '3 à 4 fois par an', 'Contrôle des soudures, raccords et valve, à la lingette humide.'], ['fas fa-thermometer-half', 'En cas de lit froid', 'Le chauffage se remplace, souvent sans vider le lit.']].map(([icon, t, d]) => W('icon-box', {
+        selected_icon: fa(icon), view: 'stacked', shape: 'circle', position: 'left', title_text: t, description_text: d, title_size: 'p',
+        primary_color: C.green, secondary_color: C.white, icon_size: px(18), icon_padding: px(12), icon_space: px(14), text_align: 'left',
+        title_color: C.green, description_color: C.muted, ...typo('title_typography', { size: 16, weight: 700 }), ...typo('description_typography', { size: 14.5, lh: 1.5 }),
+      })),
+    ]),
+  ]),
+  Section({ _title: 'SAV – formulaire', _element_id: SAV_FORM_ID, css_id: SAV_FORM_ID, background_background: 'classic', background_color: C.tint, flex_align_items: 'stretch' }, [
+    SectionHead('Demande SAV', 'Décrivez-nous la situation', 'Ce sont les questions que nous posons au téléphone, pour vous proposer un matelas identique ou 100 % compatible. Répondez de votre chambre, à l\'heure qui vous arrange : « je ne sais pas » est une réponse acceptée partout.'),
+    Con({ _title: 'Carte du formulaire', boxed_width: px(880), content_width: 'boxed', padding: box(36, 40, 36, 40), padding_mobile: box(22, 16, 22, 16), border_radius: box(20), background_background: 'classic', background_color: C.white, ...shadow(18, 40, -18) }, [
+      SC('[lmdd_sav_formulaire]', 'Formulaire SAV en étapes'),
+    ]),
+  ]),
+];
+
 // ---------- Écriture ----------
 const tpl = (title, type, content, page_settings = []) => ({ content, page_settings, version: '0.4', title, type });
 writeFileSync(path.join(OUT, 'en-tete-la-maison-du-dos.json'), JSON.stringify(tpl('En-tête – La Maison du Dos', 'section', headerContent), null, 1));
 writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children, mega]) => ({ title, url, mega: mega || '', children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
 writeFileSync(path.join(OUT, 'mega-menus-la-maison-du-dos.json'), JSON.stringify(MEGA_MENUS, null, 1));
 writeFileSync(path.join(OUT, 'accueil-la-maison-du-dos.json'), JSON.stringify(tpl("Accueil – La Maison du Dos", 'page', pageContent, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
+writeFileSync(path.join(OUT, 'fiche-produit-la-maison-du-dos.json'), JSON.stringify(tpl('Fiche produit – La Maison du Dos', 'section', productTemplate), null, 1));
+writeFileSync(path.join(OUT, 'sav-la-maison-du-dos.json'), JSON.stringify(tpl('SAV lit à eau – La Maison du Dos', 'page', savPage, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
 writeFileSync(path.join(OUT, 'pied-de-page-la-maison-du-dos.json'), JSON.stringify(tpl('Pied de page – La Maison du Dos', 'section', [footer]), null, 1));
 
 const count = (els) => els.reduce((a, e) => a + 1 + count(e.elements || []), 0);
-console.log('Accueil :', count(pageContent), 'éléments ; en-tête :', count(headerContent), 'éléments ; pied de page :', count([footer]), 'éléments');
+console.log('Accueil :', count(pageContent), 'éléments ; en-tête :', count(headerContent), 'éléments ; pied de page :', count([footer]), 'éléments ; fiche produit :', count(productTemplate), '; page SAV :', count(savPage));

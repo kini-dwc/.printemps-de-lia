@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'LMDD_DS_VERSION', '1.0.2' );
+define( 'LMDD_DS_VERSION', '1.0.0' );
 define( 'LMDD_DS_FILE', __FILE__ );
 
 require_once __DIR__ . '/includes/class-lmdd-ds-forms.php';

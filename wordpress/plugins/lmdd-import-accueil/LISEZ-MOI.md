@@ -1,4 +1,4 @@
-# LMDD – Installation de la page d'accueil, de l'en-tête (méga-menus) et du pied de page
+# LMDD – Installation : page d'accueil, en-tête (méga-menus), pied de page, fiche produit, page SAV
 
 Crée la nouvelle page d'accueil, l'en-tête, le pied de page et le menu **sans passer par l'import de fichiers d'Elementor**
 (qui échouait sur le serveur).
@@ -14,6 +14,10 @@ Crée la nouvelle page d'accueil, l'en-tête, le pied de page et le menu **sans 
 | Page d'accueil | La page brouillon « Accueil – nouvelle version » et le modèle « Accueil » |
 | En-tête, menu principal et méga-menus | Le modèle d'en-tête (constructeur de thème Royal), le menu « Menu principal – La Maison du Dos » et les **6 méga-menus** |
 | Pied de page | Le modèle de pied de page (constructeur de thème Royal) |
+| Fiche produit | Le nouveau modèle de fiche produit (constructeur de thème Royal, *Produit unique*), **sans l'activer** |
+| Page SAV | La page brouillon « SAV lit à eau » (Elementor) avec les fiches symptômes et le formulaire en étapes |
+
+**Fiche produit et page SAV** utilisent l'extension **LMDD – Devis & SAV** (`lmdd-devis-sav.zip`) : installez-la et activez-la **avant**.
 
 Un élément **déjà installé est décoché par défaut** : le cocher le réinstalle et **remplace vos retouches** faites dans Elementor.
 Exemple : pour mettre à jour seulement l'en-tête sans toucher à votre page d'accueil publiée, cochez uniquement « En-tête… ».
@@ -63,6 +67,38 @@ ou WP Super Cache s'ils sont présents). Si votre hébergeur a son propre cache,
 Widgets : Elementor gratuit (image, icône, liste d'icônes, bouton) et Royal Elementor Addons gratuit, déjà installé sur le site
 (*Méga-menu*, *Menu*, *Recherche*, *Mini panier*). Avec Royal Addons **Pro**, vous pouvez en plus : limiter la recherche aux produits
 (*Recherche → Requête : Produits*), afficher le contenu du panier en panneau latéral (*Mini panier → Contenu*), élargir les sous-menus.
+
+## Fiche produit : aperçu, activation, retour arrière
+
+Un seul modèle pour toutes les fiches, qui s'adapte tout seul :
+
+| | Fiche sur devis | Fiche vendue en ligne |
+|---|---|---|
+| En-tête | Badge **Sur devis**, catégorie · marque, titre court (H1), note des avis | Catégorie · marque, titre court (H1), note des avis, **prix** |
+| Achat | Points clés, options de configuration, **Demander un devis** → panneau | Points clés, options, **Ajouter au panier** |
+| Réassurance | Rappel par un conseiller, livraison et installation, devis sur mesure | Livraison gratuite dès 60 €, facilités de paiement, conseil 7j/7 |
+| Ensuite | Description et questions complémentaires (onglets), avis, produits similaires | idem |
+
+- Fil d'Ariane en haut, images qui restent visibles pendant la lecture (ordinateur), barre « Demander un devis » fixe sur mobile.
+- **Avis** : les codes courts de votre modèle actuel (Société des Avis Garantis…) sont **repris automatiquement**. Le message de
+  l'étape d'installation les liste ; l'ancien bouton de devis n'est pas repris.
+- Cadre **Fiche produit** en bas de la page de l'outil : *Aperçu : fiche sur devis* / *fiche vendue en ligne* (visible par vous seul),
+  **Utiliser sur toutes les fiches produits**, puis **Revenir au modèle de fiche d'origine** si besoin.
+- Pour de meilleures fiches : renseignez **Titre affiché (court)** et **Points clés** dans chaque produit (*Produit → Général*).
+  Sans eux, la fiche affiche le nom complet du produit et pas de points clés.
+
+## Page SAV
+
+Créée en **brouillon** : *Modifier avec Elementor* ou *Prévisualiser* depuis le cadre « Page SAV ». Contenu : introduction et encart
+« De l'eau qui s'écoule, maintenant ? » (appel direct), les 8 situations avec les pièces et leur prix en direct, les marques prises
+en charge, l'entretien et la garantie (renvoi vers les CGV pour les durées), puis le formulaire en 4 étapes.
+Publiez-la, puis ajoutez un lien « SAV » au menu ou au pied de page.
+
+## En-tête sur les fiches produits (correction)
+
+Royal n'affiche l'en-tête et le pied de page sur les pages « canevas », comme les fiches produits, que si l'option
+**Afficher sur le canevas** est cochée dans le modèle. Les versions précédentes ne la cochaient pas. La version 1.3 la coche
+**à chaque installation**, quels que soient les éléments cochés et **sans toucher au contenu** de votre en-tête et de votre pied de page.
 
 ## Supprimer l'extension une fois tout en place
 

@@ -263,6 +263,18 @@
     if (window.dataLayer) window.dataLayer.push({ event: 'lmdd_demande', lmdd_type: form.dataset.type });
   }
 
+  // Mobile : barre « Demander un devis » visible quand le bouton principal n'est plus à l'écran.
+  var sticky = $('.lmdd-sticky-cta'), mainCta = $('.lmdd-devis-cta');
+  if (sticky && mainCta && 'IntersectionObserver' in window) {
+    document.body.appendChild(sticky); // Hors des conteneurs transformés : position fixe fiable.
+    var past = false;
+    new IntersectionObserver(function (en) {
+      past = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
+      sticky.hidden = !past;
+      document.documentElement.classList.toggle('lmdd-has-sticky', past);
+    }).observe(mainCta);
+  }
+
   // Formulaires SAV : état initial des boutons.
   $$('.lmdd-steps').forEach(function (f) { goStep(f, 0); });
 })();

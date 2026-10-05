@@ -8,6 +8,9 @@
 | `en-tete-la-maison-du-dos.json` | En-tête : barre du haut, logo, recherche, bouton devis, souhaits, compte, panier, menu avec sous-menus, version mobile (widgets Elementor + Royal Elementor Addons gratuits) |
 | `menu-principal-la-maison-du-dos.json` | Structure du menu principal (créé automatiquement par l'extension d'import) |
 | `pied-de-page-la-maison-du-dos.json` | Pied de page (modèle séparé, à placer dans le constructeur de pied de page) |
+| `mega-menus-la-maison-du-dos.json` | Les 6 méga-menus (Lits à eau, Matelas réglables, Accessoires, Linge de lit, Couettes Hefel, Marques) |
+| `fiche-produit-la-maison-du-dos.json` | Modèle de fiche produit (Royal, *Produit unique*) : sur devis et vente en ligne |
+| `sav-la-maison-du-dos.json` | Page SAV lit à eau (fiches symptômes + formulaire en étapes, via l'extension LMDD – Devis & SAV) |
 | `images/schema-pression-matelas-eau.png` | Schéma « matelas classique / matelas à eau » |
 | `dist/elementor-modeles-la-maison-du-dos.zip` | Les deux modèles dans une seule archive à importer |
 | `dist/elementor-images-la-maison-du-dos.zip` | Les 7 images optimisées (WebP/PNG) + leurs textes alternatifs |

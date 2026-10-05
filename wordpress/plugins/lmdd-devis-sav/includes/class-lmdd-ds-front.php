@@ -23,6 +23,8 @@ final class LMDD_DS_Front {
 		add_shortcode( 'lmdd_points_cles', array( __CLASS__, 'sc_key_points' ) );
 		add_shortcode( 'lmdd_reassurance', array( __CLASS__, 'sc_reassurance' ) );
 		add_shortcode( 'lmdd_devis_bouton', array( __CLASS__, 'sc_devis_button' ) );
+		add_shortcode( 'lmdd_titre', array( __CLASS__, 'sc_title' ) );
+		add_shortcode( 'lmdd_fil_ariane', array( __CLASS__, 'sc_breadcrumb' ) );
 
 		if ( is_admin() ) {
 			add_action( 'woocommerce_product_options_general_product_data', array( __CLASS__, 'product_fields' ) );
@@ -288,6 +290,8 @@ final class LMDD_DS_Front {
 		$h .= '<button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--block" data-lmdd-open="devis" aria-haspopup="dialog">Demander un devis ' . self::icon( 'arrow' ) . '</button>';
 		$h .= '<p class="lmdd-devis-cta__alt">Réponse personnalisée · ou par téléphone : ' . self::tel_link() . '</p>';
 		$h .= '</div>';
+		// Mobile : barre fixe qui apparaît quand le bouton principal sort de l'écran.
+		$h .= '<div class="lmdd-sticky-cta" hidden><span class="lmdd-sticky-cta__name">' . esc_html( $title ) . '</span><button type="button" class="lmdd-btn lmdd-btn--accent lmdd-btn--sm" data-lmdd-open="devis" aria-haspopup="dialog">Demander un devis</button></div>';
 
 		$h .= '<dialog class="lmdd-dlg" id="lmdd-devis" aria-labelledby="lmdd-devis-titre">';
 		$h .= '<form class="lmdd-form" data-type="devis" novalidate>' . self::common( 'devis' );
@@ -405,6 +409,41 @@ final class LMDD_DS_Front {
 	private static function current_product() {
 		global $product;
 		return $product && is_a( $product, 'WC_Product' ) ? $product : ( function_exists( 'wc_get_product' ) ? wc_get_product( get_queried_object_id() ) : null );
+	}
+
+	/** Titre principal (H1) : titre court du produit s'il est renseigné, sinon son nom. */
+	public static function sc_title( $atts ) {
+		$p = self::current_product();
+		if ( ! $p ) {
+			return '';
+		}
+		self::enqueue();
+		$atts = shortcode_atts( array( 'balise' => 'h1' ), $atts );
+		$tag  = in_array( $atts['balise'], array( 'h1', 'h2', 'p' ), true ) ? $atts['balise'] : 'h1';
+		return '<' . $tag . ' class="lmdd-title product_title entry-title">' . esc_html( self::short_title( $p ) ) . '</' . $tag . '>';
+	}
+
+	/** Fil d'Ariane WooCommerce (Accueil › Catégorie › Produit), avec données structurées si Yoast/Rank Math les ajoutent. */
+	public static function sc_breadcrumb() {
+		if ( ! function_exists( 'woocommerce_breadcrumb' ) ) {
+			return '';
+		}
+		self::enqueue();
+		$p    = self::current_product();
+		$name = $p ? self::short_title( $p ) : '';
+		$out  = '';
+		$hook = function ( $crumbs ) use ( $name ) {
+			if ( $name && $crumbs ) {
+				$crumbs[ count( $crumbs ) - 1 ][0] = $name;
+			}
+			return $crumbs;
+		};
+		add_filter( 'woocommerce_get_breadcrumb', $hook );
+		ob_start();
+		woocommerce_breadcrumb( array( 'delimiter' => '<span class="lmdd-bc__sep" aria-hidden="true">›</span>', 'wrap_before' => '<nav class="lmdd-bc" aria-label="Fil d\'Ariane">', 'wrap_after' => '</nav>', 'home' => 'Accueil' ) );
+		$out = ob_get_clean();
+		remove_filter( 'woocommerce_get_breadcrumb', $hook );
+		return $out;
 	}
 
 	/** Badges + « Catégorie · Marque » au-dessus du titre. */
