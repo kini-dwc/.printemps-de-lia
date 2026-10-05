@@ -1,0 +1,215 @@
+/* LMDD – Devis & SAV. Couleurs du logo : vert #035C11, rouge #C80C25. */
+:root {
+  --lmdd-green: #035C11; --lmdd-green-h: #024A0E; --lmdd-green-d: #012E08; --lmdd-green-t: #1F7A2C;
+  --lmdd-red: #C80C25; --lmdd-red-h: #A50A1E; --lmdd-tint: #F5F8F4; --lmdd-green-bg: #EDF6EE;
+  --lmdd-line: #DFE7E0; --lmdd-text: #1B261D; --lmdd-muted: #56625A; --lmdd-radius: 12px;
+}
+.lmdd-i { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.2em; }
+html.lmdd-noscroll { overflow: hidden; }
+
+/* ---------- Boutons ---------- */
+.lmdd-btn.lmdd-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 24px; border: 2px solid transparent; border-radius: 999px; font: inherit; font-size: 16px; font-weight: 700; line-height: 1.2; text-decoration: none; cursor: pointer; transition: background-color .2s, color .2s, border-color .2s, transform .1s; }
+.lmdd-btn.lmdd-btn:active { transform: translateY(1px); }
+.lmdd-btn:focus-visible, .lmdd-link:focus-visible, .lmdd-dlg__close:focus-visible { outline: 3px solid #E9A23B; outline-offset: 2px; }
+.lmdd-btn.lmdd-btn--primary { background: var(--lmdd-green); color: #fff; }
+.lmdd-btn.lmdd-btn--primary:hover { background: var(--lmdd-green-h); color: #fff; }
+.lmdd-btn.lmdd-btn--accent { background: var(--lmdd-red); color: #fff; }
+.lmdd-btn.lmdd-btn--accent:hover { background: var(--lmdd-red-h); color: #fff; }
+.lmdd-btn.lmdd-btn--ghost { background: transparent; color: var(--lmdd-green); border-color: var(--lmdd-green); }
+.lmdd-btn.lmdd-btn--ghost:hover { background: var(--lmdd-green-bg); }
+.lmdd-btn.lmdd-btn--block { width: 100%; }
+.lmdd-btn.lmdd-btn--sm { min-height: 40px; padding: 8px 18px; font-size: 14px; }
+.lmdd-btn.lmdd-btn[disabled] { opacity: .65; cursor: progress; }
+.lmdd-btn.is-loading::after { content: ""; width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: lmdd-spin .7s linear infinite; }
+@keyframes lmdd-spin { to { transform: rotate(360deg); } }
+.lmdd-link.lmdd-link { background: none; border: 0; min-height: 0; border-radius: 0; padding: 0; color: var(--lmdd-green); font: inherit; font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* ---------- Champs ---------- */
+.lmdd-form { color: var(--lmdd-text); font-size: 15px; line-height: 1.5; }
+.lmdd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 14px; }
+.lmdd-field { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.lmdd-field--half { grid-column: span 1; }
+.lmdd-field > label, .lmdd-field > legend, .lmdd-label { padding: 0; font-size: 13.5px; font-weight: 600; color: var(--lmdd-text); }
+.lmdd-req { color: var(--lmdd-red); }
+.lmdd-form input[type=text], .lmdd-form input[type=tel], .lmdd-form input[type=email], .lmdd-form select, .lmdd-form textarea {
+  width: 100%; min-height: 48px; margin: 0; padding: 11px 14px; border: 1px solid var(--lmdd-line); border-radius: 10px; background: #FAFBF9;
+  color: var(--lmdd-text); font: inherit; font-size: 16px; box-shadow: none; transition: border-color .15s, box-shadow .15s, background-color .15s; }
+.lmdd-form textarea { min-height: 96px; resize: vertical; }
+.lmdd-form select { appearance: none; -webkit-appearance: none; padding-right: 40px; background: #FAFBF9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23035C11' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 16px; }
+.lmdd-form input:focus, .lmdd-form select:focus, .lmdd-form textarea:focus { outline: none; border-color: var(--lmdd-green); background-color: #fff; box-shadow: 0 0 0 3px rgba(3, 92, 17, .15); }
+.lmdd-form ::placeholder { color: #8A958C; opacity: 1; }
+.lmdd-help { font-size: 13px; color: var(--lmdd-muted); }
+.lmdd-err { font-size: 13px; font-weight: 600; color: var(--lmdd-red); }
+.lmdd-err:empty { display: none; }
+.has-error input, .has-error select, .has-error textarea { border-color: var(--lmdd-red) !important; background: #FFF7F8; }
+.lmdd-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+/* Choix en pastilles */
+.lmdd-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.lmdd-choice { position: relative; margin: 0; cursor: pointer; }
+.lmdd-choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.lmdd-choice > span { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 9px 16px; border: 1px solid var(--lmdd-line); border-radius: 999px; background: #fff; font-size: 14.5px; font-weight: 500; transition: border-color .15s, background-color .15s, color .15s; }
+.lmdd-choice:hover > span { border-color: var(--lmdd-green); }
+.lmdd-choice input:checked + span { border-color: var(--lmdd-green); background: var(--lmdd-green-bg); color: var(--lmdd-green); font-weight: 700; box-shadow: inset 0 0 0 1px var(--lmdd-green); }
+.lmdd-choice input:focus-visible + span { outline: 3px solid #E9A23B; outline-offset: 2px; }
+
+/* Cartes (symptômes SAV) */
+.lmdd-field--cards .lmdd-choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.lmdd-card { display: flex; }
+.lmdd-card > span { flex: 1; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 104px; padding: 14px; border-radius: var(--lmdd-radius); font-size: 14px; line-height: 1.35; }
+.lmdd-card .lmdd-i { width: 26px; height: 26px; color: var(--lmdd-green); }
+
+/* Photos */
+.lmdd-drop { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 64px; padding: 14px; border: 2px dashed var(--lmdd-line); border-radius: var(--lmdd-radius); background: #FAFBF9; color: var(--lmdd-green); font-weight: 700; cursor: pointer; text-align: center; }
+.lmdd-drop:hover, .lmdd-drop:focus-within { border-color: var(--lmdd-green); background: var(--lmdd-green-bg); }
+.lmdd-drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.lmdd-drop .lmdd-i { width: 24px; height: 24px; }
+.lmdd-files { margin: 0; padding: 0; list-style: none; font-size: 13.5px; color: var(--lmdd-muted); }
+.lmdd-files li::before { content: "✓ "; color: var(--lmdd-green); font-weight: 700; }
+
+.lmdd-note { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--lmdd-muted); }
+.lmdd-note a { color: inherit; }
+.lmdd-form__error { margin: 0 0 10px; font-weight: 600; color: var(--lmdd-red); }
+.lmdd-form__error:empty { display: none; }
+
+/* Message de réussite */
+.lmdd-success { padding: 32px 24px; text-align: center; outline: none; }
+.lmdd-success__icon { display: inline-grid; place-items: center; width: 64px; height: 64px; margin-bottom: 12px; border-radius: 50%; background: var(--lmdd-green-bg); color: var(--lmdd-green); }
+.lmdd-success__icon .lmdd-i { width: 32px; height: 32px; stroke-width: 2.4; }
+.lmdd-success h3 { margin: 0 0 10px; color: var(--lmdd-green); font-size: 22px; }
+.lmdd-success p { margin: 0 0 10px; color: var(--lmdd-muted); }
+.lmdd-success__ref { font-weight: 600; color: var(--lmdd-text) !important; }
+
+/* ---------- Devis : bouton de la fiche ---------- */
+.lmdd-devis-cta { margin: 16px 0 8px; }
+.lmdd-devis-cta .lmdd-btn { min-height: 56px; font-size: 17px; box-shadow: 0 10px 24px -12px rgba(200, 12, 37, .6); }
+.lmdd-devis-cta__alt { margin: 10px 0 0; font-size: 14px; text-align: center; color: var(--lmdd-muted); }
+.lmdd-devis-cta__alt a { color: var(--lmdd-green); font-weight: 700; text-decoration: none; white-space: nowrap; }
+/* Produits sur devis : pas d'ajout au panier ni de total d'options ; l'ancien bouton est remplacé. */
+body.lmdd-devis form.cart .single_add_to_cart_button, body.lmdd-devis form.cart .quantity, body.lmdd-devis form.cart .wpr-quantity-wrapper,
+body.lmdd-devis .tm-extra-product-options-totals, body.lmdd-devis #trigger-quote-btn, body.lmdd-devis .btn-devis-custom { display: none !important; }
+
+/* ---------- Devis : panneau (droite sur ordinateur, plein écran sur mobile) ---------- */
+.lmdd-dlg { position: fixed; inset: 0 0 0 auto; width: min(540px, 100vw); max-width: 100vw; height: 100%; max-height: 100dvh; margin: 0; padding: 0; border: 0; background: #fff; color: var(--lmdd-text); box-shadow: -24px 0 60px -20px rgba(1, 46, 8, .35); overflow: hidden; }
+.lmdd-dlg[open] { display: flex; animation: lmdd-in .28s cubic-bezier(.2, .8, .2, 1); }
+.lmdd-dlg::backdrop { background: rgba(1, 46, 8, .5); }
+@keyframes lmdd-in { from { transform: translateX(40px); opacity: 0; } }
+.lmdd-dlg > form { display: flex; flex-direction: column; width: 100%; height: 100%; margin: 0; }
+.lmdd-dlg__head { display: flex; align-items: center; gap: 14px; padding: 18px 20px 16px 24px; border-bottom: 1px solid var(--lmdd-line); }
+.lmdd-dlg__thumb { width: 56px !important; height: 56px !important; object-fit: cover; border-radius: 10px; flex: none; }
+.lmdd-dlg__head > div { flex: 1; min-width: 0; }
+.lmdd-dlg__kicker { margin: 0 0 2px; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--lmdd-green-t); }
+.lmdd-dlg__title { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.25; color: var(--lmdd-green); }
+.lmdd-dlg__close.lmdd-dlg__close { display: grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0; border: 0; border-radius: 50%; background: var(--lmdd-tint); color: var(--lmdd-text); cursor: pointer; }
+.lmdd-dlg__close.lmdd-dlg__close:hover { background: var(--lmdd-green-bg); color: var(--lmdd-green); }
+.lmdd-dlg__close .lmdd-i { width: 20px; height: 20px; }
+.lmdd-dlg__body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 20px 24px 8px; }
+.lmdd-dlg__foot { padding: 14px 24px 18px; border-top: 1px solid var(--lmdd-line); background: #fff; box-shadow: 0 -10px 24px -18px rgba(1, 46, 8, .4); }
+.lmdd-dlg__foot .lmdd-note { margin-top: 8px; text-align: center; }
+.lmdd-dlg .lmdd-success { margin: auto 0; }
+
+.lmdd-config { margin: 0 0 22px; padding: 16px 18px; border-radius: var(--lmdd-radius); background: var(--lmdd-green-bg); }
+.lmdd-config__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.lmdd-config h3 { margin: 0; font-size: 15px; font-weight: 800; color: var(--lmdd-green); }
+.lmdd-config__list { margin: 0; padding: 0; list-style: none; }
+.lmdd-config__list li { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border-top: 1px solid rgba(3, 92, 17, .12); font-size: 14px; }
+.lmdd-config__list li:first-child { border-top: 0; }
+.lmdd-config__list span { color: var(--lmdd-muted); }
+.lmdd-config__list strong { text-align: right; }
+.lmdd-config__empty { display: none; margin: 0; font-size: 14px; color: var(--lmdd-muted); }
+.lmdd-config.is-empty .lmdd-config__empty { display: block; }
+.lmdd-section { margin: 0 0 22px; padding: 0; border: 0; min-width: 0; }
+.lmdd-section__title { margin: 0 0 12px; padding: 0; font-size: 12.5px; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--lmdd-green-t); }
+.lmdd-turnstile:not(:empty) { margin: 4px 0 12px; }
+
+/* ---------- SAV : étapes ---------- */
+.lmdd-steps { max-width: 820px; margin: 0 auto; }
+.lmdd-progress p { display: flex; justify-content: space-between; margin: 0 0 8px; font-size: 13.5px; font-weight: 600; color: var(--lmdd-muted); }
+.lmdd-progress__bar { height: 6px; border-radius: 6px; background: var(--lmdd-line); overflow: hidden; }
+.lmdd-progress__bar span { display: block; height: 100%; border-radius: 6px; background: var(--lmdd-green); transition: width .35s ease; }
+.lmdd-step { margin: 26px 0 0; padding: 0; border: 0; min-width: 0; }
+.lmdd-step__title { margin: 0 0 4px; padding: 0; font-size: 24px; font-weight: 800; line-height: 1.2; color: var(--lmdd-green); }
+.lmdd-step__intro { margin: 0 0 18px; color: var(--lmdd-muted); }
+.lmdd-steps__nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 26px; }
+.lmdd-steps__call { font-size: 14px; color: var(--lmdd-muted); }
+.lmdd-steps__call a { color: var(--lmdd-green); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.lmdd-recap { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; margin: 0 0 16px; border-top: 1px solid var(--lmdd-line); }
+.lmdd-recap dt, .lmdd-recap dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--lmdd-line); }
+.lmdd-recap dt { padding-right: 16px; font-size: 13.5px; font-weight: 600; color: var(--lmdd-muted); }
+.lmdd-recap dd { white-space: pre-line; }
+
+/* ---------- SAV : fiches symptômes ---------- */
+.lmdd-symptoms { border-top: 1px solid var(--lmdd-line); }
+.lmdd-symptom { border-bottom: 1px solid var(--lmdd-line); }
+.lmdd-symptom summary { display: flex; align-items: center; gap: 14px; padding: 18px 4px; list-style: none; cursor: pointer; }
+.lmdd-symptom summary::-webkit-details-marker { display: none; }
+.lmdd-symptom__icon { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 12px; background: var(--lmdd-green-bg); color: var(--lmdd-green); }
+.lmdd-symptom__icon .lmdd-i { width: 24px; height: 24px; }
+.lmdd-symptom__title { flex: 1; font-size: 18px; font-weight: 700; color: var(--lmdd-text); }
+.lmdd-symptom__chev { width: 12px; height: 12px; border-right: 2px solid var(--lmdd-green); border-bottom: 2px solid var(--lmdd-green); transform: rotate(45deg); transition: transform .2s; margin-right: 8px; }
+.lmdd-symptom[open] .lmdd-symptom__chev { transform: rotate(225deg); }
+.lmdd-symptom summary:hover .lmdd-symptom__title { color: var(--lmdd-green); }
+.lmdd-symptom__body { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; padding: 0 4px 24px 62px; }
+.lmdd-symptom__body h4 { margin: 0 0 6px; font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--lmdd-green-t); }
+.lmdd-symptom__body p { margin: 0 0 8px; color: var(--lmdd-muted); }
+.lmdd-symptom__parts, .lmdd-symptom__cta { grid-column: 1 / -1; }
+.lmdd-parts { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.lmdd-parts li > a, .lmdd-part--quote { display: flex; align-items: center; gap: 12px; height: 100%; padding: 10px 14px; border: 1px solid var(--lmdd-line); border-radius: var(--lmdd-radius); background: #fff; color: var(--lmdd-text); text-decoration: none; font-size: 14px; line-height: 1.35; }
+.lmdd-parts li > a:hover { border-color: var(--lmdd-green); background: var(--lmdd-green-bg); }
+.lmdd-parts img { width: 48px; height: 48px; flex: none; object-fit: cover; border-radius: 8px; }
+.lmdd-parts span { flex: 1; }
+.lmdd-parts strong { color: var(--lmdd-green); white-space: nowrap; }
+.lmdd-part--quote { background: var(--lmdd-tint); }
+
+/* ---------- Fiche produit : blocs ---------- */
+.lmdd-ph__badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.lmdd-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12.5px; font-weight: 700; }
+.lmdd-badge--devis { background: #FDF0D5; color: #8A4B00; }
+.lmdd-badge--promo { background: #FCE8EB; color: var(--lmdd-red-h); }
+.lmdd-ph__eyebrow { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--lmdd-green-t); }
+.lmdd-ph__eyebrow a { color: inherit; text-decoration: none; }
+.lmdd-ph__eyebrow a:hover { text-decoration: underline; }
+.lmdd-points { display: grid; gap: 9px; margin: 4px 0 0; padding: 0; list-style: none; }
+.lmdd-points li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.45; color: var(--lmdd-text); }
+.lmdd-points .lmdd-i { width: 20px; height: 20px; padding: 3px; border-radius: 50%; background: var(--lmdd-green); color: #fff; stroke-width: 3; margin-top: 1px; }
+.lmdd-reassure { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.lmdd-reassure li { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: var(--lmdd-radius); background: var(--lmdd-tint); font-size: 13px; line-height: 1.35; }
+.lmdd-reassure .lmdd-i { width: 22px; height: 22px; color: var(--lmdd-green); }
+.lmdd-reassure strong { display: block; color: var(--lmdd-text); }
+.lmdd-reassure small { color: var(--lmdd-muted); font-size: 12.5px; }
+.lmdd-reassure a { color: var(--lmdd-green); font-weight: 700; text-decoration: none; }
+
+/* Options de configuration (TM Extra Product Options / variations) : listes lisibles sur toutes les fiches */
+body.lmdd-fiche form.cart select { width: 100%; min-height: 46px; padding: 10px 40px 10px 14px; border: 1px solid var(--lmdd-line); border-radius: 10px; font: inherit; font-size: 15px; color: var(--lmdd-text); appearance: none; -webkit-appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23035C11' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 16px; cursor: pointer; }
+body.lmdd-fiche form.cart select:focus { outline: none; border-color: var(--lmdd-green); box-shadow: 0 0 0 3px rgba(3, 92, 17, .15); }
+body.lmdd-fiche form.cart .tc-epo-label, body.lmdd-fiche form.cart .tc-epo-element-label-text, body.lmdd-fiche form.cart table.variations label { font-size: 13.5px; font-weight: 700; color: var(--lmdd-text); }
+
+@media (max-width: 767px) {
+  .lmdd-grid { grid-template-columns: 1fr; }
+  .lmdd-field--half { grid-column: 1 / -1; }
+  .lmdd-dlg { width: 100vw; box-shadow: none; }
+  .lmdd-dlg[open] { animation-name: lmdd-up; }
+  @keyframes lmdd-up { from { transform: translateY(30px); opacity: 0; } }
+  .lmdd-dlg__head { padding: 12px 12px 12px 16px; }
+  .lmdd-dlg__body { padding: 16px 16px 8px; }
+  .lmdd-dlg__foot { padding: 12px 16px calc(14px + env(safe-area-inset-bottom)); }
+  .lmdd-field--cards .lmdd-choices { grid-template-columns: 1fr 1fr; }
+  .lmdd-card > span { min-height: 96px; padding: 12px; font-size: 13.5px; }
+  .lmdd-step__title { font-size: 21px; }
+  .lmdd-steps__nav .lmdd-btn { flex: 1; }
+  .lmdd-steps__call { width: 100%; text-align: center; }
+  .lmdd-symptom__body { grid-template-columns: 1fr; padding-left: 4px; }
+  .lmdd-symptom__title { font-size: 16px; }
+  .lmdd-reassure { grid-template-columns: 1fr; }
+  .lmdd-recap { grid-template-columns: 1fr; }
+  .lmdd-recap dt { padding-bottom: 0; border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lmdd-dlg[open], .lmdd-progress__bar span, .lmdd-btn { animation: none; transition: none; }
+}
+body.lmdd-fiche form.cart ul.tmcp-ul-wrap { margin: 0; padding: 0; list-style: none; }
+.lmdd-success a, .lmdd-form .lmdd-note a { color: var(--lmdd-green); font-weight: 700; }
+.lmdd-success h3 { font-weight: 800; }
+/* L'attribut hidden l'emporte toujours (boutons d'étapes, messages). */
+.lmdd-form [hidden], .lmdd-btn.lmdd-btn[hidden] { display: none !important; }
