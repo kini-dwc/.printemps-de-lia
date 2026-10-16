@@ -98,7 +98,10 @@ Résultat attendu : 3 scripts Google au lieu de 6, environ 400 Ko de moins, et d
 3. Refaire les tests de l'étape 2, sur ordinateur et sur mobile.
 
 ### 5. Scripts inutiles et FAQ : même extrait WPCode (5 min)
-Inclus dans le même extrait `wordpress/snippets/lmdd-vitesse.php`. Il remplace les règles Asset Pilot, et l'extension Asset Pilot peut être supprimée.
+Inclus dans le même extrait `wordpress/snippets/lmdd-vitesse.php`. Il reprend ce que faisaient les règles Asset Pilot du site, ce qui permet de se passer de cette extension.
+- **ProfilePress** n'est chargé que sur « Mon compte » et les pages qui contiennent un de ses formulaires.
+- **Effets Royal non utilisés** (particules, parallaxe, texte animé) : retirés partout.
+- **Font Awesome, Roboto et le bloc Prisna** : retirés de l'accueil. Font Awesome reste sur les fiches produits et la page livraison, qui l'utilisent.
 - **Turnstile** est retiré de l'accueil, de la boutique, des catégories, du panier et de la commande. Il reste partout où il y a un formulaire.
 - **Alma (CSS)** n'est chargé que sur les fiches produits, le panier et la commande.
 - **FAQ en accordéon** : le titre n'est plus un lien sans adresse, ce qui corrige l'audit SEO « liens non explorables ». Il reste utilisable au clavier.
@@ -138,3 +141,14 @@ Dans la page en ligne, les points suivants ne sont pas encore faits :
 **Anomalie trouvée** : sur les fiches produits, le script Turnstile n'est pas chargé, alors que le formulaire de devis contient le widget.
 - Contact Form 7 refuse alors l'envoi, comme si c'était du spam.
 - Sur la copie de test, le script se charge bien : c'est un réglage de la production qui le retire sur les pages WooCommerce (règle Asset Pilot, extrait WPCode ou autre extension).
+
+## Résultat après la suppression d'Asset Pilot (16 octobre, 15 h 01)
+| | Mobile | Ordinateur |
+|---|---|---|
+| Score | 79 → **53** | 73 → **96** |
+| LCP | 2,9 s → **13,5 s** | 0,7 s → **0,9 s** |
+| Temps bloqué | 440 → **280 ms** | 710 → **130 ms** |
+
+- **Cause du recul sur mobile** : les règles d'Asset Pilot retiraient déjà une quinzaine de fichiers (Font Awesome, ProfilePress, Roboto, Alma, effets Royal…). En supprimant l'extension, ces fichiers sont revenus. Il y a désormais 37 feuilles de style au lieu de 28, et elles bloquent l'affichage sur mobile.
+- **Correction** : l'extrait unique retire désormais ces fichiers.
+- **Anomalie Turnstile résolue** : une règle d'Asset Pilot le retirait aussi des fiches produits. Depuis la suppression, Turnstile y est de nouveau chargé, et le formulaire de devis est envoyable.

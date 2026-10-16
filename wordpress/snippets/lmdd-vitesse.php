@@ -11,7 +11,8 @@
  * 1. Images : l'image principale de la page (LCP) passe en priorité haute ; les images des méga-menus (cachées)
  *    et du pied de page sont différées ; le logo ne prend plus la priorité haute.
  * 2. Émojis WordPress retirés.
- * 3. Turnstile retiré des pages sans formulaire ; CSS Alma limité aux fiches produits, panier et commande.
+ * 3. Fichiers inutiles retirés là où ils ne servent pas : Turnstile, Alma, ProfilePress, effets Royal non utilisés,
+ *    Font Awesome et Roboto sur l'accueil (ce que faisait Asset Pilot).
  * 4. FAQ en accordéon : titres sans lien vide (audit SEO « liens non explorables »), accessibles au clavier.
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -72,21 +73,56 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 
 // ---------------------------------------------------------------- 3. Scripts inutiles
-add_action( 'wp_enqueue_scripts', function () {
+// Fichiers retirés là où ils ne servent pas. Vérifié sur l'accueil, les pages et les fiches produits du site.
+function lmdd_vitesse_retirer() {
 	if ( is_admin() || ! function_exists( 'is_woocommerce' ) ) {
 		return;
 	}
+	$accueil  = is_front_page();
+	$commande = is_cart() || is_checkout();
+
 	// Turnstile (anti-robot de Contact Form 7) : inutile là où il n'y a jamais de formulaire.
-	// Il reste chargé sur les fiches produits (devis), la page SAV, la page contact et les autres pages.
-	if ( is_front_page() || is_shop() || is_product_taxonomy() || is_cart() || is_checkout() ) {
+	// Il reste sur les fiches produits (devis), la page SAV, la page contact et les autres pages.
+	if ( $accueil || is_shop() || is_product_taxonomy() || $commande ) {
 		wp_dequeue_script( 'cloudflare-turnstile' );
 	}
-	// Alma (paiement en plusieurs fois) : seulement sur les fiches produits, le panier et la commande.
-	if ( ! ( is_product() || is_cart() || is_checkout() ) ) {
-		wp_dequeue_style( 'alma-widget' );
-		wp_dequeue_style( 'alma-widget-cdn' );
+	// Alma (paiement en plusieurs fois) : bandeau sur les fiches, paiement au panier et à la commande.
+	if ( ! ( is_product() || $commande ) ) {
+		foreach ( array( 'alma-widget', 'alma-widget-cdn', 'alma-widget-block', 'alma-widget-block-view' ) as $h ) {
+			wp_dequeue_style( $h );
+		}
 	}
-}, 100 );
+	if ( ! $commande ) {
+		foreach ( array( 'alma-classic-checkout', 'alma-gateway-block', 'alma-gateway-block-react-component' ) as $h ) {
+			wp_dequeue_style( $h );
+		}
+		wp_dequeue_script( 'alma-classic-checkout' );
+	}
+	// ProfilePress : seulement sur « Mon compte » et les pages qui contiennent un de ses formulaires.
+	$post = get_queried_object();
+	$pp   = is_account_page() || ( $post instanceof WP_Post && preg_match( '/profilepress|ppress|\[(?:pp-|user-)/i', $post->post_content ) );
+	if ( ! $pp ) {
+		foreach ( array( 'ppress-frontend', 'ppress-flatpickr', 'ppress-select2' ) as $h ) {
+			wp_dequeue_style( $h );
+		}
+		foreach ( array( 'ppress-frontend-script', 'ppress-flatpickr', 'ppress-select2' ) as $h ) {
+			wp_dequeue_script( $h );
+		}
+	}
+	// Royal : particules, parallaxe et texte animé ne sont utilisés sur aucune section du site.
+	foreach ( array( 'wpr-particles', 'wpr-jarallax', 'wpr-parallax-hover' ) as $h ) {
+		wp_dequeue_script( $h );
+	}
+	wp_dequeue_style( 'wpr-text-animations-css' );
+	// Accueil : pas d'icônes Font Awesome (Elementor les affiche en SVG), ni de police Roboto, ni de bloc Prisna.
+	if ( $accueil ) {
+		wp_dequeue_style( 'font-awesome-5-all' );
+		wp_dequeue_style( 'elementor-gf-local-roboto' );
+		wp_dequeue_style( 'prisna-wp-translate-blocks' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'lmdd_vitesse_retirer', 999 );
+add_action( 'wp_footer', 'lmdd_vitesse_retirer', 5 ); // fichiers ajoutés pendant l'affichage de la page
 
 // ---------------------------------------------------------------- 4. FAQ en accordéon
 // FAQ en accordéon Elementor : le titre est un lien <a> sans adresse, signalé par PageSpeed (SEO : « liens non explorables »).
