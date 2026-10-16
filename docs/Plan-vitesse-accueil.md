@@ -101,7 +101,7 @@ Résultat attendu : 3 scripts Google au lieu de 6, environ 400 Ko de moins, et d
 Inclus dans le même extrait `wordpress/snippets/lmdd-vitesse.php`. Il reprend ce que faisaient les règles Asset Pilot du site, ce qui permet de se passer de cette extension.
 - **ProfilePress** n'est chargé que sur « Mon compte » et les pages qui contiennent un de ses formulaires.
 - **Effets Royal non utilisés** (particules, parallaxe, texte animé) : retirés partout.
-- **Font Awesome, Roboto et le bloc Prisna** : retirés de l'accueil. Font Awesome reste sur les fiches produits et la page livraison, qui l'utilisent.
+- **Font Awesome et le bloc Prisna** : retirés de l'accueil. Font Awesome reste sur les fiches produits et la page livraison, qui l'utilisent.
 - **Turnstile** est retiré de l'accueil, de la boutique, des catégories, du panier et de la commande. Il reste partout où il y a un formulaire.
 - **Alma (CSS)** n'est chargé que sur les fiches produits, le panier et la commande.
 - **FAQ en accordéon** : le titre n'est plus un lien sans adresse, ce qui corrige l'audit SEO « liens non explorables ». Il reste utilisable au clavier.
@@ -152,3 +152,12 @@ Dans la page en ligne, les points suivants ne sont pas encore faits :
 - **Cause du recul sur mobile** : les règles d'Asset Pilot retiraient déjà une quinzaine de fichiers (Font Awesome, ProfilePress, Roboto, Alma, effets Royal…). En supprimant l'extension, ces fichiers sont revenus. Il y a désormais 37 feuilles de style au lieu de 28, et elles bloquent l'affichage sur mobile.
 - **Correction** : l'extrait unique retire désormais ces fichiers.
 - **Anomalie Turnstile résolue** : une règle d'Asset Pilot le retirait aussi des fiches produits. Depuis la suppression, Turnstile y est de nouveau chargé, et le formulaire de devis est envoyable.
+
+## Mesure de 15 h 27 : mobile 57, ordinateur 81
+- **Mobile** : le grand titre de l'accueil (le H1, qui est l'élément LCP sur mobile) est passé en police **Roboto** dans Elementor, ainsi que le titre « Conseil personnalisé ».
+  - Le navigateur doit donc télécharger Roboto (7 graisses) avant de dessiner ce titre définitivement.
+  - Sur une connexion 4G lente, cela repousse le LCP à 13–15 s. À 14 h 25, sans Roboto, il était de 2,9 s.
+  - **Correction** : dans Elementor, mettre ces deux titres en police « Par défaut », comme le reste du texte. Dans *Paramètres du site → Typographie globale*, remplacer aussi Roboto (police par défaut d'Elementor).
+- **Ordinateur** : le temps bloqué varie d'un test à l'autre (130 à 400 ms) selon les scripts Google, qui ne sont pas encore traités (doublons, report JavaScript).
+- **Variabilité de PageSpeed** : sur mobile, deux tests de la même page peuvent différer de 10 à 15 points.
+  - Après chaque vidage de cache, ouvrir la page une fois, attendre une minute, puis faire 3 tests et garder le résultat du milieu.
