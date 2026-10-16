@@ -537,7 +537,7 @@
           "source": "library",
           "size": ""
          },
-         "image_size": "full",
+         "image_size": "medium_large",
          "_title": "Image à choisir : lit-a-eau-altura.webp",
          "width": {
           "unit": "%",
@@ -1179,7 +1179,7 @@
           "source": "library",
           "size": ""
          },
-         "image_size": "full",
+         "image_size": "medium_large",
          "_title": "Image à choisir : matelas-eau-leger-aqualight.webp",
          "width": {
           "unit": "%",
@@ -2804,7 +2804,7 @@
           "source": "library",
           "size": ""
          },
-         "image_size": "full",
+         "image_size": "medium_large",
          "_title": "Image à choisir : drap-housse-bella-donna.webp",
          "width": {
           "unit": "%",

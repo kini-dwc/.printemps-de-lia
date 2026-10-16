@@ -670,7 +670,7 @@ const megaVisual = (img, alt, btnText, btnUrl) => Con({
   _title: 'Visuel', flex_direction: 'column', flex_gap: gap(12),
 }, [
   // Sans lien : le bouton juste dessous y mène (une image liée s'affiche en « inline-block » et perd sa largeur).
-  Img(img, alt, { height: 170, radius: 14 }),
+  Img(img, alt, { height: 170, radius: 14, extra: { image_size: 'medium_large' } }),
   withSettings(BtnPrimary(btnText, btnUrl, { fs: 14, pad: box(12, 18, 12, 18), icon: 'fas fa-arrow-right', iconAfter: true }), { box_shadow_box_shadow_type: '', align: 'justify' }),
 ]);
 /** Panneau en grille : `cols` = colonnes CSS (ex. « 1fr 1fr 260px »), pour des largeurs stables. */
