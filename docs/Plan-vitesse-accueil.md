@@ -97,22 +97,21 @@ Résultat attendu : 3 scripts Google au lieu de 6, environ 400 Ko de moins, et d
 2. *Liste de sécurité CSS* : `.wpr-mobile-(.*)`, `.wpr-sub-mega-menu(.*)`, `.lmdd-(.*)`, `.wpcf7(.*)`, `.is-sent`, `.cky-(.*)`.
 3. Refaire les tests de l'étape 2, sur ordinateur et sur mobile.
 
-### 5. Asset Pilot : retirer ce qui ne sert pas sur chaque page (20 min)
-Créer des règles, en test d'abord, puis en ligne :
-
-| Ressource | Portée | Exceptions |
-|---|---|---|
-| `cloudflare-turnstile` | tout le site | fiches produits, page SAV, page contact |
-| `alma-widget`, `alma-widget-cdn` | tout le site | fiches produits, panier, commande |
-| `wpb_wmca_*` (menu accordéon) | tout le site | boutique et catégories, si c'est là qu'il sert |
-| `prisna-wp-translate` | à décider | si le sélecteur de langue n'est pas utilisé, désactiver l'extension |
+### 5. Scripts inutiles et FAQ : extrait WPCode n° 2 (5 min)
+`wordpress/snippets/lmdd-vitesse-scripts.php`. Il remplace les règles Asset Pilot, et l'extension Asset Pilot peut être supprimée.
+- **Turnstile** est retiré de l'accueil, de la boutique, des catégories, du panier et de la commande. Il reste partout où il y a un formulaire.
+- **Alma (CSS)** n'est chargé que sur les fiches produits, le panier et la commande.
+- **FAQ en accordéon** : le titre n'est plus un lien sans adresse, ce qui corrige l'audit SEO « liens non explorables ». Il reste utilisable au clavier.
+- Prisna Translate sert au sélecteur de langue en haut à droite : il est conservé, et le report JavaScript s'en occupe.
 
 ### 6. Nettoyer les extraits WPCode obsolètes (15 min)
 - Désactiver les extraits qui gèrent l'ancien formulaire de devis (`quote-product`, `devis_produit_nom`, `#trigger-quote-btn`) et le masquage du prix ou du bouton « sur devis ».
 - Ensuite, vérifier une catégorie « sur devis » et une fiche produit.
 
 ### 7. Prestataires externes
-- **xpay** : demander de retirer `nowprocket` de `storefront.js`, ou de le charger après la première interaction.
+- **xpay** ne doit pas être optimisé par WP Rocket. `storefront.js` porte déjà `nowprocket` : WP Rocket n'y touche pas, même avec le report JavaScript.
+  - Pour exclure aussi le reste d'xpay, ajouter ces lignes dans *WP Rocket → Fichiers → JavaScript* : `agentic-commerce-for-woocommerce`, `xpay`, `widget.xpay.sh`.
+  - Elles vont dans « Fichiers JavaScript exclus » (minification et chargement différé) et dans « Fichiers exclus » du report JavaScript.
 - **Zadarma** : le report JavaScript (étape 2) s'en occupe.
 
 ### 8. Images (gain faible)
@@ -122,3 +121,20 @@ Recompresser `akva_carla-1.webp` (104 Ko, environ 60 Ko possible), par exemple a
 Après les étapes 1 à 4 : **mobile 80 à 90**, **ordinateur 90 et plus**.
 
 Refaire PageSpeed après chaque étape (vider le cache WP Rocket avant) pour mesurer son effet.
+
+## Résultat après l'étape 1 (16 octobre, 14 h 25)
+| | Mobile | Ordinateur |
+|---|---|---|
+| Score de performance | 42 → **79** | 68 → **73** |
+| LCP | 13,7 s → **2,9 s** | 1,0 s → **0,7 s** |
+| Temps bloqué | 860 → **440 ms** | 1 080 → **710 ms** |
+
+Dans la page en ligne, les points suivants ne sont pas encore faits :
+- le report JavaScript ;
+- la suppression des CSS inutilisés (1,8 s de blocage du rendu sur mobile) ;
+- les doublons Google (G-HH41 écrit en dur, G-VJSQ de Site Kit, « Se connecter avec Google ») ;
+- l'ancien extrait `quote-product`.
+
+**Anomalie trouvée** : sur les fiches produits, le script Turnstile n'est pas chargé, alors que le formulaire de devis contient le widget.
+- Contact Form 7 refuse alors l'envoi, comme si c'était du spam.
+- Sur la copie de test, le script se charge bien : c'est un réglage de la production qui le retire sur les pages WooCommerce (règle Asset Pilot, extrait WPCode ou autre extension).
