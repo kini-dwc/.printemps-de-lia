@@ -55,7 +55,7 @@ Mesures faites avec un mobile simulé (processeur ralenti 4 fois). Chaque scéna
 ## Plan d'action, dans l'ordre
 
 ### 1. Correctif LCP : extrait WPCode fourni (5 min) – gain : LCP ordinateur, et les images cachées ne sont plus téléchargées
-1. *WPCode → Ajouter un extrait → Code personnalisé → Extrait PHP*, puis coller le contenu de `wordpress/snippets/lmdd-vitesse-images.php` (sans la première ligne `<?php`).
+1. *WPCode → Ajouter un extrait → Code personnalisé → Extrait PHP*, puis coller le contenu de `wordpress/snippets/lmdd-vitesse.php` (sans la première ligne `<?php`).
 2. Insertion : *Exécuter partout*. Activer.
 3. *Elementor → Outils → « Vider les fichiers et les données »*. C'est indispensable : le cache des éléments Elementor garde l'ancien HTML.
 4. *WP Rocket → Vider le cache*.
@@ -97,8 +97,8 @@ Résultat attendu : 3 scripts Google au lieu de 6, environ 400 Ko de moins, et d
 2. *Liste de sécurité CSS* : `.wpr-mobile-(.*)`, `.wpr-sub-mega-menu(.*)`, `.lmdd-(.*)`, `.wpcf7(.*)`, `.is-sent`, `.cky-(.*)`.
 3. Refaire les tests de l'étape 2, sur ordinateur et sur mobile.
 
-### 5. Scripts inutiles et FAQ : extrait WPCode n° 2 (5 min)
-`wordpress/snippets/lmdd-vitesse-scripts.php`. Il remplace les règles Asset Pilot, et l'extension Asset Pilot peut être supprimée.
+### 5. Scripts inutiles et FAQ : même extrait WPCode (5 min)
+Inclus dans le même extrait `wordpress/snippets/lmdd-vitesse.php`. Il remplace les règles Asset Pilot, et l'extension Asset Pilot peut être supprimée.
 - **Turnstile** est retiré de l'accueil, de la boutique, des catégories, du panier et de la commande. Il reste partout où il y a un formulaire.
 - **Alma (CSS)** n'est chargé que sur les fiches produits, le panier et la commande.
 - **FAQ en accordéon** : le titre n'est plus un lien sans adresse, ce qui corrige l'audit SEO « liens non explorables ». Il reste utilisable au clavier.
