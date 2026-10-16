@@ -66,6 +66,36 @@ les champs, les textes, les messages et les e-mails dans *Contact → Formulaire
 - Contact Form 7 charge ses propres fichiers sur tout le site par défaut (c'était déjà le cas). Pour l'alléger, limitez-les aux pages
   qui ont un formulaire, par exemple avec Asset Pilot : fiches produits, page SAV, contact.
 
+## Pages catalogue : boutique, catégories et sous-catégories
+
+Blocs utilisés par le modèle « Catégories et boutique », installé par l'extension *LMDD – Import*.
+
+- **Texte conservé** : le texte vient de la description de chaque catégorie, dans *Produits → Catégories → Description*.
+  - Le **premier paragraphe** sert d'introduction sous le titre. Le suivant est ajouté s'il est très court.
+  - **La suite** s'affiche sous les produits, dans « Bien choisir : … », et seulement en page 1.
+  - Modifier la description d'une catégorie met donc la page à jour.
+- **Raccourcis** :
+  - sur une catégorie qui a des sous-catégories, les raccourcis mènent à ses sous-catégories ;
+  - sur une sous-catégorie, aux catégories voisines, avec « Tous les … » vers la catégorie parente ;
+  - sur la boutique, aux catégories principales ;
+  - les catégories techniques (« Vos devis en cours », « Non classé ») ne sont jamais proposées.
+- **Cartes produits** :
+  - image, badge « Sur devis » ou « -x % » ;
+  - marque (taxonomie *Marques*) ;
+  - titre court s'il est renseigné ;
+  - avis, prix ou « Prix sur devis » ;
+  - toute la carte est cliquable.
+- **Performance** :
+  - aucun JavaScript ;
+  - une feuille de style de 2,8 Ko compressée, chargée seulement quand ce modèle est utilisé.
+
+| Code court | Rôle |
+|---|---|
+| `[lmdd_cat_entete]` | Fil d'Ariane, titre (H1), introduction et nombre de produits |
+| `[lmdd_cat_navigation exclure="slug-1, slug-2"]` | Raccourcis vers les catégories (`exclure` : catégories à masquer en plus) |
+| `[lmdd_produits]` | Tri, grille des produits de la page et pagination |
+| `[lmdd_cat_description titre="…"]` | Suite de la description (titre par défaut : « Bien choisir : … ») |
+
 ## Demandes clients (copie de secours)
 
 Liste avec le type (Devis / SAV), le téléphone, le créneau, le code postal et le statut *Nouvelle / Traitée*. La fiche d'une demande

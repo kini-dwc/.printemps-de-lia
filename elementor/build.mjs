@@ -945,6 +945,30 @@ const savPage = [
 ];
 
 // ---------- Écriture ----------
+// ================= CATÉGORIES ET BOUTIQUE (modèle Royal « Archive de produits ») =================
+// Le texte de chaque catégorie vient de sa description WooCommerce : il n'est pas recopié ici.
+const catSection = (title, settings, children) => Con({
+  _title: title, content_width: 'boxed', boxed_width: px(1200), html_tag: 'section', flex_direction: 'column',
+  padding: box(48, 24, 48, 24), padding_mobile: box(28, 16, 28, 16), ...settings,
+}, children, false);
+const categoryTemplate = [
+  catSection('Catégorie – titre, introduction et sous-catégories', {
+    padding: box(28, 24, 36, 24), padding_mobile: box(16, 16, 24, 16), flex_gap: gap(24), flex_gap_mobile: gap(18),
+    background_background: 'classic', background_color: C.tint, border_border: 'solid', border_width: box(0, 0, 1, 0), border_color: C.line,
+  }, [
+    SC('[lmdd_cat_entete]', 'Fil d\'Ariane, titre, introduction (1er paragraphe de la description) et nombre de produits'),
+    SC('[lmdd_cat_navigation]', 'Raccourcis : sous-catégories (ou catégories voisines)'),
+  ]),
+  catSection('Catégorie – produits', { padding: box(32, 24, 64, 24), padding_mobile: box(20, 16, 40, 16) }, [
+    SC('[lmdd_produits]', 'Produits (tri, grille, pagination)'),
+  ]),
+  { ...trust, id: id() },
+  catSection('Catégorie – présentation complète', { padding: box(64, 24, 64, 24), padding_mobile: box(40, 16, 40, 16) }, [
+    SC('[lmdd_cat_description]', 'Présentation : suite de la description de la catégorie (affichée seulement en page 1)'),
+  ]),
+  { ...cta, id: id() },
+];
+
 const tpl = (title, type, content, page_settings = []) => ({ content, page_settings, version: '0.4', title, type });
 writeFileSync(path.join(OUT, 'en-tete-la-maison-du-dos.json'), JSON.stringify(tpl('En-tête – La Maison du Dos', 'section', headerContent), null, 1));
 writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children, mega]) => ({ title, url, mega: mega || '', children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
@@ -952,6 +976,7 @@ writeFileSync(path.join(OUT, 'mega-menus-la-maison-du-dos.json'), JSON.stringify
 writeFileSync(path.join(OUT, 'accueil-la-maison-du-dos.json'), JSON.stringify(tpl("Accueil – La Maison du Dos", 'page', pageContent, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
 writeFileSync(path.join(OUT, 'fiche-produit-la-maison-du-dos.json'), JSON.stringify(tpl('Fiche produit – La Maison du Dos', 'section', productTemplate), null, 1));
 writeFileSync(path.join(OUT, 'sav-la-maison-du-dos.json'), JSON.stringify(tpl('SAV lit à eau – La Maison du Dos', 'page', savPage, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
+writeFileSync(path.join(OUT, 'categorie-la-maison-du-dos.json'), JSON.stringify(tpl('Catégories et boutique – La Maison du Dos', 'section', categoryTemplate), null, 1));
 writeFileSync(path.join(OUT, 'pied-de-page-la-maison-du-dos.json'), JSON.stringify(tpl('Pied de page – La Maison du Dos', 'section', [footer]), null, 1));
 
 const count = (els) => els.reduce((a, e) => a + 1 + count(e.elements || []), 0);

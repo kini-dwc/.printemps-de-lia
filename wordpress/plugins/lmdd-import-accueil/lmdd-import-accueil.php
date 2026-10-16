@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
  * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit et la page SAV, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
- * Version:           1.3.0
+ * Version:           1.4.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -24,6 +24,8 @@ final class LMDD_Import_Accueil {
 		'header'         => array( 'slug' => 'user-header-lmdd-en-tete', 'data' => 'en-tete', 'state' => 'wpr_header', 'group' => 'hf', 'cond' => 'global', 'etype' => 'wpr-theme-builder-header' ),
 		'footer'         => array( 'slug' => 'user-footer-lmdd-pied-de-page', 'data' => 'pied-de-page', 'state' => 'wpr_footer', 'group' => 'hf', 'cond' => 'global', 'etype' => 'wpr-theme-builder-footer' ),
 		'product_single' => array( 'slug' => 'user-product_single-lmdd-fiche-produit', 'data' => 'fiche-produit', 'state' => 'wpr_product', 'group' => 'fiche', 'cond' => 'product_single/product', 'etype' => 'wpr-theme-builder' ),
+		// Boutique, catégories et étiquettes de produits.
+		'product_archive' => array( 'slug' => 'user-product_archive-lmdd-categorie', 'data' => 'categorie', 'state' => 'wpr_archive', 'group' => 'categorie', 'cond' => array( 'product_archive/products', 'product_archive/product_cat/all', 'product_archive/product_tag/all' ), 'etype' => 'wpr-theme-builder' ),
 	);
 
 	/** Emplacements « Avis » du modèle de fiche produit (remplis avec les codes courts du modèle actuel). */
@@ -34,13 +36,14 @@ final class LMDD_Import_Accueil {
 	const LIBRARY = array( 'accueil' => 'tpl_accueil', 'en-tete' => 'tpl_entete', 'pied-de-page' => 'tpl_pied' );
 
 	/** Éléments installables séparément (cases à cocher) : fichier de données => élément. */
-	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied', 'product_single' => 'fiche', 'sav' => 'sav' );
+	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied', 'product_single' => 'fiche', 'product_archive' => 'categorie', 'sav' => 'sav' );
 	const PARTS   = array(
 		'accueil' => 'Page d\'accueil (page brouillon « Accueil – nouvelle version »)',
 		'entete'  => 'En-tête, menu principal et méga-menus',
 		'pied'    => 'Pied de page',
 		'fiche'   => 'Fiche produit : nouveau modèle pour toutes les fiches (sur devis et en ligne)',
 		'sav'     => 'Page SAV (brouillon « SAV lit à eau ») avec le formulaire en étapes',
+		'categorie' => 'Catégories et boutique : nouveau modèle pour la boutique, les catégories et sous-catégories (texte des catégories conservé)',
 	);
 
 	/** Préfixe des méga-menus (contenus Elementor du type « wpr_mega_menu » de Royal Elementor Addons). */
@@ -83,7 +86,7 @@ final class LMDD_Import_Accueil {
 			array( 'id' => 'page', 'label' => 'Création de la page « Accueil – nouvelle version » (brouillon)' ),
 			array( 'id' => 'mega', 'label' => 'Création des 6 méga-menus (Lits à eau, Matelas réglables, Accessoires, Linge de lit, Couettes Hefel, Marques)' ),
 			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » et rattachement des méga-menus' ),
-			array( 'id' => 'hf', 'label' => 'Création des modèles Royal : en-tête, pied de page, fiche produit (sans les activer)' ),
+			array( 'id' => 'hf', 'label' => 'Création des modèles Royal : en-tête, pied de page, fiche produit, catégories (sans les activer)' ),
 			array( 'id' => 'sav', 'label' => 'Création de la page « SAV lit à eau » (brouillon)' ),
 		);
 		foreach ( array_keys( self::IMAGES ) as $file ) {
@@ -635,7 +638,7 @@ final class LMDD_Import_Accueil {
 
 	/** Conditions d'affichage Royal qui affichent nos modèles sur tout le site. */
 	private static function hf_conditions( $type ) {
-		return wp_json_encode( array( self::HF[ $type ]['slug'] => array( self::HF[ $type ]['cond'] ) ) );
+		return wp_json_encode( array( self::HF[ $type ]['slug'] => (array) self::HF[ $type ]['cond'] ) );
 	}
 
 	private static function hf_is_active( $type ) {
@@ -671,7 +674,7 @@ final class LMDD_Import_Accueil {
 		}
 		check_admin_referer( 'lmdd_hf' );
 		$do    = isset( $_POST['do'] ) ? sanitize_key( wp_unslash( $_POST['do'] ) ) : '';
-		$group = isset( $_POST['group'] ) && 'fiche' === $_POST['group'] ? 'fiche' : 'hf';
+		$group = isset( $_POST['group'] ) && in_array( $_POST['group'], array( 'fiche', 'categorie' ), true ) ? sanitize_key( $_POST['group'] ) : 'hf';
 		$types = array_keys( wp_list_filter( self::HF, array( 'group' => $group ) ) );
 		$state = self::state();
 		$msg   = '';
@@ -736,6 +739,7 @@ final class LMDD_Import_Accueil {
 					'entete'  => self::royal_active() && self::hf_template_id( 'header' ),
 					'pied'    => self::royal_active() && self::hf_template_id( 'footer' ),
 					'fiche'   => self::royal_active() && self::hf_template_id( 'product_single' ),
+					'categorie' => self::royal_active() && self::hf_template_id( 'product_archive' ),
 					'sav'     => (bool) self::existing( 'page_sav', 'page', 'page-sav' ),
 				);
 				foreach ( self::PARTS as $part => $label ) :
@@ -831,6 +835,7 @@ final class LMDD_Import_Accueil {
 		}
 		self::render_hf_box();
 		self::render_fiche_box();
+		self::render_categorie_box();
 		$sav = self::existing( 'page_sav', 'page', 'page-sav' );
 		if ( $sav ) {
 			echo '<div class="wrap"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #00a32a;padding:12px 16px;max-width:760px;margin-top:12px">';
@@ -938,6 +943,56 @@ final class LMDD_Import_Accueil {
 			$button( 'restore', 'Revenir au modèle de fiche d\'origine', '' );
 		}
 		echo '</p><p style="color:#646970">L\'activation remplace les conditions d\'affichage de Royal Addons (<em>Constructeur de thème → Produit unique</em>). Les anciennes sont sauvegardées : le bouton « Revenir » les rétablit.</p>';
+		echo '</div></div>';
+	}
+
+	/** Cadre « Catégories et boutique » : aperçu, activation, retour arrière. */
+	private static function render_categorie_box() {
+		if ( ! self::royal_active() || ! self::hf_template_id( 'product_archive' ) ) {
+			return;
+		}
+		$state  = self::state();
+		$active = self::hf_is_active( 'product_archive' );
+		$notice = isset( $_GET['lmdd_hf'], $_GET['lmdd_g'] ) && 'categorie' === $_GET['lmdd_g'] ? sanitize_key( $_GET['lmdd_hf'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		echo '<div class="wrap" id="lmdd-categorie"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid ' . ( $active ? '#00a32a' : '#2271b1' ) . ';padding:12px 16px;max-width:760px;margin-top:12px">';
+		echo '<h2 style="margin-top:4px">Catégories et boutique</h2>';
+		if ( 'activated' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ Nouveau modèle affiché sur la boutique et toutes les catégories.</strong> Videz aussi le cache de votre hébergeur s\'il en a un.</p>';
+		} elseif ( 'restored' === $notice ) {
+			echo '<p style="color:#00a32a"><strong>✓ Modèles d\'origine rétablis.</strong></p>';
+		}
+		echo '<p>État : <strong>' . ( $active ? 'utilisé sur la boutique et toutes les catégories' : 'créé, pas encore utilisé (vos visiteurs voient toujours les pages actuelles)' ) . '</strong>.</p><p>';
+		$links = array();
+		if ( function_exists( 'wc_get_page_permalink' ) ) {
+			$links['Aperçu : boutique'] = wc_get_page_permalink( 'shop' );
+		}
+		$top = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => true, 'orderby' => 'count', 'order' => 'DESC', 'number' => 1 ) );
+		if ( $top && ! is_wp_error( $top ) ) {
+			$links[ 'Aperçu : ' . $top[0]->name ] = get_term_link( $top[0] );
+			$sub = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => $top[0]->term_id, 'hide_empty' => true, 'number' => 1 ) );
+			if ( $sub && ! is_wp_error( $sub ) ) {
+				$links[ 'Aperçu : ' . $sub[0]->name ] = get_term_link( $sub[0] );
+			}
+		}
+		foreach ( $links as $label => $url ) {
+			echo '<a class="button" href="' . esc_url( add_query_arg( 'lmdd_hf_preview', '1', $url ) ) . '" target="_blank" rel="noopener">' . esc_html( $label ) . '</a> ';
+		}
+		echo '<a class="button" href="' . esc_url( admin_url( 'post.php?post=' . self::hf_template_id( 'product_archive' ) . '&action=elementor' ) ) . '">Modifier le modèle avec Elementor</a></p>';
+		echo '<p style="color:#646970">Le texte de chaque catégorie reste celui de sa description (<em>Produits → Catégories</em>) : son premier paragraphe sert d\'introduction en haut de page, la suite s\'affiche sous les produits.
+			L\'aperçu n\'est visible que par vous : ajoutez <code>?lmdd_hf_preview=1</code> à l\'adresse de n\'importe quelle catégorie.</p><p>';
+		$button = function ( $do, $label, $class ) {
+			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="display:inline-block;margin-right:6px">';
+			wp_nonce_field( 'lmdd_hf' );
+			echo '<input type="hidden" name="action" value="lmdd_hf"><input type="hidden" name="do" value="' . esc_attr( $do ) . '"><input type="hidden" name="group" value="categorie">';
+			echo '<button type="submit" class="button ' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
+		};
+		if ( ! $active ) {
+			$button( 'activate', 'Utiliser sur la boutique et toutes les catégories', 'button-primary' );
+		}
+		if ( $active && isset( $state['hf_backup']['product_archive'] ) ) {
+			$button( 'restore', 'Revenir aux modèles d\'origine', '' );
+		}
+		echo '</p><p style="color:#646970">L\'activation remplace les conditions d\'affichage de Royal Addons (<em>Constructeur de thème → Archive de produits</em>). Les anciennes sont sauvegardées : le bouton « Revenir » les rétablit.</p>';
 		echo '</div></div>';
 	}
 }

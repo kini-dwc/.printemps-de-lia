@@ -390,7 +390,8 @@ final class LMDD_DS_Front {
 		}
 		$cats  = wc_get_product_terms( $p->get_id(), 'product_cat', array( 'orderby' => 'parent' ) );
 		$cat   = $cats ? $cats[0] : null;
-		$tags  = wc_get_product_terms( $p->get_id(), 'product_tag' );
+		$tax   = taxonomy_exists( 'product_brand' ) ? 'product_brand' : 'product_tag';
+		$tags  = wc_get_product_terms( $p->get_id(), $tax );
 		$brand = $tags ? $tags[0] : null;
 		$eye   = array();
 		if ( $cat ) {

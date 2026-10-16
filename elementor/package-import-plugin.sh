@@ -13,6 +13,7 @@ cp elementor/menu-principal-la-maison-du-dos.json $P/data/menu.json
 cp elementor/mega-menus-la-maison-du-dos.json $P/data/mega-menus.json
 cp elementor/fiche-produit-la-maison-du-dos.json $P/data/fiche-produit.json
 cp elementor/sav-la-maison-du-dos.json $P/data/sav.json
+cp elementor/categorie-la-maison-du-dos.json $P/data/categorie.json
 I=homepage/assets/img
 cp $I/hero-lit-a-eau-altura-1040.webp $P/images/lit-a-eau-altura.webp
 cp $I/lit-a-eau-havre.webp $I/lit-a-eau-tec-line.webp $I/matelas-eau-leger-aqualight.webp $I/drap-housse-bella-donna.webp $P/images/

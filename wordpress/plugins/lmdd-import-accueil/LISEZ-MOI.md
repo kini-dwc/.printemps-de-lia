@@ -87,6 +87,25 @@ Un seul modèle pour toutes les fiches, qui s'adapte tout seul :
 - Pour de meilleures fiches : renseignez **Titre affiché (court)** et **Points clés** dans chaque produit (*Produit → Général*).
   Sans eux, la fiche affiche le nom complet du produit et pas de points clés.
 
+## Catégories et boutique : aperçu, activation, retour arrière
+
+La case **« Catégories et boutique »** crée le modèle Royal **« Catégories et boutique – La Maison du Dos »**, du type *Archive de produits*. Il n'est **pas activé** à l'installation.
+
+**Contenu du modèle :**
+1. titre, introduction et raccourcis vers les sous-catégories ;
+2. grille des produits ;
+3. bandeau d'engagements ;
+4. présentation complète de la catégorie ;
+5. appel « Un projet de literie ? ».
+
+Le **texte de chaque catégorie n'est pas recopié** : il vient de sa description WooCommerce. Les bandeaux et l'appel à l'action sont des widgets Elementor ordinaires, modifiables dans Elementor.
+
+1. **Aperçu**, visible par vous seul : les boutons de la section « Catégories et boutique », ou `?lmdd_hf_preview=1` ajouté à l'adresse de n'importe quelle catégorie.
+2. **Activation** : le bouton « Utiliser sur la boutique et toutes les catégories ».
+   - Il remplace les conditions *Constructeur de thème → Archive de produits* de Royal : boutique, catégories et étiquettes.
+   - Les anciennes conditions sont sauvegardées.
+3. **Retour arrière** : le bouton « Revenir aux modèles d'origine ».
+
 ## Page SAV
 
 Créée en **brouillon** : *Modifier avec Elementor* ou *Prévisualiser* depuis le cadre « Page SAV ». Contenu :
