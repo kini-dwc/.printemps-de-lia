@@ -11,7 +11,8 @@
  * 1. Images : l'image principale de la page (LCP) passe en priorité haute ; les images des méga-menus (cachées)
  *    et du pied de page sont différées ; le logo ne prend plus la priorité haute.
  * 2. Émojis WordPress retirés.
- * 3. Fichiers inutiles retirés là où ils ne servent pas : Turnstile, Alma, ProfilePress, effets Royal non utilisés,
+ * 3. Fichiers inutiles retirés là où ils ne servent pas : Turnstile (seulement là où un formulaire s'affiche),
+ *    Alma, ProfilePress, options de produits (TM EPO) sur les catégories, effets Royal non utilisés,
  *    bloc Prisna sur l'accueil (ce que faisait Asset Pilot).
  * 4. FAQ en accordéon : titres sans lien vide (audit SEO « liens non explorables »), accessibles au clavier.
  */
@@ -81,10 +82,21 @@ function lmdd_vitesse_retirer() {
 	$accueil  = is_front_page();
 	$commande = is_cart() || is_checkout();
 
-	// Turnstile (anti-robot de Contact Form 7) : inutile là où il n'y a jamais de formulaire.
-	// Il reste sur les fiches produits (devis), la page SAV, la page contact et les autres pages.
-	if ( $accueil || is_shop() || is_product_taxonomy() || $commande ) {
+	// Turnstile (anti-robot de Contact Form 7) : retiré partout sauf sur les fiches produits (devis),
+	// puis remis en bas de page dès qu'un formulaire Contact Form 7 a été affiché (contact, SAV, devis…), voir plus bas.
+	if ( ! is_product() ) {
 		wp_dequeue_script( 'cloudflare-turnstile' );
+	}
+	// Options de produits (TM Extra Product Options) : une vingtaine de fichiers inutiles sur la boutique et les catégories,
+	// où les cartes produits n'ont pas de formulaire d'options. Ils restent sur les fiches, le panier et la commande.
+	if ( is_shop() || is_product_taxonomy() ) {
+		foreach ( array( wp_scripts(), wp_styles() ) as $deps ) {
+			foreach ( (array) $deps->queue as $h ) {
+				if ( isset( $deps->registered[ $h ] ) && false !== strpos( (string) $deps->registered[ $h ]->src, 'woocommerce-tm-extra-product-options' ) ) {
+					$deps instanceof WP_Scripts ? wp_dequeue_script( $h ) : wp_dequeue_style( $h );
+				}
+			}
+		}
 	}
 	// Alma (paiement en plusieurs fois) : bandeau sur les fiches, paiement au panier et à la commande.
 	if ( ! ( is_product() || $commande ) ) {
@@ -100,7 +112,8 @@ function lmdd_vitesse_retirer() {
 	}
 	// ProfilePress : seulement sur « Mon compte » et les pages qui contiennent un de ses formulaires.
 	$post = get_queried_object();
-	$pp   = is_account_page() || ( $post instanceof WP_Post && preg_match( '/profilepress|ppress|\[(?:pp-|user-)/i', $post->post_content ) );
+	// (« ppress » seul ne suffit pas : il apparaît dans « suppression », par exemple dans les CGV.)
+	$pp   = is_account_page() || ( $post instanceof WP_Post && preg_match( '/profilepress|\[(?:pp-|ppress|profilepress|user-)/i', $post->post_content ) );
 	if ( ! $pp ) {
 		foreach ( array( 'ppress-frontend', 'ppress-flatpickr', 'ppress-select2' ) as $h ) {
 			wp_dequeue_style( $h );
@@ -122,6 +135,12 @@ function lmdd_vitesse_retirer() {
 }
 add_action( 'wp_enqueue_scripts', 'lmdd_vitesse_retirer', 999 );
 add_action( 'wp_footer', 'lmdd_vitesse_retirer', 5 ); // fichiers ajoutés pendant l'affichage de la page
+// Turnstile remis en bas de page dès qu'un formulaire Contact Form 7 a été affiché (page, modèle, fenêtre surgissante).
+add_action( 'wp_footer', function () {
+	if ( did_action( 'wpcf7_shortcode_callback' ) && wp_script_is( 'cloudflare-turnstile', 'registered' ) ) {
+		wp_enqueue_script( 'cloudflare-turnstile' );
+	}
+}, 19 );
 
 // ---------------------------------------------------------------- 4. FAQ en accordéon
 // FAQ en accordéon Elementor : le titre est un lien <a> sans adresse, signalé par PageSpeed (SEO : « liens non explorables »).
