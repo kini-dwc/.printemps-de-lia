@@ -604,8 +604,8 @@
      "isLocked": false,
      "widgetType": "shortcode",
      "settings": {
-      "shortcode": "[related_products limit=\"4\" columns=\"4\"]",
-      "_title": "Produits liés (WooCommerce, titre « Produits similaires »)"
+      "shortcode": "[lmdd_produits_lies limite=\"4\" titre=\"Vous aimerez aussi\"]",
+      "_title": "Produits liés (cartes du catalogue ; titre modifiable dans le code court)"
      },
      "elements": []
     }

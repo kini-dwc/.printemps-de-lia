@@ -87,6 +87,12 @@ Un seul modèle pour toutes les fiches, qui s'adapte tout seul :
 - Pour de meilleures fiches : renseignez **Titre affiché (court)** et **Points clés** dans chaque produit (*Produit → Général*).
   Sans eux, la fiche affiche le nom complet du produit et pas de points clés.
 
+## Fiche produit : réinstallation (version 1.4.1)
+
+- **Produits liés** : la fiche affiche « Vous aimerez aussi » avec les mêmes cartes que les catégories. Le titre se modifie dans le code court `[lmdd_produits_lies]`.
+- **Avis** : réinstaller la case « Fiche produit » **conserve** les codes courts d'avis déjà en place (Société des Avis Garantis). S'ils sont absents, ils sont repris du modèle de fiche d'origine, même après l'activation du nouveau modèle.
+- **Réinstaller remplace la fiche** : les modifications faites dans Elementor sur ce modèle sont perdues.
+
 ## Catégories et boutique : aperçu, activation, retour arrière
 
 La case **« Catégories et boutique »** crée le modèle Royal **« Catégories et boutique – La Maison du Dos »**, du type *Archive de produits*. Il n'est **pas activé** à l'installation.

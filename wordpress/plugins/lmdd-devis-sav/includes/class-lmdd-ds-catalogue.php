@@ -19,6 +19,7 @@ final class LMDD_DS_Catalogue {
 		add_shortcode( 'lmdd_cat_navigation', array( __CLASS__, 'sc_navigation' ) );
 		add_shortcode( 'lmdd_produits', array( __CLASS__, 'sc_products' ) );
 		add_shortcode( 'lmdd_cat_description', array( __CLASS__, 'sc_description' ) );
+		add_shortcode( 'lmdd_produits_lies', array( __CLASS__, 'sc_related' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'assets' ), 20 );
 		// Fil d'Ariane sans « Boutique » : Accueil › Catégorie › Sous-catégorie (› Produit).
 		add_filter( 'woocommerce_get_breadcrumb', array( __CLASS__, 'breadcrumb_without_shop' ), 20 );
@@ -152,6 +153,10 @@ final class LMDD_DS_Catalogue {
 		wp_register_style( 'lmdd-catalogue', plugin_dir_url( LMDD_DS_FILE ) . 'assets/lmdd-catalogue.css', array(), LMDD_DS_VERSION );
 		// Seulement si notre modèle « Catégories et boutique » est utilisé (ou en aperçu) : sinon les blocs l'ajoutent eux-mêmes.
 		if ( self::is_catalogue() && false !== strpos( (string) get_option( 'wpr_product_archive_conditions', '' ), 'lmdd-categorie' ) ) {
+			wp_enqueue_style( 'lmdd-catalogue' );
+		}
+		// Fiche produit (nouveau modèle) : cartes des produits liés.
+		if ( function_exists( 'is_product' ) && is_product() && false !== strpos( (string) get_option( 'wpr_product_single_conditions', '' ), 'lmdd-fiche-produit' ) ) {
 			wp_enqueue_style( 'lmdd-catalogue' );
 		}
 	}
@@ -413,6 +418,37 @@ final class LMDD_DS_Catalogue {
 		}
 		$b = get_the_terms( $p->get_id(), 'product_brand' );
 		return $b && ! is_wp_error( $b ) ? $b[0]->name : '';
+	}
+
+	// ------------------------------------------------------------------ [lmdd_produits_lies]
+
+	/** Produits liés de la fiche (mêmes catégories ou étiquettes, ventes croisées en priorité), en cartes. */
+	public static function sc_related( $atts ) {
+		if ( ! function_exists( 'is_product' ) || ! is_product() ) {
+			return '';
+		}
+		$atts = shortcode_atts( array( 'limite' => 4, 'titre' => 'Vous aimerez aussi' ), $atts );
+		$p    = wc_get_product( get_queried_object_id() );
+		if ( ! $p ) {
+			return '';
+		}
+		$limit = max( 1, min( 12, (int) $atts['limite'] ) );
+		$ids   = array_slice( array_unique( array_merge( $p->get_upsell_ids(), wc_get_related_products( $p->get_id(), $limit * 2 ) ) ), 0, $limit * 2 );
+		$cards = '';
+		$n     = 0;
+		foreach ( $ids as $id ) {
+			$r = wc_get_product( $id );
+			if ( $r && $r->is_visible() && $n < $limit ) {
+				$cards .= self::card( $r, 99 );
+				$n++;
+			}
+		}
+		if ( ! $cards ) {
+			return '';
+		}
+		wp_enqueue_style( 'lmdd-catalogue' );
+		return '<section class="lmdd-related">' . ( $atts['titre'] ? '<h2 class="lmdd-related__title">' . esc_html( $atts['titre'] ) . '</h2>' : '' )
+			. '<ul class="lmdd-grid">' . $cards . '</ul></section>';
 	}
 
 	// ------------------------------------------------------------------ [lmdd_cat_description]

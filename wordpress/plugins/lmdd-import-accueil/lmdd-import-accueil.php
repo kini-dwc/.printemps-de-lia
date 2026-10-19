@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
  * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit et la page SAV, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
- * Version:           1.4.0
+ * Version:           1.4.1
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -574,6 +574,17 @@ final class LMDD_Import_Accueil {
 		}
 	}
 
+	private static function find_titled( array $elements, array $titles, array &$out ) {
+		foreach ( $elements as $el ) {
+			if ( isset( $el['settings']['_title'] ) && in_array( $el['settings']['_title'], $titles, true ) ) {
+				$out[ $el['settings']['_title'] ] = isset( $el['settings']['shortcode'] ) ? trim( $el['settings']['shortcode'] ) : '';
+			}
+			if ( ! empty( $el['elements'] ) ) {
+				self::find_titled( $el['elements'], $titles, $out );
+			}
+		}
+	}
+
 	private static function set_shortcode( array &$elements, $title, $code ) {
 		foreach ( $elements as &$el ) {
 			if ( isset( $el['settings']['_title'] ) && $title === $el['settings']['_title'] ) {
@@ -590,8 +601,33 @@ final class LMDD_Import_Accueil {
 	 * les suivants sous la description. Le bouton de devis de l'ancien modèle n'est pas repris (remplacé par le panneau).
 	 */
 	private static function fill_avis( array &$content ) {
+		// 1. Réinstallation : les codes déjà placés dans notre modèle sont conservés.
+		$mine = self::hf_template_id( 'product_single' );
+		if ( $mine ) {
+			$raw  = get_post_meta( $mine, '_elementor_data', true );
+			$data = is_string( $raw ) ? json_decode( $raw, true ) : $raw;
+			$kept = array();
+			self::find_titled( is_array( $data ) ? $data : array(), array( self::AVIS_RESUME, self::AVIS_LISTE ), $kept );
+			if ( ! empty( $kept[ self::AVIS_RESUME ] ) || ! empty( $kept[ self::AVIS_LISTE ] ) ) {
+				self::set_shortcode( $content, self::AVIS_RESUME, (string) ( $kept[ self::AVIS_RESUME ] ?? '' ) );
+				self::set_shortcode( $content, self::AVIS_LISTE, (string) ( $kept[ self::AVIS_LISTE ] ?? '' ) );
+				return ' — codes courts d\'avis conservés';
+			}
+		}
+		// 2. Sinon : codes du modèle de fiche d'origine (actif, ou sauvegardé lors de l'activation du nôtre).
+		$tids  = self::current_product_templates();
+		$state = self::state();
+		if ( ! $tids && ! empty( $state['hf_backup']['product_single'] ) ) {
+			$old = json_decode( (string) $state['hf_backup']['product_single'], true );
+			foreach ( array_keys( is_array( $old ) ? $old : array() ) as $slug ) {
+				$post = $slug !== self::HF['product_single']['slug'] ? get_page_by_path( $slug, OBJECT, 'wpr_templates' ) : null;
+				if ( $post ) {
+					$tids[] = (int) $post->ID;
+				}
+			}
+		}
 		$codes = array();
-		foreach ( self::current_product_templates() as $tid ) {
+		foreach ( $tids as $tid ) {
 			$raw  = get_post_meta( $tid, '_elementor_data', true );
 			$data = is_string( $raw ) ? json_decode( $raw, true ) : $raw;
 			if ( is_array( $data ) ) {

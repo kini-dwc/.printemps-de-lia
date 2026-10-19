@@ -841,7 +841,7 @@ const productTemplate = [
     SC('', AVIS_LISTE),
   ], false),
   Con({ _title: 'Fiche – produits similaires', content_width: 'boxed', boxed_width: px(1200), html_tag: 'section', padding: box(40, 24, 72, 24), padding_mobile: box(28, 16, 48, 16), flex_direction: 'column' }, [
-    SC('[related_products limit="4" columns="4"]', 'Produits liés (WooCommerce, titre « Produits similaires »)'),
+    SC('[lmdd_produits_lies limite="4" titre="Vous aimerez aussi"]', 'Produits liés (cartes du catalogue ; titre modifiable dans le code court)'),
   ], false),
 ];
 

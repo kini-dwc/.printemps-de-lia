@@ -62,6 +62,10 @@
 .lmdd-card__cta .lmdd-i { width: 1em; height: 1em; transition: transform .2s; }
 .lmdd-card:hover .lmdd-card__cta .lmdd-i { transform: translateX(3px); }
 
+/* Produits liés (fiche produit) */
+.lmdd-related .lmdd-related__title { margin: 0 0 22px; color: var(--lmdd-green); font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -.3px; }
+.lmdd-related .lmdd-card__title { font-size: 15px; }
+
 /* Pagination */
 .lmdd-shop .woocommerce-pagination { margin: 36px 0 0; text-align: center; }
 .lmdd-shop .woocommerce-pagination ul.page-numbers { display: inline-flex; gap: 6px; margin: 0; padding: 0; border: 0; }

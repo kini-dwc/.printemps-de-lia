@@ -106,6 +106,7 @@ Blocs utilisés par le modèle « Catégories et boutique », installé par l'ex
 | `[lmdd_cat_navigation exclure="slug-1, slug-2"]` | Raccourcis vers les catégories (`exclure` : catégories à masquer en plus) |
 | `[lmdd_produits]` | Tri, grille des produits de la page et pagination |
 | `[lmdd_cat_description titre="…"]` | Suite de la description (titre par défaut : « Bien choisir : … ») |
+| `[lmdd_produits_lies limite="4" titre="Vous aimerez aussi"]` | Fiche produit : produits liés (ventes incitatives puis produits apparentés), avec les mêmes cartes que les catégories |
 
 ## Demandes clients (copie de secours)
 
