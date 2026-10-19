@@ -11,6 +11,21 @@ final class LMDD_DS_Catalogue {
 	/** Catégories jamais proposées dans la navigation (catégories techniques). */
 	const EXCLUDE = array( 'uncategorized', 'non-classe', 'vos-devis-en-cours' );
 
+	/**
+	 * Ordre imposé des sous-catégories (raccourcis en haut de page), par catégorie parente.
+	 * Repris de l'ancien code court [subcategories_dynamiques] ; les autres catégories suivent l'ordre de WooCommerce.
+	 */
+	const SUBCAT_ORDER = array(
+		'linge-de-lit' => array(
+			'Oreillers', 'Draps housses Jersey', 'Alèses/Protections', 'Surmatelas', 'COUETTES ÉTÉ', 'COUETTES TOUTES SAISONS',
+			'COUETTES HIVER', 'COUETTES DOUBLES', 'COUETTES BIO', 'COUETTES EIDER', "Bella Donna couverture/ dessus de lit d'été",
+			'Housses couettes / Taies',
+		),
+	);
+
+	/** Tris proposés : par défaut (produits sur devis en tête), prix croissant, prix décroissant. */
+	const SORTS = array( 'menu_order', 'price', 'price-desc' );
+
 	private static $parts = null;
 	private static $query = null;
 
@@ -30,6 +45,14 @@ final class LMDD_DS_Catalogue {
 		add_filter( 'posts_clauses', array( __CLASS__, 'devis_first' ), 20, 2 );
 		// Notre requête peut compter plus de pages que la requête principale : pas de page 404 sur ces pages.
 		add_filter( 'pre_handle_404', array( __CLASS__, 'no_404_on_extra_pages' ), 10, 2 );
+		// Menu de tri limité au tri par défaut et aux prix (comme l'ancienne grille).
+		add_filter( 'woocommerce_catalog_orderby', array( __CLASS__, 'limit_sorts' ), 20 );
+	}
+
+	public static function limit_sorts( $options ) {
+		$keys = array_merge( self::SORTS, array( (string) get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) ) );
+		$kept = array_intersect_key( $options, array_flip( $keys ) );
+		return $kept ? $kept : $options;
 	}
 
 	/**
@@ -308,6 +331,16 @@ final class LMDD_DS_Catalogue {
 		$terms = array_values( array_filter( $terms, function ( $x ) use ( $exclude ) {
 			return ! in_array( $x->slug, $exclude, true );
 		} ) );
+		$parent_term = $parent ? get_term( $parent, 'product_cat' ) : null;
+		if ( $parent_term && ! is_wp_error( $parent_term ) && isset( self::SUBCAT_ORDER[ $parent_term->slug ] ) ) {
+			// Comparaison sans accents ni majuscules : « COUETTES ÉTÉ » = « Couettes été ».
+			$rank = array_flip( array_map( 'sanitize_title', self::SUBCAT_ORDER[ $parent_term->slug ] ) );
+			usort( $terms, function ( $a, $b ) use ( $rank ) {
+				$ra = $rank[ sanitize_title( $a->name ) ] ?? 999;
+				$rb = $rank[ sanitize_title( $b->name ) ] ?? 999;
+				return $ra - $rb;
+			} );
+		}
 		if ( count( $terms ) < 2 && ! $all ) {
 			return '';
 		}

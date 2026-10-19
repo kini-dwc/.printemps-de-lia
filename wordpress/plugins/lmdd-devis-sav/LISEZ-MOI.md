@@ -108,6 +108,10 @@ Blocs utilisés par le modèle « Catégories et boutique », installé par l'ex
 | `[lmdd_cat_description titre="…"]` | Suite de la description (titre par défaut : « Bien choisir : … ») |
 | `[lmdd_produits_lies limite="4" titre="Vous aimerez aussi"]` | Fiche produit : produits liés (ventes incitatives puis produits apparentés), avec les mêmes cartes que les catégories |
 
+### Repris des anciens codes (version 2.4.1)
+- **Ordre des sous-catégories de Linge de lit** (ancien `[subcategories_dynamiques]`) : Oreillers, Draps housses Jersey, Alèses/Protections, Surmatelas, Couettes été, toutes saisons, hiver, doubles, bio, eider, Bella Donna, Housses couettes / Taies. À modifier dans `SUBCAT_ORDER` (`class-lmdd-ds-catalogue.php`).
+- **Menu de tri** limité au tri par défaut (produits sur devis en tête) et aux prix croissant / décroissant (ancienne règle CSS de la grille Royal).
+
 ## Panier et commande (version 2.3)
 
 Nouvelle mise en page des pages WooCommerce classiques (`[woocommerce_cart]` et `[woocommerce_checkout]`).
