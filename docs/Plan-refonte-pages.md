@@ -9,10 +9,10 @@ Chaque bloc reste modifiable dans Elementor.
 
 | Lot | Pages | Méthode | État |
 |---|---|---|---|
-| 1 | Boutique, catégories, sous-catégories (`/lits-a-eau/`, `/lits-a-eau/lits-a-eau-en-vente-sur-devis/`, `/lit-a-eau-matelas-a-eau/`…) | **Un seul modèle Royal** *Archive de produits*. Le texte vient de la description de chaque catégorie. | **Livré (à tester en aperçu)** |
-| 2 | Fiche produit (`/adaptateur-pour-vidage/` et toutes les fiches) | Modèle déjà livré (*Fiche produit – La Maison du Dos*). Vérifier en aperçu sur une fiche vendue en ligne, ajuster, puis activer. | Modèle prêt, à valider |
-| 3 | Panier, commande | Modèles Royal panier et commande : étapes Panier › Livraison et paiement › Confirmation, récapitulatif toujours visible, réassurance. Les blocs WooCommerce et les moyens de paiement ne changent pas. | À faire |
-| 4 | Qui sommes-nous, Nos marques, FAQ, Livraison/Paiement, Contact, Mentions légales, CGV | Une nouvelle version de chaque page est créée en brouillon avec **le même texte**. Le bouton « Remplacer la page » la met en ligne en gardant l'adresse et le SEO, avec une sauvegarde de l'ancienne version. | À faire |
+| 1 | Boutique, catégories, sous-catégories (`/lits-a-eau/`, `/lits-a-eau/lits-a-eau-en-vente-sur-devis/`, `/lit-a-eau-matelas-a-eau/`…) | **Un seul modèle Royal** *Archive de produits*. Le texte vient de la description de chaque catégorie. | Validé |
+| 2 | Fiche produit (`/adaptateur-pour-vidage/` et toutes les fiches) | Modèle déjà livré (*Fiche produit – La Maison du Dos*). Vérifier en aperçu sur une fiche vendue en ligne, ajuster, puis activer. | Validé |
+| 3 | Panier, commande | Modèles Royal panier et commande : étapes Panier › Livraison et paiement › Confirmation, récapitulatif toujours visible, réassurance. Les blocs WooCommerce et les moyens de paiement ne changent pas. | Validé |
+| 4 | Qui sommes-nous, Nos marques, FAQ, Livraison/Paiement, Contact, Mentions légales, CGV | Une nouvelle version de chaque page est créée en brouillon avec **le même texte**. Le bouton « Remplacer la page » la met en ligne en gardant l'adresse et le SEO, avec une sauvegarde de l'ancienne version. | **Livré (à tester en aperçu)** |
 
 ## Lot 4 : mise en page prévue (texte inchangé)
 - **Qui sommes-nous** :

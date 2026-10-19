@@ -1,0 +1,853 @@
+{
+ "_source": "https://la-maison-du-dos.com",
+ "_note": "Texte extrait des pages actuelles (tools/contenu/extraire.py) : ne pas modifier à la main.",
+ "qui-sommes-nous": {
+  "titre": "Qui sommes-nous?",
+  "intro": "La Maison du Dos, crée en 1988, propose de la literie de qualité dans le but d’apporter un supplément de confort pour tous et particulièrement pour soulager les personnes qui souffrent d&rsquo;un <a href=\"/les-meilleurs-matelas-pour-le-mal-de-dos/\"><strong>mal de dos.</strong></a>",
+  "etapes": [
+   {
+    "annee": "1994",
+    "html": "En <strong>1994, La Maison du Dos , </strong>dans sa boutique de Mulhouse, a pris une orientation radicale vers des literies réglables avec la représentation des <a href=\"/lits-a-eau-water-bed/marques-partenaires/vente-sur-devis/\"><strong>lits à eau danois Akva Waterbeds</strong></a>. Dés <strong>1995,</strong> nous y avons associé les matelas, surmatelas et oreillers <strong>Tempur</strong> à mousse viscoélastique appelée aussi « à mémoire de forme » issue des recherches de la NASA.. La sensibilité de cette matière à la chaleur favorisant un moulage élastique du corps était révolutionnaire dans la fabrication des matelas. La Maison du Dos a participé à faire connaître cette marque et ce nouveau type de matelas en milieu hospitalier dans le Grand Est."
+   },
+   {
+    "annee": "1997",
+    "html": "<strong>1997</strong> a vu la création du site vitrine de La Maison du Dos pour faire connaître nos literies à toute la France. Nous avons constaté un intérêt certain pour notre catalogue et avons poursuivi en proposant la vente en ligne, sans installation dans un premier temps.."
+   },
+   {
+    "annee": "1998",
+    "html": "Parce que Tempur imposait une présentation et des tarifs de vente, incluant déjà des remises, en totales contradictions avec le barème du catalogue de La Maison du Dos, nous avons décidé en <strong>1998</strong> de proposer nptre propre ligne de <strong>matelas à mémoire de forme</strong> sur la base d’un modèle qui avait été testé et vendu en milieu hospitalier."
+   },
+   {
+    "annee": "2005",
+    "html": "Observant que le confort de cette nouvelle génération de <strong>matelas viscoélastiques</strong> se dégradait, tout en gardant un aspect « mémoire de forme », au même rythme que nos anciens matelas en latex, nous avons élargi notre <strong><a href=\"/lits-a-eau/lits-a-eau-en-vente-en-ligne/\">gamme de</a></strong><strong> lits à eau</strong> dans la volonté de la rendre plus accessible. Le site vitrine passe au site en vente en ligne moderne en <strong>2005</strong> ."
+   },
+   {
+    "annee": "2014",
+    "html": "Fin <strong>2014</strong> nous avons franchi le pas de l’e-commerce en constatant une vraie préférence de nos clients à concrétiser leurs achats en ligne : nous avons reçu une commande de drap-housse vers 16 heures un samedi d’une cliente habitant à la même adresse que celle du magasin !!"
+   },
+   {
+    "annee": "2015",
+    "html": "En<strong> 2015</strong>, nous avons fermé notre magasin de Mulhouse pour nous consacrer à la <strong>vente en ligne avec possibilité de nous contacter 7 jours sur 7</strong> pour toute demande et question concernant la literie."
+   },
+   {
+    "annee": "2017",
+    "html": "A partir de mai <strong>2017</strong>, nous travaillons depuis La Haute Marne sur la France et l’Europe, notamment au Bénélux, en Suisse et en Allemagne."
+   },
+   {
+    "annee": "2022",
+    "html": "En <strong>2022</strong>, nous avons ajouté à notre catalogue de <strong>matelas à eau,</strong><a href=\"/matelas-reglables/matelas-a-telecommande/\"> les matelas à réglage de fermeté par télécommande</a> qui offrent la possibilité d’une utilisation avec des sommiers de relaxation ce qui n’est pas possible avec les <a href=\"/matelas-reglables/matelas-a-eau-leger-bebe/\"><strong>matelas à eau légers</strong>.</a>"
+   },
+   {
+    "annee": "2025",
+    "html": "En <strong>2025</strong> nous proposons en exclusivité nationale la marque de lits à eau <strong>Tasso</strong> ainsi que son concept unique et breveté <strong> » Niveau »</strong> qui assure <strong>l&rsquo; adaptation permanente, automatique et sans énergie</strong> de la quantité d&rsquo;eau aux besoins de soutien du ou des utilisateurs du lit à eau."
+   }
+  ],
+  "raisons_intro": "<strong>Nous livrons les lits à eau avec installation et réglage des matelas à eau</strong> pour trois raisons :",
+  "raisons": [
+   "Les garanties commerciales des fabricants se réduisent à la garantie légale de deux année si l&rsquo;installation n&rsquo;est pas assurée par un vendeur agréé!",
+   "Lors de l&rsquo;installation, nos clients prennent connaissance de la meilleure façon d&rsquo;entretenir et faire durer leur literie.",
+   "Nous désirons nous assurer du bon réglage en eau du ou des <strong>matelas à eau en votre présence,</strong>"
+  ],
+  "slug": "qui-sommes-nous"
+ },
+ "nos-marques": {
+  "titre": "Nos marques",
+  "sous_titre": "La Maison du Dos est une marque de literie créée en 1988.",
+  "texte": "<p>Elle importe et commercialise des <strong>lits à eau</strong> (<strong>waterbed</strong>), des matelas réglables par télécommande et du linge de lit de manufactures européennes sélectionnées pour la qualité de leurs productions.</p>",
+  "marques": [
+   {
+    "nom": "LA MAISON DU DOS",
+    "url": "/product-tag/la-maison-du-dos/"
+   },
+   {
+    "nom": "MOOSBURGER",
+    "url": "/product-tag/moosburger/"
+   },
+   {
+    "nom": "AKVA",
+    "url": "/product-tag/akva/"
+   },
+   {
+    "nom": "HEFEL",
+    "url": "/product-tag/hefel/"
+   },
+   {
+    "nom": "TASSO",
+    "url": "/product-tag/tasso/"
+   },
+   {
+    "nom": "PROFINE",
+    "url": "/product-tag/profine/"
+   },
+   {
+    "nom": "MATRAIR",
+    "url": "/product-tag/matrair/"
+   },
+   {
+    "nom": "FORMESSE",
+    "url": "/product-tag/formesse/"
+   },
+   {
+    "nom": "KIRSTENBALK",
+    "url": "/product-tag/kirstenbalk/"
+   },
+   {
+    "nom": "MR.SANDMAN",
+    "url": "/product-tag/mr-sandman/"
+   },
+   {
+    "nom": "POSEÏDON – LUNALIFE",
+    "url": "/product-tag/poseidon-lunalife/"
+   },
+   {
+    "nom": "DYNAGLOBE",
+    "url": "/product-tag/dynaglobe/"
+   }
+  ],
+  "logos": [
+   "2024/10/unnamed-1.jpg",
+   "2024/10/unnamed-e1757666750660.png",
+   "2024/10/unnamed-4.jpg",
+   "2025/09/logo-2-e1758556508983.jpg",
+   "2024/10/unnamed-8.jpg",
+   "2024/10/unnamed-9.jpg",
+   "2024/10/unnamed-7.jpg",
+   "2024/10/unnamed-5.jpg",
+   "2024/10/unnamed-2.jpg",
+   "2025/09/logo-1-e1757664098298.jpg",
+   "2025/09/logo-e1757664451940.jpg",
+   "2024/10/unnamed-6.jpg",
+   "2024/10/unnamed-10-e1757666369313.jpg",
+   "2024/10/unnamed-3.jpg",
+   "2024/10/unnamed-1.gif"
+  ],
+  "anciennes": "Anciennes marques de<strong> literies à eau </strong>dont nous assurons le SAV",
+  "anciens_logos": [
+   "2024/10/unnamed-1-1.jpg",
+   "2024/10/unnamed-2-1.jpg",
+   "2024/10/unnamed-11.jpg",
+   "2025/09/logo_dreamtec-e1757664724584.gif"
+  ],
+  "slug": "nos-marques"
+ },
+ "faq": {
+  "titre": "Matelas à eau : FAQ complète – 35 réponses d'experts",
+  "intro": "Si votre question ne figure pas ici, veuillez nous contacter.",
+  "retour": {
+   "texte": "Retour à la boutique",
+   "url": "/lit-a-eau-matelas-a-eau/"
+  },
+  "questions": [
+   {
+    "q": "Quel est l'intérêt de tester un matelas à eau ?",
+    "r": "<p><strong>Il est peu probable que vous puissiez tester un matelas à eau répondant à toutes vos demandes en matière de soutien et de confort.</strong></p><p>Votre ressenti sera déçu par une trop grande fermeté , une sensation de flottement ou d&rsquo;affaissement trop grande. <a href=\"/lit-a-eau-waterbed-akva-soft-4all/\">La marque Akva</a> que nous proposons depuis 32 ans propose ses matelas à eau avec <strong>3 types de stabilisations ( fibres, fibres et mousses ou mousses) et en tout 22 stabilisations !</strong></p><p><strong>Aucune exposition ou show-room de literies à eau n&rsquo;offre le choix que nous proposons !</strong> Le réglage en eau du matelas à eau est essentiel et doit être fait en présence des futurs utilisateurs du matelas à eau. Nous assurons l&rsquo;installation de votre futur matelas à eau pour votre confort.</p><p>Bref, le matelas à eau qui vous satisfera pleinement sera celui que nous choisirons ensembles aux vues de la description de vos envies et besoins de confort.</p>"
+   },
+   {
+    "q": "Qui a inventé le matelas à eau ?",
+    "r": "<p>Le matelas à eau, dans sa forme la plus simple, a été développé et utilisé par les Perses il y a 3000 ans déjà. Ils dormaient alors sur des sacs d&rsquo;eau en peau de chèvre, qui étaient réchauffés au soleil pendant la journée. Ce n&rsquo;est qu&rsquo;en 1851 que ce concept a été développé par un médecin britannique, le Dr William Hooper. Il avait reconnu les avantages du sommeil sans pression et l&rsquo;utilisait désormais pour le traitement de diverses maladies. Il a ainsi conçu un simple matelas à eau en caoutchouc et l&rsquo;a fait breveter. Ce n&rsquo;est qu&rsquo;à la fin des années soixante que l&rsquo;Américain Charles Hall a repris ce concept et l&rsquo;a affiné. Hall a utilisé le PVC déjà existant et les techniques de production les plus modernes de l&rsquo;époque pour développer et produire des matelas à eau. Nous pouvons le considérer comme le précurseur du matelas à eau que nous connaissons aujourd&rsquo;hui.</p><p>Le premier fabricant de matelas à eau européen est Vontana. Ce fabricant a déposé un brevet « Niveau » qui offre un soutien correct automatiquement ajusté aux utilisateurs de ses <a href=\"/lits-a-eau/lits-a-eau-en-vente-en-ligne/\">matelas à eau TASSO « Niveau »</a>.</p>"
+   },
+   {
+    "q": "Tous les matelas à eau sont-ils identiques ?",
+    "r": "<p>Pas du tout, il existe des différences considérables. Comparons-les à une voiture : elles ont toutes un volant, quatre roues et un moteur, mais elles ne sont pas identiques pour autant. Il existe également des différences entre les matelas à eau selon le type de vinyle, les formats et dimensions ainsi que des stabilisations proposées. <strong>Certaines marques de lits à eau proposent des matelas dont la fabrication est sous- traitée : c&rsquo;est notamment le cas quand des dimensions sont proposées sans toutes les options de stabilisations disponibles normalement.</strong> </p>"
+   },
+   {
+    "q": "Puis-je intégrer un matelas à eau dans mon cadre de lit ?",
+    "r": "<p>Bien entendu, il existe un modèle de lit à eau encastrable pour chaque cadre de lit disponible dans le commerce. L&rsquo;aspect visuel du matelas à eau correspond tout à fait à celui d&rsquo;un matelas classique. Les matelas à eau avec cadre en mousse divisé<a href=\"/lit-a-eau-waterbed-premium-deluxe/\"> (</a><strong>split softside</strong>) permettent un bordage aisé du matelas à eau. Les matelas à eau hardside (pour cadre rigides) ont besoin d&rsquo;un cadre solide qui résistera à la pression latérale de l&rsquo;eau. Ils ne peuvent pas être intégrés dans n&rsquo;importe quel cadre de lit.</p>"
+   },
+   {
+    "q": "A-t-on le mal de mer sur un matelas à eau ?",
+    "r": "<p>NON ! Aucun cas de mal de mer n&rsquo;a été signalé à ce jour chez un dormeur sur un matelas à eau et peut en principe être exclu d&rsquo;un point de vue médical. Les marins qui sont sujets au mal de mer disent qu&rsquo;il faut s&rsquo;allonger pour que ce mal de mer se dissipe ! L&rsquo;eau elle-même n&rsquo;est mise en mouvement que lorsque vous bougez vous-même dans le lit. Le mouvement de l&rsquo;eau ainsi déclenché est immédiatement amorti par la stabilisation intégrée. Notez également que la fréquence des mouvements dans un lit à eau diminue considérablement en raison de la meilleure répartition du soutien allégeant la pression.</p>"
+   },
+   {
+    "q": "Est-ce qu'on transpire plus dans un matelas à eau que sur un matelas classique ?",
+    "r": "<p><strong>On ne transpire pas sur un matelas à eau</strong> car la masse d&rsquo;eau absorbe sans fin votre chaleur sans vous la renvoyer comme le font tous les autres concepts de matelas dont les éléments climatisants saturent à un moment. Vous réglez la température qui vous convient en hiver et vous baissez la température définie sur le thermostat à moins de 27° pour obtenir un matelas à eau rafraîchissant, même en été.</p>"
+   },
+   {
+    "q": "Est-ce que je dérange mon partenaire lorsque je bouge dans le matelas à eau ?",
+    "r": "<p>Il est très peu probable que votre partenaire soit dérangé lorsque vous vous couchez dans le lit, à moins que vous vous y laissiez tomber. En principe, plus la stabilisation de votre matelas à eau est importante, moins la transmission du mouvement est perceptible. Dans un lit à eau suffisamment stabilisé, vos mouvements ne sont pas transmis au matelas de votre partenaire. Dans un lit à eau avec un seul grand matelas, la tension du matelas à eau est moindre quand vous sortez du lit à eau. On conseille de choisir un lit à eau avec deux matelas à eau pour ceux qui craignent d&rsquo;être dérangés par les mouvements de leur partenaire. Les stabilisations atténuent, voire suppriment tous les remous qui pourraient être provoqués par un changement de position sur le matelas à eau.</p>"
+   },
+   {
+    "q": "Quel est le poids d'un lit à eau ?",
+    "r": "<p>Selon le modèle, un lit à eau double pèse jusqu&rsquo;à 800 kg . La charge totale est répartie par des croisillons ou les traverses qui augmentent les surfaces de contact avec le sol. Ainsi, <strong>un lit à eau avec des matelas d&rsquo;eau remplis sur une hauteur de 20 cm pèse selon ses dimensions de 150 à 200 kg/m² !</strong></p><p>En plus de trente années d&rsquo;installation de matelas à eau, nous n&rsquo;avons jamais eu à renoncer au montage par crainte d&rsquo;un sol pas assez résistant . Là où on peut installer un congélateur rempli, on peut aussi installer un lit à eau !</p>"
+   },
+   {
+    "q": "Le matelas à eau pour soulager le mal de dos ?",
+    "r": "<p>En orthopédie, le matelas à eau a fait ses preuves depuis longtemps, notamment en cas de : &#8230; douleurs cervicales et occipitales dues à l&rsquo;usure des disques intervertébraux des vertèbres cervicales et thoraciques. &#8230; douleurs dorsales dues à l&rsquo;usure des disques intervertébraux dans la région lombaire &#8230; douleurs dorsales dues à une mauvaise statique de la colonne vertébrale (dos plat, scoliose, cyphose, etc.) &#8230; douleurs dues à des tensions musculaires (mauvaise posture au travail). &#8230; dues à des tensions psychiques. &#8230; <strong>pendant la grossesse</strong>. <strong>La colonne vertébrale est détendue et soulagée de manière optimale sur le matelas à eau.</strong></p>"
+   },
+   {
+    "q": "Le matelas à eau est- il bénéfique pour l'arthrite et inflammation des articulations ?",
+    "r": "<p>Une personne sur trois souffre de douleurs et de rigidités. Lorsque l&rsquo;on se couche sur un matelas normal, les parties du corps touchées par l&rsquo;arthrite réagissent de manière extrêmement douloureuse, car la surface rigide du matelas exerce une pression sur les articulations. De plus, le matelas absorbe la chaleur du corps pendant le sommeil. C&rsquo;est ainsi que de nombreuses personnes atteintes d&rsquo;arthrite souffrent le plus intensément, surtout au petit matin. En dormant sur un matelas à eau chaud, la pression sur les articulations et les parties du corps sensibles est réduite et la chaleur active le processus de guérison, ce qui atténue les douleurs. Le matelas à eau offre une répartition uniforme de la pression sur le corps Cet effet est particulièrement positif pour les personnes souffrant d&rsquo;arthrite.</p>"
+   },
+   {
+    "q": "Avantages médicaux des matelas à eau ?",
+    "r": "<p>Les patients couchés sur des matelas à eau se régénèrent plus rapidement. Les lésions dues aux escarres sont considérablement réduites. L&rsquo;utilisation d&rsquo;un matelas à eau aide à la guérison des brûlures graves. Le matelas à eau soulage la douleur dans le traitement des patients souffrant de rhumatismes et d&rsquo;arthrose. Les cliniques de rééducation orthopédique utilisent les matelas d&rsquo;eau pour le positionnement et le traitement des affections dorsales graves, des hernies discales et des blessures sportives. Les maternités utilisent les matelas d&rsquo;eau pour les soins aux prématurés et <strong>pour alléger le poids sur le corps, pour les femmes pendant la grossesse.</strong></p>"
+   },
+   {
+    "q": "Un matelas à eau est-il bon pour mon dos ?",
+    "r": "<p>Un matelas à eau soutient votre dos de la meilleure manière possible. Dès que vous vous allongez sur un matelas à eau, l&rsquo;eau est déplacée de telle sorte qu&rsquo;elle prend exactement la forme de votre corps. Le matelas ne s&rsquo;affaisse pas, mais s&rsquo;adapte exactement et instantanément à votre position corporelle. Cet avantage, combiné à la faible pression d&rsquo;appui et à la chaleur agréable, est un bienfait pour votre dos.</p>"
+   },
+   {
+    "q": "Les matelas à eau font-ils du bruit ?",
+    "r": "<p>Heureusement, les matelas à eau sont silencieux. Une fois le matelas installé, l&rsquo;air est évacué du matelas à eau à l&rsquo;aide de la pompe à vide d’air. La purge doit être répétée 2 à 3 fois après le montage, surtout pour les matelas à eau très stabilisés qui gardent un peu d&rsquo;air lors de leur remplissage. Un bruit de clapotis vous prévient qu&rsquo;il reste de l&rsquo;air à évacuer du matelas. Au bout de la première semaine de l&rsquo;installation du matelas à eau le bruit de clapotis doit disparaître. L&rsquo;ajout du produit anti algues permet également de conserver la propreté de l&rsquo;eau et d&rsquo;éviter la formation d&rsquo;algues dans l&rsquo;eau et l&rsquo;émission de gaz.</p>"
+   },
+   {
+    "q": "Le matelas à eau et sa consommation d'électricité par mois ?",
+    "r": "<p>Pour les coûts d&rsquo;un lit à eau dual, on peut fixer une valeur indicative d&rsquo;environ 1,32 kWh à 1,53 kWh par jour. Cette valeur indicative dépend de différents facteurs (température réglée, température extérieure, comportement en matière d&rsquo;aération, isolation, taille du lit, type de lit, etc.) .</p><p>En moyenne sur l’année comptez une dizaine d’euros par mois. <strong>A comparer avec une réduction du chauffage et de la climatisation de votre chambre à coucher ! </strong></p>"
+   },
+   {
+    "q": "Le chauffage du matelas à eau est-il sûr?",
+    "r": "<p>Oui, il est sans risque d&rsquo;électrocution : l&rsquo;ensemble du système est mis à la terre. Le chauffage est doublement séparé de l&rsquo;eau par le liner (un bac de protection) et le matelas d&rsquo;eau. Les systèmes de chauffage sont protégés par des matériaux et des fusibles. Les chauffages pour lits à eau sont certifiés GS-TÜV et émettent peu de radiations. Ceux qui n&rsquo;aiment pas l&rsquo;électricité dans leur chambre à coucher peuvent les couper pendant la nuit ! Un matelas à eau non chauffé perd en moyenne un à deux degrés durant la nuit car la chaleur du corps ne suffit pas à maintenir la température du matelas à eau.</p>"
+   },
+   {
+    "q": "Ai-je besoin d'une assurance spéciale pour le matelas à eau ?",
+    "r": "<p>Mot-clé : dégâts des eaux : Une assurance spéciale pour le lit à eau n&rsquo;est pas nécessaire. Tout comme la machine à laver, le lave-vaisselle, etc., votre lit à eau est en général inclus dans la couverture des assurances habituelles. Indiquez néanmoins à votre courtier en assurances que vous avez désormais un lit à eau dans votre ménage. Les courtiers sérieux ajoutent facilement cette information dans la police.</p>"
+   },
+   {
+    "q": "Existe-t-il des matelas à eau pour les bébés et est-ce utile ?",
+    "r": "<p>On peut dire que c&rsquo;est le meilleur matelas que vous puissiez offrir à votre enfant. Meilleur soutien de la tête, endormissement plus rapide, plus de nuits complètes, phases de sommeil profond plus longues, production accrue d&rsquo;hormones de croissance. De nombreux parents mentionnent l&rsquo;excellent sens de l&rsquo;équilibre de leurs enfants qui dorment sur un matelas à eau.</p>"
+   },
+   {
+    "q": "Un matelas à eau peut-il éclater ?",
+    "r": "<p><strong>Non</strong> : le matelas d&rsquo;eau ne peut pas éclater parce que l&rsquo;eau n&rsquo;est pas sous pression. En trente années d&rsquo;expérience nous n&rsquo;avons jamais entendu parler d&rsquo;un éclatement d&rsquo;un matelas à eau.</p><p>Un test de résistance à la pression avec une presse a fait éclater le matelas à eau testé avec 19 tonnes de pression. Des marques ont fait marcher un éléphant ou rouler un énorme véhicule sur leur matelas à eau pour démontrer la solidité de leurs matelas à eau .</p>"
+   },
+   {
+    "q": "Les animaux domestiques peuvent-ils abîmer un matelas à eau ?",
+    "r": "<p>Quand le lit à eau est recouvert de sa housse matelassée les griffes et les dents acérées ne peuvent pas abîmer le matelas à eau. Il faut veiller à les écarter du lit quand vous ôtez le revêtement car le matelas eau ne serait plus protégé et pourrait être endommagé .</p>"
+   },
+   {
+    "q": "Comment entretenir correctement un lit à eau ?",
+    "r": "<p>Bien purger l&rsquo;air des matelas à eau dans la première semaine de l&rsquo;installation. Tant qu&rsquo;un bruit de clapotis est perceptible, le matelas à eau contient de l&rsquo;air pouvant contenir des éléments que le traitement anti-algues ne traite pas. Une pompe à vide d&rsquo;air est en général fournie pour faciliter l&rsquo;évacuation de l&rsquo;air. Mettre une à deux fois (selon le produit) du conditionneur dans l&rsquo;eau, il n&rsquo;est pas nécessaire de changer l&rsquo;eau !</p>"
+   },
+   {
+    "q": "À quelle température doit-on régler le matelas à eau ?",
+    "r": "<p>Le ou les matelas à eau sont toujours tempérés par un élément chauffant spécialement conçu à cet effet. Normalement, la température de l&rsquo;eau est réglée sur la température de la peau, aux alentours de 27° à 28°. Pour éviter un matelas trop froid pouvant créer de la condensation et le développement de moisissures, il est déconseillé de débrancher le chauffage et de passer sous 25° ( une eau de piscine à 25° est rafraîchissante ! ) si on aère pas suffisamment son matelas ou si l&rsquo;humidité est importante dans la chambre à coucher. La température agréable ( tiède en hiver et fraîche en été ) est l&rsquo;une des caractéristiques les plus appréciées du matelas à eau.</p>"
+   },
+   {
+    "q": "Puis-je éteindre le chauffage du matelas à eau en été ?",
+    "r": "<p>Non. La température de la pièce en plein été ne suffit pas à maintenir votre matelas à eau à une température agréable. En été, le chauffage ne sera actif que de temps en temps et consommera donc aussi beaucoup moins. Lorsqu&rsquo;il fait très chaud, la température minimale recommandée de 25 degrés est perçue comme agréablement fraîche. En été le revêtement tissu du matelas à eau absorbe plus d&rsquo;humidité et en cas de rafraîchissement des températures, cette humidité peut créer de la condensation au contact d&rsquo;un matelas à eau « froid ». Si l&rsquo;humidité ne s&rsquo;évacue pas suffisamment on risque de voir apparaître des taches de moisissures sur le revêtement du matelas à eau..</p>"
+   },
+   {
+    "q": "À quelle fréquence faut-il changer l'eau d'un matelas à eau?",
+    "r": "<p>L&rsquo;eau des matelas à eau ne doit être changée que si l&rsquo;on déménage. Pour éviter le développement d&rsquo;algues et de bactéries, on ajoute régulièrement ( annuellement ou semestriellement)<a href=\"/accessoires-produits-dentretien-sav/produits-dentretien-sav/\"> un produit anti algue</a>. La garantie sur les soudures des matelas à eau accordée par un fabricant est soumise à la preuve du traitement effectué régulièrement.</p><p>En principe, un produit anti algues est nécessaire pour un matelas à eau d&rsquo;une personne, c&rsquo;est à dire pour un matelas à eau d&rsquo;un lit jusqu&rsquo;à 140 cm de largeur. Au delà de cette largeur, une double dose est recommandée pour un lit à eau avec un ou deux matelas à eau.</p>"
+   },
+   {
+    "q": "Comment installer un lit à eau ?",
+    "r": "<p>Il est préférable qu&rsquo;un lit à eau soit installé par un professionnel. On est ainsi sûr que tout a été monté correctement et que la quantité d&rsquo;eau de chaque matelas à eau est exactement la bonne. L&rsquo;installation d&rsquo;un lit à eau prend environ 2 à 3 heures, le remplissage du matelas occupant la grande partie du temps. Le temps exact d&rsquo;installation dépend beaucoup du débit de l&rsquo;eau dans votre logement.</p><p>Par votre présence nécessaire pour tester les matelas à eau lors de leurs réglages, vous saurez comment procéder pour un éventuel déménagement. En cas de besoin nous assurons cette prestation ou pouvons vous aider téléphoniquement à procéder au démontage et remontage de votre literie à eau.</p><p>Certains fabricants réduisent la durée de leur garantie commerciale sur l&rsquo;étanchéité des matelas à eau à la garantie légale de deux ans en cas d&rsquo;installation faite soi-même ou par un vendeur non agréé.</p>"
+   },
+   {
+    "q": "A quoi servent les stabilisations d'un matelas à eau?",
+    "r": "<p>La stabilisation réduit ou supprime les remous de l&rsquo;eau, mais elle n&rsquo; influence les propriétés de soutien de l&rsquo;eau que lorsqu&rsquo;elle provient de mousses poreuses. Les plaques de fibres polyester mises dans le matelas à eau n&rsquo;offrent pas de soutien. Leur fonction est de flotter sur l&rsquo;eau et, de par le volume occupé dans le matelas à eau, obtenir une stabilisation des mouvements de l&rsquo;eau plus ou moins rapide voir instantanée quand elles occupent tout le volume du matelas à eau.</p>"
+   },
+   {
+    "q": "Quelle est généralement l'épaisseur du vinyle du matelas à eau ?",
+    "r": "<p>En général, l&rsquo;épaisseur se situe entre 0,5 mm et 0,7 mm. Des vinyles plus épais résisteraient moins biens aux sollicitations mécaniques. Les caractéristiques techniques des vinyles utilisés pour la fabrication des matelas à eau influent sur la fermeté et la durée de vie des matelas à eau. <a href=\"/lit-a-eau-waterbed-akva-nordic-nordic-q/\">Akva propose un vinyle à double couche laminées à chaud en version classique ou en version à base de produits recyclés</a>. <a href=\"/lit-a-eau-waterbed-tasso-softside/\">Tasso propose un vinyle sans colorant</a>. <a href=\"/lit-a-eau-waterbed-highline-matelas-a-eau-de-qualite-superieure-avec-garantie-dusine-de-10-ans-100-made-in-germany/\">Le matelas à eau du lit à eau Highline</a> intègre un traitement anti bactérien sur la surface intérieure du matelas à eau.</p>"
+   },
+   {
+    "q": "À quoi servent les revêtements des matelas eau ?",
+    "r": "<p>L&rsquo;humidité du corps doit être absorbée pour être ensuite restituée à l&rsquo;air pendant la journée. Contrairement aux matelas conventionnels, le matelas à eau n&rsquo;est pas ventilé par le dessous. Les coutils sont lavables pour profiter pleinement des avantages hygiéniques du matelas à eau.</p>"
+   },
+   {
+    "q": "Où est la différence entre lit à eau MONO et DUO et quels sont les avantages ?",
+    "r": "<p>MONO = un seul matelas d&rsquo;eau avec un système de chauffage.</p><p>DUO = deux matelas d&rsquo;eau séparés et deux systèmes de chauffage dans un lit double avec une séparation thermique ou thermique et physique par une mousse centrale .</p><p>Les lits DUO permettent un réglage plus optimisé et personnalisé de la quantité de remplissage. Ils sont recommandés en cas de poids très différents ou de problèmes de dos spécifiques. Le réglage individuel de la température est également intéressant car les femmes ont en général besoin d&rsquo;un peu plus de chaleur. Le partenaire ne perçoit que peu les mouvements de l&rsquo;autre ou pas avec la séparation en mousse.</p>"
+   },
+   {
+    "q": "Quelles sont les différences entre matelas à eau softside et hardside ?",
+    "r": "<p><strong>Softside</strong> = Le matelas d&rsquo;eau se trouve dans un cadre en mousse souple et isolé, ce qui facilite l&rsquo;entrée et la sortie du lit<strong>. Certaines fabrication sont proposées avec des angles droits, mais en général, les matelas à eau Softside sont biseautés, tout comme l&rsquo;intérieur du cadre en mousse qui les maintient. </strong></p><p><strong>Les dimensions sont données avec l’épaisseur du cadre en mousse.</strong></p><p><strong>Hardside</strong> = le matelas à eau a une découpe des angles à angles droits. Il nécessite toujours un cadre de lit stable et porteur. Ce cadre rigide rend l&rsquo;entrée comme la sortie du matelas d&rsquo;eau plus difficile.</p><p><strong>Avec son tissu directement en contact avec le liner et le matelas d&rsquo;eau, il offre plus de souplesse et est en général proposé avec une hauteur supérieure au matelas à eau Softside.</strong></p><p><strong>On donne la dimension du matelas sans le cadre.</strong></p>"
+   },
+   {
+    "q": "Quelle est l'espérance de vie d'un matelas à eau ?",
+    "r": "<p>La durée de vie d&rsquo;un matelas à eau ( sauf les matelas d&rsquo;eau à prix discount de piètres fabrication avec une garantie de deux ou trois années) est de plus de 15 ans, selon l&rsquo;entretien et la qualité. Il est important de savoir que l&rsquo;élément de soutien dans un matelas à eau est l&rsquo;eau elle-même. L&rsquo;eau n&rsquo;est pas sujette à l’usure mécanique. Le confort et les excellentes propriétés d&rsquo;un matelas à eau restent inchangés pendant des années. Avec peu d&rsquo;entretien, vous dormirez toujours sur un matelas à eau comme au premier jour, même après 15 ans. De ce fait, un lit à eau est même le système de couchage le plus avantageux sur le long terme. Un montage correct et l’entretien correct de l’état sanitaire de l’eau contribuent également à la longévité du matelas à eau.</p><p><strong>Nous avons changé en 2025 un matelas à eau au bout de 25 années chez un couple qui n&rsquo;a jamais eu à faire une réparation sur ce matelas</strong> ( marque Akva).</p>"
+   },
+   {
+    "q": "Le matelas à eau ? N'est-il pas préférable de dormir sur un matelas dur et ferme ?",
+    "r": "<p>La base la moins appropriée pour pouvoir dormir correctement est un matelas mou et affaissé. C&rsquo;est la raison pour laquelle, pendant quelques décennies, on a fait de la publicité pour le matelas dur. Celui-ci offrait déjà un meilleur soutien que les anciens matelas affaissés, mais la surface de contact dure obligeait encore votre dos à adopter une position peu naturelle et provoquait des points de pression désagréables. <strong>Le système de couchage qui offre la meilleure adaptation à votre corps est et reste le matelas à eau</strong>. Un matelas à eau n&rsquo;est en aucun cas un matelas « mou », mais un système de sommeil qui offre un soutien parfait. C&rsquo;est pourquoi on n&rsquo;entend plus guère les médecins, les chercheurs sur le sommeil et les producteurs de systèmes de sommeil dire que seul un matelas dur peut améliorer votre sommeil. Aujourd&rsquo;hui, tous ces spécialistes sont sur la même longueur d&rsquo;onde. Le soutien doit s’adapter au corps et non l’inverse ! <strong>Sans usure mécanique de son soutien, le matelas à eau est la solution pour un confort durable et qui est capable d&rsquo;évoluer ( exemple pour les grossesses)</strong></p>"
+   },
+   {
+    "q": "Quels sont les inconvénients d'un matelas à eau ?",
+    "r": "<p>Un matelas à eau, quel que soit son prix, demande un entretien et cause des frais l&rsquo;électricité variables selon l&rsquo;installation ( plus ou moins d&rsquo;isolations) et le réglage du thermostat. Il faut également consacrer un peu plus de temps à l&rsquo;entretien, <strong>mais en contrepartie, on obtient une qualité de sommeil qu&rsquo;un lit normal ne peut pas offrir et une bien plus grande durée d&rsquo;utilisation sans perte de soutien .</strong></p><p>Seuls les lits à eau avec un grand matelas à eau unique et très stabilisé impliquent l&rsquo;utilisation d&rsquo;une pompe pour leur vidage. Notre service client est à votre disposition pour toute demande et question concernant cette opération.</p><p>Concernant les fuites qui sont dues au vieillissement des soudures, elles se réparent sans avoir à vider le matelas à eau et au pire on peut acheter un nouveau matelas à eau pour un coût comparable à celui d&rsquo;un matelas conventionnel sans avoir à renouveler les autres éléments de son lit à eau.</p><p>Tous les matelas à eau sont équipés d&rsquo;un liner afin que l&rsquo;eau ne puisse causer des dégâts d&rsquo;eau dans votre chambre à coucher.</p>"
+   },
+   {
+    "q": "Les matelas à eau sont-ils bien adaptés aux enfants ?",
+    "r": "<p>Un bon soutien du dos est toujours important, surtout pendant la période de croissance des enfants. Les déformations de la colonne vertébrale sont très difficiles à corriger par la suite. C&rsquo;est pourquoi un lit à eau convient particulièrement bien aux adolescents en pleine croissance. En effet, il a été constaté <a href=\"/etudes-du-confort-matelas-eau/\">en milieu hospitalier que les nourrissons</a> et les enfants s&rsquo;endorment plus facilement, dorment plus longtemps et plus calmement, ce qui contribue finalement à leur épanouissement .</p>"
+   },
+   {
+    "q": "La conception du matelas à eau a-t-elle un effet sur les douleurs dorsales chroniques ?",
+    "r": "<p>Il existe plusieurs études qui traitent de ce sujet en tenant compte du facteur de soutien, c&rsquo;est-à-dire du soutien correct de la colonne vertébrale. Une étude américaine montre que les lits à eau et les lits très durs ont permis à 25% des patients d&rsquo;améliorer leur mal de dos en deux semaines. Les lits trop mous entraînent un affaissement de la colonne vertébrale, ce qui, selon les auteurs, pourrait expliquer pourquoi un lit dit dur, qui élimine cet affaissement tout comme un lit à eau, peut également apporter une amélioration. L&rsquo; inconvénients des matelas durs : la mauvaise répartition de la pression cause un sommeil agité.</p>"
+   },
+   {
+    "q": "Que se passe-t-il lorsqu'un matelas à eau fuit ?",
+    "r": "<p>Il arrive que les matelas à eau fuient et c’est un désagrément qui peut être résolu. La plupart du temps, il s&rsquo;agit d&rsquo;<strong>une micro fissure</strong> d&rsquo;où l&rsquo;eau s&rsquo;écoule, mais l&rsquo;eau reste dans le liner (bac de protection) et ne quitte donc pas le lit. Elle est épongée et un petit patch est collé sur la fissure. Cette opération peut être réalisée rapidement,<strong> sans avoir à vider l&rsquo;eau</strong>. Après avoir respecté le temps de séchage de la colle, le lit peut être réutilisé et le cas échéant, <strong>il est possible de commander uniquement le matelas à eau</strong>.</p>"
+   },
+   {
+    "q": "Qu'est-ce qui est compris dans le prix du lit à eau ?",
+    "r": "<p>Un support du cadre intégrant le ou les matelas à eau, le socle avec des répartiteurs de poids et son cadre en mousse ou un cadre rigide. Un coutil , un liner et un ou deux chauffages. Tous ces éléments sont vendus séparément en cas de besoin de renouvellement. C&rsquo;est pourquoi, en fin de compte, un lit à eau coûte moins cher qu&rsquo;un système de couchage classique en offrant une qualité de confort supérieure et permanente même si votre morphologie évolue.</p>"
+   }
+  ],
+  "slug": "matelas-a-eau-faq-complete-35-reponses-dexperts"
+ },
+ "livraison-paiement": {
+  "titre": "Livraison / Paiement",
+  "paiements": "Paiements",
+  "tableaux": [
+   {
+    "entetes": [
+     "Facilités/Modes",
+     "CB",
+     "Alma",
+     "Chèque",
+     "VIREMENT"
+    ],
+    "lignes": [
+     [
+      "1 X",
+      "oui",
+      "jusqu'à 5000€ oui",
+      "oui",
+      "oui"
+     ],
+     [
+      "2 X jusqu'à 5000€",
+      "par téléphone après accord oui",
+      "jusqu'à 5000€ oui",
+      "NON",
+      "NON"
+     ],
+     [
+      "3 X jusqu'à 5000€",
+      "par téléphone après accord oui",
+      "jusqu'à 5000€ oui",
+      "NON",
+      "NON"
+     ],
+     [
+      "4 X jusqu'à 5000€",
+      "par téléphone après accord oui",
+      "jusqu'à 5000€ oui",
+      "NON",
+      "NON"
+     ],
+     [
+      "10 X jusqu'à 5000€",
+      "NON",
+      "jusqu'à 5000€ oui",
+      "NON",
+      "NON"
+     ]
+    ],
+    "legende": "1.- Pour les ressortissants <strong>Français (et Belges pour la CB )</strong>"
+   },
+   {
+    "entetes": [
+     "Facilités/Modes",
+     "CB",
+     "Chèque",
+     "VIREMENT"
+    ],
+    "lignes": [
+     [
+      "1 X",
+      "oui",
+      "NON",
+      "oui"
+     ]
+    ],
+    "legende": "2.- Pour les ressortissants <strong>Européens et Suisses</strong>"
+   },
+   {
+    "entetes": [
+     "Facilités/Modes",
+     "CB",
+     "Chèque",
+     "VIREMENT"
+    ],
+    "lignes": [
+     [
+      "1 X",
+      "oui",
+      "NON",
+      "oui"
+     ],
+     []
+    ],
+    "legende": "3.- Pour les ressortissants<strong> SUISSES </strong>les achats sont <strong>SANS TVA</strong> <strong>sauf pour la literie</strong> qui sera livrée avec remboursement de la TVA après le passage en douanes."
+   }
+  ],
+  "livraisons": "Livraisons",
+  "zones": [
+   {
+    "titre": "1.- France Métropolitaine",
+    "html": "<p>Les délais d&rsquo;expédition annoncés sur la page produit sont valables pour la France métropolitaine uniquement.</p><p>Nous vous invitons à prendre contact avec notre service clientèle pour toute demande de précision concernant ces délais.</p><p>Les livraisons sans installation de lits à eau et des matelas sont effectuées devant votre domicile. En cas d&rsquo;impossibilité de décharger devant votre domicile ou pour les livraisons dans les îles, un surcoût vous sera proposé par devis.</p>"
+   },
+   {
+    "titre": "2.- Europe ou autres destinations :",
+    "html": "<p>Selon les coûts d’expéditions réels . <strong>Créez votre compte et demandez-nous un devis </strong>en précisant votre commande éventuelle.</p>"
+   }
+  ],
+  "slug": "livraison-paiement"
+ },
+ "contact": {
+  "titre": "Contact",
+  "tel_libelle": "Numéro de téléphone",
+  "tel": "03 25 04 20 19",
+  "mobile_libelle": "Mobile/WhatsApp",
+  "mobile": "06 74 39 39 87",
+  "email_libelle": "Email",
+  "email": "info@la-maison-du-dos.com",
+  "message": "Laissez votre message",
+  "slug": "contact"
+ },
+ "mentions-legales": {
+  "titre": "Mentions légales",
+  "intro": "<p>Avant de naviguer sur ce site, veuillez lire attentivement les conditions d&rsquo;utilisation qui s&rsquo;appliquent. En accédant à ce site, vous acceptez sans réserve ces conditions.</p><p>Aussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance dans l’économie numérique, les responsables du présent site internet destiné à l’information personnelle des internautes qui l’utilisent sont :</p>",
+  "sections": [
+   {
+    "titre": "Propriétaire du Site :",
+    "id": "proprietaire-du-site",
+    "html": "<p>Propriétaire: Philippe SIEFFERT</p><p>La société: <strong>La maison du dos/EUROSLEEP</strong></p><p>L&rsquo;adresse de la société : 5 Rue DU MOULIN 52270 EPIZON France</p><p>Site : www.la-maison-du-dos.com</p><div>Déclaration CNIL N°1174898<br />&#8211; Nom social et forme juridique :SAS EUROSLEEP</div><div>&#8211; Adresse postale du siège :5,Rue du Moulin &#8211; 52270 Pautaines<br />&#8211; Capital social: 4500 €</div><div>&#8211; RCS. Chaumont 808 821 029 N° de gestion 2017 B 00183</div><div>&#8211; Siret : 808 821 029 000 28</div><div>&#8211; APE 4759A<br />&#8211; Numéro de TVA intracommunautaire FR48808821029</div><div>&#8211; Téléphone: 03.25.04.20.19<br />&#8211; Adresse mail: info@la-maison-du-dos.com<br />&#8211; Le directeur de la publication est Philippe Sieffert<br />&#8211; Le responsable des traitements est M. Philippe Sieffert, en tant que propriétaire de La Maison du Dos</div>"
+   },
+   {
+    "titre": "Éditeur du Site :",
+    "id": "editeur-du-site",
+    "html": "<p>DIJON<span aria-hidden=\"true\" style=\"color:transparent\">X</span>WEB<span aria-hidden=\"true\" style=\"color:transparent\">XX</span>CONSEIL Numéro de SIRET : 7522173560002700</p><p>Responsable éditorial : DIJON<span aria-hidden=\"true\" style=\"color:transparent\">X</span>WEB<span aria-hidden=\"true\" style=\"color:transparent\">XX</span>CONSEIL 8 Chemin de la noue 21600 LONGVIC</p><p>Téléphone : 07 56<span aria-hidden=\"true\" style=\"color:transparent\">x</span>98<span aria-hidden=\"true\" style=\"color:transparent\">A</span>56<span aria-hidden=\"true\" style=\"color:transparent\">*</span>51</p><p>Email : bonjour@dwc-web.fr</p><p>Site Web : www.dwc-web.fr</p>"
+   },
+   {
+    "titre": "Hébergement :",
+    "id": "hebergement",
+    "html": "<p>Hébergeur : o2switch</p><p>Chem. des Pardiaux, 63000 Clermont-Ferrand, France</p><p>Site Web : www.o2switch.fr</p>"
+   },
+   {
+    "titre": "Développement :",
+    "id": "developpement",
+    "html": "<p>DIJON<span aria-hidden=\"true\" style=\"color:transparent\">X</span>WEB<span aria-hidden=\"true\" style=\"color:transparent\">XX</span>CONSEIL</p><p>8 Chemin de la noue 21600 LONGVIC</p><p>Site Web : www.dwc-web.fr</p>"
+   },
+   {
+    "titre": "Droit applicable :",
+    "id": "droit-applicable",
+    "html": "<p>Le site internet et les conditions générales présentes sont soumises au droit français et sont rédigés en français.</p><p>L&rsquo;entreprise se réserve le droit de modifier les mentions présentes à tout moment. L&rsquo;utilisateur s&rsquo;engage à les consulter régulièrement.</p>"
+   },
+   {
+    "titre": "Protection des données personnelles :",
+    "id": "protection-des-donnees-personnelles",
+    "html": "<p>Il est possible de consulter le site sans que vous ayez à révéler votre identité ou toute autre information personnelle vous concernant.</p> <p>La société s&rsquo;engage à respecter votre vie privée et à protéger les informations que vous fournissez à la société. En particulier, les données personnelles collectées sur le site sont destinées à un usage professionnel. Elles sont confidentielles et traitées comme telles.</p>  <p>S&rsquo;agissant des informations personnelles pour lesquelles vous serez amenés à communiquer avec nous, vous disposez d&rsquo;un droit d&rsquo;accès et de rectification conformément à la loi française Informatique et Liberté n° 78-17 du 6 janvier 1978. Vous pouvez exercer ce droit en société.</p><p>Si vous êtes abonné à un service de communication par e-mail (« newsletter »), vous pouvez demander à ne plus recevoir ces e-mails.</p><p>Nous vous informerons que, dans le but de vous offrir des produits et services toujours mieux adaptés à vos besoins, certaines informations non personnelles concernant votre utilisation de ce site seront programmées automatiquement. Ces informations sont destinées à notre entreprise et peuvent également être utilisées dans le cadre de campagnes commerciales ou de marketing, ou servir de base à des études et analyses. Ces données ne seront en aucun cas transmises à des tiers et seront uniquement accessibles par le personnel de notre société</p>"
+   },
+   {
+    "titre": "Sécurité :",
+    "id": "securite",
+    "html": "<p>Nous prenons toutes les mesures nécessaires pour protéger l&rsquo;intégrité, la confidentialité et l&rsquo;accès limité de ces données. Nous nous engageons à ne pas communiquer ces informations à des tiers non autorisés.</p>"
+   },
+   {
+    "titre": "Cookies :",
+    "id": "cookies",
+    "html": "<p>Afin de réaliser des statistiques et de personnaliser l&rsquo;affichage du site, il se peut que vous soyez invité à accepter des cookies. Un <a href=\"https://www.cnil.fr/fr/definition/cookie#:~:text=Un%20cookie%20est%20un%20petit,ult%C3%A9rieurs%20avec%20le%20m%C3%AAme%20domaine.\" target=\"_blank\" rel=\"noopener\">cookie</a> est un petit fichier enregistré sur votre disque dur par le serveur du site que vous visitez.</p>"
+   },
+   {
+    "titre": "Liens hypertextes :",
+    "id": "liens-hypertextes",
+    "html": "<p>Il n&rsquo;est pas nécessaire d&rsquo;obtenir une autorisation préalable pour créer un lien hypertexte vers notre site internet, mais nous vous demandons de nous informer de cette mise en place dans les 30 jours qui suivent.</p><p>Cependant, nous ne sommes pas responsables du contenu, des produits ou services proposés sur les sites correspondant à notre site internet est lié par des liens hypertextes ou tout autre type de lien.</p>"
+   },
+   {
+    "titre": "Droits de propriété intellectuelle :",
+    "id": "droits-de-propriete-intellectuelle",
+    "html": "<p>La société avise les utilisateurs de ce site que de nombreux éléments de ce site :</p><ol><li>sont protégés par la législation sur le droit d’auteur : ce peut être notamment le cas des photographies, des articles, des dessins, des séquences animées,&#8230; ;</li><li>et/ou sont protégés par la législation sur les dessins et modèles ;</li><li>sont protégés par la législation sur les marques.</li></ol><p>Les éléments de ce site qui sont protégés par la législation sur le droit d&rsquo;auteur, les dessins et modèles, et les marques appartiennent à notre société ou à des tiers qui ont autorisé notre société à les utiliser.</p><p>Toute reproduction, représentation, utilisation, adaptation, modification, incorporation, traduction, commercialisation, partielle ou totale, par quelque moyen et sur quelque support que ce soit (papier, numérique, etc.) de ces éléments sans notre autorisation écrite préalable est interdite, sauf dans les cas prévus par l&rsquo;article L 122.5 du Code de la Propriété Intellectuelle. Toute violation de ces droits est considérée comme une contrefaçon punie par la loi, avec une peine pouvant aller jusqu&rsquo;à deux ans d&#8217;emprisonnement et une amende de 150 000 €.</p>"
+   },
+   {
+    "titre": "Droits d’auteur et/ou Droits sur les Dessins et Modèles :",
+    "id": "droits-d-auteur-et-ou-droits-sur-les-dessins-et",
+    "html": "<p>Les photographies, textes, slogans, dessins, images, séquences animées sonores ou non, ainsi que toutes les œuvres intégrées dans notre site, appartiennent à notre société ou à des tiers qui ont autorisé notre société à les utiliser.</p><p>Il est permis de reproduire notre site sur un support papier ou informatique à des fins strictement personnelles, à condition de ne pas utiliser ces reproductions à des fins publicitaires, commerciales ou d&rsquo;information, et de respecter les dispositions de l&rsquo;article L122-5 du Code de la Propriété Intellectuelle.</p>"
+   },
+   {
+    "titre": "Informations relatives aux produits :",
+    "id": "informations-relatives-aux-produits",
+    "html": "<p>Dans le but de toujours améliorer nos produits et services, il se peut que nous modifiions les caractéristiques de notre offre à tout moment. Les produits et/ou services présentés sur ce site sont disponibles en France métropolitaine.</p><p>Veuillez noter que les informations contenues sur ce site sont de nature générale et n&rsquo;ont pas de valeur contractuelle.</p>"
+   },
+   {
+    "titre": "Limitation de responsabilité :",
+    "id": "limitation-de-responsabilite",
+    "html": "<p>Vous utilisez ce site internet à vos risques propres. La société ne pourra être tenue responsable des dommages directs ou indirects tels que, par exemple, des dommages matériels, des pertes de données ou de programmes, ou des préjudices financiers résultant de l&rsquo;utilisation de ce site ou de sites qui y sont liés</p>"
+   },
+   {
+    "titre": "Mise à jour :",
+    "id": "mise-a-jour",
+    "html": "<p>La société se réserve le droit de modifier et de mettre à jour, sans préavis, les présentes mentions légales et tous les éléments et produits présentés sur ce site. Il est de votre responsabilité de consulter les présentes conditions générales à chaque connexion sur le site.</p>"
+   },
+   {
+    "titre": "Données statistiques de suivi :",
+    "id": "donnees-statistiques-de-suivi",
+    "html": "<p>Nous utilisons les données de connexion, telles que le type de navigateur utilisé, le nombre de visiteurs et les rubriques consultées, afin de réaliser des statistiques de consultation et d&rsquo;optimiser notre site en termes de rubriques et de navigation. Ces informations ne sont cependant pas partagées avec des tiers.</p>"
+   },
+   {
+    "titre": "La reproduction sur support papier :",
+    "id": "la-reproduction-sur-support-papier",
+    "html": "<p>Il est autorisé à reproduire les pages de ce site sur un support papier, à l&rsquo;exception de l&rsquo;iconographie, sous réserve de respecter les trois conditions suivantes :</p><ul><li>gratuité de la diffusion.</li><li>respect de l’intégrité des documents reproduits (aucune modification, ni altération d’aucune sorte).</li><li>citation explicite du site internet comme source et mention que les droits de reproduction sont réservés et strictement limités.</li></ul>"
+   }
+  ],
+  "slug": "mentions-legales"
+ },
+ "cgv": {
+  "titre": "CONDITIONS GENERALES DE VENTES",
+  "html": "<h2 id=\"societe\">Société</h2><div>Notre site www.la-maison-du-dos.com est administré par Philippe Sieffert.</div><div>&#8211; Déclaration CNIL N°1174898<br />&#8211; Société :SAS EUROSLEEP</div><div>&#8211; RCS Chaumont N° 808 821 029 N° de gestion 2017 B 00183<br />&#8211; Capital social: 4500 €</div><div>&#8211; Siret : 808 821 029 000 28</div><div>&#8211; Siren : 808821029</div><div>&#8211; APE 4759A<br />&#8211; Numéro de TVA intracommunautaire FR48808821029<br />&#8211; Adresse postale du siège: 5 Rue du Moulin &#8211; 52270 Pautaines</div><div><p>&#8211; Téléphone: 03.25.04.20.19<br />&#8211; Adresse mail: info@la-maison-du-dos.com<br />&#8211; Le directeur de la publication est Philippe Sieffert<br />&#8211; Le responsable des traitements est M. Philippe Sieffert, en tant que propriétaire de La Maison du Dos</p><h2 id=\"propriete-intellectuelle\">Propriété Intellectuelle</h2><p>&#8211; Tous les éléments constitutifs du squelette du site (photos, images, logos, animations flash®, éléments modélisés…), ainsi que les éléments technologiques(créations logicielles, back-office d&rsquo;administration, services proposés&#8230;) sont protégées par le Droit d&rsquo;auteur et sont la propriété exclusive de leurs auteurs respectifs.<br />&#8211; Les contenus du site (textes, articles…) sont la propriété exclusive de leurs auteurs et ne peuvent être reproduits ni exploités sans l’accord de ceux-ci. La Maison du Dos autorise uniquement la reproduction d&rsquo;extraits de ses articles via les flux RSS présents sur ses sites. Conformément aux dispositions de l&rsquo;article L. 122-4 du Code de la propriété intellectuelle, toute reproduction d&rsquo;un contenu partiel ou total du site est interdite, quelle que soit sa forme (reproduction, imbrication, diffusion, techniques du « inline linking » et du « framing »&#8230;). Les liens directs établis vers des fichiers téléchargeables (quelque soit leur format) présents sur notre site sont également interdits.<br />Si vous souhaitez établir un lien avec notre site, et avant toute mise en place de celui-ci, veuillez contacter M. Philippe Sieffert avant toute mise en place du lien pointant vers notre site ou son contenu.<br />&#8211; Les textes présents provenant de sources externes ont été reproduits avec l’accord implicite ou explicite de leurs auteurs respectifs. A ce titre, mention est faite sur le site des sources et des auteurs respectifs.</p><h2 id=\"statut-des-liens-et-des-contenus\">Statut des liens et des contenus</h2><p><strong>Liens externes</strong><br />Les liens présents sur le site (liens directs, permaliens, liens partenaires&#8230;) redirigent l&rsquo;utilisateur vers des sites dont le contenu et placé sous la responsabilité des éditeurs desdits sites. En aucun cas, La Maison du Dos ne peut être tenue responsable du contenu de ces sites. Comme nous attachons particulièrement d&rsquo;importance à la licéité des contenus des sites vers lesquels pointent nos liens, nous vous demandons de bien vouloir nous signaler tout contenu pouvant vous sembler illicite sur les sites vers lesquels des liens ont été mis en place.<br /><strong>Contenus</strong><br />Les contenus du site publiés par La Maison du Dos ont été élaborés avec le plus grand soin. A ce titre, aucun contenu illicite ni diffamatoire n&rsquo;est diffusé sur ceux-ci. En outre, ils ne présentent aucun caractère pouvant être considéré comme « publicité trompeuse » au sens des articles 121-1 et suivants du Code de la Consommation.</p><h2 id=\"publicites-sur-les-sites\">Publicités sur les sites</h2><p>Des publicités peuvent être présentées sur notre site. Celles-ci peuvent provenir de sources externes (plates-forme tierces de gestion d&rsquo;affiliation, annonces Google®&#8230;) ou être gérées par notre propre régie publicitaire. La Maison du Dos ne saurait être tenue pour responsable du caractère « trompeur ou agressif » de publicités provenant de sources externes.<br />Concernant les publicités régies par La Maison du Dos, celle-ci se réservera le droit de ne pas diffuser de publicité présentant un caractère manifestement trompeur au sens des articles 121-1 et suivants du Code de la Consommation.</p><h2 id=\"informatique-et-libertes\">Informatique et Libertés</h2><p>Conformément à la recommandation 2005-284 de la CNIL, le présent site web n&rsquo;a pas fait l&rsquo;objet d&rsquo;une déclaration en tant que tel. Toutefois, tous les traitements de données présents ou à venir concernant ledit site ont été ou seront déclarés à la CNIL.<br />Les traitements susnommés sont conformes à la NS48 du 07/06/2005 éditée par la Commission Nationale Informatique et Libertés (CNIL). Vous pouvez en trouver les caractéristiques complètes en consultant notre rubrique « protection des données ».<br />Conformément aux articles 38 et 40 de la loi 2004-801 du 06/08/2004, vous disposez d&rsquo;un droit d&rsquo;accès, de rectification, de suppression des données vous concernant.<br />Ce droit peut s&rsquo;exercer en ligne en adressant un mail à l&rsquo;adresse info@la-maison-du-dos.com ou par courrier à l&rsquo;adresse suivante:<br />La Maison du Dos 5, Rue du Moulin -Pautaines 52270 Epizon</p></div><div><p>Modalités d’exercice du droit d’accès (droit ne pouvant être exercé sur place)<br />Avant de vous adresser des données personnelles, nous vous demanderons de nous fournir une preuve de votre identité. Si vous n&rsquo;êtes pas en mesure de prouver votre identité, nous nous réservons le droit de refuser de vous envoyer les données personnelles vous concernant.<br />Conformément au décret 2007-451 du 25/03/2007, votre demande sera satisfaite dans un délai de 2 mois maximum, sous réserve du caractère non abusif de celle-ci. Une somme forfaitaire ne pouvant excéder celle correspondant à la reproduction des documents vous sera facturée suite à votre demande.<br />Concernant les droits de rectification et de suppression : les conditions préalables sont identiques à celles concernant le droit d’accès.</p><h2 id=\"hebergement\">Hébergement</h2><p>Hébergeur : o2switch</p><p>Chem. des Pardiaux, 63000 Clermont-Ferrand, France</p><p>Site Web : www.o2switch.fr</p><h2 id=\"editeur-du-site\">Editeur du site</h2><p>DIJON WEB CONSEIL Numéro de SIRET : 7522173560002700</p><p>Responsable éditorial : DIJON WEB CONSEIL 8 Chemin de la noue 21600 LONGVIC</p><p>Téléphone : 07 56 98 56 51</p><p>Email : bonjour@dwc-web.fr</p><p>Site Web : www.dwc-web.fr</p><h2 id=\"service-clients\">Service clients</h2><p>Le service clients de La Maison du Dos est joignable par voie électronique (mail), à l’adresse info@la-maison-du-dos.com ou par téléphone au 03.25.04.20.19 ou mobile/WhatsApp 06.74.39.39.87 et est ouvert 7/7 jours de 9 h à 21 h.</p><h2 id=\"contact\">Contact</h2><p>Vous pouvez nous contacter à l’adresse info@la-maison-du-dos.com pour toute demande de renseignements, et pour exercer votre droit d&rsquo;accès.</p><h2 id=\"protection-des-donnees-du-site-www-la-maison-du\">Protection des données du site www.la-maison-du-dos.com</h2><p><strong>Préambule</strong><br />Cette politique fixe la manière dont nous traitons l&rsquo;information que nous recueillons à votre sujet quand vous visitez notre site.<br />Nous attachons la plus grande importance au respect de la vie privée et des données individuelles de nos utilisateurs.<br />Nous attachons également une haute importance à la protection de votre vie privée et de vos données individuelles dans la manière dont nous créons, organisons et mettons en œuvre nos activités en ligne et hors ligne. Afin de maintenir une protection maximale quant aux données à caractère personnel que nous traitons, notre site et les entités les administrant se conformeront aux principes désignés dans :<br />• La recommandation du Conseil de l’OCDE concernant les lignes directrices régissant la protection de la vie privée et les flux transfrontières de données de caractère personnel (C(80)58/FINAL).<br />• La directive Européenne 95/46/CE sur la protection des données à caractère personnel<br />• La Loi Française 78-17 modifiée par la Loi 2004-801 du 06/08/2004 (dite Loi Informatique et Libertés) et ses décrets d’application</p></div><h3 id=\"finalites\">Finalités :</h3><div>Les données personnelles collectées sur notre site sont utilisées pour réaliser le traitement des commandes et gérer la relation commerciale (livraison, factures, service après-vente). Nous n&rsquo;utilisons pas vos données à des fins publicitaires sauf après avoir recueilli votre consentement exprès. Nous sommes également susceptibles d&rsquo;utiliser vos données pour satisfaire à nos obligations légales et/ou réglementaires.</div><div><h3 id=\"le-responsable-de-traitement\">Le responsable de traitement</h3><p>Le responsable de traitement des données à caractère personnel est la société Eurosleep, dont vous trouverez les coordonnées dans les mentions légales.</p><h3 id=\"formalites-cnil\">Formalités CNIL</h3><p>Le traitement de données à caractère personnel effectué sur notre site a fait l’objet d’une déclaration à la Commission Nationale Informatique et Libertés sous le N°117489</p></div><div><h3 id=\"destinataires-des-donnees-a-caractere-personnel\">Destinataires des données à caractère personnel</h3><p>Les destinataires de vos données à caractère personnel collectées sur notre site sont en tout premier lieu nous-mêmes pour le traitement de vos commandes et la gestion de la relation client. D’autres destinataires de vos données personnelles sont, le cas échéant, nos prestataires de moyens de paiement ou de sécurisation des paiements, nos prestataires de livraison, nos partenaires commerciaux. Dans le cas où cela est exigé par la loi, votre consentement est recueilli ou une possibilité de refus vous est aménagée avant toute transmission de données.</p></div><div><h3 id=\"administration-des-sites\">Administration des sites</h3><p>Le site que vous visitez actuellement www.la-maison-du-dos.com est administré depuis notre siège situé en France.</p><h3 id=\"statut-des-liens\">Statut des liens</h3><p>Les pratiques spécifiques décrites dans cette déclaration de politique de la vie privée ne concernent que le site Internet susmentionné. Des liens externes d’autres organes/entités lié(e)s à La Maison du Dos peuvent être présents sur notre site, à des fins éditoriales, de partenariat, de publicité, de paiement….. Nous attirons votre attention sur le fait que nous ne sommes pas responsables de la politique de la vie privée et du contenu des sites extérieurs.<br />A ce titre, nous vous recommandons d&rsquo;examiner les déclarations de politique de la vie privée des autres organes/entités lorsque vous visitez leur(s) site(s) Internet. Nous essayons malgré tout de faire le maximum pour étudier préalablement à toute collaboration le contenu des sites de nos partenaires et annonceurs.</p><p>Spécifications sur l&rsquo;usage et la collecte de données (informations consignées automatiquement)<br />Il vous est possible de consulter notre site internet sans divulguer d&rsquo;informations à caractère personnel. Toutefois, certains services que vous utilisez exigent la collecte et la conservation d&rsquo;un certain nombre d&rsquo;éléments reconnus automatiquement. Le recueil de ces données se fait au moyen de cookies, destinés à améliorer nos services, et pouvant servir également à l’établissement de statistiques. Un cookie est un élément de données envoyé sur votre navigateur depuis un site Internet et qui est enregistré sur votre disque dur.<br />Des cookies sont présents dans les espaces privés de nos sites (si l&rsquo;utilisateur s&rsquo;y inscrit) ; ils servent à enregistrer le mot de passe du visiteur afin qu&rsquo;il n&rsquo;ait pas à le re-saisir à chaque nouvelle visite. Ces cookies peuvent comprendre les informations suivantes :<br />&#8211; Adresse IP<br />&#8211; Certaines catégories demandées lors d&rsquo;une inscription: Pseudo, Nom, Prénom, Adresse Email, Date de naissance, etc.<br />&#8211; Si l&rsquo;utilisateur a coché la case « retenir et l&rsquo;identifiant et le mot de passe », ces deux éléments sont codés et ajoutés au « cookie ».<br />&#8211; Si un utilisateur inscrit dans l’un de nos espaces privés revient sur le site sans s&rsquo;identifier, les éléments inscrits dans le « cookie » permettent de le reconnaître (sauf s&rsquo;il a effacé manuellement les cookies, auquel cas le serveur va générer automatiquement un nouveau cookie).<br />Nous vous informons que vous pouvez vous opposer à l&rsquo;enregistrement de « cookies » en configurant votre navigateur. Pour connaître la démarche à suivre selon le navigateur que vous utilisez, veuillez consulter la rubrique d’aide de celui-ci.</p><h3 id=\"collecte-et-usage-des-donnees-fournies-volontair\">Collecte et usage des données fournies volontairement</h3><p>Il n&rsquo;est pas indispensable de s&rsquo;inscrire sur notre site. Vous pouvez consulter celui-ci même si vous ne souhaitez pas vous inscrire ou fournir d&rsquo;informations personnelles, vous pourrez acheter en ligne, recevoir des bulletins d&rsquo;information par courrier électronique, ou nous contacter par voie électronique. Nous respectons votre volonté, et ne collecterons jamais des données à caractère personnel vous concernant sans un accord explicite de votre part.<br />Si nous collectons des données que vous nous communiquez à l&rsquo;occasion de la création de vos espaces privés, dans le cadre de commandes, de sondages, de concours ou d&rsquo;autres formulaires, ainsi que dans les courriers électroniques que vous nous envoyez, nous pouvons extraire des éléments d&rsquo;information anonymes et les combiner avec d&rsquo;autres.<br />Ces informations, qui ne peuvent être utilisées et analysées que sous forme agrégées, nous servent à mieux comprendre certaines tendances et certains profils d&rsquo;utilisation. Elles ne sont jamais traitées individuellement. Si vous ne souhaitez pas que les informations liées à votre transaction soient utilisées de cette manière, vous pouvez soit désactiver vos cookies, soit interrompre l&rsquo;inscription au niveau de la requête.<br />Tous les traitements de données relevant concernant nos clients et nos prospects utilisant notre site web sont conformes à la Norme Simplifiée N°48 du 07/06/2005 éditée par la CNIL.<br />Ces traitements de données ont été mis en œuvre par notre responsable des traitements dont vous trouverez les coordonnées dans la rubrique « mentions légales ».</p><h3 id=\"protection-des-donnees-des-mineurs\">Protection des données des mineurs</h3><p>L’usage de notre site est réservé aux personnes majeures. Toute collecte de données pouvant être effectuée auprès de mineurs doit faire l&rsquo;objet d&rsquo;une information de l&rsquo;autorité parentale, qui a la capacité de s&rsquo;opposer à tout traitement concernant lesdites données.<br />Toutefois, tout majeur titulaire de l’autorité parentale peut, sous sa responsabilité, proposer l’utilisation de notre site et des services associés à son enfant mineur.</p><h3 id=\"libre-choix-du-visiteur\">Libre choix du visiteur</h3><p>Nous collectons des données nominatives si elles sont fournies volontairement lorsque vous utiliser nos services. Vous pouvez choisir de créer un espace privé sur nos sites, de recevoir des courriers promotionnels ou d&rsquo;information marketing de nous-mêmes ou de nos partenaires en choisissant les options désirées au moment de votre inscription.<br />Toutes nos inscriptions respectent le principe de l’Opt-In actif ou du Double Opt-In et nécessitent toujours une action volontaire de votre part. Si vous choisissez de vous inscrire, de commander, les informations que vous fournissez seront accessibles au personnel de nos entités, ainsi qu’aux tiers habilités qui l&rsquo;utiliseront dans le cadre de la gestion d&rsquo;événements.<br />Si vous ne souhaitez plus recevoir d&rsquo;informations promotionnelles ou d&rsquo;informations marketing de notre part ou de nos partenaires, il vous suffit de nous le faire savoir par courrier électronique comme mentionné dans la rubrique « mentions légales » ou en utilisant le lien de désinscription fourni au bas de chaque lettre d’information.<br />Nous vous fournissons également plusieurs moyens de nous joindre afin d’exercer vos droits ou de manifester votre volonté de nous transmettre des données à caractère personnel (par exemple, liste non exhaustive) :<br />&#8211; En cochant une case à l&rsquo;endroit de votre site où les données sont collectées (Opt-in actif)<br />&#8211; En confirmant une action volontaire par mail (double Opt-In)<br />&#8211; En procédant à une commande conformément aux dispositions de la LCEN<br />&#8211; En envoyant un message électronique<br />&#8211; En envoyant un courrier postal<br />&#8211; En composant un numéro de téléphone</p><h3 id=\"confidentialite-et-securite\">Confidentialité et sécurité</h3><p>Notre préoccupation est de préserver la qualité et l&rsquo;intégrité de vos informations personnelles. Les technologies ainsi que les politiques de sécurité appliquées par nous-mêmes et nos prestataires techniques permettent de protéger les données personnelles de nos utilisateurs contre tout accès non autorisé, toute utilisation impropre, toute altération, toute destruction malveillante ou accidentelle et toute perte involontaire de données.<br />Nous améliorons sans cesse nos procédures de sécurité au fur et à mesure de l’évolution des technologies afin de maintenir un niveau de protection maximum. Sur notre site, la transmission de vos données personnelles suivantes est sécurisée suivant différents protocoles garantissant le plus haut degré de protection en adéquation avec la technologie existante et la catégorie de données à caractère personnel transmises:<br />Catégorie 1 : données personnelles primaires (nom, email, coordonnées….)<br />Catégorie 2 : autres données personnelles de profil (description, loisirs, goûts….)<br />Catégorie 3 : identificateurs (numéro de carte de crédit, identifiants d’espace privé….)<br />Tous nos salariés, sous-traitants et tiers autorisés qui ont accès aux données ou sont associés à leur traitement sont tenus de respecter la confidentialité des données personnelles de nos visiteurs, clients et prospects.<br />Nous garantissons que vos données personnelles ne seront pas communiquées à des institutions ou à des autorités gouvernementales, hormis dans les cas prévus par la loi ou la réglementation.</p><h3 id=\"auto-evaluation\">Auto-évaluation</h3><p>Afin de maintenir le plus haut degré de protection quant aux données à caractère personnel que nous possédons sur nos visiteurs, clients et prospects, nous nous soumettons régulièrement à une auto évaluation. Cette auto évaluation est réalisée par le responsable des traitements et porte tant sur les mesures techniques qu’organisationnelles.<br />Elle porte également sur les relations régulières que nous entretenons avec nos sous-traitants, partenaires et tiers autorisés quant à leur politique de protection des données.</p><h3 id=\"droit-d-acces-de-rectification-de-suppression\">Droit d’accès, de rectification, de suppression</h3><p>Conformément aux articles 38 et suivants de la Loi 78-17 modifiée, vous bénéficiez d’un droit d’accès, de rectification, de suppression, des données vous concernant.<br />Concernant le droit d’accès :<br />Avant de vous adresser des données personnelles, nous vous demanderons de nous fournir une preuve de votre identité.<br />Si vous n&rsquo;êtes pas en mesure de prouver votre identité, nous nous réservons le droit de refuser de vous envoyer les données personnelles vous concernant.<br />Nous nous efforçons de répondre à ces requêtes dans des délais raisonnables.<br />Concernant les droits de rectification et de suppression :<br />les conditions préalables sont identiques à celles concernant le droit d’accès.</p><h3 id=\"notification-des-changements\">Notification des changements</h3><p>La création de nouveaux services sur notre site peut rendre nécessaires des modifications à cette déclaration de politique de protection des données. Dans ce cas, nous notifierons ces modifications dans cette rubrique. Nous déclarerons également à la CNIL ces modifications si celles-ci le nécessitent.</p><h2 id=\"cgv-du-site-www-la-maison-du-dos-com\">CGV du site www.la-maison-du-dos.com</h2><h2 id=\"preambule\">Préambule</h2><p>Vous êtes actuellement connecté sur un site administré par La Maison du Dos. Le présent document a pour but de vous informer sur La Maison du Dos et ses conditions générales de vente en ligne (Conditions Contractuelles).<br />Vous devez lire attentivement les dispositions qui vont suivre, car elles constituent un contrat électronique établissant les conditions générales de vente de la boutique électronique de La Maison du Dos.<br />Le « Double-clic » que vous exécuterez après avoir rempli votre formulaire de commande constitue la validation de celui-ci et vaudra acceptation irrévocable des présentes Conditions Contractuelles lorsque votre commande aura été validée.<br />En conséquence, vous ne pouvez commander de produits et/ou de services que si vous acceptez toutes les conditions prévues ci-dessous.<br />L&rsquo;internaute (personne physique ou morale ayant la capacité de contracter) et La Maison du Dos sont ci-après dénommées « les parties », et individuellement « la partie ».</p><h2 id=\"definitions\">Définitions</h2><p>Dans ce contrat, chacune des expressions mentionnées ci-dessous s&rsquo;entendra au sens de sa définition, à savoir :<br />&#8211; « la société» : La Maison du Dos<br />&#8211; « contrat à distance » : tout contrat concernant la commande de produits et/ou de services conclu entre la société (*) et un client (*) dans le cadre d&rsquo;un système de vente ou de prestations de service à distance organisé par la société (*) qui, pour ce contrat, utilise exclusivement le réseau Internet jusqu&rsquo;à la conclusion du contrat, y compris la conclusion du contrat elle-même.<br />&#8211; « client » : toute personne physique qui, dans le présent contrat, agit à titre particulier ou comme représentant d’une personne morale et qui possède le droit de contracter.<br />&#8211; « bon de commande » : document qui indique les caractéristiques des produits commandés par le client (*) et qui doit être signé de lui par « double clic »(*) pour l’engager.<br />&#8211; « commande » : acte par lequel le client s&rsquo;engage à acheter des produits et/ou des services et la société (*) à lui les livrer et/ou lui les fournir.<br />&#8211; « produit » : bien vendu ou service fourni par la société.<br />&#8211; « double clic » : réitération de la validation du Bon de commande par le client. Un bon de commande rempli et validé une première fois n’est jamais pris en compte sans la confirmation du client. Cette confirmation peut s’effectuer par le biais d’une case à cocher portant acceptation des Conditions Contractuelles, ou d’un message de confirmation de la commande.</p><h2 id=\"societe-2\">Société</h2><p>Dénomination: La Maison du Dos</p></div><div><p>&#8211; Déclaration CNIL N° 1174898<br />&#8211; SAS EUROSLEEP<br />&#8211; Capital : 4500 €<br />&#8211; Siret : 808 821 029 000 10<br />&#8211; Numéro de TVA Intracommunautaire: FR48 808821029<br />&#8211; Adresse: 5 Rue du moulin &#8211; Pautaines &#8211; 52270 Epizon &#8211; Téléphone: 03.25.04.20.19<br />&#8211; Adresse mail: info@la-maison-du-dos.com</p><h2 id=\"objet\">Objet</h2><p>Le présent contrat est un contrat de vente à distance électronique qui a pour objet de définir les droits et les obligations des parties dans le cadre de la vente de produits proposées par La Maison du Dos. En ce sens, il est conforme à la réglementation française en vigueur, à savoir :<br />&#8211; Loi 2004-575 dite Loi pour la confiance dans l’économie numérique.<br />&#8211; Loi 2008-3 du 3 janvier 2008 pour le développement de la concurrence au service des consommateurs.<br />&#8211; Recommandation n°07-02 de la Commission des clauses abusives, relative aux contrats de vente mobilière conclus par internet<br />Il est également conforme aux recommandations de l’OCDE dans le domaine du commerce électronique.</p><h2 id=\"produits\">Produits</h2><p>Les produits proposés par La Maison du Dos sont présentés sur le site en Langue Française. Tout ressortissant de la Communauté Européenne et des pays respectant la directive 95/46/CE ne peut faire valoir sa méconnaissance linguistique comme clause d’annulation du contrat.<br />Les illustrations présentées sur le site sont le reflet des produits en vente sur celui-ci, excepté dans les cas limitatifs inhérents aux caractéristiques techniques de l’Internet (résolution et couleurs de l’écran de l’internaute….).<br />En raison de la spécificité du réseau internet, la société ne garantit pas sur son site la disponibilité de tous les produits en temps réel. Dans le cas d&rsquo;indisponibilité temporaire ou définitive de l&rsquo;un des produits, la société en informera les internautes par le biais de son site ou l&rsquo;envoi d&rsquo;un mail à une adresse mail valide fournie par le client. La société vous proposera alors le remplacement du produit commandé par un produit équivalent (qualité et prix), ou un avoir, ou d&rsquo;exercer votre droit de résolution (annulation de votre commande).</p><h2 id=\"prix\">Prix</h2><p>Les prix des produits peuvent être modifiés à tout moment par la société, ce à l’exception de toute vente d’un produit conclue pour le prix affiché sur <a href=\"/\">www.la-maison-du-dos.com</a>.<br />En cas d&rsquo;erreur typographique manifeste, conduisant à l&rsquo;affichage d&rsquo;un « vil prix », la vente pourra être annulée, comme mentionné à l&rsquo;article « Exécution de la commande ».<br />Les prix mentionnés sont en Euros (€), présentés TTC et comprennent les frais liés au traitement des commandes.<br />Les tarifs de livraison sont à la charge du client, sauf clauses contraires stipulées lors du processus de commande. Les différentes options de livraison (accompagnées de leurs tarifs), sont présentées lors du processus de commande et précisées lors du récapitulatif de celui-ci.<br />Le paiement de la totalité du prix doit s&rsquo;effectuer au plus tard à la livraison des produits, sauf disposition contraire spécifiée lors du processus de commande et mentionnée sur la facture.<br />Dans l’hypothèse d’une livraison de produits hors du territoire Français, les taxes douanières et formalités sont à la charge exclusive du Client. Le Client s’engage alors à vérifier les possibilités d’importation des produits commandés au regard du territoire du pays de livraison.</p><h2 id=\"commande-et-paiement\">Commande et Paiement</h2><p>Tout bon de commande signé du Client par « double clic » constitue une acceptation irrévocable qui ne peut être remise en cause que dans les cas limitativement prévus dans le présent contrat aux articles «Droit de rétractation» et «Exécution de la commande».</p></div><div>Le processus de commande est conforme aux dispositions de l&rsquo;article 1369-5 du Code Civil.<br />&#8211; Tout internaute souhaitant valider sa commande devra s&rsquo;identifier en remplissant le formulaire adéquat fourni sur <a href=\"/\">www.la-maison-du-dos.com</a>.<br />&#8211; Après avoir vérifié le contenu de sa commande, ainsi que le coût total de celle-ci (produits commandés, frais d&rsquo;expédition, eco-participation éventuelle, options facultatives), et corrigé d&rsquo;éventuelles erreurs, l’internaute la confirmera définitivement. Cette confirmation aura valeur de conclusion du contrat.<br />&#8211; Les informations contractuelles feront l’objet d’un mail de confirmation adressé au client au plus tard à la fin du délai de rétractation et sous réserve de la fourniture, par le client d’une adresse mail valide.</div><div>Pour régler sa commande, le Client dispose à son choix, de l’ensemble des modes de paiement visés au processus de commande et présentés sur le site de la société. Il garantit à la société qu&rsquo;il dispose des autorisations éventuellement nécessaires pour utiliser le mode de paiement choisi par lui, lors de la validation de la commande.<br />Dans le cas d’un paiement par CB, il devra transmettre son numéro de carte bancaire, suivant le type de cette dernière, la date d&rsquo;expiration de celle-ci ainsi que le numéro cryptogramme (numéro à 3 chiffres figurant au verso de la carte bancaire).<br />La Maison du Dos garantit que le paiement est sécurisé par cryptage S.S.L. (Secure Socket Layer) de manière à protéger le plus efficacement possible toutes les données liées aux moyens de paiement. La société garantit que les moyens et prestations de cryptologie utilisés pour sécuriser les transactions ont fait l&rsquo;objet d&rsquo;une autorisation ou d’une déclaration en application de la législation en vigueur.<br />En cas de paiement par carte, les dispositions relatives à l’utilisation frauduleuses du moyen de paiement prévues dans les conventions conclues entre le Client et l’émetteur de la carte et entre la société et ses établissements bancaires s’appliquent, conformément à l’article 132-4 du Code Monétaire et Financier.</div><h3 id=\"paiement-en-plusieurs-fois-avec-alma\">Paiement en plusieurs fois avec Alma.</h3><div>Si vous payez votre commande en plusieurs fois, vous acceptez les <a href=\"https://getalma.eu/legal/terms/customer/merchant_11lhflg3FHotCW8DQ4gqwCIKMsc6X3cwh4\" target=\"_blank\" rel=\"noopener\">conditions générales client d&rsquo;Alma</a>. ainsi que les <a href=\"https://getalma.eu/legal/terms/customer/merchant_11lhflg3FHotCW8DQ4gqwCIKMsc6X3cwh4#specific-tos\" target=\"_blank\" rel=\"noopener\">conditions particulières Alma pour les clients de La Maison du Dos</a>.<br /><strong>Paiements en + de 4 ✖</strong></div><div><p>Un crédit vous engage et doit être remboursé.</p><p>Vérifiez vos capacités de remboursement avant de vous engager.</p><h2 id=\"livraison\">Livraison</h2></div><h3 id=\"le-franco-de-port\">Le franco de port</h3><div><strong>ne s&rsquo;applique que pour</strong><strong> l</strong>e mode de livraison choisi par La Maison du Dos. Si le client désire un mode de livraison différent de celui proposé, un supplément peut être demandé.</div><h3 id=\"delai-de-livraison\">Délai de livraison</h3><div>La société garantit que les livraisons seront effectuées selon les conditions garanties par les prestataires transporteurs (sauf cas de force majeure au sens de la jurisprudence), et indiquées sur le site www.la-maison-du-dos.com, ou lors du processus de commande.</div><div>Concernant les matelas et literies vendus avec installation, le délai de livraison annoncé peut, pour des raisons pratiques de logistique, être augmenté d&rsquo;une quinzaine de jours, notamment pour les livraisons au delà d&rsquo;un rayon de 500 km autour de l&rsquo;adresse de la domiciliation de La Maison du Dos. Les livraisons avec installation s&rsquo;entendent être faites en France, Allemagne ou au Bénelux, sauf les îles, et l&rsquo;adresse de livraison doit permettre le déchargement de la marchandise. En cas d&rsquo;impossibilité de déchargement devant l&rsquo;adresse de livraison ou pour une livraison dans une île, un éventuel surcoût à convenir par devis sera proposé.</div><h3 id=\"mondial-relay\">Mondial Relay</h3><p>Le colis est mis à disposition du client dans un relais MONDIAL RELAY<strong> et un mail ou/et un SMS l&rsquo;en informe. Le colis doit être impérativement retiré dans les cinq jours . </strong>Passé ce délai, celui-ci sera automatiquement renvoyé à son expéditeur.</p><h3 id=\"colissimo\">Colissimo</h3><p>:<br />En cas d&rsquo;absence ou d&rsquo;impossibilité de remise de votre colis (pas de gardien,&#8230;), votre facteur colis dépose un avis de passage mentionnant la date et l&rsquo;adresse du bureau de Poste où vous pourrez retirer votre colis sur présentation d&rsquo;une pièce d&rsquo;identité.<br />IMPORTANT:<br />A compter de la date mentionnée sur l&rsquo;avis de passage, vous disposez de 15 jours pour retirer votre colis. Passé ce délai, celui-ci sera automatiquement renvoyé à son expéditeur.</p><h3 id=\"par-transporteur\">Par transporteur :</h3><div>Les colis volumineux sont expédiés soit directement d&rsquo;usine, soit du siège de la société. La livraison est faite devant votre domicile dans la mesure où l&rsquo;accessibilité aux camions est possible ou vous êtes invités à chercher votre marchandise au dépôt du livreur final. Le client a l&rsquo;obligation de fournir un numéro de téléphone valide où le livreur pourra le joindre pour convenir du jour de la livraison. Les livraisons s&rsquo;entendent pour la France hors îles. Pour les autres pays et pour les îles, une demande de devis est nécessaire pour vérifier les coûts éventuels et les possibilités .</div><h3 id=\"par-nos-soins\">Par nos soins :</h3><div><p>Uniquement pour la literie à eau et les matelas à suspensions à air et sur devis pour les pays étrangers et les îles. La livraison est <strong>possible, après accord, les dimanches, lundi et jours fériés</strong> ( la mise en route nécessitant souvent la présence du client). Le débarras de l&rsquo;ancienne literie est possible sur demande avant la livraison.</p><h3 id=\"livraison-incomplete-ou-non-conforme-du-fait-du\">Livraison incomplète ou non-conforme (du fait du transporteur)</h3><p>Il se peut que le colis soit endommagé ou que le contenu de celui-ci ait été partiellement ou totalement dérobé.<br />Si vous constatez une telle erreur, veuillez le mentionner sur le bon du transporteur et refuser le produit en nous le renvoyant accompagné d&rsquo;un constat 170 dit « constat de spoliation ». Dans le cas où vous prendriez connaissance de cette erreur après le départ du transporteur, veuillez nous signaler celle-ci par mail à l’adresse info@la-maison-du-dos.com ou par téléphone au 03.25.04.20.19 dans un délai maximum de 72 h ouvrables suivant la réception de la commande.<br />Conformément à l&rsquo;article 133-3 du Code du Commerce, veuillez impérativement adresser votre protestation motivée par LRAR au transporteur, ceci dans un délai de 3 jours (non compris les jours fériés).</p><h3 id=\"livraison-incomplete-ou-non-conforme-du-fait-de\">Livraison incomplète ou non conforme (du fait de la société)</h3><p>Malgré le soin apporté à la préparation des commandes, il se peut qu&rsquo;un produit soit manquant dans celle-ci, ou qu&rsquo;une erreur se soit produite lors de la préparation.<br />Si vous constatez une telle erreur, veuillez nous signaler celle-ci au plus tôt et si possible dans les 72 h ouvrables suivant la réception de la commande. Ce signalement peut se faire par mail à l’adresse info@la-maison-du-dos.com ou par téléphone au 03.25.04.20.19</p><h3 id=\"colis-perdu\">Colis perdu</h3><p>Dans le cas où un colis serait perdu par l&rsquo;un de nos prestataires transporteurs, veuillez nous en informer le plus rapidement possible.<br />La société effectuera une enquête auprès des services concernés.</p><h2 id=\"droit-de-retractation\">Droit de rétractation</h2></div><div><p>Vous avez le droit de vous rétracter du présent contrat sans donner de motif dans un délai de quatorze jours. Le délai de rétractation expire quatorze jours après le jour où vous-même, ou un tiers autre que le transporteur et désigné par vous, prend physiquement possession du dernier bien.</p><p>Pour exercer le droit de rétractation, vous devez nous notifier votre décision de rétractation du présent contrat au moyen d’une déclaration dénuée d’ambiguïté (par exemple, lettre envoyée par la poste, télécopie ou courrier électronique) par voie postale à l&rsquo;adresse La Maison du Dos 5,Rue du Moulin- 52270 Pautaines par téléphone 33+ 03 25 04 20 19 ou par Email à l&rsquo;adresse info@la-maison-du-dos.com</p><p>Vous pouvez utiliser le modèle de formulaire de rétractation mais ce n’est pas obligatoire. Pour que le délai de rétractation soit respecté, il suffit que vous transmettiez votre communication relative à l’exercice du droit de rétractation avant l’expiration du délai de rétractation. Vous devrez renvoyer ou rendre le bien, à Eurosleep, 5 Rue du Moulin 52270 Pautaines France , sans retard excessif et, en tout état de cause, au plus tard quatorze jours après que vous nous aurez communiqué votre décision de rétractation du présent contrat. Ce délai est réputé respecté si vous renvoyez le bien avant l’expiration du délai de quatorze jours. Vous devrez prendre en charge les frais directs de renvoi du bien.</p><h3 id=\"effets-de-la-retractation\">Effets de la rétractation</h3><p>En cas de rétractation de votre part du présent contrat, nous vous rembourserons tous les paiements reçus de vous, y compris les frais de livraison (à l’exception des frais supplémentaires découlant du fait que vous avez choisi, le cas échéant, un mode de livraison autre que le mode de livraison standard proposé par nous) sans retard excessif et, en tout état de cause, au plus tard quatorze jours à compter du jour où nous sommes informés de votre décision de rétractation du présent contrat. Nous procéderons au remboursement en utilisant le même moyen de paiement que celui que vous aurez utilisé pour la transaction initiale, sauf si vous convenez expressément d’un moyen différent; en tout état de cause, ce remboursement n’occasionnera pas de frais pour vous. Nous pouvons différer le remboursement jusqu’à ce que nous ayons reçu le bien.</p><h3 id=\"exceptions-au-droit-de-retractation\">Exceptions au droit de rétractation</h3><p>L’exercice du droit de rétractation est exclu pour les contrats suivants :<br />&#8211; les contrats de fourniture de biens qui ont été descellés après la livraison et qui ne peuvent être renvoyés pour des raisons d’hygiène ou de protection de la santé</p><p>&#8211; la fourniture de <strong>biens confectionnés</strong> selon les spécifications du consommateur ou nettement <strong>personnalisés</strong> ) C&rsquo;est le cas des fabrications <strong>Hefel, Moosburger, et Formesse ou Mr Sandmann dans les commandes sur-mesures, ainsi que des lits et matelas à eau dont la composition est toujours personnalisée.</strong><br />&#8211; les contrats de fourniture de biens ou de services dont le prix dépend de fluctuations sur le marché financier échappant au contrôle du professionnel et susceptibles de se produire pendant le délai de rétractation ( exemples : toutes les couettes en duvets )<br />&#8211; les contrats de fourniture de services pleinement exécutés avant la fin du délai de rétractation et dont l’exécution a commencé après accord préalable exprès du consommateur et renoncement exprès à son droit de rétractation<br />&#8211; les contrats les travaux d’entretien ou de réparation à réaliser en urgence au domicile du consommateur et expressément sollicités par lui, dans la limite des pièces de rechange et travaux strictement nécessaires pour répondre à l’urgence ;</p><h2 id=\"droit-de-resolution\">Droit de résolution</h2><p>Conformément à l’article L. 121-20-3 du code de la consommation, nous vous indiquerons lors de votre commande la date maximale de livraison de celle-ci. Dans le cas d&rsquo;un dépassement de la date de livraison (hors cas de force majeure au sens de la Loi), vous aurez la faculté de prononcer la résolution de votre commande par Lettre Recommandée avec Accusé de réception dans un délai raisonnable que vous nous indiquerez. Dans ce cas, nous vous rembourserons de la totalité des sommes versées (hors frais de retour éventuels), et ceci dans un délai maximal de 14 jours suivant la réception de votre LRAR.</p><h2 id=\"execution-de-la-commande\">Exécution de la commande</h2><p>La société se réserve le droit de refuser la commande pour un « motif légitime » (au sens défini par la jurisprudence), et notamment (sans que cette liste soit limitative) en cas d’indisponibilité du produit, d’impossibilité d’exécuter le service, de demande abusive du client, de présomption d’impossibilité pour le client de contracter , d’intention manifeste pour le client de nuire à la société ou de commande payée par une CB étrangère susceptible d&rsquo;avoir été utilisée frauduleusement et pour toute autre raison dans l&rsquo;intérêt de la société.<br />La société se réserve également le droit de refuser la commande dans le cas d&rsquo;une erreur typographique manifeste conduisant à l&rsquo;affichage d&rsquo;un « vil prix », et ceci au moment de la commande passée par le client. Dans le cas d&rsquo;une différence d&rsquo;interprétation entre « prix bas » et « vil prix », concernant le prix affiché sur le site web au moment de la commande du client, celui-ci pourra solliciter l&rsquo;intervention d&rsquo;un tiers, comme prévu à l&rsquo;article « Loi applicable ».<br />Une facture sera automatiquement jointe à l&rsquo;expédition de la commande ou adressée au client à l&rsquo;adresse de facturation si l&rsquo;adresse de facturation et de livraison données par le client lors de sa commande sont distinctes.</p></div><h2 id=\"garanties\">Garanties</h2><h3 id=\"garantie-legale\">Garantie légale</h3><div>Conformément aux articles L 211-4 et suivants du Code de la consommation, ainsi qu’aux articles 1641 et 1648 du Code Civil, l&rsquo;internaute bénéficie également d&rsquo;une garantie lui permettant de renvoyer les produits livrés défectueux<br />· Article L211-4 code de la consommation<br />Le vendeur est tenu de livrer un bien conforme au contrat et répond des défauts de conformité existant lors de la délivrance.<br />Il répond également des défauts de conformité résultant de l&#8217;emballage, des instructions de montage ou de l&rsquo;installation lorsque celle-ci a été mise à sa charge par le contrat ou a été réalisée sous sa responsabilité.<br />· Article L211-5 code de la consommation<br />Pour être conforme au contrat, le bien doit :<br />1º Etre propre à l&rsquo;usage habituellement attendu d&rsquo;un bien semblable et, le cas échéant :<br />&#8211; correspondre à la description donnée par le vendeur et posséder les qualités que celui-ci a présentées à l&rsquo;acheteur sous forme d&rsquo;échantillon ou de modèle ;<br />&#8211; présenter les qualités qu&rsquo;un acheteur peut légitimement attendre eu égard aux déclarations publiques faites par le vendeur, par le producteur ou par son représentant, notamment dans la publicité ou l&rsquo;étiquetage ;<br />2º Ou présenter les caractéristiques définies d&rsquo;un commun accord par les parties ou être propre à tout usage spécial recherché par l&rsquo;acheteur, porté à la connaissance du vendeur et que ce dernier a accepté.<br />· Article L211-12 code de la consommation<br />L&rsquo;action résultant du défaut de conformité se prescrit par deux ans à compter de la délivrance du bien.<br />· Article 1641 code civil<br />Le vendeur est tenu de la garantie à raison des défauts cachés de la chose vendue qui la rendent impropre à l&rsquo;usage auquel on la destine, ou qui diminuent tellement cet usage, que l&rsquo;acheteur ne l&rsquo;aurait pas acquise, ou n&rsquo;en aurait donné qu&rsquo;un moindre prix, s&rsquo;il les avait connus.<br />· Article 1648 al 1er code civil<br />L&rsquo;action résultant des vices rédhibitoires doit être intentée par l&rsquo;acquéreur dans un délai de deux ans à compter de la découverte du vice.<br />Responsabilité<br />La Maison du Dos est responsable de la bonne exécution des obligations résultant du contrat conclu à distance, que ces obligations soient à exécuter par elle-même ou par des sous-traitants, sans préjudice de son droit de recours contre ceux-ci.<br />La Maison du Dos ne saurait être tenue pour responsable de l&rsquo;inexécution du contrat conclu, suite à la survenance d&rsquo;un événement de force majeure (au sens prévu par la Loi) et notamment en cas de grève totale ou partielle des services postaux, de transporteurs, et de catastrophes causées par inondations ou incendies. Cette limitation de responsabilité s&rsquo;applique également à l&rsquo;inexécution dudit contrat, du fait, imprévisible et insurmontable, d’un tiers étranger à la fourniture des prestations prévues. En ce qui concerne les produits achetés pour satisfaire les besoins professionnels, La Maison du Dos n&rsquo;encourra aucune responsabilité pour tous dommages indirectes du fait des présentes, perte d&rsquo;exploitation, perte de profit, dommages ou frais, qui pourraient survenir.<br />Le choix et l&rsquo;achat d&rsquo;un produit ou d&rsquo;un service sont placés sous l&rsquo;unique responsabilité du client. L&rsquo;impossibilité totale ou partielle d&rsquo;utiliser les produits notamment pour cause d&rsquo;incompatibilité du matériel ne peut donner lieu à aucun dédommagement, remboursement ou mise en cause de la responsabilité de La Maison du Dos, sauf dans le cas d&rsquo;un vice caché avéré, de non-conformité, de défectuosité ou d&rsquo;exercice du droit de rétractation.</div><h3 id=\"garanties-contractuelles\">Garanties contractuelles</h3><div>Le client bénéficie d’une garantie contractuelle sur les produits indiquée lors de la description de l&rsquo;article par la Maison du Dos. La durée de la garantie varie selon l&rsquo;article commandé. Les frais d&rsquo;expédition et de retours des articles sous garantie d&rsquo;usine sont à la charge du client.</div><div>Exclusions</div><div>&#8211; Les frais de déplacement, de transport, de main d&rsquo;œuvre, d&#8217;emballage, de démontage et les conséquences résultant des opérations de garanties sont à la charge du client.</div><div><p>&#8211; La garantie contractuelle est exclue en cas d&rsquo;usage professionnel, d&rsquo;une mauvaise utilisation ou d&rsquo;une installation non conforme, du non respect de la notice d&#8217;emploi, d&rsquo;un choc, d&rsquo;un défaut d&rsquo;entretien ou de causes extérieures au matériel (foudre, dégâts des eaux, etc.).</p><h3 id=\"garanties-specifiques-sur-les-soudures-des-matel\">Garanties spécifiques sur les soudures des matelas à eau de nos lits à eau :</h3></div><div>Selon des articles commandés; trois types de garanties contractuelles, <strong>conditionnées à l&rsquo;achat des produits d&rsquo;entretien à La Maison du Dos</strong>, sont proposées</div><div>1.- <strong>Pour les lits à eau avec matelas de la qualité de vinyle Standard certifié DIN EN 71 :</strong></div><div><p><strong>Garantie 5 ans pour le matelas à eau des lits des marques Lunalife et Poseïdon installés par La Maison du Dos, sinon la garantie légale de 2 ans est accordée par le fabricant.</strong></p></div><div>2.-<strong> Pour tous les lits à eau avec des matelas en qualité de vinyle Mésamoll II de Lanxess, les soudures des boudins à eau de l&rsquo;Aquatube, le lit à eau Rêv&rsquo;Dos et les matelas à eau légers installés par La Maison du Dos</strong></div><div><h3 id=\"garantie-10-ans-sur-les-soudures-avec-degressivi\">Garantie 10 ans sur les soudures avec dégressivité :</h3><p><strong>Garantie à 100 % de la valeur du matelas les cinq premières années</strong></p><p><strong>Puis, une garantie dégressive :</strong></p><p><strong>entre 5 et 6 années : 50 %</strong><br /><strong>entre 6 et 7 années : 40 %</strong><br /><strong>entre 7 et 8 années : 30 %</strong><br /><strong>entre 8 et 9 années : 20 %</strong><br /><strong>entre 9 et 10 années : 10 %</strong></p></div><div>3.- <strong>Pour les lits à eau Akva des modèles en version « Q » et </strong><strong>les lits à eau Tasso, Aqua Highline et Profine en version « Excellent ou Speedster »:</strong></div><div>La garantie des soudures des matelas est de 10 ans <strong><u>sans dégressivité</u> </strong>sous condition d&rsquo;apporter la preuve d&rsquo;achat à La Maison du Dos des produits <strong>d&rsquo;entretien annuels</strong>.</div><div><strong>La garantie contractuelle s&rsquo;applique à partir de la date de livraison des lits à eau</strong>.</div><div>Elle est accordée à un acheteur particulier lors de sa commande et n&rsquo;est pas transmissible. Sa mise en œuvre demande que le matelas ait été correctement manipulé, entretenu et installé dans un cadre de lit adapté au matelas à eau. ET que l&rsquo;acheteur fournisse les preuves ( factures) d&rsquo;achats et d&rsquo;entretiens réguliers du matelas à eau avec <strong>les algicides achetés à La Maison du Dos</strong>. Ces conditions sont exigées pour toute demande de mise en œuvre de la garantie contractuelle. En cas de non-respect de ces conditions d&rsquo;application de la garantie contractuelle, c&rsquo;est la garantie légale qui s&rsquo;applique. En cas de renouvellement de matelas, la garantie originelle n&rsquo;est pas prolongée au delà de la garantie légale.</div><h3 id=\"garanties-specifiques-sur-l-etancheite-des-matel\">Garanties spécifiques sur l&rsquo;étanchéité des matelas à suspension(s) à air:</h3><div>Les matelas à suspension(s) à air bénéficient soit d&rsquo;une garantie concernant l&rsquo;étanchéité des suspensionss à air d&rsquo;une durée de 6 ans pour les fabrications Luxe, Vita et Vita Select de Matrair et de 12 ans concernant les matelas Airflex et Pure, une dégressivité de 10 % par année s&rsquo;applique à partir de la troisième année. Le montage, le déplacement et les frais d&rsquo;expéditions sont exclus des garanties..</div><div><h2 id=\"eco-participation\">Eco-Participation</h2><p>Il est possible que notre site présente des produits électriques et /ou électroniques. Conformément au Décret du 20 juillet 2005 relatif à la composition des équipements électriques et électroniques et à l&rsquo;élimination des déchets issus de ces équipements, la société met à votre disposition un système de collecte spécifique basé sur le principe du « 1 pour 1 ».<br />Modalités :<br />1 Vous pouvez déposer vos produits électroniques et/ou électriques auprès d’un organisme pratiquant la collecte sélective : déchetterie, association Emmaüs, association Envie…<br />2 La demande reprise doit se faire lors de votre commande. L’échange aura lieu lors de la livraison de votre nouvel appareil.</p><h2 id=\"informations-nominatives\">Informations Nominatives</h2><p>Les informations qui sont demandées au Client sont nécessaires au traitement de sa commande et pourront être communiquées aux partenaires contractuels de la société (comptables, juristes….). Ils pourront être également transmis à toute autorité compétente pour le règlement de litiges entre la société et l&rsquo;un de ses clients.<br /><strong>« Double-Clic » et preuve</strong><br />Le « double clic » associé à la procédure d’authentification et de non-répudiation du client lors de sa commande et à l’acceptation des présentes Conditions Contractuelles vaut validation de la commande et conclusion du contrat, conformément aux dispositions de l&rsquo;article 1369-5 du Code Civil.<br />Les registres informatisés, conservés sur les serveurs de la société ainsi que sur les serveurs de ses établissements bancaires, seront considérés comme des présomptions réfragables (réfutables) des communications, des commandes et des paiements intervenus entre les parties.<br />En aucun cas, la société ne procèdera à l’enregistrement de conversations téléphoniques entre un membre de la société et l’un de ses clients ou prospects. Dans le cas d’une sous-traitance de leur service clients, la société s’engage à interdire à leur partenaire chargé de la mise en œuvre de ce service, de tels enregistrement, y compris dans le cadre d’une « amélioration du service ».</p><h2 id=\"conservation-et-archivage-des-documents\">Conservation et archivage des documents</h2><p>L&rsquo;archivage des données des transactions est effectué sur un support fiable et durable, conformément à l&rsquo;article 1348 du Code civil Français.<br />Il est donc effectué en conformité à la norme AFNOR Z 42-013 portant sur la conception et l&rsquo;exploitation de systèmes informatiques en vue d&rsquo;assurer la conservation et l&rsquo;intégrité des enregistrements stockés dans ces systèmes.</p><h2 id=\"integralite-du-contrat\">Intégralité du contrat</h2><p>Les présentes conditions générales expriment l&rsquo;intégralité des obligations des parties.<br />Aucune condition générale ou spécifique communiquée par le Client ne pourra s&rsquo;intégrer aux présentes conditions générales, excepté en cas d’accord préalable entre les parties antérieur à la conclusion du contrat.<br />Le fait pour la société de ne pas se prévaloir d&rsquo;un manquement par le Client, à l&rsquo;une quelconque des obligations visées dans les présentes, ne saurait être interprété pour l&rsquo;avenir comme une renonciation à l&rsquo;obligation en cause.<br />La société se réserve la possibilité d&rsquo;adapter ou de modifier à tout moment les présentes Conditions Contractuelles. En cas de modification, il sera appliqué à chaque commande les Conditions Contractuelles en vigueur au jour de la commande. La société conservera également sur ses serveurs toutes les versions horodatées des Conditions Contractuelles.</p><h2 id=\"reserve-de-propriete\">Réserve de propriété</h2><p>Les produits livrés au client demeurent propriété de la société tant que le contrat n&rsquo;a pas été exécuté en totalité. Par contre, le transfert de risques prend effet dès la livraison effective des produits et/ou services commandés sur la boutique électronique.<br />Les documents fournis au client sont régis par le Code de la Propriété Intellectuelle. Ils demeurent donc la propriété de la société. Il est donc interdit de reproduire, de céder, ou d’exploiter les documents fournis sans le consentement de la société.</p><h2 id=\"loi-applicable\">Loi applicable</h2><p>Le présent contrat est soumis à la loi française, conformément aux directives européennes.<br />Il en est ainsi tant pour les règles de fond que pour les règles de forme. En cas de litige, les sociétés privilégieront le règlement à l’amiable.<br />Cette recherche de solution amiable n’interrompt nullement les délais pour agir en garantie.<br />Dans le cas contraire, et conformément aux dispositions des articles 46 à 48 du NCPC, les tribunaux de Chaumont seront seuls compétents.</p></div><div><h2 id=\"module-de-gestion-des-cookies\">Module de gestion des cookies.</h2><p>Un module vous permet de choisir les cookies que vous souhaitez accepter et ceux que vous souhaitez refuser sur ce site.</p><p><i></i> À tout moment, vous pouvez accéder au module et modifier vos préférences.</p></div><div><div><div><div>",
+  "plan": [
+   {
+    "titre": "Société",
+    "id": "societe",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Propriété Intellectuelle",
+    "id": "propriete-intellectuelle",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Statut des liens et des contenus",
+    "id": "statut-des-liens-et-des-contenus",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Publicités sur les sites",
+    "id": "publicites-sur-les-sites",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Informatique et Libertés",
+    "id": "informatique-et-libertes",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Hébergement",
+    "id": "hebergement",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Editeur du site",
+    "id": "editeur-du-site",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Service clients",
+    "id": "service-clients",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Contact",
+    "id": "contact",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Protection des données du site www.la-maison-du-dos.com",
+    "id": "protection-des-donnees-du-site-www-la-maison-du",
+    "niveau": 2,
+    "partie": true
+   },
+   {
+    "titre": "Finalités :",
+    "id": "finalites",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Le responsable de traitement",
+    "id": "le-responsable-de-traitement",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Formalités CNIL",
+    "id": "formalites-cnil",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Destinataires des données à caractère personnel",
+    "id": "destinataires-des-donnees-a-caractere-personnel",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Administration des sites",
+    "id": "administration-des-sites",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Statut des liens",
+    "id": "statut-des-liens",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Collecte et usage des données fournies volontairement",
+    "id": "collecte-et-usage-des-donnees-fournies-volontair",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Protection des données des mineurs",
+    "id": "protection-des-donnees-des-mineurs",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Libre choix du visiteur",
+    "id": "libre-choix-du-visiteur",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Confidentialité et sécurité",
+    "id": "confidentialite-et-securite",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Auto-évaluation",
+    "id": "auto-evaluation",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Droit d’accès, de rectification, de suppression",
+    "id": "droit-d-acces-de-rectification-de-suppression",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Notification des changements",
+    "id": "notification-des-changements",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "CGV du site www.la-maison-du-dos.com",
+    "id": "cgv-du-site-www-la-maison-du-dos-com",
+    "niveau": 2,
+    "partie": true
+   },
+   {
+    "titre": "Préambule",
+    "id": "preambule",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Définitions",
+    "id": "definitions",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Société",
+    "id": "societe-2",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Objet",
+    "id": "objet",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Produits",
+    "id": "produits",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Prix",
+    "id": "prix",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Commande et Paiement",
+    "id": "commande-et-paiement",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Paiement en plusieurs fois avec Alma.",
+    "id": "paiement-en-plusieurs-fois-avec-alma",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Livraison",
+    "id": "livraison",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Le franco de port",
+    "id": "le-franco-de-port",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Délai de livraison",
+    "id": "delai-de-livraison",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Mondial Relay",
+    "id": "mondial-relay",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Colissimo",
+    "id": "colissimo",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Par transporteur :",
+    "id": "par-transporteur",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Par nos soins :",
+    "id": "par-nos-soins",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Livraison incomplète ou non-conforme (du fait du transporteur)",
+    "id": "livraison-incomplete-ou-non-conforme-du-fait-du",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Livraison incomplète ou non conforme (du fait de la société)",
+    "id": "livraison-incomplete-ou-non-conforme-du-fait-de",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Colis perdu",
+    "id": "colis-perdu",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Droit de rétractation",
+    "id": "droit-de-retractation",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Effets de la rétractation",
+    "id": "effets-de-la-retractation",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Exceptions au droit de rétractation",
+    "id": "exceptions-au-droit-de-retractation",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Droit de résolution",
+    "id": "droit-de-resolution",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Exécution de la commande",
+    "id": "execution-de-la-commande",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Garanties",
+    "id": "garanties",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Garantie légale",
+    "id": "garantie-legale",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Garanties contractuelles",
+    "id": "garanties-contractuelles",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Garanties spécifiques sur les soudures des matelas à eau de nos lits à eau :",
+    "id": "garanties-specifiques-sur-les-soudures-des-matel",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Garantie 10 ans sur les soudures avec dégressivité :",
+    "id": "garantie-10-ans-sur-les-soudures-avec-degressivi",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Garanties spécifiques sur l’étanchéité des matelas à suspension(s) à air:",
+    "id": "garanties-specifiques-sur-l-etancheite-des-matel",
+    "niveau": 3,
+    "partie": false
+   },
+   {
+    "titre": "Eco-Participation",
+    "id": "eco-participation",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Informations Nominatives",
+    "id": "informations-nominatives",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Conservation et archivage des documents",
+    "id": "conservation-et-archivage-des-documents",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Intégralité du contrat",
+    "id": "integralite-du-contrat",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Réserve de propriété",
+    "id": "reserve-de-propriete",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Loi applicable",
+    "id": "loi-applicable",
+    "niveau": 2,
+    "partie": false
+   },
+   {
+    "titre": "Module de gestion des cookies.",
+    "id": "module-de-gestion-des-cookies",
+    "niveau": 2,
+    "partie": false
+   }
+  ],
+  "slug": "conditions-generales-de-ventes"
+ }
+}

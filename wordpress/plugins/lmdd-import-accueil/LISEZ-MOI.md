@@ -135,6 +135,30 @@ Royal n'affiche l'en-tête et le pied de page sur les pages « canevas », comme
 **Afficher sur le canevas** est cochée dans le modèle. Les versions précédentes ne la cochaient pas. La version 1.3 la coche
 **à chaque installation**, quels que soient les éléments cochés et **sans toucher au contenu** de votre en-tête et de votre pied de page.
 
+## Pages de contenu : brouillon, « Remplacer la page », retour arrière (version 1.6)
+
+Pages concernées : Qui sommes-nous, Nos marques, FAQ, Livraison / Paiement, Contact, Mentions légales et CGV.
+Elles nécessitent **LMDD – Devis & SAV 2.4** ou plus, qui fournit leur mise en forme.
+
+1. Cochez **Pages de contenu**, puis lancez *Installer la sélection*.
+   - Une nouvelle version de chaque page est créée en **brouillon** (« … – nouvelle version »).
+   - Le **texte est celui des pages actuelles**, extrait mot pour mot (`elementor/contenu/pages.json`).
+   - Les logos de *Nos marques* sont reliés aux images déjà présentes dans la médiathèque.
+   - Le formulaire Contact Form 7 de la page *Contact* actuelle est repris tel quel.
+2. Le cadre **Pages de contenu**, en bas de *Outils → Import accueil LMDD*, propose pour chaque page :
+   - **Aperçu** et **Modifier avec Elementor** (sur le brouillon) ;
+   - **Remplacer la page**. La nouvelle mise en page est copiée **dans la page actuelle**. Ne changent pas :
+     - l'adresse, le titre et le référencement (Rank Math : titre SEO, description, données structurées de la FAQ) ;
+     - les liens du menu et du pied de page.
+
+     L'ancienne mise en page est sauvegardée dans la page.
+   - **Revenir à l'ancienne version** : rétablit exactement l'ancienne mise en page (vérifié sur le site de test).
+3. Faites vos retouches dans le brouillon **avant** le remplacement. Ensuite, modifiez directement la page en ligne.
+
+**Ce qui change :**
+- **CGV :** l'ancien sommaire, dont les liens menaient vers l'ancien site (`conditions.php`), est remplacé par un sommaire cliquable.
+- **FAQ :** les questions sont regroupées en 5 thèmes. Les données structurées restent celles de Rank Math : l'accordéon n'en ajoute pas, pour éviter un doublon.
+
 ## Supprimer l'extension une fois tout en place
 
 **Oui, elle doit être supprimée** une fois l'installation terminée et validée : *Extensions → LMDD – Import… → Désactiver*, puis *Supprimer*.

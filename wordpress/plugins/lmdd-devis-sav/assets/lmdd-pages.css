@@ -1,0 +1,86 @@
+/* Pages de contenu (Qui sommes-nous, Nos marques, FAQ, Livraison / Paiement, Contact, Mentions légales, CGV).
+   Chargé seulement sur ces pages. Les couleurs, tailles et espacements principaux restent réglables dans Elementor. */
+:root {
+	--lmdd-g: #035C11; --lmdd-gm: #2E8B3A; --lmdd-gl: #A9D8B0; --lmdd-t: #1B261D; --lmdd-m: #56625A;
+	--lmdd-l: #DFE7E0; --lmdd-tint: #F5F8F4; --lmdd-bg: #EDF6EE;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+.lmdd-lecture [id], [id^="faq-"], #paiements, #livraisons { scroll-margin-top: 120px; }
+
+/* Liens dans les textes de la page (le thème les affiche sinon dans sa couleur par défaut). */
+[data-elementor-type="wp-page"] .elementor-widget-text-editor a:not(.elementor-button) { color: var(--lmdd-g); text-decoration: underline; text-decoration-color: rgba(3, 92, 17, .35); text-underline-offset: 2px; }
+[data-elementor-type="wp-page"] .elementor-widget-text-editor a:not(.elementor-button):hover { color: var(--lmdd-gm); text-decoration-color: currentColor; }
+
+/* ---------- Sommaire ---------- */
+.lmdd-sommaire nav ol { list-style: none; margin: 0; padding: 0; }
+.lmdd-sommaire li { margin: 0; padding: 0; }
+.lmdd-sommaire .lmdd-sommaire__titre { margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--lmdd-gm); }
+[data-elementor-type="wp-page"] .lmdd-sommaire .elementor-widget-text-editor li a { display: block; padding: 6px 10px; border-left: 2px solid transparent; border-radius: 0 8px 8px 0; color: var(--lmdd-t); text-decoration: none; }
+[data-elementor-type="wp-page"] .lmdd-sommaire .elementor-widget-text-editor li a:hover, [data-elementor-type="wp-page"] .lmdd-sommaire .elementor-widget-text-editor li a.is-active { background: #fff; color: var(--lmdd-g); border-left-color: var(--lmdd-gm); }
+.lmdd-sommaire li.lmdd-sommaire__partie { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--lmdd-l); }
+[data-elementor-type="wp-page"] .lmdd-sommaire .elementor-widget-text-editor li.lmdd-sommaire__partie a { font-weight: 700; color: var(--lmdd-g); }
+@media (min-width: 1025px) {
+	.lmdd-sommaire { position: sticky; top: 120px; flex-shrink: 0; max-height: calc(100vh - 140px); overflow: auto; }
+}
+@media (max-width: 1024px) {
+	.lmdd-sommaire nav ol { max-height: 260px; overflow: auto; }
+}
+
+/* ---------- Mentions légales, CGV ---------- */
+.lmdd-legal { overflow-wrap: anywhere; }
+.lmdd-legal h2 { margin: 36px 0 12px; padding-top: 28px; border-top: 1px solid var(--lmdd-l); font-size: 22px; line-height: 1.3; font-weight: 800; color: var(--lmdd-g); }
+.lmdd-legal h3 { margin: 26px 0 8px; font-size: 17.5px; line-height: 1.35; font-weight: 700; color: var(--lmdd-t); }
+.lmdd-legal p, .lmdd-legal > div, .lmdd-legal div { margin: 0 0 12px; }
+.lmdd-legal ul, .lmdd-legal ol { margin: 0 0 14px 1.3em; padding: 0; }
+.lmdd-legal li { margin: 0 0 6px; }
+.lmdd-legal a { color: var(--lmdd-g); text-decoration: underline; }
+@media (max-width: 767px) {
+	.lmdd-legal h2 { margin-top: 28px; padding-top: 22px; font-size: 19px; }
+	.lmdd-legal h3 { font-size: 16.5px; }
+}
+
+/* ---------- Qui sommes-nous : frise ---------- */
+.lmdd-frise__etape { position: relative; }
+.lmdd-frise__etape::before { content: ""; position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--lmdd-gm); box-sizing: border-box; }
+.lmdd-frise__etape:last-child { border-left-color: transparent !important; padding-bottom: 0 !important; }
+@media (min-width: 768px) { .lmdd-frise__etape > .elementor-widget-heading { flex: 0 0 92px; } }
+.lmdd-numero .elementor-heading-title { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--lmdd-g); }
+
+/* ---------- Nos marques ---------- */
+a.lmdd-carte-lien { text-decoration: none !important; transition: border-color .2s, box-shadow .2s, transform .2s; }
+a.lmdd-carte-lien:hover, a.lmdd-carte-lien:focus-visible { border-color: var(--lmdd-gm) !important; box-shadow: 0 12px 30px -16px rgba(1, 46, 8, .35); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { a.lmdd-carte-lien:hover { transform: none; } }
+
+/* ---------- Livraison / Paiement : tableaux ---------- */
+.lmdd-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--lmdd-l); border-radius: 12px; }
+.elementor-widget-text-editor table.lmdd-table { width: 100%; margin: 0; border: 0; border-collapse: collapse; font-size: inherit; }
+.lmdd-table th, .lmdd-table td { padding: 12px 14px; border: 0; border-bottom: 1px solid var(--lmdd-l); background: #fff; text-align: center; vertical-align: middle; line-height: 1.4; }
+.lmdd-table thead th { background: var(--lmdd-g); color: #fff; font-size: 14px; font-weight: 700; }
+.lmdd-table tbody td { background: #fff !important; }
+.lmdd-table tbody th { background: var(--lmdd-tint) !important; color: var(--lmdd-t); font-weight: 700; text-align: left; }
+.lmdd-table tbody tr:last-child > * { border-bottom: 0; }
+.elementor-widget-text-editor table.lmdd-table--large { min-width: 560px; }
+@media (max-width: 767px) {
+	.lmdd-table th, .lmdd-table td { padding: 10px 8px; font-size: 13.5px; }
+	.lmdd-table thead th { font-size: 12.5px; }
+}
+.lmdd-oui, .lmdd-non { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1.3; }
+.lmdd-oui { background: var(--lmdd-bg); color: var(--lmdd-g); }
+.lmdd-non { background: #F7E7E9; color: #9B0A1D; }
+
+/* ---------- Contact : formulaire Contact Form 7 actuel ---------- */
+.lmdd-contact-form .wpcf7 form > div, .lmdd-contact-form .wpcf7 .row { margin: 0; }
+.lmdd-contact-form .wpcf7 .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.lmdd-contact-form .wpcf7 [class*="col-"] { width: auto; max-width: none; flex: none; padding: 0; }
+.lmdd-contact-form .wpcf7 p { margin: 0; }
+.lmdd-contact-form .wpcf7 br { display: none; }
+.lmdd-contact-form .wpcf7 input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]),
+.lmdd-contact-form .wpcf7 textarea { width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid #CFD9D1; border-radius: 10px; background: #fff; color: var(--lmdd-t); font-size: 16px; line-height: 1.4; box-shadow: none; }
+.lmdd-contact-form .wpcf7 textarea { min-height: 150px; margin-bottom: 12px; resize: vertical; }
+.lmdd-contact-form .wpcf7 input:focus, .lmdd-contact-form .wpcf7 textarea:focus { border-color: var(--lmdd-gm); outline: 2px solid rgba(46, 139, 58, .2); outline-offset: 0; }
+.lmdd-contact-form .wpcf7 input[type="file"] { font-size: 14px; color: var(--lmdd-m); }
+.lmdd-contact-form .wpcf7 input[type="submit"] { margin-top: 16px; padding: 15px 30px; border: 0; border-radius: 999px; background: var(--lmdd-g); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; }
+.lmdd-contact-form .wpcf7 input[type="submit"]:hover { background: #024A0E; }
+.lmdd-contact-form .wpcf7-turnstile { margin-bottom: 12px; }
+.lmdd-contact-form .wpcf7-response-output { margin: 14px 0 0 !important; border-radius: 10px; }
+@media (max-width: 767px) { .lmdd-contact-form .wpcf7 input[type="submit"] { width: 100%; } }

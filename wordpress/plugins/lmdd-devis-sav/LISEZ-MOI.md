@@ -141,6 +141,19 @@ Nouvelle mise en page des pages WooCommerce classiques (`[woocommerce_cart]` et 
   - La page est mémorisée dans le navigateur du visiteur, ce qui reste compatible avec le cache des pages.
   - À défaut, ces boutons gardent leur adresse habituelle.
 
+## Pages de contenu (version 2.4)
+
+`assets/lmdd-pages.css` (environ 2 Ko compressé) n'est chargé que sur les pages installées par *LMDD – Import* (méta `_lmdd_contenu`), brouillons compris.
+
+Pages concernées : Qui sommes-nous, Nos marques, FAQ, Livraison / Paiement, Contact, Mentions légales et CGV.
+
+Il apporte ce qu'Elementor gratuit ne propose pas :
+- un sommaire collant, avec la partie en cours de lecture mise en évidence (petit script, chargé seulement sur ces pages) ;
+- la frise chronologique ;
+- les tableaux de paiement ;
+- la mise en forme du formulaire de contact Contact Form 7 actuel ;
+- la couleur des liens dans les textes.
+
 ## Demandes clients (copie de secours)
 
 Liste avec le type (Devis / SAV), le téléphone, le créneau, le code postal et le statut *Nouvelle / Traitée*. La fiche d'une demande

@@ -6,7 +6,7 @@
  *
  * Usage : node elementor/build.mjs
  */
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -969,6 +969,227 @@ const categoryTemplate = [
   { ...cta, id: id() },
 ];
 
+// ================= PAGES DE CONTENU (lot 4) =================
+// Le texte vient des pages actuelles (elementor/contenu/pages.json, produit par tools/contenu/extraire.py) :
+// seule la mise en page change. Les classes « lmdd-… » sont mises en forme par l'extension LMDD – Devis & SAV (lmdd-pages.css).
+const P = JSON.parse(readFileSync(path.join(OUT, 'contenu', 'pages.json'), 'utf8'));
+const CTA = () => ({ ...cta, id: id() });
+const Chip = (text, url) => W('button', {
+  ...btnBase(text, url, { fs: 14, pad: box(9, 16, 9, 16) }), background_color: C.white, button_text_color: C.green,
+  border_border: 'solid', border_width: box(1), border_color: C.line, button_background_hover_color: C.greenBg, hover_color: C.green,
+});
+const Chips = (items) => Con({ _title: 'Raccourcis', flex_direction: 'row', flex_wrap: 'wrap', flex_gap: gap(8), padding: box(22, 0, 0, 0) }, items.map(([t, u]) => Chip(t, u)));
+/** En-tête de page : titre principal (H1, texte d'origine) et chapeau. */
+const PageHero = (title, { eyebrow, lead, children = [] } = {}) => Section({
+  _title: 'En-tête de page', padding: box(64, 24, 52, 24), padding_tablet: box(52, 24, 44, 24), padding_mobile: box(36, 16, 32, 16),
+  background_background: 'gradient', background_color: C.white, background_color_b: C.tint, background_gradient_angle: { unit: 'deg', size: 180 },
+  border_border: 'solid', border_width: box(0, 0, 1, 0), border_color: C.line,
+}, [
+  ...(eyebrow ? [Eyebrow(eyebrow)] : []),
+  H(title, 'h1', { size: 46, sizeT: 38, sizeM: 30, margin: box(0, 0, lead ? 16 : 0, 0) }),
+  ...(lead ? [{ ...Txt(lead, { size: 19, sizeM: 17, color: C.text }), settings: { ...Txt(lead, { size: 19, sizeM: 17, color: C.text }).settings, _element_width: 'initial', _element_custom_width: px(860), _element_width_mobile: 'inherit' } }] : []),
+  ...children,
+]);
+const card = (settings = {}) => ({
+  padding: box(28), padding_mobile: box(22, 18, 22, 18), border_border: 'solid', border_width: box(1), border_color: C.line, border_radius: box(18),
+  background_background: 'classic', background_color: C.white, ...settings,
+});
+const grid = (cols, colsT, colsM, g = 20) => ({ container_type: 'grid', grid_columns_grid: { unit: 'fr', size: cols }, grid_columns_grid_tablet: { unit: 'fr', size: colsT }, grid_columns_grid_mobile: { unit: 'fr', size: colsM }, grid_rows_grid: { unit: 'fr', size: 1 }, grid_gaps: gap(g) });
+/** Sommaire (liens vers les ancres de la page) : collant sur ordinateur, en tête de page sur mobile. */
+const sommaire = (items, titre = 'Sommaire') => Txt(
+  `<nav aria-label="${titre}"><p class="lmdd-sommaire__titre">${titre}</p><ol>${items.map((x) => `<li${x.partie ? ' class="lmdd-sommaire__partie"' : ''}><a href="#${x.id}">${x.titre}</a></li>`).join('')}</ol></nav>`,
+  { size: 15, lh: 1.45, color: C.text },
+);
+const LectureSection = (title, nav, children, settings = {}) => Section({
+  _title: title, flex_direction: 'row', flex_direction_tablet: 'column', flex_align_items: 'flex-start', flex_align_items_tablet: 'stretch', flex_gap: gap(48), flex_gap_tablet: gap(28),
+  padding: box(56, 24, 80, 24), padding_mobile: box(28, 16, 48, 16), ...settings,
+}, [
+  Con({ _title: 'Sommaire', css_classes: 'lmdd-sommaire', width: px(290), width_tablet: pct(100), flex_direction: 'column', ...card({ padding: box(22, 22, 22, 22), background_color: C.tint }) }, [nav]),
+  Con({ _title: 'Contenu', css_classes: 'lmdd-lecture', width: pct(100), flex_direction: 'column', flex_gap: gap(40), flex_gap_mobile: gap(28) }, children),
+]);
+const navTitre = (t) => t.replace(/\s*:\s*$/, '').replace(/\.$/, '');
+// Liens vers les fichiers de la médiathèque (« uploads:aaaa/mm/fichier ») : l'extension d'import les relie aux images du site.
+const Logo = (file, alt) => W('image', {
+  _title: `Logo : ${file.split('/').pop()}`, image: { url: 'uploads:' + file, id: '', alt, source: 'library', size: '' }, image_size: 'full',
+  width: pct(100), height: px(64), height_mobile: px(52), 'object-fit': 'contain', image_border_radius: box(0),
+  _padding: box(18, 16, 18, 16), _background_background: 'classic', _background_color: C.white,
+  _border_border: 'solid', _border_width: box(1), _border_color: C.line, _border_radius: box(14),
+});
+
+// ---- Qui sommes-nous : frise chronologique et trois raisons ----
+const Q = P['qui-sommes-nous'];
+const quiPage = [
+  PageHero(Q.titre, { eyebrow: 'La Maison du Dos', lead: `<p>${Q.intro}</p>` }),
+  Section({ _title: 'Frise chronologique', padding: box(72, 24, 72, 24), padding_mobile: box(44, 16, 44, 16) }, [
+    Con({ _title: 'Frise', css_classes: 'lmdd-frise', flex_direction: 'column', flex_gap: gap(0), boxed_width: px(920), content_width: 'boxed' },
+      Q.etapes.map((e) => Con({
+        _title: `Frise : ${e.annee}`, css_classes: 'lmdd-frise__etape', flex_direction: 'row', flex_direction_mobile: 'column', flex_gap: gap(28), flex_gap_mobile: gap(6),
+        padding: box(0, 0, 40, 36), padding_mobile: box(0, 0, 30, 26), border_border: 'solid', border_width: box(0, 0, 0, 2), border_color: C.greenLight,
+      }, [
+        H(e.annee, 'p', { size: 30, sizeM: 24, weight: 800, lh: 1.1, margin: box(0), color: C.green }),
+        { ...Txt(`<p>${e.html}</p>`, { size: 17, sizeM: 16 }), settings: { ...Txt(`<p>${e.html}</p>`, { size: 17, sizeM: 16 }).settings, _flex_size: 'grow' } },
+      ]))),
+  ]),
+  Section({ _title: 'Installation : trois raisons', background_background: 'classic', background_color: C.tint, padding: box(72, 24, 80, 24), padding_mobile: box(44, 16, 52, 16) }, [
+    H(Q.raisons_intro, 'h2', { align: 'center', size: 30, sizeT: 27, sizeM: 23, lh: 1.3, margin: box(0, 0, 36, 0) }),
+    Con({ _title: 'Raisons', ...grid(3, 1, 1, 20) }, Q.raisons.map((r, i) => Con({ _title: `Raison ${i + 1}`, flex_direction: 'column', flex_gap: gap(14), ...card({ padding: box(30, 26, 30, 26) }) }, [
+      W('heading', { title: String(i + 1), header_size: 'p', css_classes: '', _css_classes: 'lmdd-numero', title_color: C.white, align: 'left', ...typo('typography', { size: 20, weight: 800, lh: 1 }) }),
+      Txt(`<p>${r}</p>`, { size: 16.5, color: C.text }),
+    ]))),
+  ]),
+  CTA(),
+];
+
+// ---- Nos marques : une carte par marque, logos, anciennes marques suivies en SAV ----
+const M = P['nos-marques'];
+const marquesPage = [
+  PageHero(M.titre, { lead: `<p><strong>${M.sous_titre}</strong></p>${M.texte}` }),
+  Section({ _title: 'Marques', padding: box(64, 24, 56, 24), padding_mobile: box(40, 16, 40, 16) }, [
+    Con({ _title: 'Marques – cartes', ...grid(4, 3, 2, 16) }, M.marques.map((m) => Con({
+      _title: `Marque : ${m.nom}`, html_tag: 'a', link: link(m.url), css_classes: 'lmdd-carte-lien', flex_direction: 'column', flex_justify_content: 'space-between', flex_gap: gap(14),
+      min_height: px(116), min_height_mobile: px(96), ...card({ padding: box(22, 20, 20, 20), padding_mobile: box(16, 14, 16, 14) }),
+    }, [
+      H(m.nom, 'h2', { size: 17, sizeM: 15, weight: 800, lh: 1.25, margin: box(0) }),
+      Txt('<p>Voir les produits →</p>', { size: 14, sizeM: 13, color: C.greenMid, weight: 600 }),
+    ]))),
+  ]),
+  Section({ _title: 'Logos', padding: box(0, 24, 72, 24), padding_mobile: box(0, 16, 48, 16) }, [
+    Con({ _title: 'Logos – grille', ...grid(5, 4, 2, 14) }, M.logos.map((f) => Logo(f, ''))),
+  ]),
+  Section({ _title: 'Anciennes marques (SAV)', background_background: 'classic', background_color: C.tint, flex_align_items: 'center', padding: box(64, 24, 72, 24), padding_mobile: box(44, 16, 48, 16) }, [
+    H(M.anciennes, 'h2', { align: 'center', size: 28, sizeT: 26, sizeM: 22, weight: 700, lh: 1.3, margin: box(0, 0, 28, 0) }),
+    Con({ _title: 'Anciennes marques – logos', ...grid(4, 4, 2, 14), boxed_width: px(760), content_width: 'boxed', width: pct(100) }, M.anciens_logos.map((f) => Logo(f, ''))),
+    Con({ flex_direction: 'row', flex_justify_content: 'center', padding: box(28, 0, 0, 0) }, [
+      BtnPrimary('SAV lit à eau', '/sav-lit-a-eau/', { icon: 'fas fa-arrow-right', iconAfter: true }),
+    ]),
+  ]),
+  CTA(),
+];
+
+// ---- FAQ : questions regroupées par thème, sommaire, accordéons ----
+// Les données structurées FAQ restent celles de Rank Math (déjà enregistrées sur la page) : pas de doublon côté Elementor.
+const F = P.faq;
+const THEMES = [
+  ['Choisir son matelas à eau', ["Quel est l'intérêt", 'Qui a inventé', 'Tous les matelas', 'Puis-je intégrer', 'Où est la différence', 'Quelles sont les différences', 'A quoi servent les stabilisations', "Quelle est généralement l'épaisseur", 'À quoi servent les revêtements', "Qu'est-ce qui est compris"]],
+  ['Confort et sommeil', ['A-t-on le mal de mer', "Est-ce qu'on transpire", 'Est-ce que je dérange', 'Les matelas à eau font-ils du bruit', "Le matelas à eau ? N'est-il pas", 'Quels sont les inconvénients', 'Les matelas à eau sont-ils bien adaptés aux enfants', 'Existe-t-il des matelas à eau pour les bébés']],
+  ['Santé et mal de dos', ['Le matelas à eau pour soulager', 'Le matelas à eau est- il bénéfique', 'Avantages médicaux', 'Un matelas à eau est-il bon', 'La conception du matelas à eau']],
+  ['Chauffage et électricité', ["Le matelas à eau et sa consommation", 'Le chauffage du matelas à eau est-il sûr', 'À quelle température', 'Puis-je éteindre le chauffage']],
+  ['Installation, entretien et sécurité', ["Quel est le poids", 'Comment installer', 'Comment entretenir', "À quelle fréquence", "Ai-je besoin d'une assurance", 'Un matelas à eau peut-il éclater', 'Les animaux domestiques', "Que se passe-t-il lorsqu'un matelas", "Quelle est l'espérance de vie"]],
+];
+const themeOf = (q) => THEMES.findIndex(([, pre]) => pre.some((p) => q.startsWith(p)));
+const nonClasses = F.questions.filter((x) => themeOf(x.q) < 0);
+if (nonClasses.length) throw new Error('FAQ : questions sans thème : ' + nonClasses.map((x) => x.q).join(' | '));
+const faqThemes = THEMES.map(([t], i) => ({ titre: t, id: 'faq-' + t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]+/g, '-').replace(/-$/, ''), items: F.questions.filter((x) => themeOf(x.q) === i) }));
+const faqAccordion = (items) => W('accordion', {
+  tabs: items.map(({ q, r }) => ({ tab_title: q, tab_content: r, _id: id() })), title_html_tag: 'h3',
+  selected_icon: fa('fas fa-plus'), selected_active_icon: fa('fas fa-minus'), icon_align: 'right',
+  border_width: px(1), border_color: C.line, title_background: C.white, title_color: C.text, tab_active_color: C.green, icon_color: C.greenMid, icon_active_color: C.green,
+  ...typo('title_typography', { size: 17, sizeM: 16, weight: 700, lh: 1.4 }), title_padding: box(18, 22, 18, 22),
+  content_background_color: C.white, content_color: C.muted, ...typo('content_typography', { size: 16, lh: 1.7 }), content_padding: box(2, 22, 22, 22),
+});
+const faqPage = [
+  PageHero(F.titre, {
+    eyebrow: 'Questions fréquentes', lead: `<p>${F.intro.replace('nous contacter', '<a href="/contact/">nous contacter</a>')}</p>`,
+    children: [Chips([...faqThemes.map((t) => [`${t.titre} (${t.items.length})`, '#' + t.id]), [F.retour.texte, F.retour.url]])],
+  }),
+  LectureSection('Questions par thème', sommaire(faqThemes.map((t) => ({ titre: t.titre, id: t.id })), 'Thèmes'), faqThemes.map((t) => Con({ _title: `Thème : ${t.titre}`, _element_id: t.id, flex_direction: 'column', flex_gap: gap(0) }, [
+    H(t.titre, 'h2', { size: 26, sizeM: 22, margin: box(0, 0, 16, 0) }),
+    faqAccordion(t.items),
+  ]))),
+  CTA(),
+];
+
+// ---- Livraison / Paiement : cartes et tableaux ----
+const L = P['livraison-paiement'];
+const tableHtml = (t) => `<div class="lmdd-table-wrap"><table class="lmdd-table${t.entetes.length > 4 ? ' lmdd-table--large' : ''}"><thead><tr>` + t.entetes.map((h) => `<th scope="col">${h}</th>`).join('') + '</tr></thead><tbody>'
+  + t.lignes.map((r) => '<tr>' + r.map((c, i) => (i === 0 ? `<th scope="row">${c}</th>` : `<td>${c.replace(/\b(oui)\b/g, '<span class="lmdd-oui">$1</span>').replace(/\bNON\b/g, '<span class="lmdd-non">NON</span>')}</td>`)).join('') + '</tr>').join('')
+  + '</tbody></table></div>';
+const livraisonPage = [
+  PageHero(L.titre, { children: [Chips([[L.paiements, '#paiements'], [L.livraisons, '#livraisons']])] }),
+  Section({ _title: 'Paiements', _element_id: 'paiements', padding: box(64, 24, 56, 24), padding_mobile: box(40, 16, 40, 16) }, [
+    H(L.paiements, 'h2', { margin: box(0, 0, 24, 0) }),
+    Con({ _title: 'Paiements – cartes', flex_direction: 'column', flex_gap: gap(20) }, L.tableaux.map((t, i) => Con({ _title: `Paiement ${i + 1}`, flex_direction: 'column', flex_gap: gap(16), ...card() }, [
+      Txt(`<p>${t.legende}</p>`, { size: 17, sizeM: 16, color: C.text }),
+      Txt(tableHtml(t), { size: 15, sizeM: 14, color: C.text }),
+    ]))),
+  ]),
+  Section({ _title: 'Livraisons', _element_id: 'livraisons', background_background: 'classic', background_color: C.tint, padding: box(64, 24, 72, 24), padding_mobile: box(40, 16, 48, 16) }, [
+    H(L.livraisons, 'h2', { margin: box(0, 0, 24, 0) }),
+    Con({ _title: 'Livraisons – cartes', ...grid(2, 1, 1, 20) }, L.zones.map((z, i) => Con({ _title: `Livraison : ${z.titre}`, flex_direction: 'column', flex_gap: gap(12), ...card() }, [
+      W('icon', { selected_icon: fa(i === 0 ? 'fas fa-truck' : 'fas fa-globe-europe'), view: 'stacked', shape: 'square', primary_color: C.greenBg, secondary_color: C.green, size: px(20), icon_padding: px(12), border_radius: box(12), align: 'left' }),
+      H(z.titre, 'h3', { size: 20, margin: box(0) }),
+      Txt(z.html, { size: 16 }),
+    ]))),
+  ]),
+  CTA(),
+];
+
+// ---- Contact : coordonnées, formulaire Contact Form 7 actuel, raccourcis ----
+const K = P.contact;
+const coord = (icon, label, value, url, ext) => W('icon-box', {
+  _title: `Coordonnée : ${label}`, selected_icon: fa(icon, icon.startsWith('fab') ? 'fa-brands' : 'fa-solid'), view: 'stacked', shape: 'square', position: 'left', position_mobile: 'left', text_align_mobile: 'left',
+  title_text: label, description_text: value, title_size: 'p', ...(url ? { link: { ...link(url, ext) } } : {}),
+  primary_color: C.greenBg, secondary_color: C.green, icon_size: px(20), icon_padding: px(13), border_radius: box(12), icon_space: px(16),
+  title_color: C.muted, description_color: C.green, title_bottom_space: px(2),
+  ...typo('title_typography', { size: 14, weight: 600, lh: 1.3 }), ...typo('description_typography', { size: 20, sizeM: 18, weight: 800, lh: 1.3 }),
+  _padding: box(18, 20, 18, 20), _background_background: 'classic', _background_color: C.white, _border_border: 'solid', _border_width: box(1), _border_color: C.line, _border_radius: box(16),
+});
+export const CONTACT_FORM = 'Formulaire de contact – code court repris de la page actuelle';
+const contactPage = [
+  PageHero(K.titre, { lead: '<p>Service client 7 jours sur 7, de 9h à 21h.</p>' }),
+  Section({ _title: 'Coordonnées et formulaire', flex_direction: 'row', flex_direction_tablet: 'column', flex_align_items: 'flex-start', flex_align_items_tablet: 'stretch', flex_gap: gap(32), padding: box(56, 24, 64, 24), padding_mobile: box(32, 16, 44, 16) }, [
+    Con({ _title: 'Coordonnées', width: pct(38), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(14) }, [
+      coord('fas fa-phone-alt', K.tel_libelle, K.tel, 'tel:+33' + K.tel.replace(/\s/g, '').slice(1)),
+      coord('fab fa-whatsapp', K.mobile_libelle, K.mobile, 'https://wa.me/33' + K.mobile.replace(/\s/g, '').slice(1), true),
+      coord('fas fa-envelope', K.email_libelle, K.email, 'mailto:' + K.email),
+      coord('fas fa-clock', 'Horaires', '7 jours sur 7, de 9h à 21h', ''),
+    ]),
+    Con({ _title: 'Formulaire', css_classes: 'lmdd-contact-form', width: pct(62), width_tablet: pct(100), flex_direction: 'column', flex_gap: gap(18), ...card({ padding: box(32, 32, 28, 32), padding_mobile: box(22, 16, 20, 16), ...shadow(14, 36, -18) }) }, [
+      H(K.message, 'h2', { size: 26, sizeM: 22, margin: box(0) }),
+      SC('[contact-form-7 id="213"]', CONTACT_FORM),
+    ]),
+  ]),
+  Section({ _title: 'Raccourcis', background_background: 'classic', background_color: C.tint, padding: box(56, 24, 64, 24), padding_mobile: box(40, 16, 44, 16) }, [
+    Con({ _title: 'Raccourcis – cartes', ...grid(3, 1, 1, 20) }, [
+      catCard('fas fa-file-signature', 'Demander un devis', 'Lit à eau sur devis, dimensions ou projet sur mesure.', '/demande-de-devis/'),
+      catCard('fas fa-tools', 'SAV lit à eau', 'Fuite, chauffage, matelas déformé : décrivez-nous la situation.', '/sav-lit-a-eau/'),
+      catCard('fas fa-question-circle', 'Questions fréquentes', 'Les réponses de nos experts sur le matelas à eau.', '/matelas-a-eau-faq-complete-35-reponses-dexperts/'),
+    ]),
+  ]),
+];
+
+// ---- Mentions légales et CGV : lecture confortable, sommaire collant ----
+const ML = P['mentions-legales'];
+const mentionsPage = [
+  PageHero(ML.titre),
+  LectureSection('Mentions légales', sommaire(ML.sections.map((s) => ({ titre: navTitre(s.titre), id: s.id }))), [
+    Con({ _title: 'Texte', flex_direction: 'column', ...card({ padding: box(40, 44, 40, 44), padding_mobile: box(24, 18, 24, 18) }) }, [
+      { ...Txt(ML.intro + ML.sections.map((s) => `<h2 id="${s.id}">${s.titre}</h2>${s.html}`).join(''), { size: 16, color: C.text, lh: 1.7 }), settings: { ...Txt('', { size: 16, color: C.text, lh: 1.7 }).settings, editor: ML.intro + ML.sections.map((s) => `<h2 id="${s.id}">${s.titre}</h2>${s.html}`).join(''), _css_classes: 'lmdd-legal' } },
+    ]),
+  ]),
+];
+const CG = P.cgv;
+const cgvTitre = CG.titre === 'CONDITIONS GENERALES DE VENTES' ? 'Conditions générales de ventes' : CG.titre;
+const cgvPage = [
+  PageHero(cgvTitre),
+  LectureSection('Conditions générales de ventes', sommaire(CG.plan.filter((x) => x.niveau === 2).map((x) => ({ titre: navTitre(x.titre), id: x.id, partie: x.partie }))), [
+    Con({ _title: 'Texte', flex_direction: 'column', ...card({ padding: box(40, 44, 40, 44), padding_mobile: box(24, 18, 24, 18) }) }, [
+      { ...Txt(CG.html, { size: 16, color: C.text, lh: 1.7 }), settings: { ...Txt(CG.html, { size: 16, color: C.text, lh: 1.7 }).settings, _css_classes: 'lmdd-legal' } },
+    ]),
+  ]),
+];
+
+/** Pages livrées : clé => [titre de la nouvelle version, slug de la page actuelle, contenu]. */
+const CONTENT_PAGES = {
+  'qui-sommes-nous': ['Qui sommes-nous', Q.slug, quiPage],
+  'nos-marques': ['Nos marques', M.slug, marquesPage],
+  faq: ['Matelas à eau : FAQ', F.slug, faqPage],
+  'livraison-paiement': ['Livraison / Paiement', L.slug, livraisonPage],
+  contact: ['Contact', K.slug, contactPage],
+  'mentions-legales': ['Mentions légales', ML.slug, mentionsPage],
+  cgv: ['Conditions générales de ventes', CG.slug, cgvPage],
+};
+
 const tpl = (title, type, content, page_settings = []) => ({ content, page_settings, version: '0.4', title, type });
 writeFileSync(path.join(OUT, 'en-tete-la-maison-du-dos.json'), JSON.stringify(tpl('En-tête – La Maison du Dos', 'section', headerContent), null, 1));
 writeFileSync(path.join(OUT, 'menu-principal-la-maison-du-dos.json'), JSON.stringify({ slug: MENU_SLUG, name: 'Menu principal – La Maison du Dos', items: MENU.map(([title, url, children, mega]) => ({ title, url, mega: mega || '', children: children.map(([t, u]) => ({ title: t, url: u })) })) }, null, 1));
@@ -978,6 +1199,10 @@ writeFileSync(path.join(OUT, 'fiche-produit-la-maison-du-dos.json'), JSON.string
 writeFileSync(path.join(OUT, 'sav-la-maison-du-dos.json'), JSON.stringify(tpl('SAV lit à eau – La Maison du Dos', 'page', savPage, { template: 'elementor_header_footer', hide_title: 'yes' }), null, 1));
 writeFileSync(path.join(OUT, 'categorie-la-maison-du-dos.json'), JSON.stringify(tpl('Catégories et boutique – La Maison du Dos', 'section', categoryTemplate), null, 1));
 writeFileSync(path.join(OUT, 'pied-de-page-la-maison-du-dos.json'), JSON.stringify(tpl('Pied de page – La Maison du Dos', 'section', [footer]), null, 1));
+writeFileSync(path.join(OUT, 'pages-contenu-la-maison-du-dos.json'), JSON.stringify({
+  content: Object.fromEntries(Object.entries(CONTENT_PAGES).map(([k, [title, slug, content]]) => [k, { title, slug, content }])),
+  contact_form: CONTACT_FORM,
+}, null, 1));
 
 const count = (els) => els.reduce((a, e) => a + 1 + count(e.elements || []), 0);
 console.log('Accueil :', count(pageContent), 'éléments ; en-tête :', count(headerContent), 'éléments ; pied de page :', count([footer]), 'éléments ; fiche produit :', count(productTemplate), '; page SAV :', count(savPage));

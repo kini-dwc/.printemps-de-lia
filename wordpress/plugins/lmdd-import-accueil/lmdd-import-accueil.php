@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
- * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit et la page SAV, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
- * Version:           1.5.0
+ * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit, la page SAV et les nouvelles versions des pages de contenu, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
+ * Version:           1.6.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -36,7 +36,7 @@ final class LMDD_Import_Accueil {
 	const LIBRARY = array( 'accueil' => 'tpl_accueil', 'en-tete' => 'tpl_entete', 'pied-de-page' => 'tpl_pied' );
 
 	/** Éléments installables séparément (cases à cocher) : fichier de données => élément. */
-	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied', 'product_single' => 'fiche', 'product_archive' => 'categorie', 'sav' => 'sav' );
+	const PART_OF = array( 'accueil' => 'accueil', 'en-tete' => 'entete', 'pied-de-page' => 'pied', 'header' => 'entete', 'footer' => 'pied', 'product_single' => 'fiche', 'product_archive' => 'categorie', 'sav' => 'sav', 'pages-contenu' => 'pages' );
 	const PARTS   = array(
 		'accueil' => 'Page d\'accueil (page brouillon « Accueil – nouvelle version »)',
 		'entete'  => 'En-tête, menu principal et méga-menus',
@@ -44,7 +44,11 @@ final class LMDD_Import_Accueil {
 		'fiche'   => 'Fiche produit : nouveau modèle pour toutes les fiches (sur devis et en ligne)',
 		'sav'     => 'Page SAV (brouillon « SAV lit à eau ») avec le formulaire en étapes',
 		'categorie' => 'Catégories et boutique : nouveau modèle pour la boutique, les catégories et sous-catégories (texte des catégories conservé)',
+		'pages'   => 'Pages de contenu : Qui sommes-nous, Nos marques, FAQ, Livraison / Paiement, Contact, Mentions légales, CGV (nouvelles versions en brouillon, même texte)',
 	);
+
+	/** Réglages d'une page sauvegardés avant « Remplacer la page », rétablis par « Revenir ». */
+	const PAGE_BACKUP = array( '_elementor_data', '_elementor_page_settings', '_wp_page_template', '_elementor_edit_mode', '_elementor_template_type', '_elementor_version', '_elementor_pro_version', '_elementor_controls_usage' );
 
 	/** Préfixe des méga-menus (contenus Elementor du type « wpr_mega_menu » de Royal Elementor Addons). */
 	const MEGA_PREFIX = 'lmdd-mega-';
@@ -64,6 +68,7 @@ final class LMDD_Import_Accueil {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'wp_ajax_lmdd_import_step', array( __CLASS__, 'ajax_step' ) );
 		add_action( 'admin_post_lmdd_hf', array( __CLASS__, 'handle_hf_action' ) );
+		add_action( 'admin_post_lmdd_contenu', array( __CLASS__, 'handle_contenu_action' ) );
 		add_action( 'admin_init', array( __CLASS__, 'repair_mega_settings' ) );
 		// « wp » : après l'enregistrement des modèles Royal (init), avant le choix du gabarit et de l'en-tête.
 		add_action( 'wp', array( __CLASS__, 'maybe_preview' ) );
@@ -89,6 +94,7 @@ final class LMDD_Import_Accueil {
 			array( 'id' => 'menu', 'label' => 'Création du menu « Menu principal – La Maison du Dos » et rattachement des méga-menus' ),
 			array( 'id' => 'hf', 'label' => 'Création des modèles Royal : en-tête, pied de page, fiche produit, catégories (sans les activer)' ),
 			array( 'id' => 'sav', 'label' => 'Création de la page « SAV lit à eau » (brouillon)' ),
+			array( 'id' => 'pages', 'label' => 'Création des nouvelles versions des 7 pages de contenu (brouillons, texte actuel conservé)' ),
 		);
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			$steps[] = array( 'id' => 'image:' . $file, 'label' => 'Image : ' . $file );
@@ -119,6 +125,8 @@ final class LMDD_Import_Accueil {
 				$msg = self::step_hf();
 			} elseif ( 'sav' === $step ) {
 				$msg = self::step_sav();
+			} elseif ( 'pages' === $step ) {
+				$msg = self::step_pages();
 			} elseif ( 0 === strpos( $step, 'image:' ) ) {
 				$msg = self::step_image( substr( $step, 6 ) );
 			} elseif ( 'link' === $step ) {
@@ -228,8 +236,12 @@ final class LMDD_Import_Accueil {
 		if ( array_intersect( array( 'fiche', 'sav' ), self::parts() ) && ! class_exists( 'LMDD_DS_Front' ) ) {
 			throw new Exception( 'La fiche produit et la page SAV utilisent l\'extension « LMDD – Devis & SAV » : installez-la et activez-la d\'abord (lmdd-devis-sav.zip), puis relancez.' );
 		}
+		if ( in_array( 'pages', self::parts(), true ) && ! class_exists( 'LMDD_DS_Pages' ) ) {
+			throw new Exception( 'Les pages de contenu utilisent la mise en forme de l\'extension « LMDD – Devis & SAV » version 2.4 ou plus : mettez-la à jour d\'abord (lmdd-devis-sav.zip), puis relancez.' );
+		}
 		self::data( 'fiche-produit' );
 		self::data( 'sav' );
+		self::data( 'pages-contenu' );
 		foreach ( array_keys( self::IMAGES ) as $file ) {
 			if ( ! is_readable( __DIR__ . '/images/' . $file ) ) {
 				throw new Exception( 'Image manquante dans l\'extension : images/' . $file );
@@ -699,6 +711,217 @@ final class LMDD_Import_Accueil {
 		return 'Page brouillon #' . $id . ' « SAV lit à eau » prête.';
 	}
 
+	// ------------------------------------------------------------------ Pages de contenu (lot 4)
+
+	/** Page actuelle (publiée) qui recevra la nouvelle version. */
+	private static function content_target( $slug ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		return $page && 'publish' === $page->post_status && ! get_post_meta( $page->ID, '_lmdd_import', true ) ? (int) $page->ID : 0;
+	}
+
+	/** Images « uploads:aaaa/mm/fichier » : reliées au fichier de la médiathèque du site (identifiant et texte alternatif). */
+	private static function resolve_uploads( array &$elements ) {
+		$base = wp_upload_dir()['baseurl'];
+		foreach ( $elements as &$el ) {
+			$url = isset( $el['settings']['image']['url'] ) ? (string) $el['settings']['image']['url'] : '';
+			if ( 0 === strpos( $url, 'uploads:' ) ) {
+				$url = $base . '/' . substr( $url, 8 );
+				$aid = attachment_url_to_postid( $url );
+				$el['settings']['image']['url'] = $aid ? wp_get_attachment_url( $aid ) : $url;
+				$el['settings']['image']['id']  = $aid ? $aid : '';
+				if ( $aid && '' === (string) $el['settings']['image']['alt'] ) {
+					$el['settings']['image']['alt'] = (string) get_post_meta( $aid, '_wp_attachment_image_alt', true );
+				}
+			}
+			if ( ! empty( $el['elements'] ) ) {
+				self::resolve_uploads( $el['elements'] );
+			}
+		}
+	}
+
+	/** Formulaire de contact : le code court Contact Form 7 de la page actuelle est repris tel quel. */
+	private static function fill_contact_form( array &$content, $target, $title ) {
+		$raw  = $target ? get_post_meta( $target, '_elementor_data', true ) : '';
+		$data = is_string( $raw ) ? json_decode( $raw, true ) : $raw;
+		$code = '';
+		if ( is_array( $data ) ) {
+			array_walk_recursive( $data, function ( $v ) use ( &$code ) {
+				if ( ! $code && is_string( $v ) && preg_match( '/\[contact-form-7[^\]]*\]/', $v, $m ) ) {
+					$code = $m[0];
+				}
+			} );
+		}
+		if ( $code ) {
+			self::set_shortcode( $content, $title, $code );
+			return ' (formulaire ' . $code . ')';
+		}
+		return ' (formulaire actuel introuvable : [contact-form-7 id="213"] par défaut)';
+	}
+
+	/** Nouvelles versions des pages de contenu, en brouillon : le texte est celui des pages actuelles. */
+	private static function step_pages() {
+		if ( ! in_array( 'pages', self::parts(), true ) ) {
+			return 'Ignoré (pages de contenu non sélectionnées).';
+		}
+		$d   = self::data( 'pages-contenu' );
+		$out = array();
+		foreach ( $d['content'] as $key => $p ) {
+			$target  = self::content_target( $p['slug'] );
+			$content = $p['content'];
+			$note    = '';
+			self::resolve_uploads( $content );
+			if ( 'contact' === $key ) {
+				$note = self::fill_contact_form( $content, $target, $d['contact_form'] );
+			}
+			$id = self::existing( 'contenu_' . $key, 'page', 'contenu-' . $key );
+			if ( ! $id ) {
+				$id = wp_insert_post( array( 'post_title' => $p['title'] . ' – nouvelle version', 'post_type' => 'page', 'post_status' => 'draft' ), true );
+				if ( is_wp_error( $id ) ) {
+					throw new Exception( 'Impossible de créer la page « ' . $p['title'] . ' » : ' . $id->get_error_message() );
+				}
+				self::save_state( array( 'contenu_' . $key => (int) $id ) );
+			}
+			update_post_meta( $id, '_lmdd_import', 'contenu-' . $key );
+			update_post_meta( $id, '_lmdd_contenu', $key );
+			update_post_meta( $id, '_lmdd_cible', $target );
+			update_post_meta( $id, '_elementor_template_type', 'wp-page' );
+			update_post_meta( $id, '_wp_page_template', 'elementor_header_footer' );
+			update_post_meta( $id, '_elementor_page_settings', array( 'hide_title' => 'yes' ) );
+			self::write_elementor_data( $id, $content );
+			$out[] = $p['title'] . ' #' . $id . $note . ( $target ? '' : ' — page actuelle /' . $p['slug'] . '/ introuvable' );
+		}
+		return 'Brouillons prêts : ' . implode( ', ', $out ) . '.';
+	}
+
+	/** « Remplacer la page » (la page garde son adresse, son titre et son référencement) et « Revenir ». */
+	public static function handle_contenu_action() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Accès refusé.' );
+		}
+		check_admin_referer( 'lmdd_contenu' );
+		$key    = isset( $_POST['key'] ) ? sanitize_key( wp_unslash( $_POST['key'] ) ) : '';
+		$do     = isset( $_POST['do'] ) ? sanitize_key( wp_unslash( $_POST['do'] ) ) : '';
+		$draft  = $key ? self::existing( 'contenu_' . $key, 'page', 'contenu-' . $key ) : 0;
+		$target = $draft ? (int) get_post_meta( $draft, '_lmdd_cible', true ) : 0;
+		if ( ! $draft || ! $target || ! get_post( $target ) ) {
+			wp_die( 'Page introuvable : relancez l\'installation des pages de contenu.' );
+		}
+		if ( 'replace' === $do ) {
+			// Sauvegarde de la version actuelle, une seule fois (un second « Remplacer » garde la sauvegarde d'origine).
+			if ( ! metadata_exists( 'post', $target, '_lmdd_sauvegarde' ) ) {
+				$backup = array( 'date' => current_time( 'mysql' ), 'meta' => array() );
+				foreach ( self::PAGE_BACKUP as $k ) {
+					$backup['meta'][ $k ] = metadata_exists( 'post', $target, $k ) ? get_post_meta( $target, $k, true ) : null;
+				}
+				update_post_meta( $target, '_lmdd_sauvegarde', wp_slash( $backup ) );
+			}
+			foreach ( array( '_elementor_data', '_elementor_page_settings', '_wp_page_template', '_elementor_template_type', '_elementor_version' ) as $k ) {
+				update_post_meta( $target, $k, wp_slash( get_post_meta( $draft, $k, true ) ) );
+			}
+			update_post_meta( $target, '_elementor_edit_mode', 'builder' );
+			update_post_meta( $target, '_lmdd_contenu', $key );
+			$msg = 'replaced';
+		} elseif ( 'restore' === $do ) {
+			$backup = get_post_meta( $target, '_lmdd_sauvegarde', true );
+			if ( ! is_array( $backup ) || empty( $backup['meta'] ) ) {
+				wp_die( 'Aucune sauvegarde de cette page.' );
+			}
+			foreach ( $backup['meta'] as $k => $v ) {
+				if ( null === $v ) {
+					delete_post_meta( $target, $k );
+				} else {
+					update_post_meta( $target, $k, wp_slash( $v ) );
+				}
+			}
+			delete_post_meta( $target, '_lmdd_contenu' );
+			delete_post_meta( $target, '_lmdd_sauvegarde' );
+			$msg = 'restored';
+		} else {
+			wp_die( 'Action inconnue.' );
+		}
+		foreach ( array( '_elementor_css', '_elementor_element_cache', '_elementor_page_assets' ) as $k ) {
+			delete_post_meta( $target, $k );
+		}
+		clean_post_cache( $target );
+		if ( class_exists( '\Elementor\Plugin' ) ) {
+			\Elementor\Plugin::$instance->files_manager->clear_cache();
+		}
+		if ( function_exists( 'rocket_clean_post' ) ) {
+			rocket_clean_post( $target );
+		}
+		do_action( 'litespeed_purge_post', $target );
+		wp_safe_redirect( admin_url( 'tools.php?page=' . self::SLUG . '&lmdd_contenu=' . $msg . '&lmdd_k=' . $key . '#lmdd-pages' ) );
+		exit;
+	}
+
+	/** Cadre « Pages de contenu » : aperçu, modification, remplacement et retour, page par page. */
+	private static function render_pages_box() {
+		if ( ! self::existing( 'contenu_faq', 'page', 'contenu-faq' ) ) {
+			return;
+		}
+		try {
+			$d = self::data( 'pages-contenu' );
+		} catch ( Exception $e ) {
+			return;
+		}
+		$notice = isset( $_GET['lmdd_contenu'], $_GET['lmdd_k'] ) ? array( sanitize_key( $_GET['lmdd_contenu'] ), sanitize_key( $_GET['lmdd_k'] ) ) : array( '', '' ); // phpcs:ignore WordPress.Security.NonceVerification
+		$button = function ( $key, $do, $label, $class, $confirm ) {
+			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="display:inline-block;margin:2px 4px 2px 0" onsubmit="return confirm(' . esc_attr( wp_json_encode( $confirm ) ) . ')">';
+			wp_nonce_field( 'lmdd_contenu' );
+			echo '<input type="hidden" name="action" value="lmdd_contenu"><input type="hidden" name="key" value="' . esc_attr( $key ) . '"><input type="hidden" name="do" value="' . esc_attr( $do ) . '">';
+			echo '<button type="submit" class="button ' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
+		};
+		echo '<div class="wrap" id="lmdd-pages"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #2271b1;padding:12px 16px;max-width:980px;margin-top:12px">';
+		echo '<h2 style="margin-top:4px">Pages de contenu</h2>';
+		if ( 'replaced' === $notice[0] ) {
+			echo '<p style="color:#00a32a"><strong>✓ Nouvelle version en ligne</strong> (même adresse, même titre, même référencement). Videz aussi le cache de votre hébergeur s\'il en a un.</p>';
+		} elseif ( 'restored' === $notice[0] ) {
+			echo '<p style="color:#00a32a"><strong>✓ Ancienne version rétablie.</strong></p>';
+		}
+		echo '<p>Chaque nouvelle version reprend <strong>le texte actuel</strong> de la page. « Remplacer la page » la met en ligne <strong>à la même adresse</strong> :
+			titre, adresse, référencement (Rank Math, données structurées de la FAQ) et liens du menu ne changent pas. L\'ancienne mise en page est sauvegardée : « Revenir » la rétablit.</p>';
+		echo '<table class="widefat striped" style="max-width:960px"><thead><tr><th>Page</th><th>État</th><th>Actions</th></tr></thead><tbody>';
+		foreach ( $d['content'] as $key => $p ) {
+			$draft  = self::existing( 'contenu_' . $key, 'page', 'contenu-' . $key );
+			$target = $draft ? (int) get_post_meta( $draft, '_lmdd_cible', true ) : 0;
+			$live   = $target && get_post_meta( $target, '_lmdd_contenu', true );
+			echo '<tr' . ( $notice[1] === $key ? ' style="outline:2px solid #00a32a"' : '' ) . '><td><strong>' . esc_html( $p['title'] ) . '</strong>';
+			if ( $target ) {
+				echo '<br><a href="' . esc_url( get_permalink( $target ) ) . '" target="_blank" rel="noopener">' . esc_html( wp_parse_url( get_permalink( $target ), PHP_URL_PATH ) ) . '</a>';
+			}
+			echo '</td><td>';
+			if ( ! $draft ) {
+				echo 'Pas encore créée : relancez l\'installation.';
+			} elseif ( ! $target ) {
+				echo '<span style="color:#b32d2e">Page actuelle /' . esc_html( $p['slug'] ) . '/ introuvable</span>';
+			} elseif ( $live ) {
+				$b = get_post_meta( $target, '_lmdd_sauvegarde', true );
+				echo '<span style="color:#00a32a"><strong>Nouvelle version en ligne</strong></span>' . ( is_array( $b ) && ! empty( $b['date'] ) ? '<br><small>ancienne version sauvegardée le ' . esc_html( mysql2date( 'd/m/Y à H:i', $b['date'] ) ) . '</small>' : '' );
+			} else {
+				echo 'Ancienne version en ligne<br><small>nouvelle version prête en brouillon</small>';
+			}
+			echo '</td><td>';
+			if ( $draft ) {
+				if ( $live ) {
+					echo '<a class="button" href="' . esc_url( get_permalink( $target ) ) . '" target="_blank" rel="noopener">Voir la page</a> ';
+					echo '<a class="button" href="' . esc_url( admin_url( 'post.php?post=' . $target . '&action=elementor' ) ) . '">Modifier avec Elementor</a> ';
+					$button( $key, 'restore', 'Revenir à l\'ancienne version', '', 'Rétablir l\'ancienne mise en page de « ' . $p['title'] . ' » ? Les modifications faites depuis le remplacement seront perdues.' );
+				} else {
+					echo '<a class="button" href="' . esc_url( get_preview_post_link( $draft ) ) . '" target="_blank" rel="noopener">Aperçu</a> ';
+					echo '<a class="button" href="' . esc_url( admin_url( 'post.php?post=' . $draft . '&action=elementor' ) ) . '">Modifier avec Elementor</a> ';
+					if ( $target ) {
+						$button( $key, 'replace', 'Remplacer la page', 'button-primary', 'Mettre en ligne la nouvelle version de « ' . $p['title'] . ' » à la place de la page actuelle ? L\'ancienne mise en page est sauvegardée.' );
+					}
+				}
+			}
+			echo '</td></tr>';
+		}
+		echo '</tbody></table>';
+		echo '<p style="color:#646970">Avant le remplacement, faites vos retouches dans le <strong>brouillon</strong> (bouton « Modifier avec Elementor ») : elles sont reprises au remplacement.
+			Après, modifiez directement la page en ligne. Relancer l\'installation des pages de contenu remet les brouillons à zéro, sans toucher aux pages en ligne.</p>';
+		echo '</div></div>';
+	}
+
 	private static function hf_template_id( $type ) {
 		$post = get_page_by_path( self::HF[ $type ]['slug'], OBJECT, 'wpr_templates' );
 		return $post ? (int) $post->ID : 0;
@@ -809,6 +1032,7 @@ final class LMDD_Import_Accueil {
 					'fiche'   => self::royal_active() && self::hf_template_id( 'product_single' ),
 					'categorie' => self::royal_active() && self::hf_template_id( 'product_archive' ),
 					'sav'     => (bool) self::existing( 'page_sav', 'page', 'page-sav' ),
+					'pages'   => (bool) self::existing( 'contenu_faq', 'page', 'contenu-faq' ),
 				);
 				foreach ( self::PARTS as $part => $label ) :
 					?>
@@ -904,6 +1128,7 @@ final class LMDD_Import_Accueil {
 		self::render_hf_box();
 		self::render_fiche_box();
 		self::render_categorie_box();
+		self::render_pages_box();
 		$sav = self::existing( 'page_sav', 'page', 'page-sav' );
 		if ( $sav ) {
 			echo '<div class="wrap"><div style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #00a32a;padding:12px 16px;max-width:760px;margin-top:12px">';
