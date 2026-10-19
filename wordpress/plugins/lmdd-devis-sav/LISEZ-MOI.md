@@ -89,6 +89,14 @@ Blocs utilisés par le modèle « Catégories et boutique », installé par l'ex
   - aucun JavaScript ;
   - une feuille de style de 2,8 Ko compressée, chargée seulement quand ce modèle est utilisé.
 
+**Règles d'affichage, valables sur tout le site, quel que soit le modèle utilisé :**
+- **Fil d'Ariane sans « Boutique »** : Accueil › Catégorie › Sous-catégorie (› Produit). Cela s'applique au fil d'Ariane WooCommerce et à celui de Rank Math. La page Boutique garde son propre titre.
+- **Produits sur devis et produits à 0 € en premier** :
+  - sur la boutique, les catégories et les sous-catégories ;
+  - quel que soit le tri choisi ;
+  - l'ordre choisi par le visiteur (prix, popularité…) s'applique ensuite.
+- **Jamais de prix à 0** : « 0,00 € » n'est plus affiché nulle part (fiches, catégories, recherche, produits liés). Les produits sur devis affichent « Prix sur devis » dans les cartes.
+
 | Code court | Rôle |
 |---|---|
 | `[lmdd_cat_entete]` | Fil d'Ariane, titre (H1), introduction et nombre de produits |

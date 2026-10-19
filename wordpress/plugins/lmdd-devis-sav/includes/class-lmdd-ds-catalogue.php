@@ -19,6 +19,77 @@ final class LMDD_DS_Catalogue {
 		add_shortcode( 'lmdd_produits', array( __CLASS__, 'sc_products' ) );
 		add_shortcode( 'lmdd_cat_description', array( __CLASS__, 'sc_description' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'assets' ), 20 );
+		// Fil d'Ariane sans « Boutique » : Accueil › Catégorie › Sous-catégorie (› Produit).
+		add_filter( 'woocommerce_get_breadcrumb', array( __CLASS__, 'breadcrumb_without_shop' ), 20 );
+		add_filter( 'rank_math/frontend/breadcrumb/items', array( __CLASS__, 'breadcrumb_without_shop' ), 20 );
+		// Prix à 0 jamais affiché (« 0,00 € » n'est pas présentable).
+		add_filter( 'woocommerce_get_price_html', array( __CLASS__, 'hide_zero_price' ), 100, 2 );
+		// Produits sur devis et produits à 0 € en tête de la boutique et des catégories, quel que soit le tri.
+		add_filter( 'posts_clauses', array( __CLASS__, 'devis_first' ), 20, 2 );
+	}
+
+	// ------------------------------------------------------------------ Règles d'affichage du catalogue
+
+	/** Retire l'étape « Boutique » du fil d'Ariane, sauf sur la page Boutique elle-même. */
+	public static function breadcrumb_without_shop( $crumbs ) {
+		if ( ! is_array( $crumbs ) || ! function_exists( 'wc_get_page_id' ) || is_shop() ) {
+			return $crumbs;
+		}
+		$shop_id = wc_get_page_id( 'shop' );
+		if ( $shop_id <= 0 ) {
+			return $crumbs;
+		}
+		$url = untrailingslashit( get_permalink( $shop_id ) );
+		$out = array_values( array_filter( $crumbs, function ( $c ) use ( $url ) {
+			return ! ( isset( $c[1] ) && $c[1] && untrailingslashit( $c[1] ) === $url );
+		} ) );
+		return $out ? $out : $crumbs;
+	}
+
+	/** Prix nul : rien n'est affiché (fiches, catégories, recherche, produits liés…). */
+	public static function hide_zero_price( $html, $product ) {
+		if ( is_admin() && ! wp_doing_ajax() ) {
+			return $html;
+		}
+		$price = $product ? $product->get_price() : '';
+		if ( '' === $price || null === $price ) {
+			return $html;
+		}
+		if ( $product->is_type( 'variable' ) ) {
+			return (float) $product->get_variation_price( 'max' ) <= 0 ? '' : $html;
+		}
+		return (float) $price <= 0 ? '' : $html;
+	}
+
+	/**
+	 * Requête principale de la boutique et des catégories : les produits sur devis et les produits à 0 €
+	 * passent en premier, puis l'ordre choisi par le visiteur (par défaut, popularité, prix…) s'applique.
+	 */
+	public static function devis_first( $clauses, $query ) {
+		if ( is_admin() || ! $query->is_main_query() || ! function_exists( 'is_shop' ) || ! ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) || ( function_exists( 'wc_get_page_id' ) && (int) $query->get( 'page_id' ) === wc_get_page_id( 'shop' ) ) ) ) {
+			return $clauses;
+		}
+		global $wpdb;
+		$tt_ids = array();
+		$words  = array_filter( array_map( 'trim', explode( ',', LMDD_DS_Store::settings()['categories'] ) ) );
+		if ( $words ) {
+			$terms = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => false ) );
+			foreach ( is_wp_error( $terms ) ? array() : $terms as $t ) {
+				foreach ( $words as $w ) {
+					if ( false !== strpos( $t->slug, sanitize_title( $w ) ) ) {
+						$tt_ids[] = (int) $t->term_taxonomy_id;
+					}
+				}
+			}
+		}
+		$in_cat = $tt_ids
+			? "EXISTS ( SELECT 1 FROM {$wpdb->term_relationships} lmdd_tr WHERE lmdd_tr.object_id = {$wpdb->posts}.ID AND lmdd_tr.term_taxonomy_id IN (" . implode( ',', array_unique( $tt_ids ) ) . ') )'
+			: '0';
+		$clauses['join'] .= " LEFT JOIN {$wpdb->wc_product_meta_lookup} lmdd_lk ON lmdd_lk.product_id = {$wpdb->posts}.ID"
+			. " LEFT JOIN {$wpdb->postmeta} lmdd_dv ON ( lmdd_dv.post_id = {$wpdb->posts}.ID AND lmdd_dv.meta_key = '_lmdd_devis' )";
+		$first = "( CASE WHEN COALESCE( lmdd_lk.max_price, 0 ) <= 0 THEN 0 WHEN lmdd_dv.meta_value = 'oui' THEN 0 WHEN lmdd_dv.meta_value = 'non' THEN 1 WHEN {$in_cat} THEN 0 ELSE 1 END )";
+		$clauses['orderby'] = $first . ' ASC' . ( $clauses['orderby'] ? ', ' . $clauses['orderby'] : '' );
+		return $clauses;
 	}
 
 	public static function is_catalogue() {
