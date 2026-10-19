@@ -3,3 +3,4 @@ audit/rapport/
 tools/asset-pilot-tester/rapports/
 tools/asset-pilot-tester/config.json
 dist/
+__pycache__/
