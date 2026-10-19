@@ -258,6 +258,7 @@ final class LMDD_DS_Store {
 			'lmdd_tel'    => 'Téléphone',
 			'lmdd_cp'     => 'Code postal',
 			'lmdd_statut' => 'Statut',
+			'lmdd_mail'   => 'E-mail',
 			'date'        => 'Reçue le',
 		);
 	}
@@ -275,7 +276,18 @@ final class LMDD_DS_Store {
 			echo esc_html( isset( $v['code_postal'] ) ? $v['code_postal'] : '' );
 		} elseif ( 'lmdd_statut' === $col ) {
 			echo 'traitee' === get_post_meta( $id, '_lmdd_statut', true ) ? '✓ Traitée' : '<strong style="color:#C80C25">● Nouvelle</strong>';
+		} elseif ( 'lmdd_mail' === $col ) {
+			echo self::mail_label( $id ); // phpcs:ignore WordPress.Security.EscapeOutput
 		}
+	}
+
+	/** Résultat de l'e-mail envoyé par Contact Form 7 pour cette demande. */
+	public static function mail_label( $id ) {
+		$m = get_post_meta( $id, '_lmdd_mail', true );
+		if ( 'echec' === $m || 'en_cours' === $m ) {
+			return '<strong style="color:#C80C25" title="Contact Form 7 n\'a pas pu envoyer l\'e-mail : vérifiez l\'envoi des e-mails du site (extension SMTP).">✗ Non envoyé</strong>';
+		}
+		return 'envoye' === $m ? '✓ Envoyé' : '—';
 	}
 
 	public static function row_actions( $actions, $post ) {
@@ -322,7 +334,7 @@ final class LMDD_DS_Store {
 			$type    = get_post_meta( $post->ID, '_lmdd_type', true );
 			$values  = (array) get_post_meta( $post->ID, '_lmdd_values', true );
 			$context = (array) get_post_meta( $post->ID, '_lmdd_context', true );
-			echo '<p><strong>Référence :</strong> ' . esc_html( self::reference( $post->ID ) ) . ' — reçue le ' . esc_html( get_the_date( 'd/m/Y à H:i', $post ) ) . '</p>';
+			echo '<p><strong>Référence :</strong> ' . esc_html( self::reference( $post->ID ) ) . ' — reçue le ' . esc_html( get_the_date( 'd/m/Y à H:i', $post ) ) . ' — e-mail : ' . self::mail_label( $post->ID ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput
 			echo self::html_table( self::rows( $type, $values, $context ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 			if ( ! empty( $context['photos'] ) ) {
 				echo '<p>';

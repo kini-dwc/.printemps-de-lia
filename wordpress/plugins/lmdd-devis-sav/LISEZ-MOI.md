@@ -160,6 +160,8 @@ Il apporte ce qu'Elementor gratuit ne propose pas :
 
 ## Demandes clients (copie de secours)
 
+**Depuis la version 2.4.2**, chaque demande valide est enregistrée **avant** l'envoi de l'e-mail : elle est conservée même si l'e-mail n'arrive pas. La colonne **E-mail** indique « ✓ Envoyé » ou « ✗ Non envoyé ». Si vous voyez « Non envoyé », c'est l'envoi des e-mails du site qui est en cause, pas le formulaire.
+
 Liste avec le type (Devis / SAV), le téléphone, le créneau, le code postal et le statut *Nouvelle / Traitée*. La fiche d'une demande
 affiche toutes les réponses et les photos, conservées dans `uploads/lmdd-demandes/` (dossier non listable). L'enregistrement se
 désactive dans les réglages.

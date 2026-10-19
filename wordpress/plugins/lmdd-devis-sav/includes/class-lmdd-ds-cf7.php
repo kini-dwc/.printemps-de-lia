@@ -9,7 +9,10 @@ defined( 'ABSPATH' ) || exit;
 final class LMDD_DS_CF7 {
 
 	public static function init() {
-		add_action( 'wpcf7_mail_sent', array( __CLASS__, 'capture' ) );
+		// Copie enregistrée AVANT l'envoi de l'e-mail : la demande est conservée même si l'e-mail n'arrive pas.
+		add_action( 'wpcf7_before_send_mail', array( __CLASS__, 'capture' ), 99 );
+		add_action( 'wpcf7_mail_sent', array( __CLASS__, 'mail_sent' ) );
+		add_action( 'wpcf7_mail_failed', array( __CLASS__, 'mail_failed' ) );
 		add_filter( 'wpcf7_posted_data', array( __CLASS__, 'clean_posted' ) );
 		if ( is_admin() ) {
 			add_action( 'admin_post_lmdd_ds_creer_formulaires', array( __CLASS__, 'handle_create' ) );
@@ -52,6 +55,21 @@ final class LMDD_DS_CF7 {
 
 	// ------------------------------------------------------------------ Copie de secours dans « Demandes clients »
 
+	/** Demande enregistrée pendant l'envoi en cours (pour y noter ensuite le résultat de l'e-mail). */
+	private static $saved = 0;
+
+	public static function mail_sent() {
+		if ( self::$saved ) {
+			update_post_meta( self::$saved, '_lmdd_mail', 'envoye' );
+		}
+	}
+
+	public static function mail_failed() {
+		if ( self::$saved ) {
+			update_post_meta( self::$saved, '_lmdd_mail', 'echec' );
+		}
+	}
+
 	public static function capture( $contact_form ) {
 		$s    = LMDD_DS_Store::settings();
 		$type = '';
@@ -90,7 +108,11 @@ final class LMDD_DS_CF7 {
 				}
 			}
 		}
-		LMDD_DS_Store::save( $type, $values, $context );
+		$id = LMDD_DS_Store::save( $type, $values, $context );
+		if ( $id && ! is_wp_error( $id ) ) {
+			self::$saved = (int) $id;
+			update_post_meta( $id, '_lmdd_mail', 'en_cours' );
+		}
 	}
 
 	private static function keep_file( $file ) {
