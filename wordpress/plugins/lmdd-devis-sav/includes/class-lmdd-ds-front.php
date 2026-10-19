@@ -184,6 +184,10 @@ final class LMDD_DS_Front {
 		return '<svg class="lmdd-i" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' . ( isset( $p[ $name ] ) ? $p[ $name ] : '' ) . '</svg>';
 	}
 
+	public static function tel_link_public( $class = '' ) {
+		return self::tel_link( $class );
+	}
+
 	private static function tel_link( $class = '' ) {
 		$t = LMDD_DS_Store::settings()['telephone'];
 		return '<a class="' . esc_attr( $class ) . '" href="tel:' . esc_attr( preg_replace( '/[^\d+]/', '', preg_replace( '/^0/', '+33', str_replace( ' ', '', $t ) ) ) ) . '">' . esc_html( $t ) . '</a>';

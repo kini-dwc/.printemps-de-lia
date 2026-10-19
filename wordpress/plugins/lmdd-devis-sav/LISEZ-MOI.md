@@ -108,6 +108,29 @@ Blocs utilisés par le modèle « Catégories et boutique », installé par l'ex
 | `[lmdd_cat_description titre="…"]` | Suite de la description (titre par défaut : « Bien choisir : … ») |
 | `[lmdd_produits_lies limite="4" titre="Vous aimerez aussi"]` | Fiche produit : produits liés (ventes incitatives puis produits apparentés), avec les mêmes cartes que les catégories |
 
+## Panier et commande (version 2.3)
+
+Nouvelle mise en page des pages WooCommerce classiques (`[woocommerce_cart]` et `[woocommerce_checkout]`).
+
+- **Ce qui ne change pas** : les champs, les calculs, les frais de livraison, les moyens de paiement (Crédit Agricole, virement, chèque, Alma) et les e-mails de WooCommerce. Seul l'affichage change.
+- **Panier** :
+  - étapes Panier › Livraison et paiement › Confirmation ;
+  - barre « Plus que … € pour la livraison gratuite » ;
+  - articles en lignes claires (en cartes sur mobile) ;
+  - « Total panier » toujours visible à droite, gros bouton « Valider la commande » ;
+  - réassurance (paiement sécurisé, livraison, conseil et téléphone).
+- **Commande** :
+  - coordonnées dans des blocs lisibles, champs plus grands, erreurs signalées en rouge ;
+  - récapitulatif et paiement à droite ;
+  - moyens de paiement présentés en cartes, le choix en cours en vert ;
+  - gros bouton « Commander ».
+- **Confirmation** : résumé de la commande en cases, détails et adresses mis en forme.
+- **Activation** : *Demandes clients → Réglages → Panier et commande*.
+  - **Aperçu sans activer** : liens dans les réglages, ou `?lmdd_hf_preview=1` sur la page panier. L'aperçu est réservé à l'administrateur, mémorisé une heure et suit le passage du panier à la commande.
+  - Pour revenir en arrière : décocher la case.
+- **Livraison gratuite dès** : montant affiché dans la barre (60 € par défaut). Laisser vide pour masquer la barre. Ce montant n'est qu'un affichage : les frais réels restent ceux de vos réglages de livraison.
+- **Poids** : une feuille de style de 4,5 Ko compressée, chargée seulement sur le panier et la commande. Aucun JavaScript.
+
 ## Demandes clients (copie de secours)
 
 Liste avec le type (Devis / SAV), le téléphone, le créneau, le code postal et le statut *Nouvelle / Traitée*. La fiche d'une demande

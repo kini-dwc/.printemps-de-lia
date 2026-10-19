@@ -87,6 +87,12 @@ Un seul modèle pour toutes les fiches, qui s'adapte tout seul :
 - Pour de meilleures fiches : renseignez **Titre affiché (court)** et **Points clés** dans chaque produit (*Produit → Général*).
   Sans eux, la fiche affiche le nom complet du produit et pas de points clés.
 
+## Méga-menus : correction (version 1.5)
+
+Avec Royal Elementor Addons **Pro**, un petit cadre vide s'affichait au-dessus de chaque onglet du menu : c'était un badge de méga-menu sans texte.
+- À la première visite de l'administration après la mise à jour, l'extension ajoute les réglages d'icône et de badge vides aux méga-menus déjà installés, une seule fois.
+- Les nouvelles installations les reçoivent directement.
+
 ## Fiche produit : réinstallation (version 1.4.1)
 
 - **Produits liés** : la fiche affiche « Vous aimerez aussi » avec les mêmes cartes que les catégories. Le titre se modifie dans le code court `[lmdd_produits_lies]`.

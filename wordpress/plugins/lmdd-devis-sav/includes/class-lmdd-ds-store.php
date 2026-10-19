@@ -44,6 +44,8 @@ final class LMDD_DS_Store {
 			'categories'  => 'sur-devis',
 			'telephone'   => '03 25 04 20 19',
 			'horaires'    => '7 jours sur 7, de 9h à 21h',
+			'commande'    => 0,
+			'franco'      => '60',
 		) );
 	}
 
@@ -68,6 +70,8 @@ final class LMDD_DS_Store {
 					'categories'  => sanitize_text_field( isset( $in['categories'] ) ? $in['categories'] : '' ),
 					'telephone'   => sanitize_text_field( isset( $in['telephone'] ) ? $in['telephone'] : '' ),
 					'horaires'    => sanitize_text_field( isset( $in['horaires'] ) ? $in['horaires'] : '' ),
+					'commande'    => empty( $in['commande'] ) ? 0 : 1,
+					'franco'      => isset( $in['franco'] ) && '' !== trim( $in['franco'] ) ? (string) max( 0, (float) str_replace( ',', '.', $in['franco'] ) ) : '',
 				);
 			},
 		) );
@@ -125,6 +129,20 @@ final class LMDD_DS_Store {
 				<tr><th><label for="ds-tel">Téléphone affiché</label></th>
 					<td><input id="ds-tel" name="<?php echo esc_attr( $o ); ?>[telephone]" value="<?php echo esc_attr( $s['telephone'] ); ?>">
 					Horaires <input class="regular-text" name="<?php echo esc_attr( $o ); ?>[horaires]" value="<?php echo esc_attr( $s['horaires'] ); ?>"></td></tr>
+			</table>
+			<h2 id="commande">Panier et commande</h2>
+			<table class="form-table" role="presentation">
+				<tr><th>Nouvelle mise en page</th><td><label><input type="checkbox" name="<?php echo esc_attr( $o ); ?>[commande]" value="1" <?php checked( $s['commande'] ); ?>>
+					Utiliser la nouvelle mise en page du panier et de la commande pour tous les visiteurs</label>
+					<p class="description">Étapes, récapitulatif toujours visible, champs et moyens de paiement plus lisibles, réassurance. Les blocs WooCommerce, les champs
+					et les moyens de paiement ne changent pas. <strong>Aperçu sans l'activer</strong> (visible par vous seul) :
+					<a href="<?php echo esc_url( add_query_arg( 'lmdd_hf_preview', '1', wc_get_cart_url() ) ); ?>" target="_blank" rel="noopener">panier</a> ·
+					<a href="<?php echo esc_url( add_query_arg( 'lmdd_hf_preview', '1', wc_get_checkout_url() ) ); ?>" target="_blank" rel="noopener">commande</a>
+					(ajoutez d'abord un produit au panier).</p></td></tr>
+				<tr><th><label for="ds-franco">Livraison gratuite dès</label></th>
+					<td><input id="ds-franco" type="text" inputmode="decimal" size="6" name="<?php echo esc_attr( $o ); ?>[franco]" value="<?php echo esc_attr( $s['franco'] ); ?>"> €
+					<p class="description">Barre « Plus que … € pour la livraison gratuite » dans le panier. Laissez vide pour ne pas l'afficher.
+					Ce montant n'est qu'un affichage : les frais réels restent ceux de vos réglages de livraison.</p></td></tr>
 			</table>
 			<?php submit_button(); ?>
 		</form>

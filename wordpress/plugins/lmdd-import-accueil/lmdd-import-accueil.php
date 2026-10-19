@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       LMDD – Import de la nouvelle page d'accueil
  * Description:       Installe la nouvelle page d'accueil La Maison du Dos (Elementor, widgets natifs), l'en-tête avec ses méga-menus, le pied de page, le menu, le modèle de fiche produit et la page SAV, et importe les images, sans passer par l'import de fichiers d'Elementor. Outils → Import accueil LMDD. À supprimer une fois l'installation terminée : tout ce qu'elle a créé reste en place.
- * Version:           1.4.1
+ * Version:           1.5.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
@@ -64,6 +64,7 @@ final class LMDD_Import_Accueil {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'wp_ajax_lmdd_import_step', array( __CLASS__, 'ajax_step' ) );
 		add_action( 'admin_post_lmdd_hf', array( __CLASS__, 'handle_hf_action' ) );
+		add_action( 'admin_init', array( __CLASS__, 'repair_mega_settings' ) );
 		// « wp » : après l'enregistrement des modèles Royal (init), avant le choix du gabarit et de l'en-tête.
 		add_action( 'wp', array( __CLASS__, 'maybe_preview' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function ( $links ) {
@@ -133,6 +134,29 @@ final class LMDD_Import_Accueil {
 				'seconds' => round( microtime( true ) - $t0, 1 ),
 			), 500 );
 		}
+	}
+
+	/**
+	 * Méga-menus installés avant la version 1.5 : ajoute les réglages d'icône et de badge vides.
+	 * Sans eux, Royal Pro affiche un petit cadre vide au-dessus de chaque onglet du menu. Une seule fois.
+	 */
+	public static function repair_mega_settings() {
+		if ( get_option( 'lmdd_mm_repaired' ) || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		$defaults = array(
+			'wpr_mm_icon_picker' => '', 'wpr_mm_icon_color' => '', 'wpr_mm_icon_size' => '',
+			'wpr_mm_badge_text' => '', 'wpr_mm_badge_color' => '', 'wpr_mm_badge_bg_color' => '', 'wpr_mm_badge_animation' => 'false',
+		);
+		$items = get_posts( array( 'post_type' => 'nav_menu_item', 'numberposts' => -1, 'post_status' => 'any', 'fields' => 'ids', 'meta_key' => 'wpr-mega-menu-settings' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery
+		foreach ( $items as $id ) {
+			$set = get_post_meta( $id, 'wpr-mega-menu-settings', true );
+			if ( is_array( $set ) && ! array_key_exists( 'wpr_mm_badge_text', $set ) ) {
+				update_post_meta( $id, 'wpr-mega-menu-settings', array_merge( $defaults, $set ) );
+			}
+		}
+		update_option( 'lmdd_mm_repaired', 1, false );
+		self::purge_caches();
 	}
 
 	/** Éléments cochés dans l'interface (envoyés avec chaque étape). */
@@ -427,6 +451,14 @@ final class LMDD_Import_Accueil {
 					'wpr_mm_custom_width'   => 600,
 					'wpr_mm_mobile_content' => 'submenu',
 					'wpr_mm_render'         => 'default',
+					// Clés vides explicites : sans elles, Royal Pro affiche un badge et une icône vides au-dessus de l'onglet.
+					'wpr_mm_icon_picker'     => '',
+					'wpr_mm_icon_color'      => '',
+					'wpr_mm_icon_size'       => '',
+					'wpr_mm_badge_text'      => '',
+					'wpr_mm_badge_color'     => '',
+					'wpr_mm_badge_bg_color'  => '',
+					'wpr_mm_badge_animation' => 'false',
 				) );
 				$megas++;
 			}

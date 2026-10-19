@@ -12,7 +12,7 @@
  *    et du pied de page sont différées ; le logo ne prend plus la priorité haute.
  * 2. Émojis WordPress retirés.
  * 3. Fichiers inutiles retirés là où ils ne servent pas : Turnstile, Alma, ProfilePress, effets Royal non utilisés,
- *    Font Awesome sur l'accueil (ce que faisait Asset Pilot).
+ *    bloc Prisna sur l'accueil (ce que faisait Asset Pilot).
  * 4. FAQ en accordéon : titres sans lien vide (audit SEO « liens non explorables »), accessibles au clavier.
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -114,10 +114,9 @@ function lmdd_vitesse_retirer() {
 		wp_dequeue_script( $h );
 	}
 	wp_dequeue_style( 'wpr-text-animations-css' );
-	// Accueil : pas d'icônes Font Awesome (Elementor les affiche en SVG), ni de bloc Prisna.
+	// Accueil : pas de bloc Prisna. (Font Awesome reste chargé : les flèches du menu Royal l'utilisent.)
 	// (Les polices se règlent dans Elementor : l'extrait ne les retire pas.)
 	if ( $accueil ) {
-		wp_dequeue_style( 'font-awesome-5-all' );
 		wp_dequeue_style( 'prisna-wp-translate-blocks' );
 	}
 }
