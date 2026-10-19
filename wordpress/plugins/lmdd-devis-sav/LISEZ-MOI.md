@@ -85,6 +85,9 @@ Blocs utilisés par le modèle « Catégories et boutique », installé par l'ex
   - titre court s'il est renseigné ;
   - avis, prix ou « Prix sur devis » ;
   - toute la carte est cliquable.
+- **Requête dédiée** : la grille fait sa propre requête, comme l'ancienne grille Royal.
+  - Elle applique les règles WooCommerce : visibilité du catalogue, filtres, tri choisi, nombre de produits par page.
+  - Un réglage ou un extrait qui modifie la requête principale de la boutique n'a donc aucun effet sur elle : les produits sur devis restent affichés.
 - **Performance** :
   - aucun JavaScript ;
   - une feuille de style de 2,8 Ko compressée, chargée seulement quand ce modèle est utilisé.

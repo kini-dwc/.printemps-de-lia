@@ -12,6 +12,7 @@ final class LMDD_DS_Catalogue {
 	const EXCLUDE = array( 'uncategorized', 'non-classe', 'vos-devis-en-cours' );
 
 	private static $parts = null;
+	private static $query = null;
 
 	public static function init() {
 		add_shortcode( 'lmdd_cat_entete', array( __CLASS__, 'sc_header' ) );
@@ -26,6 +27,54 @@ final class LMDD_DS_Catalogue {
 		add_filter( 'woocommerce_get_price_html', array( __CLASS__, 'hide_zero_price' ), 100, 2 );
 		// Produits sur devis et produits à 0 € en tête de la boutique et des catégories, quel que soit le tri.
 		add_filter( 'posts_clauses', array( __CLASS__, 'devis_first' ), 20, 2 );
+		// Notre requête peut compter plus de pages que la requête principale : pas de page 404 sur ces pages.
+		add_filter( 'pre_handle_404', array( __CLASS__, 'no_404_on_extra_pages' ), 10, 2 );
+	}
+
+	/**
+	 * Produits de la page : requête dédiée (comme l'ancienne grille Royal), avec les mêmes règles que WooCommerce
+	 * (visibilité du catalogue, filtres, tri choisi), mais indépendante des réglages ou extraits qui modifient
+	 * la requête principale. Les produits sur devis y figurent donc toujours.
+	 */
+	public static function query() {
+		if ( null !== self::$query ) {
+			return self::$query;
+		}
+		global $wp_query;
+		$per_page = (int) apply_filters( 'loop_shop_per_page', wc_get_default_products_per_row() * wc_get_default_product_rows_per_page() );
+		$args     = array(
+			'post_type'           => 'product',
+			'post_status'         => 'publish',
+			'posts_per_page'      => $per_page > 0 ? $per_page : 12,
+			'paged'               => max( 1, (int) $wp_query->get( 'paged' ) ),
+			'ignore_sticky_posts' => true,
+			'lmdd_catalogue'      => 1,
+		);
+		$tax = WC()->query->get_tax_query( array(), true );
+		$t   = self::term();
+		if ( $t ) {
+			$tax[] = array( 'taxonomy' => $t->taxonomy, 'field' => 'term_id', 'terms' => array( $t->term_id ), 'include_children' => true );
+		}
+		$args['tax_query']  = $tax; // phpcs:ignore WordPress.DB.SlowDBQuery
+		$args['meta_query'] = WC()->query->get_meta_query( array(), true ); // phpcs:ignore WordPress.DB.SlowDBQuery
+		if ( $wp_query->get( 's' ) ) {
+			$args['s'] = $wp_query->get( 's' );
+		}
+		$args = array_merge( $args, WC()->query->get_catalog_ordering_args() );
+		self::$query = new WP_Query( $args );
+		WC()->query->remove_ordering_args();
+		return self::$query;
+	}
+
+	public static function no_404_on_extra_pages( $pre, $query ) {
+		if ( ! $pre && $query->is_main_query() && $query->get( 'paged' ) > 1 && ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) ) && ! $query->is_singular() ) {
+			$q = get_queried_object();
+			if ( $query->is_post_type_archive( 'product' ) || ( $q instanceof WP_Term ) ) {
+				status_header( 200 );
+				return true;
+			}
+		}
+		return $pre;
 	}
 
 	// ------------------------------------------------------------------ Règles d'affichage du catalogue
@@ -66,7 +115,9 @@ final class LMDD_DS_Catalogue {
 	 * passent en premier, puis l'ordre choisi par le visiteur (par défaut, popularité, prix…) s'applique.
 	 */
 	public static function devis_first( $clauses, $query ) {
-		if ( is_admin() || ! $query->is_main_query() || ! function_exists( 'is_shop' ) || ! ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) || ( function_exists( 'wc_get_page_id' ) && (int) $query->get( 'page_id' ) === wc_get_page_id( 'shop' ) ) ) ) {
+		if ( $query->get( 'lmdd_catalogue' ) ) {
+			// Notre requête de catalogue : toujours concernée.
+		} elseif ( is_admin() || ! $query->is_main_query() || ! function_exists( 'is_shop' ) || ! ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) || ( function_exists( 'wc_get_page_id' ) && (int) $query->get( 'page_id' ) === wc_get_page_id( 'shop' ) ) ) ) {
 			return $clauses;
 		}
 		global $wpdb;
@@ -85,9 +136,10 @@ final class LMDD_DS_Catalogue {
 		$in_cat = $tt_ids
 			? "EXISTS ( SELECT 1 FROM {$wpdb->term_relationships} lmdd_tr WHERE lmdd_tr.object_id = {$wpdb->posts}.ID AND lmdd_tr.term_taxonomy_id IN (" . implode( ',', array_unique( $tt_ids ) ) . ') )'
 			: '0';
-		$clauses['join'] .= " LEFT JOIN {$wpdb->wc_product_meta_lookup} lmdd_lk ON lmdd_lk.product_id = {$wpdb->posts}.ID"
-			. " LEFT JOIN {$wpdb->postmeta} lmdd_dv ON ( lmdd_dv.post_id = {$wpdb->posts}.ID AND lmdd_dv.meta_key = '_lmdd_devis' )";
-		$first = "( CASE WHEN COALESCE( lmdd_lk.max_price, 0 ) <= 0 THEN 0 WHEN lmdd_dv.meta_value = 'oui' THEN 0 WHEN lmdd_dv.meta_value = 'non' THEN 1 WHEN {$in_cat} THEN 0 ELSE 1 END )";
+		// Sous-requêtes (pas de jointure) : compatibles avec GROUP BY et ONLY_FULL_GROUP_BY, sans effet sur les lignes renvoyées.
+		$price = "( SELECT MAX( lmdd_lk.max_price ) FROM {$wpdb->wc_product_meta_lookup} lmdd_lk WHERE lmdd_lk.product_id = {$wpdb->posts}.ID )";
+		$force = "( SELECT MAX( lmdd_dv.meta_value ) FROM {$wpdb->postmeta} lmdd_dv WHERE lmdd_dv.post_id = {$wpdb->posts}.ID AND lmdd_dv.meta_key = '_lmdd_devis' )";
+		$first = "( CASE WHEN COALESCE( {$price}, 0 ) <= 0 THEN 0 WHEN {$force} = 'oui' THEN 0 WHEN {$force} = 'non' THEN 1 WHEN {$in_cat} THEN 0 ELSE 1 END )";
 		$clauses['orderby'] = $first . ' ASC' . ( $clauses['orderby'] ? ', ' . $clauses['orderby'] : '' );
 		return $clauses;
 	}
@@ -204,8 +256,7 @@ final class LMDD_DS_Catalogue {
 			woocommerce_breadcrumb( array( 'delimiter' => '<span class="lmdd-bc__sep" aria-hidden="true">›</span>', 'wrap_before' => '<nav class="lmdd-bc" aria-label="Fil d\'Ariane">', 'wrap_after' => '</nav>', 'home' => 'Accueil' ) );
 			$bc = ob_get_clean();
 		}
-		global $wp_query;
-		$total = (int) $wp_query->found_posts;
+		$total = (int) self::query()->found_posts;
 		$h  = '<header class="lmdd-cath">' . $bc;
 		$h .= '<h1 class="lmdd-cath__title">' . esc_html( self::title() ) . '</h1>';
 		if ( $p['intro'] ) {
@@ -283,13 +334,17 @@ final class LMDD_DS_Catalogue {
 			return '';
 		}
 		wp_enqueue_style( 'lmdd-catalogue' );
-		global $wp_query;
+		$q = self::query();
 		if ( function_exists( 'wc_setup_loop' ) ) {
-			wc_setup_loop( array( 'is_paginated' => true, 'total' => (int) $wp_query->found_posts, 'total_pages' => (int) $wp_query->max_num_pages, 'per_page' => (int) $wp_query->get( 'posts_per_page' ), 'current_page' => max( 1, (int) $wp_query->get( 'paged' ) ) ) );
+			wc_set_loop_prop( 'is_paginated', true );
+			wc_set_loop_prop( 'total', (int) $q->found_posts );
+			wc_set_loop_prop( 'total_pages', (int) $q->max_num_pages );
+			wc_set_loop_prop( 'per_page', (int) $q->get( 'posts_per_page' ) );
+			wc_set_loop_prop( 'current_page', max( 1, (int) $q->get( 'paged' ) ) );
 		}
 		ob_start();
 		echo '<div class="lmdd-shop">';
-		if ( ! have_posts() ) {
+		if ( ! $q->have_posts() ) {
 			echo '<div class="lmdd-shop__empty"><p>Aucun produit dans cette catégorie pour le moment.</p><a class="lmdd-chip" href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">Voir toute la boutique</a></div></div>';
 			return ob_get_clean();
 		}
@@ -298,8 +353,8 @@ final class LMDD_DS_Catalogue {
 		woocommerce_catalog_ordering();
 		echo '</div><ul class="lmdd-grid">';
 		$i = 0;
-		while ( have_posts() ) {
-			the_post();
+		while ( $q->have_posts() ) {
+			$q->the_post();
 			$product = wc_get_product( get_the_ID() );
 			if ( $product && $product->is_visible() ) {
 				echo self::card( $product, $i++ ); // phpcs:ignore WordPress.Security.EscapeOutput
