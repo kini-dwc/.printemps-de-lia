@@ -15,6 +15,8 @@
  *    Alma, ProfilePress, options de produits (TM EPO) sur les catégories, effets Royal non utilisés,
  *    bloc Prisna sur l'accueil (ce que faisait Asset Pilot).
  * 4. FAQ en accordéon : titres sans lien vide (audit SEO « liens non explorables »), accessibles au clavier.
+ * 5. Scripts de l'éditeur de blocs (Gutenberg) retirés du site public (reprend l'ancien extrait
+ *    « Retire les styles de blocs WP classiques sur le site public » : désactivez-le une fois celui-ci en place).
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -152,3 +154,15 @@ add_filter( 'elementor/widget/render_content', function ( $html, $widget ) {
 	$html = preg_replace( '#<a class="elementor-(accordion|toggle)-title" tabindex="0">(.*?)</a>#s', '<span class="elementor-$1-title">$2</span>', $html );
 	return str_replace( 'class="elementor-tab-title"', 'class="elementor-tab-title" tabindex="0"', $html );
 }, 10, 2 );
+
+// ---------------------------------------------------------------- 5. Éditeur de blocs
+// Scripts de l'éditeur de blocs chargés par certaines extensions sur le site public, où ils ne servent à rien.
+add_action( 'wp_enqueue_scripts', function () {
+	if ( is_admin() ) {
+		return;
+	}
+	foreach ( array( 'wp-block-editor', 'wp-components', 'wp-blocks', 'wp-editor' ) as $h ) {
+		wp_dequeue_script( $h );
+		wp_deregister_script( $h );
+	}
+}, 9999 );

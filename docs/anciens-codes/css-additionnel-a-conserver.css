@@ -1,0 +1,68 @@
+/* =====================================================================
+   CSS additionnel à conserver (Apparence → Personnaliser → CSS additionnel)
+   Remplace l'ancien CSS en entier : les autres règles visaient l'ancien thème
+   (Woostify), l'ancienne grille Royal ou l'ancienne barre latérale, ou gênaient
+   les nouvelles pages (message des formulaires, menu de tri, panier).
+   ===================================================================== */
+
+/* Panier et commande : mention « dont TVA » masquée */
+small.includes_tax {
+    display: none;
+}
+
+/* Panier : adresse de livraison et calculateur de frais de port masqués */
+p.woocommerce-shipping-destination,
+form.woocommerce-shipping-calculator {
+    display: none;
+}
+
+/* Zadarma : bouton de rappel plus bas sur tablette et ordinateur */
+@media screen and (min-width: 768px) {
+    .z-widget-simple-btn {
+        top: 250px !important;
+    }
+}
+
+/* ===== Widget Alma (fiche produit) : neutralise les styles de boutons du thème ===== */
+.alma-payment-plans-container button,
+.alma-payment-plans-container [type="button"] {
+    all: unset !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 6px !important;
+    padding: 5px 12px !important;
+    transition: background 0.2s !important;
+}
+.alma-payment-plans-container {
+    --off-black: #FA5022 !important;
+}
+.alma-payment-plans-container path {
+    fill: #FA5022 !important;
+}
+.alma-payment-plans-eligibility-options button {
+    color: #1a1a1a !important;
+    background: transparent !important;
+}
+.alma-payment-plans-active-option,
+.alma-payment-plans-eligibility-options button[aria-selected="true"] {
+    color: #ffffff !important;
+    background-color: #FA5022 !important;
+}
+.alma-payment-plans-eligibility-options button:not([aria-selected="true"]):hover {
+    color: #1a1a1a !important;
+    background-color: transparent !important;
+}
+.alma-payment-plans-active-option:hover,
+.alma-payment-plans-eligibility-options button[aria-selected="true"]:hover {
+    color: #ffffff !important;
+    background-color: #FA5022 !important;
+}
+.alma-payment-plans-know-more-action:hover {
+    color: unset !important;
+    background-color: transparent !important;
+}
