@@ -15,7 +15,78 @@ final class LMDD_DS_Commande {
 
 	public static function init() {
 		add_action( 'template_redirect', array( __CLASS__, 'boot' ), 5 );
+		// Toujours actifs, avec ou sans la nouvelle mise en page :
+		// options des produits lisibles (panier, commande, compte) et « Continuer mes achats » vers la page précédente.
+		add_filter( 'woocommerce_get_item_data', array( __CLASS__, 'clean_item_data' ), 99999 );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'options_assets' ), 40 );
+		add_action( 'wp_footer', array( __CLASS__, 'remember_page' ), 99 );
 	}
+
+	// ------------------------------------------------------------------ Options des produits (TM Extra Product Options…)
+
+	/**
+	 * Prix des options au même format partout :
+	 * « (+ 698.00€) » ou « (+ 280,00 €) » deviennent « + 698,00 € » dans un petit encadré discret.
+	 */
+	public static function clean_item_data( $data ) {
+		if ( ! is_array( $data ) ) {
+			return $data;
+		}
+		foreach ( $data as &$d ) {
+			foreach ( array( 'display', 'value' ) as $f ) {
+				if ( isset( $d[ $f ] ) && is_string( $d[ $f ] ) ) {
+					$d[ $f ] = self::format_option_prices( $d[ $f ] );
+				}
+			}
+		}
+		return $data;
+	}
+
+	public static function format_option_prices( $html ) {
+		return preg_replace_callback( '/\(\s*([+-])\s*([\d][\d\s\x{00A0}\x{202F}.,]*)\s*(?:€|&euro;|EUR)\s*\)/u', function ( $m ) {
+			$n = preg_replace( '/[\s\x{00A0}\x{202F}]/u', '', $m[2] );
+			if ( preg_match( '/^\d{1,3}(\.\d{3})+(,\d+)?$/', $n ) ) {        // 1.280,00
+				$n = str_replace( array( '.', ',' ), array( '', '.' ), $n );
+			} else {                                                         // 1280,00 / 698.00 / 1,280.00
+				$n = preg_match( '/,\d{1,2}$/', $n ) ? str_replace( array( '.', ',' ), array( '', '.' ), $n ) : str_replace( ',', '', $n );
+			}
+			$v = number_format( (float) $n, 2, ',', ' ' );
+			return '<span class="lmdd-opt-price">' . $m[1] . ' ' . $v . ' €</span>';
+		}, $html );
+	}
+
+	public static function options_assets() {
+		if ( function_exists( 'is_cart' ) && ( is_cart() || is_checkout() || is_account_page() ) ) {
+			wp_enqueue_style( 'lmdd-options', plugin_dir_url( LMDD_DS_FILE ) . 'assets/lmdd-options.css', array(), LMDD_DS_VERSION );
+		}
+	}
+
+	// ------------------------------------------------------------------ « Continuer mes achats » : page précédente
+
+	/**
+	 * Mémorise la dernière page de la boutique visitée (produit, catégorie, recherche…) dans le navigateur ; sur le panier,
+	 * les boutons « Continuer mes achats » / « Retour à la boutique » y ramènent. Fonctionne avec le cache des pages.
+	 */
+	public static function remember_page() {
+		if ( is_admin() || ! function_exists( 'is_cart' ) ) {
+			return;
+		}
+		if ( is_cart() ) {
+			$fallback = wp_get_referer() ? wp_get_referer() : '';
+			?>
+<script id="lmdd-retour" nowprocket data-no-optimize="1" data-no-defer="1">(function(){var u='';try{u=sessionStorage.getItem('lmdd_retour')||'';}catch(e){}
+var r=<?php echo wp_json_encode( esc_url_raw( $fallback ) ); ?>;if(!u&&r&&r.indexOf(location.host)>-1&&!/\/(cart|panier|checkout|commande)\b/.test(r)){u=r;}
+if(!u)return;function go(){document.querySelectorAll('a.wc-backward, .return-to-shop a, a.lmdd-retour').forEach(function(a){a.href=u;});}
+go();document.body.addEventListener('updated_wc_div',go);if(window.jQuery){jQuery(document.body).on('updated_wc_div updated_cart_totals',go);}})();</script>
+			<?php
+			return;
+		}
+		if ( is_checkout() || is_account_page() ) {
+			return;
+		}
+		echo "<script id=\"lmdd-retour\" nowprocket data-no-optimize=\"1\" data-no-defer=\"1\">try{sessionStorage.setItem('lmdd_retour',location.href)}catch(e){}</script>\n";
+	}
+
 
 	/** Actif pour tous (réglage) ou en aperçu pour l'administrateur (?lmdd_hf_preview=1, mémorisé une heure). */
 	public static function active() {
@@ -142,6 +213,6 @@ final class LMDD_DS_Commande {
 	}
 
 	public static function secure_note() {
-		echo '<p class="lmdd-co-secure">' . LMDD_DS_Front::icon( 'shield' ) . '<span>Paiement sécurisé : vos données bancaires ne transitent pas par notre site.</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput
+		echo '<p class="lmdd-co-secure">' . LMDD_DS_Front::icon( 'shield' ) . '<span>Paiement sécurisé · confirmation de commande envoyée par e-mail</span></p>'; // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 }

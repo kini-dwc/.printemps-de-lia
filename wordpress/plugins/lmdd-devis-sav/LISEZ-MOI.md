@@ -129,7 +129,17 @@ Nouvelle mise en page des pages WooCommerce classiques (`[woocommerce_cart]` et 
   - **Aperçu sans activer** : liens dans les réglages, ou `?lmdd_hf_preview=1` sur la page panier. L'aperçu est réservé à l'administrateur, mémorisé une heure et suit le passage du panier à la commande.
   - Pour revenir en arrière : décocher la case.
 - **Livraison gratuite dès** : montant affiché dans la barre (60 € par défaut). Laisser vide pour masquer la barre. Ce montant n'est qu'un affichage : les frais réels restent ceux de vos réglages de livraison.
-- **Poids** : une feuille de style de 4,5 Ko compressée, chargée seulement sur le panier et la commande. Aucun JavaScript.
+- **Poids** : une feuille de style de 4,5 Ko compressée, chargée seulement sur le panier et la commande.
+
+**Toujours actif, avec ou sans la nouvelle mise en page (version 2.3.1) :**
+- **Options des produits** (TM Extra Product Options) dans le panier, la commande et le compte client :
+  - une ligne par option, libellé à gauche et choix à droite (l'un sous l'autre sur mobile) ;
+  - suppléments au même format dans une pastille verte : « + 698,00 € » au lieu de « (+ 698.00€) » ;
+  - feuille de style de moins de 1 Ko.
+- **Panier avec beaucoup de produits** : le tableau garde sa largeur, les options passent à la ligne. Il ne déborde plus sous le bloc « Total panier ».
+- **« Continuer mes achats » et « Retour à la boutique »** ramènent à la dernière page de la boutique visitée (produit, catégorie, recherche, avec le tri choisi), et non plus à l'accueil.
+  - La page est mémorisée dans le navigateur du visiteur, ce qui reste compatible avec le cache des pages.
+  - À défaut, ces boutons gardent leur adresse habituelle.
 
 ## Demandes clients (copie de secours)
 

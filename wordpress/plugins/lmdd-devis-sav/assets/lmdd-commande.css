@@ -49,7 +49,7 @@ body.lmdd-commande .lmdd-franco__bar { height: 8px; border-radius: 999px; backgr
 body.lmdd-commande .lmdd-franco__bar span { display: block; height: 100%; border-radius: 999px; background: var(--lmdd-green); transition: width .4s; }
 
 /* Tableau du panier */
-body.lmdd-commande table.shop_table.cart { width: 100%; margin: 0; border: 1px solid var(--lmdd-line); border-collapse: separate; border-spacing: 0; border-radius: 16px; background: #fff; overflow: hidden; }
+body.lmdd-commande table.shop_table.cart { table-layout: fixed; width: 100%; margin: 0; border: 1px solid var(--lmdd-line); border-collapse: separate; border-spacing: 0; border-radius: 16px; background: #fff; overflow: hidden; }
 body.lmdd-commande table.shop_table.cart th { padding: 14px 16px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: var(--lmdd-tint); color: var(--lmdd-muted); font-size: 12.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; text-align: left; }
 body.lmdd-commande table.shop_table.cart td { padding: 16px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: #fff; vertical-align: middle; font-size: 15px; }
 body.lmdd-commande table.shop_table.cart tr:last-child td { border-bottom: 0; }
@@ -67,6 +67,15 @@ body.lmdd-commande table.shop_table.cart td.actions .coupon { float: left; displ
 body.lmdd-commande table.shop_table.cart td.actions .coupon .input-text { min-height: 42px; width: 180px; padding: 6px 12px; border: 1px solid var(--lmdd-field); border-radius: 10px; }
 body.lmdd-commande table.shop_table.cart td.actions button.button { min-height: 42px; padding: 8px 20px; border: 2px solid var(--lmdd-green); background: #fff; color: var(--lmdd-green); font-size: 14.5px; }
 body.lmdd-commande table.shop_table.cart td.actions button.button:disabled { border-color: var(--lmdd-line); color: var(--lmdd-muted); opacity: 1; }
+
+/* Largeurs fixes : une longue liste d'options passe à la ligne au lieu d'élargir le tableau (sinon il déborde sous le total). */
+body.lmdd-commande table.shop_table.cart th.product-remove { width: 52px; }
+body.lmdd-commande table.shop_table.cart th.product-thumbnail { width: 104px; }
+body.lmdd-commande table.shop_table.cart th.product-price { width: 108px; }
+body.lmdd-commande table.shop_table.cart th.product-quantity { width: 108px; }
+body.lmdd-commande table.shop_table.cart th.product-subtotal { width: 116px; }
+body.lmdd-commande table.shop_table.cart td.product-name { overflow-wrap: anywhere; }
+body.lmdd-commande.woocommerce-cart .woocommerce > form.woocommerce-cart-form { overflow: hidden; }
 
 /* Total panier */
 body.lmdd-commande .cart_totals > h2 { margin: 0 0 12px; color: var(--lmdd-green); font-size: 22px; font-weight: 800; }
@@ -99,7 +108,7 @@ body.lmdd-commande .wc-empty-cart-message .cart-empty { padding: 28px 24px 28px 
 body.lmdd-commande p.return-to-shop a.button { display: inline-flex; min-height: 50px; align-items: center; padding: 12px 28px; background: var(--lmdd-green); color: #fff; }
 
 /* ---------- Commande : deux colonnes ---------- */
-body.lmdd-commande form.checkout { display: grid; grid-template-columns: minmax(0, 1fr) 420px; grid-template-rows: auto auto 1fr; gap: 0 40px; align-items: start; }
+body.lmdd-commande form.checkout { display: grid; grid-template-columns: minmax(0, 1fr) 440px; grid-template-rows: auto auto 1fr; gap: 0 40px; align-items: start; }
 body.lmdd-commande form.checkout > * { grid-column: 1 / -1; min-width: 0; }
 body.lmdd-commande form.checkout > #customer_details { grid-column: 1; grid-row: 2 / span 2; }
 body.lmdd-commande form.checkout > #order_review_heading { grid-column: 2; grid-row: 2; margin: 0; padding: 22px 24px 4px; border: 1px solid var(--lmdd-line); border-bottom: 0; border-radius: 16px 16px 0 0; background: #fff; color: var(--lmdd-green); font-size: 22px; font-weight: 800; }
@@ -130,6 +139,18 @@ body.lmdd-commande .select2-container--open .select2-selection--single, body.lmd
 body.lmdd-commande .woocommerce-checkout-review-order-table thead th { padding-top: 4px; font-size: 12.5px; letter-spacing: .5px; text-transform: uppercase; }
 body.lmdd-commande .woocommerce-checkout-review-order-table td.product-name { color: var(--lmdd-text); font-weight: 600; text-align: left; }
 body.lmdd-commande .woocommerce-checkout-review-order-table .product-quantity { color: var(--lmdd-muted); font-weight: 700; }
+
+body.lmdd-commande .woocommerce-checkout-review-order-table td.product-total, body.lmdd-commande .woocommerce-checkout-review-order-table th.product-total { width: 1%; white-space: nowrap; padding-left: 12px; }
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.order-total td, body.lmdd-commande .woocommerce-checkout-review-order-table .cart-subtotal td { white-space: nowrap; }
+/* Livraison : libellé au-dessus, choix sur toute la largeur. */
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals th,
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td { display: block; width: 100%; padding: 8px 0; text-align: left; }
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals th { padding-top: 12px; }
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals th, body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td { border-bottom: 0; }
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals { display: block; border-bottom: 1px solid var(--lmdd-line); }
+/* Options dans le récapitulatif (colonne étroite) : libellé au-dessus du choix. */
+body.lmdd-commande #order_review dl.variation, body.lmdd-commande #order_review dl.tc-epo-metadata { grid-template-columns: minmax(0, 1fr); gap: 1px; font-size: 13px; }
+body.lmdd-commande #order_review dl.variation dd, body.lmdd-commande #order_review dl.tc-epo-metadata dd { margin-bottom: 5px !important; }
 
 /* Moyens de paiement */
 body.lmdd-commande #payment { margin-top: 18px; border-radius: 0; background: none; }
