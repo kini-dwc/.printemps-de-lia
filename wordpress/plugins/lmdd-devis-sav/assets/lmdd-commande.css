@@ -32,7 +32,7 @@ body.lmdd-commande .woocommerce a.button, body.lmdd-commande .woocommerce button
 body.lmdd-commande .lmdd-card-box { border: 1px solid var(--lmdd-line); border-radius: 16px; background: #fff; }
 
 /* ---------- Panier : deux colonnes ---------- */
-body.lmdd-commande.woocommerce-cart .woocommerce { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px 40px; align-items: start; }
+body.lmdd-commande.woocommerce-cart .woocommerce { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px 40px; align-items: start; }
 body.lmdd-commande.woocommerce-cart .woocommerce > * { grid-column: 1 / -1; min-width: 0; }
 body.lmdd-commande.woocommerce-cart .woocommerce > form.woocommerce-cart-form { grid-column: 1; }
 body.lmdd-commande.woocommerce-cart .woocommerce > .cart-collaterals { grid-column: 2; position: sticky; top: 24px; width: auto; float: none; }
@@ -50,18 +50,18 @@ body.lmdd-commande .lmdd-franco__bar span { display: block; height: 100%; border
 
 /* Tableau du panier */
 body.lmdd-commande table.shop_table.cart { table-layout: fixed; width: 100%; margin: 0; border: 1px solid var(--lmdd-line); border-collapse: separate; border-spacing: 0; border-radius: 16px; background: #fff; overflow: hidden; }
-body.lmdd-commande table.shop_table.cart th { padding: 14px 16px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: var(--lmdd-tint); color: var(--lmdd-muted); font-size: 12.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; text-align: left; }
-body.lmdd-commande table.shop_table.cart td { padding: 16px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: #fff; vertical-align: middle; font-size: 15px; }
+body.lmdd-commande table.shop_table.cart th { padding: 14px 10px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: var(--lmdd-tint); color: var(--lmdd-muted); font-size: 12.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; text-align: left; }
+body.lmdd-commande table.shop_table.cart td { padding: 16px 10px; border: 0; border-bottom: 1px solid var(--lmdd-line); background: #fff; vertical-align: middle; font-size: 15px; }
 body.lmdd-commande table.shop_table.cart tr:last-child td { border-bottom: 0; }
-body.lmdd-commande table.shop_table.cart td.product-thumbnail { width: 96px; }
-body.lmdd-commande table.shop_table.cart td.product-thumbnail img { display: block; width: 80px !important; height: 80px; object-fit: cover; border-radius: 12px; background: var(--lmdd-tint); }
+body.lmdd-commande table.shop_table.cart td.product-thumbnail { width: 84px; }
+body.lmdd-commande table.shop_table.cart td.product-thumbnail img { display: block; width: 64px !important; height: 64px; object-fit: cover; border-radius: 12px; background: var(--lmdd-tint); }
 body.lmdd-commande table.shop_table.cart td.product-name a { color: var(--lmdd-text); font-weight: 700; text-decoration: none; }
 body.lmdd-commande table.shop_table.cart td.product-name a:hover { color: var(--lmdd-green); }
 body.lmdd-commande table.shop_table.cart td.product-name dl.variation, body.lmdd-commande table.shop_table.cart td.product-name .tc-epo-metadata { margin: 6px 0 0; color: var(--lmdd-muted); font-size: 13.5px; }
 body.lmdd-commande table.shop_table.cart td.product-subtotal { color: var(--lmdd-green); font-weight: 800; }
 body.lmdd-commande table.shop_table.cart a.remove { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; color: var(--lmdd-muted) !important; font-size: 20px; line-height: 1; }
 body.lmdd-commande table.shop_table.cart a.remove:hover { background: #FDF2F3; color: var(--lmdd-red) !important; }
-body.lmdd-commande table.shop_table.cart .quantity .qty { width: 72px; min-height: 44px; padding: 6px 8px; border: 1px solid var(--lmdd-field); border-radius: 10px; font-size: 16px; text-align: center; }
+body.lmdd-commande table.shop_table.cart .quantity .qty { width: 60px; min-height: 44px; padding: 6px 8px; border: 1px solid var(--lmdd-field); border-radius: 10px; font-size: 16px; text-align: center; }
 body.lmdd-commande table.shop_table.cart td.actions { padding: 14px 16px; background: var(--lmdd-tint); text-align: right; }
 body.lmdd-commande table.shop_table.cart td.actions .coupon { float: left; display: flex; gap: 8px; }
 body.lmdd-commande table.shop_table.cart td.actions .coupon .input-text { min-height: 42px; width: 180px; padding: 6px 12px; border: 1px solid var(--lmdd-field); border-radius: 10px; }
@@ -69,11 +69,11 @@ body.lmdd-commande table.shop_table.cart td.actions button.button { min-height: 
 body.lmdd-commande table.shop_table.cart td.actions button.button:disabled { border-color: var(--lmdd-line); color: var(--lmdd-muted); opacity: 1; }
 
 /* Largeurs fixes : une longue liste d'options passe à la ligne au lieu d'élargir le tableau (sinon il déborde sous le total). */
-body.lmdd-commande table.shop_table.cart th.product-remove { width: 52px; }
-body.lmdd-commande table.shop_table.cart th.product-thumbnail { width: 104px; }
-body.lmdd-commande table.shop_table.cart th.product-price { width: 108px; }
-body.lmdd-commande table.shop_table.cart th.product-quantity { width: 108px; }
-body.lmdd-commande table.shop_table.cart th.product-subtotal { width: 116px; }
+body.lmdd-commande table.shop_table.cart th.product-remove { width: 40px; }
+body.lmdd-commande table.shop_table.cart th.product-thumbnail { width: 84px; }
+body.lmdd-commande table.shop_table.cart th.product-price { width: 96px; }
+body.lmdd-commande table.shop_table.cart th.product-quantity { width: 84px; }
+body.lmdd-commande table.shop_table.cart th.product-subtotal { width: 108px; }
 body.lmdd-commande table.shop_table.cart td.product-name { overflow-wrap: anywhere; }
 body.lmdd-commande.woocommerce-cart .woocommerce > form.woocommerce-cart-form { overflow: hidden; }
 
@@ -147,10 +147,9 @@ body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipp
 body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td { display: block; width: 100%; padding: 8px 0; text-align: left; }
 body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals th { padding-top: 12px; }
 body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals th, body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td { border-bottom: 0; }
-body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals { display: block; border-bottom: 1px solid var(--lmdd-line); }
-/* Options dans le récapitulatif (colonne étroite) : libellé au-dessus du choix. */
-body.lmdd-commande #order_review dl.variation, body.lmdd-commande #order_review dl.tc-epo-metadata { grid-template-columns: minmax(0, 1fr); gap: 1px; font-size: 13px; }
-body.lmdd-commande #order_review dl.variation dd, body.lmdd-commande #order_review dl.tc-epo-metadata dd { margin-bottom: 5px !important; }
+body.lmdd-commande .woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals { display: block; width: 100%; border-bottom: 1px solid var(--lmdd-line); }
+/* Options dans le récapitulatif : même présentation que le panier, un peu plus petite. */
+body.lmdd-commande #order_review dl.variation, body.lmdd-commande #order_review dl.tc-epo-metadata { font-size: 12.5px; padding: 8px 10px; }
 
 /* Moyens de paiement */
 body.lmdd-commande #payment { margin-top: 18px; border-radius: 0; background: none; }

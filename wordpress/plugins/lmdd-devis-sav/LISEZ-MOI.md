@@ -133,7 +133,7 @@ Nouvelle mise en page des pages WooCommerce classiques (`[woocommerce_cart]` et 
 
 **Toujours actif, avec ou sans la nouvelle mise en page (version 2.3.1) :**
 - **Options des produits** (TM Extra Product Options) dans le panier, la commande et le compte client :
-  - une ligne par option, libellé à gauche et choix à droite (l'un sous l'autre sur mobile) ;
+  - une ligne par option, libellé à gauche (42 % au plus, il passe à la ligne s'il est long) et choix à droite ;
   - suppléments au même format dans une pastille verte : « + 698,00 € » au lieu de « (+ 698.00€) » ;
   - feuille de style de moins de 1 Ko.
 - **Panier avec beaucoup de produits** : le tableau garde sa largeur, les options passent à la ligne. Il ne déborde plus sous le bloc « Total panier ».

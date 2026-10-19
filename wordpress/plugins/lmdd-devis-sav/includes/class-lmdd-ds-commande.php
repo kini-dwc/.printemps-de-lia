@@ -43,7 +43,7 @@ final class LMDD_DS_Commande {
 	}
 
 	public static function format_option_prices( $html ) {
-		return preg_replace_callback( '/\(\s*([+-])\s*([\d][\d\s\x{00A0}\x{202F}.,]*)\s*(?:€|&euro;|EUR)\s*\)/u', function ( $m ) {
+		return preg_replace_callback( '/\(\s*([+-]?)\s*([\d][\d\s\x{00A0}\x{202F}.,]*)\s*(?:€|&euro;|EUR)\s*\)/u', function ( $m ) {
 			$n = preg_replace( '/[\s\x{00A0}\x{202F}]/u', '', $m[2] );
 			if ( preg_match( '/^\d{1,3}(\.\d{3})+(,\d+)?$/', $n ) ) {        // 1.280,00
 				$n = str_replace( array( '.', ',' ), array( '', '.' ), $n );
@@ -51,7 +51,7 @@ final class LMDD_DS_Commande {
 				$n = preg_match( '/,\d{1,2}$/', $n ) ? str_replace( array( '.', ',' ), array( '', '.' ), $n ) : str_replace( ',', '', $n );
 			}
 			$v = number_format( (float) $n, 2, ',', ' ' );
-			return '<span class="lmdd-opt-price">' . $m[1] . ' ' . $v . ' €</span>';
+			return '<span class="lmdd-opt-price">' . ( '' !== $m[1] ? $m[1] . ' ' : '' ) . $v . ' €</span>';
 		}, $html );
 	}
 
