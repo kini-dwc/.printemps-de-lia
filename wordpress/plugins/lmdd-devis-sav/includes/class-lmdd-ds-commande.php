@@ -20,6 +20,54 @@ final class LMDD_DS_Commande {
 		add_filter( 'woocommerce_get_item_data', array( __CLASS__, 'clean_item_data' ), 99999 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'options_assets' ), 40 );
 		add_action( 'wp_footer', array( __CLASS__, 'remember_page' ), 99 );
+		// Commandes dont les options TM EPO ont été enregistrées sous forme codée (commande récupérée d'un panier abandonné…).
+		add_filter( 'woocommerce_order_item_get_formatted_meta_data', array( __CLASS__, 'readable_epo_meta' ), 20, 2 );
+	}
+
+	// ------------------------------------------------------------------ Options codées dans une commande
+
+	/**
+	 * Sur une commande normale, TM Extra Product Options enregistre ses données techniques (_tmcartepo_data, _tmdata…)
+	 * sous forme de tableaux, que WooCommerce n'affiche pas, et des lignes lisibles. Si ces données ont été réenregistrées
+	 * sous forme de texte codé (« a:1:{i:0;… »), WooCommerce les affiche telles quelles et les lignes lisibles manquent :
+	 * on masque le texte codé et on affiche à la place « Option : valeur ». Rien n'est modifié dans la commande.
+	 */
+	public static function readable_epo_meta( $formatted, $item ) {
+		if ( ! is_callable( array( $item, 'get_meta' ) ) ) {
+			return $formatted;
+		}
+		$data = $item->get_meta( '_tmcartepo_data', true );
+		if ( ! is_string( $data ) || ! is_serialized( $data ) ) {
+			return $formatted; // Commande normale : rien à faire.
+		}
+		foreach ( $formatted as $id => $meta ) {
+			if ( ( 0 === strpos( $meta->key, '_tm' ) || '_cart_item_key' === $meta->key ) && is_string( $meta->value ) && is_serialized( $meta->value ) ) {
+				unset( $formatted[ $id ] );
+			}
+		}
+		for ( $i = 0; $i < 3 && is_string( $data ) && is_serialized( $data ); $i++ ) {
+			$data = @unserialize( trim( $data ), array( 'allowed_classes' => false ) ); // phpcs:ignore WordPress.PHP.NoSilencedErrors, WordPress.PHP.DiscouragedPHPFunctions
+		}
+		if ( is_array( $data ) && isset( $data[0] ) && is_array( $data[0] ) && ! isset( $data[0]['name'] ) ) {
+			$data = $data[0]; // Enregistré dans un tableau supplémentaire.
+		}
+		if ( ! is_array( $data ) ) {
+			return $formatted;
+		}
+		$n = 0;
+		foreach ( $data as $opt ) {
+			if ( ! is_array( $opt ) || ! isset( $opt['name'], $opt['value'] ) || '' === trim( (string) $opt['value'] ) ) {
+				continue;
+			}
+			$value                        = trim( (string) $opt['value'] );
+			$formatted[ 'lmdd_epo_' . $n++ ] = (object) array(
+				'key'           => (string) $opt['name'],
+				'value'         => $value,
+				'display_key'   => esc_html( (string) $opt['name'] ),
+				'display_value' => wpautop( self::format_option_prices( esc_html( $value ) ) ),
+			);
+		}
+		return $formatted;
 	}
 
 	// ------------------------------------------------------------------ Options des produits (TM Extra Product Options…)

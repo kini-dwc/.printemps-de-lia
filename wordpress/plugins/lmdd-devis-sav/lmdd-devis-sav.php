@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       LMDD – Devis & SAV
  * Description:       Demande de devis affichée sur place dans la fiche produit et formulaire SAV en étapes, avec Contact Form 7 (champs et e-mails modifiables), pièces avec prix en direct, copie de secours des demandes (menu « Demandes clients »).
- * Version:           2.4.3
+ * Version:           2.4.4
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Requires Plugins:  woocommerce, contact-form-7
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'LMDD_DS_VERSION', '2.4.3' );
+define( 'LMDD_DS_VERSION', '2.4.4' );
 define( 'LMDD_DS_FILE', __FILE__ );
 
 require_once __DIR__ . '/includes/class-lmdd-ds-store.php';

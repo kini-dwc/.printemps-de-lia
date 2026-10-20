@@ -158,6 +158,13 @@ Il apporte ce qu'Elementor gratuit ne propose pas :
 - la mise en forme du formulaire de contact Contact Form 7 actuel ;
 - la couleur des liens dans les textes.
 
+## Commandes : options codées (version 2.4.4)
+Si les options d'une commande (TM Extra Product Options) ont été enregistrées sous forme codée (« a:1:{i:0;… »), par exemple pour une commande récupérée d'un panier abandonné :
+- le texte codé est masqué ;
+- les options sont affichées en clair (« Dimensions : 180 x 200 cm »…) dans l'administration, les e-mails et l'espace client.
+
+La commande elle-même n'est pas modifiée. Les commandes normales ne sont pas concernées.
+
 ## Demandes clients (copie de secours)
 
 **Depuis la version 2.4.2**, chaque demande valide est enregistrée **avant** l'envoi de l'e-mail : elle est conservée même si l'e-mail n'arrive pas. La colonne **E-mail** indique « ✓ Envoyé » ou « ✗ Non envoyé ». Si vous voyez « Non envoyé », c'est l'envoi des e-mails du site qui est en cause, pas le formulaire.
