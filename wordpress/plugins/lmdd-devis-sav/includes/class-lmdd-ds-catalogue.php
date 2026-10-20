@@ -413,9 +413,9 @@ final class LMDD_DS_Catalogue {
 		$badge = '';
 		if ( $devis ) {
 			$badge = '<span class="lmdd-card__badge lmdd-card__badge--devis">Sur devis</span>';
-		} elseif ( $p->is_on_sale() && $p->get_regular_price() > 0 && $p->get_sale_price() !== '' ) {
-			$pc    = round( 100 - 100 * (float) $p->get_sale_price() / (float) $p->get_regular_price() );
-			$badge = '<span class="lmdd-card__badge lmdd-card__badge--promo">' . ( $pc >= 1 ? '-' . $pc . ' %' : 'Promotion' ) . '</span>';
+		} elseif ( $p->is_on_sale() ) {
+			// « Promo » plutôt que le pourcentage de remise (produits simples et variables).
+			$badge = '<span class="lmdd-card__badge lmdd-card__badge--promo">Promo</span>';
 		}
 		$img = $p->get_image( 'woocommerce_thumbnail', array(
 			'class'   => 'lmdd-card__img',
